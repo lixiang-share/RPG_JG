@@ -24,7 +24,7 @@ public class SimpleFramework_Manager_NetworkManagerWrap
 		{
 		};
 
-		LuaScriptMgr.RegisterLib(L, "SimpleFramework.Manager.NetworkManager", typeof(SimpleFramework.Manager.NetworkManager), regs, fields, typeof(View));
+		LuaScriptMgr.RegisterLib(L, "SimpleFramework.Manager.NetworkManager", typeof(SimpleFramework.Manager.NetworkManager), regs, fields, typeof(LuaComponent));
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

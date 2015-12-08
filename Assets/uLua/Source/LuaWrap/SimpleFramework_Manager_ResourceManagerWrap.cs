@@ -20,7 +20,7 @@ public class SimpleFramework_Manager_ResourceManagerWrap
 		{
 		};
 
-		LuaScriptMgr.RegisterLib(L, "SimpleFramework.Manager.ResourceManager", typeof(SimpleFramework.Manager.ResourceManager), regs, fields, typeof(View));
+		LuaScriptMgr.RegisterLib(L, "SimpleFramework.Manager.ResourceManager", typeof(SimpleFramework.Manager.ResourceManager), regs, fields, typeof(LuaComponent));
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

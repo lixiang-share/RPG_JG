@@ -19,7 +19,7 @@ public class SimpleFramework_Manager_PanelManagerWrap
 		{
 		};
 
-		LuaScriptMgr.RegisterLib(L, "SimpleFramework.Manager.PanelManager", typeof(SimpleFramework.Manager.PanelManager), regs, fields, typeof(View));
+		LuaScriptMgr.RegisterLib(L, "SimpleFramework.Manager.PanelManager", typeof(SimpleFramework.Manager.PanelManager), regs, fields, typeof(LuaComponent));
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

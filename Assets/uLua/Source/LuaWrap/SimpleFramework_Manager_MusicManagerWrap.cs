@@ -23,7 +23,7 @@ public class SimpleFramework_Manager_MusicManagerWrap
 		{
 		};
 
-		LuaScriptMgr.RegisterLib(L, "SimpleFramework.Manager.MusicManager", typeof(SimpleFramework.Manager.MusicManager), regs, fields, typeof(View));
+		LuaScriptMgr.RegisterLib(L, "SimpleFramework.Manager.MusicManager", typeof(SimpleFramework.Manager.MusicManager), regs, fields, typeof(LuaComponent));
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

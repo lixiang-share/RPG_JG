@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using SimpleFramework;
 using SimpleFramework.Manager;
 
-public class View : MonoBehaviour, IView {
+public class LuaComponent : MonoBehaviour {
     private AppFacade m_Facade;
     private LuaScriptMgr m_LuaMgr;
     private ResourceManager m_ResMgr;

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using LuaInterface;
 
 namespace SimpleFramework.Manager {
-    public class NetworkManager : View {
+    public class NetworkManager : LuaComponent {
         private SocketClient socket;
         static Queue<KeyValuePair<int, ByteBuffer>> sEvents = new Queue<KeyValuePair<int, ByteBuffer>>();
 

@@ -18,7 +18,7 @@ namespace SimpleFramework.Manager {
     }
 
 
-    public class TimerManager : View {
+    public class TimerManager : LuaComponent {
         private float interval = 0;
         private List<TimerInfo> objects = new List<TimerInfo>();
 

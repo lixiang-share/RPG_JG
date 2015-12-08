@@ -9,10 +9,6 @@ public class SimpleFramework_LuaBehaviourWrap
 	{
 		LuaMethod[] regs = new LuaMethod[]
 		{
-			new LuaMethod("OnInit", OnInit),
-			new LuaMethod("GetGameObject", GetGameObject),
-			new LuaMethod("AddClick", AddClick),
-			new LuaMethod("ClearClick", ClearClick),
 			new LuaMethod("New", _CreateSimpleFramework_LuaBehaviour),
 			new LuaMethod("GetClassType", GetClassType),
 			new LuaMethod("__eq", Lua_Eq),
@@ -20,9 +16,10 @@ public class SimpleFramework_LuaBehaviourWrap
 
 		LuaField[] fields = new LuaField[]
 		{
+			new LuaField("lauFilename", get_lauFilename, set_lauFilename),
 		};
 
-		LuaScriptMgr.RegisterLib(L, "SimpleFramework.LuaBehaviour", typeof(SimpleFramework.LuaBehaviour), regs, fields, typeof(View));
+		LuaScriptMgr.RegisterLib(L, "SimpleFramework.LuaBehaviour", typeof(SimpleFramework.LuaBehaviour), regs, fields, typeof(LuaComponent));
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
@@ -42,44 +39,50 @@ public class SimpleFramework_LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int OnInit(IntPtr L)
+	static int get_lauFilename(IntPtr L)
 	{
-		LuaScriptMgr.CheckArgsCount(L, 3);
-		SimpleFramework.LuaBehaviour obj = (SimpleFramework.LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.LuaBehaviour");
-		AssetBundle arg0 = (AssetBundle)LuaScriptMgr.GetUnityObject(L, 2, typeof(AssetBundle));
-		string arg1 = LuaScriptMgr.GetLuaString(L, 3);
-		obj.OnInit(arg0,arg1);
-		return 0;
-	}
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		SimpleFramework.LuaBehaviour obj = (SimpleFramework.LuaBehaviour)o;
 
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int GetGameObject(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 2);
-		SimpleFramework.LuaBehaviour obj = (SimpleFramework.LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.LuaBehaviour");
-		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
-		GameObject o = obj.GetGameObject(arg0);
-		LuaScriptMgr.Push(L, o);
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lauFilename");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lauFilename on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.lauFilename);
 		return 1;
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int AddClick(IntPtr L)
+	static int set_lauFilename(IntPtr L)
 	{
-		LuaScriptMgr.CheckArgsCount(L, 3);
-		SimpleFramework.LuaBehaviour obj = (SimpleFramework.LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.LuaBehaviour");
-		GameObject arg0 = (GameObject)LuaScriptMgr.GetUnityObject(L, 2, typeof(GameObject));
-		LuaFunction arg1 = LuaScriptMgr.GetLuaFunction(L, 3);
-		obj.AddClick(arg0,arg1);
-		return 0;
-	}
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		SimpleFramework.LuaBehaviour obj = (SimpleFramework.LuaBehaviour)o;
 
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int ClearClick(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 1);
-		SimpleFramework.LuaBehaviour obj = (SimpleFramework.LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.LuaBehaviour");
-		obj.ClearClick();
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lauFilename");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lauFilename on a nil value");
+			}
+		}
+
+		obj.lauFilename = LuaScriptMgr.GetString(L, 3);
 		return 0;
 	}
 

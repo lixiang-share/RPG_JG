@@ -26,7 +26,7 @@ namespace SimpleFramework.Manager {
     /// <summary>
     /// 当前线程管理器，同时只能做一个任务
     /// </summary>
-    public class ThreadManager : View {
+    public class ThreadManager : LuaComponent {
         private Thread thread;
         private Action<NotiData> func;
         private Stopwatch sw = new Stopwatch();

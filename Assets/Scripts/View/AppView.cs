@@ -2,7 +2,7 @@
 using SimpleFramework;
 using System.Collections.Generic;
 
-public class AppView : View {
+public class AppView : LuaComponent {
     private string message;
 
     ///<summary>
@@ -20,10 +20,10 @@ public class AppView : View {
         }
     }
 
-    void Awake() {
-        RemoveMessage(this, MessageList);
-        RegisterMessage(this, MessageList);
-    }
+    //void Awake() {
+    //    RemoveMessage(this, MessageList);
+    //    RegisterMessage(this, MessageList);
+    //}
 
     /// <summary>
     /// 处理View消息

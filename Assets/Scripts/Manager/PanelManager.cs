@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using LuaInterface;
 
 namespace SimpleFramework.Manager {
-    public class PanelManager : View {
+    public class PanelManager : LuaComponent {
         private Transform parent;
 
         Transform Parent {
@@ -45,7 +45,7 @@ namespace SimpleFramework.Manager {
             go.transform.localPosition = Vector3.zero;
 
             yield return new WaitForEndOfFrame();
-            go.AddComponent<LuaBehaviour>().OnInit(bundle);
+          //  go.AddComponent<LuaBehaviour>().OnInit(bundle);
 
             if (func != null) func.Call(go);
             Debug.Log("StartCreatePanel------>>>>" + name);

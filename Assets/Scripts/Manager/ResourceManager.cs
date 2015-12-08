@@ -4,7 +4,7 @@ using System.IO;
 using System;
 
 namespace SimpleFramework.Manager {
-    public class ResourceManager : View {
+    public class ResourceManager : LuaComponent {
         private AssetBundle shared;
 
         /// <summary>

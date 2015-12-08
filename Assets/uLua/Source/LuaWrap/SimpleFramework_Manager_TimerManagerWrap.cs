@@ -25,7 +25,7 @@ public class SimpleFramework_Manager_TimerManagerWrap
 			new LuaField("Interval", get_Interval, set_Interval),
 		};
 
-		LuaScriptMgr.RegisterLib(L, "SimpleFramework.Manager.TimerManager", typeof(SimpleFramework.Manager.TimerManager), regs, fields, typeof(View));
+		LuaScriptMgr.RegisterLib(L, "SimpleFramework.Manager.TimerManager", typeof(SimpleFramework.Manager.TimerManager), regs, fields, typeof(LuaComponent));
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
