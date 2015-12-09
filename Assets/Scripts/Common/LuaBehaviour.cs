@@ -14,7 +14,7 @@ using SimpleFramework;
         private List<LuaFunction> buttons = new List<LuaFunction>();
 
         public string luaFilename;
-        private string tableName;
+        public string tableName="";
 
         public virtual  void Awake() {
             InitLuaFile();
@@ -26,7 +26,6 @@ using SimpleFramework;
         {
             if (luaFilename != null && luaFilename.Trim().Length != 0)
             {
-                tableName = luaFilename.Substring(luaFilename.LastIndexOf('/')+1).Trim();
                 LuaManager.DoFile(luaFilename);
                 initialize = true;
             }

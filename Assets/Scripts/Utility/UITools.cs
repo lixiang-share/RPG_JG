@@ -21,4 +21,19 @@ public class UITools{
             lb.OnCommand("EndTween");
         });
     }
+
+    public static bool isValid(string str)
+    {
+        if (str == null || str.Trim().Length == 0)
+        {
+            return false;
+        }
+        return true;
+    }
+
+    public static string GetLuaPathInEditor()
+    {
+        string path = Application.dataPath + "/lua";
+        return path;
+    }
 }
