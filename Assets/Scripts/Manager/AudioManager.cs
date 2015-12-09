@@ -2,20 +2,53 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace SimpleFramework.Manager {
-    public class MusicManager : LuaComponent {
+    public class AudioManager {
         private AudioSource audio;
-        private Hashtable sounds = new Hashtable();
+        private Dictionary<string, AudioClip> sounds = new Dictionary<string,AudioClip>();
+        public static AudioManager instance = null;
 
-        void Start() {
-            audio = GetComponent<AudioSource>();
+        //各种音频的Key值
+        public const string AUDIO_BTN = "audio_btn";
+
+        public static AudioManager Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                   instance = new AudioManager();
+                }
+               return instance;
+            }
+        }
+
+        private AudioManager()
+        {
+            Debug.Log(this);
+            LoadAllAudio();
+        }
+
+        public void LoadAllAudio()
+        {
+            //加载按钮音乐
+            Add(AUDIO_BTN, LoadAudioClip("Sounds/audio_btn"));
+        }
+
+        public AudioClip LoadAudioClip(string path)
+        {
+            AudioClip ac = Get(path);
+            if (ac == null)
+            {
+                ac = (AudioClip)Resources.Load(path, typeof(AudioClip));
+            }
+            return ac;
         }
 
         /// <summary>
         /// 添加一个声音
         /// </summary>
         void Add(string key, AudioClip value) {
-            if (sounds[key] != null || value == null) return;
+            if (sounds.ContainsKey(key) ||!key.isValid()|| value == null) return;
             sounds.Add(key, value);
         }
 
@@ -23,23 +56,11 @@ namespace SimpleFramework.Manager {
         /// 获取一个声音
         /// </summary>
         AudioClip Get(string key) {
-            if (sounds[key] == null) return null;
+            if (!sounds.ContainsKey(key)) return null;
             return sounds[key] as AudioClip;
         }
 
-        /// <summary>
-        /// 载入一个音频
-        /// </summary>
-        public AudioClip LoadAudioClip(string path) {
-            AudioClip ac = Get(path);
-            if (ac == null) {
-                ac = (AudioClip)Resources.Load(path, typeof(AudioClip));
-                Add(path, ac);
-            }
-            return ac;
-        }
-
-        /// <summary>
+ /*       /// <summary>
         /// 是否播放背景音乐，默认是1：播放
         /// </summary>
         /// <returns></returns>
@@ -71,7 +92,7 @@ namespace SimpleFramework.Manager {
             } else {
                 audio.Stop();
                 audio.clip = null;
-                Util.ClearMemory();
+              //  Util.ClearMemory();
             }
         }
 
@@ -94,5 +115,12 @@ namespace SimpleFramework.Manager {
             if (!CanPlaySoundEffect()) return;
             AudioSource.PlayClipAtPoint(clip, position); 
         }
+        */
+        public void PlayBtnSounds()
+        {
+            if (sounds.ContainsKey(AUDIO_BTN))
+            {
+                NGUITools.PlaySound(sounds[AUDIO_BTN], PlayerSettingMgr.Instance.BtnVolume);
+            }
+        }
     }
-}

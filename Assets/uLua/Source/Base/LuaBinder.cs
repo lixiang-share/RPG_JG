@@ -17,6 +17,7 @@ public static class LuaBinder
 			case "AssetBundleWrap": AssetBundleWrap.Register(L); break;
 			case "AsyncOperationWrap": AsyncOperationWrap.Register(L); break;
 			case "AudioClipWrap": AudioClipWrap.Register(L); break;
+			case "AudioManagerWrap": AudioManagerWrap.Register(L); break;
 			case "AudioSourceWrap": AudioSourceWrap.Register(L); break;
 			case "BehaviourWrap": BehaviourWrap.Register(L); break;
 			case "BlendWeightsWrap": BlendWeightsWrap.Register(L); break;
@@ -37,6 +38,7 @@ public static class LuaBinder
 			case "KeyCodeWrap": KeyCodeWrap.Register(L); break;
 			case "LightTypeWrap": LightTypeWrap.Register(L); break;
 			case "LightWrap": LightWrap.Register(L); break;
+			case "LuaBehaviourWrap": LuaBehaviourWrap.Register(L); break;
 			case "LuaEnumTypeWrap": LuaEnumTypeWrap.Register(L); break;
 			case "MaterialWrap": MaterialWrap.Register(L); break;
 			case "MeshColliderWrap": MeshColliderWrap.Register(L); break;
@@ -57,9 +59,7 @@ public static class LuaBinder
 			case "ScreenWrap": ScreenWrap.Register(L); break;
 			case "SimpleFramework_AppConstWrap": SimpleFramework_AppConstWrap.Register(L); break;
 			case "SimpleFramework_ByteBufferWrap": SimpleFramework_ByteBufferWrap.Register(L); break;
-			case "SimpleFramework_LuaBehaviourWrap": SimpleFramework_LuaBehaviourWrap.Register(L); break;
 			case "SimpleFramework_LuaHelperWrap": SimpleFramework_LuaHelperWrap.Register(L); break;
-			case "SimpleFramework_Manager_MusicManagerWrap": SimpleFramework_Manager_MusicManagerWrap.Register(L); break;
 			case "SimpleFramework_Manager_NetworkManagerWrap": SimpleFramework_Manager_NetworkManagerWrap.Register(L); break;
 			case "SimpleFramework_Manager_PanelManagerWrap": SimpleFramework_Manager_PanelManagerWrap.Register(L); break;
 			case "SimpleFramework_Manager_ResourceManagerWrap": SimpleFramework_Manager_ResourceManagerWrap.Register(L); break;

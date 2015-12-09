@@ -10,7 +10,7 @@ public class LuaComponent : MonoBehaviour {
     private LuaScriptMgr m_LuaMgr;
     private ResourceManager m_ResMgr;
     private NetworkManager m_NetMgr;
-    private MusicManager m_MusicMgr;
+    private AudioManager m_MusicMgr;
     private TimerManager m_TimerMgr;
     private ThreadManager m_ThreadMgr;
 
@@ -74,10 +74,10 @@ public class LuaComponent : MonoBehaviour {
         }
     }
 
-    protected MusicManager MusicManager {
+    protected AudioManager MusicManager {
         get {
             if (m_MusicMgr == null) {
-                m_MusicMgr = facade.GetManager<MusicManager>(ManagerName.Music);
+                m_MusicMgr = facade.GetManager<AudioManager>(ManagerName.Music);
             }
             return m_MusicMgr;
         }

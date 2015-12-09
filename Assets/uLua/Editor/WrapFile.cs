@@ -41,7 +41,7 @@ public static class WrapFile {
         _GT(typeof(UIRect)),
         _GT(typeof(Debugger)),
         _GT(typeof(TweenAlpha.Style)),
-        _GT(typeof(MusicManager)),
+        _GT(typeof(AudioManager)),
         _GT(typeof(DelegateFactory)),
         _GT(typeof(TestLuaDelegate)),
         _GT(typeof(TestDelegateListener)),

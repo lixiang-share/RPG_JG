@@ -24,7 +24,7 @@ public class UIEventListener : MonoBehaviour
 
 	public VoidDelegate onSubmit;
 	public VoidDelegate onClick;
-	public VoidDelegate onDoubleClick;
+    public VoidDelegate onDoubleClick;
 	public BoolDelegate onHover;
 	public BoolDelegate onPress;
 	public BoolDelegate onSelect;

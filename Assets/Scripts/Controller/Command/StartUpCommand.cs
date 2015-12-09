@@ -13,18 +13,18 @@ public class StartUpCommand : ControllerCommand {
             AppView appView = gameMgr.AddComponent<AppView>();
         }
         //-----------------关联命令-----------------------
-        AppFacade.Instance.RegisterCommand(NotiConst.DISPATCH_MESSAGE, typeof(SocketCommand));
+        //AppFacade.Instance.RegisterCommand(NotiConst.DISPATCH_MESSAGE, typeof(SocketCommand));
 
-        //-----------------初始化管理器-----------------------
-        AppFacade.Instance.AddManager(ManagerName.Lua, new LuaScriptMgr());
+        ////-----------------初始化管理器-----------------------
+        //AppFacade.Instance.AddManager(ManagerName.Lua, new LuaScriptMgr());
 
-        AppFacade.Instance.AddManager<PanelManager>(ManagerName.Panel);
-        AppFacade.Instance.AddManager<MusicManager>(ManagerName.Music);
-        AppFacade.Instance.AddManager<TimerManager>(ManagerName.Timer);
-        AppFacade.Instance.AddManager<NetworkManager>(ManagerName.Network);
-        AppFacade.Instance.AddManager<ResourceManager>(ManagerName.Resource);
-        AppFacade.Instance.AddManager<ThreadManager>(ManagerName.Thread);
-        AppFacade.Instance.AddManager<GameManager>(ManagerName.Game);
+        //AppFacade.Instance.AddManager<PanelManager>(ManagerName.Panel);
+        AppFacade.Instance.AddManager(ManagerName.Music, AudioManager.Instance);
+        //AppFacade.Instance.AddManager<TimerManager>(ManagerName.Timer);
+        //AppFacade.Instance.AddManager<NetworkManager>(ManagerName.Network);
+        //AppFacade.Instance.AddManager<ResourceManager>(ManagerName.Resource);
+        //AppFacade.Instance.AddManager<ThreadManager>(ManagerName.Thread);
+        //AppFacade.Instance.AddManager<GameManager>(ManagerName.Game);
 
         Debug.Log("SimpleFramework StartUp-------->>>>>");
     }

@@ -48,8 +48,8 @@ namespace SimpleFramework {
         /// <summary>
         /// 音乐管理器
         /// </summary>
-        public static MusicManager GetMusicManager() {
-            return AppFacade.Instance.GetManager<MusicManager>(ManagerName.Music);
+        public static AudioManager GetMusicManager() {
+            return AppFacade.Instance.GetManager<AudioManager>(ManagerName.Music);
         }
 
 
