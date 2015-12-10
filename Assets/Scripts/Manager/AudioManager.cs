@@ -48,7 +48,7 @@ using System.Collections.Generic;
         /// Ìí¼ÓÒ»¸öÉùÒô
         /// </summary>
         void Add(string key, AudioClip value) {
-            if (sounds.ContainsKey(key) ||!key.isValid()|| value == null) return;
+            if (sounds.ContainsKey(key) ||!UITools.isValidString(key)|| value == null) return;
             sounds.Add(key, value);
         }
 

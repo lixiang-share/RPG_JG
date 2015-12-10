@@ -7,7 +7,7 @@ using SimpleFramework.Manager;
 
 public class LuaComponent : MonoBehaviour {
     private AppFacade m_Facade;
-    private LuaScriptMgr m_LuaMgr;
+    private LuaManager m_LuaMgr;
     private ResourceManager m_ResMgr;
     private NetworkManager m_NetMgr;
     private AudioManager m_MusicMgr;
@@ -49,11 +49,11 @@ public class LuaComponent : MonoBehaviour {
         }
     }
 
-    public LuaScriptMgr LuaManager
+    public LuaManager LuaMgr
     {
         get {
             if (m_LuaMgr == null) {
-                m_LuaMgr = facade.GetManager<LuaScriptMgr>(ManagerName.Lua);
+                m_LuaMgr = LuaManager.Instance;//facade.GetManager<LuaManager>(ManagerName.Lua);
             }
             return m_LuaMgr;
         }
@@ -80,11 +80,11 @@ public class LuaComponent : MonoBehaviour {
         }
     }
 
-    public AudioManager MusicManager
+    public AudioManager AudioMgr
     {
         get {
             if (m_MusicMgr == null) {
-                m_MusicMgr = facade.GetManager<AudioManager>(ManagerName.Music);
+                m_MusicMgr = AudioManager.Instance;//facade.GetManager<AudioManager>(ManagerName.Music);
             }
             return m_MusicMgr;
         }

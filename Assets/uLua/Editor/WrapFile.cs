@@ -132,6 +132,12 @@ public static class WrapFile {
         _GT(typeof(TweenScale)),
         _GT(typeof(UICenterOnChild)),    
         _GT(typeof(UIAtlas)),*/         
+    
+        
+        //Custom lua Class
+        _GT(typeof(ScaleButton)),
+        _GT(typeof(UITools)),
+    
     };
 
     public static BindType _GT(Type t) {

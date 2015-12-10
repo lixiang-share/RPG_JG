@@ -14,20 +14,36 @@ using SimpleFramework;
         private List<LuaFunction> buttons = new List<LuaFunction>();
 
         public string luaFilename;
-        public string tableName="";
-
+        public string tableName;
+        public string domain;
+        public static Dictionary<string, LuaBehaviour> Domains = new Dictionary<string, LuaBehaviour>();
         public virtual  void Awake() {
             InitLuaFile();
             CallMethod("Awake", gameObject);
         }
 
-
         public virtual  void InitLuaFile()
         {
-            if (luaFilename != null && luaFilename.Trim().Length != 0)
+            if (UITools.isValidString(domain))
             {
-                LuaManager.DoFile(luaFilename);
-                initialize = true;
+                if (Domains.ContainsKey(domain))
+                {
+                    Debug.LogError("Domain : "+domain+"  has been exits");
+                }
+                else
+                {
+                    Domains.Add(domain, this);
+                }
+            }
+            if (UITools.isValidString(luaFilename)&&UITools.isLuaFileExits(luaFilename))
+            {
+
+                    int startIndex = luaFilename.LastIndexOf('/')+1;
+                    int endIndex = luaFilename.LastIndexOf('.');
+                    tableName = luaFilename.Substring(startIndex , endIndex-startIndex);
+                    LuaMgr.DoFile(luaFilename);
+                    initialize = true;
+
             }
             UIEventListener.Get(gameObject).onPress += (go, b) =>
             {
@@ -42,7 +58,7 @@ using SimpleFramework;
 
         public virtual void OnEnable()
         {
-            CallMethod("OnEnable", null);
+            CallMethod("OnEnable");
         }
 
         public virtual  void OnClick() {
@@ -66,6 +82,5 @@ using SimpleFramework;
             if (!initialize) return null;
             return Util.CallMethod(tableName, func, args);
         }
-
         
     }

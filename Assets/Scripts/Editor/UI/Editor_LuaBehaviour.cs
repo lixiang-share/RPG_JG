@@ -11,28 +11,115 @@ public class Editor_LuaBehaviour : Editor
     public static string path = UITools.GetLuaPathInEditor()+"/";
     public static string templetPath = path + "UI/Templet.lua";
 
-    public static string tableName;
+   // public static string tableName;
+
+    public SerializedProperty tableName;
+    public SerializedProperty luaFileName;
+    public SerializedProperty domain;
+    public LuaBehaviour lb;
+
+    public string rename = "";
+    //public bool isEdit;
+    void OnEnable()
+    {
+        tableName = serializedObject.FindProperty("tableName");
+        luaFileName = serializedObject.FindProperty("luaFilename");
+        domain = serializedObject.FindProperty("domain");
+    }
     public override void OnInspectorGUI()
     {
-        LuaBehaviour lb = (LuaBehaviour)target;
-        string relativeName = GetFilename(lb.gameObject);
+        lb = (LuaBehaviour)target;
+        string relativeName = GetFilename(lb.gameObject , lb.tableName);
         string fullName = path + relativeName;
+
         if (!File.Exists(fullName))
         {
-            GUILayout.BeginHorizontal();
-            GUILayout.Label("Table Name:");
-            tableName = lb.tableName = GUILayout.TextField(lb.tableName);
-            lb.luaFilename = relativeName;
+            EditorGUILayout.BeginHorizontal();
+
+            EditorGUILayout.PropertyField(tableName, new GUIContent("TableName:"));
+            lb.tableName = tableName.stringValue;
             if (GUILayout.Button("Create File"))
             {
                 CreateFile(fullName);
             }
-            GUILayout.EndHorizontal();
-
+            EditorGUILayout.EndHorizontal();
         }
+        else
+        {
+            EditorGUILayout.BeginHorizontal();
+            lb.luaFilename = relativeName;
+            luaFileName.stringValue = relativeName;
+            EditorGUILayout.PropertyField(luaFileName, new GUIContent("LuaFilename:"));
+            //lb.luaFilename = luaFileName.stringValue;
+
+            //isEdit = EditorGUILayout.Toggle(isEdit);
+            //if (!isEdit)
+            //{
+            //    lb.luaFilename = relativeName;
+            //    luaFileName.stringValue = relativeName;
+            //}
+            EditorGUILayout.EndHorizontal();
+
+            EditorGUILayout.BeginHorizontal();
+            GUILayout.Label(new GUIContent("Rename:"));
+            rename = EditorGUILayout.TextField(rename);
+            if (GUILayout.Button("RenameFile"))
+            {
+                string oldName = fullName;
+                string oldTable = lb.tableName;
+                string newTable = rename;
+                string newName = path + GetFilename(lb.gameObject , rename);
+                if (renameFile(oldName, newName, oldTable, newTable))
+                {
+                    lb.tableName = tableName.stringValue = rename;
+                    rename = "";
+                }
+            }
+            EditorGUILayout.EndHorizontal();
+        }
+
+        EditorGUILayout.BeginHorizontal();
+
+        EditorGUILayout.PropertyField(domain, new GUIContent("Domain:"));
+        lb.domain = domain.stringValue;
+
+        if (GUILayout.Button("Commpile"))
+        {
+            UITools.Compile(fullName);
+        }
+
+        EditorGUILayout.EndHorizontal();
+
     }
 
-    public static void CreateFile(string filename) 
+
+
+
+    public bool renameFile(string oldName , string newName ,string oldTable ,string newTable)
+    {
+        if (!UITools.isValidString(newTable))
+        {
+            return false;
+        }
+        if (File.Exists(newName))
+        {
+            Debug.LogError("文件名已存在");
+            return false;
+        }
+        if (!File.Exists(oldName))
+        {
+            Debug.LogError("文件不存在");
+            return false;
+        }
+        string content = File.ReadAllText(oldName);
+        content = content.Replace(oldTable, newTable);
+        File.WriteAllText(newName, content, Encoding.UTF8);
+        File.Delete(oldName);
+        AssetDatabase.Refresh();
+        return true;
+    }
+
+    public void CreateFile(string filename) 
     {
         if (File.Exists(filename))
         {
@@ -45,11 +132,12 @@ public class Editor_LuaBehaviour : Editor
         }
         //复制模板的内容
         string content = File.ReadAllText(templetPath);
+        content = content.Replace("tableName", lb.tableName);
         File.WriteAllText(filename, content, Encoding.UTF8);
         AssetDatabase.Refresh();
     }
 
-    public static string GetFilename(GameObject go)
+    public string GetFilename(GameObject go , string luaName)
     {
         //string sceneName = Path.GetFileName(EditorApplication.currentScene);
         //if (sceneName == null || sceneName.Trim().Length == 0)
@@ -80,6 +168,6 @@ public class Editor_LuaBehaviour : Editor
         {
             filename = filename + "/" + ps[i];
         }
-        return (filename +"/"+tableName+ ".lua").Replace(" ", "");
+        return (filename + "/" + luaName + ".lua").Replace(" ", "");
     }
 }

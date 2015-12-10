@@ -35,6 +35,7 @@ public static class DelegateFactory
 		dict.Add(typeof(AudioClip.PCMReaderCallback), new DelegateValue(AudioClip_PCMReaderCallback));
 		dict.Add(typeof(AudioClip.PCMSetPositionCallback), new DelegateValue(AudioClip_PCMSetPositionCallback));
 		dict.Add(typeof(Application.LogCallback), new DelegateValue(Application_LogCallback));
+		dict.Add(typeof(FuncStr), new DelegateValue(FuncStr));
 	}
 
 	[NoToLuaAttribute]
@@ -355,6 +356,19 @@ public static class DelegateFactory
 			LuaScriptMgr.Push(L, param1);
 			LuaScriptMgr.Push(L, param2);
 			func.PCall(top, 3);
+			func.EndPCall(top);
+		};
+		return d;
+	}
+
+	public static Delegate FuncStr(LuaFunction func)
+	{
+		FuncStr d = (param0) =>
+		{
+			int top = func.BeginPCall();
+			IntPtr L = func.GetLuaState();
+			LuaScriptMgr.Push(L, param0);
+			func.PCall(top, 1);
 			func.EndPCall(top);
 		};
 		return d;

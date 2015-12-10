@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SimpleFramework {
     public class AppConst {
-        public const bool DebugMode = false;                        //调试模式-用于内部测试
+        public const bool DebugMode = true;                        //调试模式-用于内部测试
 
         /// <summary>
         /// 如果想删掉框架自带的例子，那这个例子模式必须要

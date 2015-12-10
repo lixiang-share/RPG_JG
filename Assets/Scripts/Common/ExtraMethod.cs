@@ -6,9 +6,9 @@ using System.Text;
 
 public static class ExtraMethod
 {
-    public static bool isValid(this string str)
+    public static bool isEmpty(this string str)
     {
-        if (str == null || str.Length == 0)
+        if (str.Trim().Length == 0)
         {
             return false;
         }

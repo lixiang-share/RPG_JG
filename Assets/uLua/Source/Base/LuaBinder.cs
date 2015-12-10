@@ -56,6 +56,7 @@ public static class LuaBinder
 			case "RendererWrap": RendererWrap.Register(L); break;
 			case "RenderSettingsWrap": RenderSettingsWrap.Register(L); break;
 			case "RenderTextureWrap": RenderTextureWrap.Register(L); break;
+			case "ScaleButtonWrap": ScaleButtonWrap.Register(L); break;
 			case "ScreenWrap": ScreenWrap.Register(L); break;
 			case "SimpleFramework_AppConstWrap": SimpleFramework_AppConstWrap.Register(L); break;
 			case "SimpleFramework_ByteBufferWrap": SimpleFramework_ByteBufferWrap.Register(L); break;
@@ -87,6 +88,7 @@ public static class LuaBinder
 			case "UILabelWrap": UILabelWrap.Register(L); break;
 			case "UIPanelWrap": UIPanelWrap.Register(L); break;
 			case "UIRectWrap": UIRectWrap.Register(L); break;
+			case "UIToolsWrap": UIToolsWrap.Register(L); break;
 			case "UITweener_StyleWrap": UITweener_StyleWrap.Register(L); break;
 			case "UIWidgetContainerWrap": UIWidgetContainerWrap.Register(L); break;
 			case "UIWidgetWrap": UIWidgetWrap.Register(L); break;

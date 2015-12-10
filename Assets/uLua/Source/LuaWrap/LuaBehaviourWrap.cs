@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using LuaInterface;
 using Object = UnityEngine.Object;
@@ -24,6 +25,9 @@ public class LuaBehaviourWrap
 		LuaField[] fields = new LuaField[]
 		{
 			new LuaField("luaFilename", get_luaFilename, set_luaFilename),
+			new LuaField("tableName", get_tableName, set_tableName),
+			new LuaField("domain", get_domain, set_domain),
+			new LuaField("Domains", get_Domains, set_Domains),
 		};
 
 		LuaScriptMgr.RegisterLib(L, "LuaBehaviour", typeof(LuaBehaviour), regs, fields, typeof(LuaComponent));
@@ -70,6 +74,61 @@ public class LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_tableName(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name tableName");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index tableName on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.tableName);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_domain(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name domain");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index domain on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.domain);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Domains(IntPtr L)
+	{
+		LuaScriptMgr.PushObject(L, LuaBehaviour.Domains);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_luaFilename(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
@@ -90,6 +149,61 @@ public class LuaBehaviourWrap
 		}
 
 		obj.luaFilename = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_tableName(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name tableName");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index tableName on a nil value");
+			}
+		}
+
+		obj.tableName = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_domain(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name domain");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index domain on a nil value");
+			}
+		}
+
+		obj.domain = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_Domains(IntPtr L)
+	{
+		LuaBehaviour.Domains = (Dictionary<string,LuaBehaviour>)LuaScriptMgr.GetNetObject(L, 3, typeof(Dictionary<string,LuaBehaviour>));
 		return 0;
 	}
 
@@ -151,10 +265,10 @@ public class LuaBehaviourWrap
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int OnCommand(IntPtr L)
 	{
-		LuaScriptMgr.CheckArgsCount(L, 3);
+		int count = LuaDLL.lua_gettop(L);
 		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
 		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
-		object[] objs1 = LuaScriptMgr.GetArrayObject<object>(L, 3);
+		object[] objs1 = LuaScriptMgr.GetParamsObject(L, 3, count - 2);
 		obj.OnCommand(arg0,objs1);
 		return 0;
 	}

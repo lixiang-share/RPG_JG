@@ -237,9 +237,9 @@ namespace SimpleFramework.Manager {
         /// 资源初始化结束
         /// </summary>
         public void OnResourceInited() {
-            LuaManager.Start();
-            LuaManager.DoFile("Logic/Network");       //加载网络
-            LuaManager.DoFile("Logic/GameManager");    //加载游戏
+            LuaMgr.Start();
+            LuaMgr.DoFile("Logic/Network");       //加载网络
+            LuaMgr.DoFile("Logic/GameManager");    //加载游戏
             initialize = true;                     //初始化完 
 
             NetManager.OnInit();    //初始化网络
@@ -251,7 +251,7 @@ namespace SimpleFramework.Manager {
                 if (string.IsNullOrEmpty(name)) continue;
                 name += "Panel";    //添加
 
-                LuaManager.DoFile("View/" + name);
+                LuaMgr.DoFile("View/" + name);
                 Debug.LogWarning("LoadLua---->>>>" + name + ".lua");
             }
             //------------------------------------------------------------
@@ -264,20 +264,20 @@ namespace SimpleFramework.Manager {
         }
 
         void Update() {
-            if (LuaManager != null && initialize) {
-                LuaManager.Update();
+            if (LuaMgr != null && initialize) {
+                LuaMgr.Update();
             }
         }
 
         void LateUpdate() {
-            if (LuaManager != null && initialize) {
-                LuaManager.LateUpate();
+            if (LuaMgr != null && initialize) {
+                LuaMgr.LateUpdate();
             }
         }
 
         void FixedUpdate() {
-            if (LuaManager != null && initialize) {
-                LuaManager.FixedUpdate();
+            if (LuaMgr != null && initialize) {
+                LuaMgr.FixedUpdate();
             }
         }
 
@@ -288,8 +288,8 @@ namespace SimpleFramework.Manager {
             if (NetManager != null) {
                 NetManager.Unload();
             }
-            if (LuaManager != null) {
-                LuaManager.Destroy();
+            if (LuaMgr != null) {
+                LuaMgr.Destroy();
             }
             Debug.Log("~GameManager was destroyed");
         }

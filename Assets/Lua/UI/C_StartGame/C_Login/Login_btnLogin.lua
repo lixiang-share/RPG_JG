@@ -1,5 +1,5 @@
-tableName = {};
-local this = tableName;
+﻿Login_btnLogin = {};
+local this = Login_btnLogin;
 
 
 

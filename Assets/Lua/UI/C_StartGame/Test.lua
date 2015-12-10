@@ -1,10 +1,24 @@
-﻿tableName = {};
-local this = tableName;
+﻿Test = {};
+local this = Test;
 
-local function this.OnEnable()
-	
+
+
+function this.Awake()
+
+	UITools.Log("Awake--");
 end
 
-local  function this.OnClick()
-	
+function this.Start()
+	UITools.LogError("Start--");
 end
+
+
+function this.OnEnable()
+	UITools.LogWarning("OnEnable--");
+end
+
+function this.OnClick()
+	print("OnClick");
+end
+
+

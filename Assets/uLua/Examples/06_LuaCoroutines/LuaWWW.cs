@@ -29,7 +29,7 @@ public class LuaWWW : MonoBehaviour {
     }
 
     void LateUpdate() {
-        lua.LateUpate();
+        lua.LateUpdate();
     }
 
     void FixedUpdate() {
