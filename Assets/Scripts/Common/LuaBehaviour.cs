@@ -13,12 +13,16 @@ public class LuaBehaviour : MonoBehaviour
     private string data = null;
     private AssetBundle bundle = null;
     private List<LuaFunction> buttons = new List<LuaFunction>();
-
+    [HideInInspector]
     public string luaFilename;
+    [HideInInspector]
     public string tableName;
+    [HideInInspector]
     public string domain;
     public static Dictionary<string, LuaBehaviour> Domains = new Dictionary<string, LuaBehaviour>();
     public Dictionary<string , System.Object> varDict;
+    public List<ParamInspector> varList;
+
 
     #region 各种管理器
     private AppFacade m_Facade;
@@ -73,6 +77,13 @@ public class LuaBehaviour : MonoBehaviour
 
     private void HandleParams()
     {
+        if (varList != null)
+        {
+            foreach (ParamInspector p in varList)
+            {
+                this[p.Key] = p.Value;
+            }
+        }
         if (initialize)
         {
             LuaState luaState = LuaMgr.Lua;
@@ -242,9 +253,6 @@ public class LuaBehaviour : MonoBehaviour
             return null;
         }
     }
-
-
-
 
     public LuaBehaviour Parent
     {

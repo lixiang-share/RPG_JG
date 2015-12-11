@@ -17,7 +17,7 @@ public class Editor_LuaBehaviour : Editor
     public SerializedProperty luaFileName;
     public SerializedProperty domain;
     public LuaBehaviour lb;
-
+    public SerializedProperty varList;
     public string rename = "";
     //public bool isEdit;
     void OnEnable()
@@ -25,6 +25,7 @@ public class Editor_LuaBehaviour : Editor
         tableName = serializedObject.FindProperty("tableName");
         luaFileName = serializedObject.FindProperty("luaFilename");
         domain = serializedObject.FindProperty("domain");
+        varList = serializedObject.FindProperty("varList");
     }
     public override void OnInspectorGUI()
     {
@@ -95,9 +96,9 @@ public class Editor_LuaBehaviour : Editor
         {
             UITools.Compile(fullName);
         }
-
         EditorGUILayout.EndHorizontal();
 
+        base.DrawDefaultInspector();
     }
 
 

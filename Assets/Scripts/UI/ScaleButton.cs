@@ -4,6 +4,7 @@ using System.Collections;
 public class ScaleButton : LuaBehaviour
 {
     //public Vector3 scaleFactor = new Vector3(0.9f, 0.9f, 0.9f);
+    [HideInInspector]
     public float scaleFactor = 0.9f;
     private Vector3 originScale;
 
