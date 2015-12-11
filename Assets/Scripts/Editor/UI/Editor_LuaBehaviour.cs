@@ -29,6 +29,14 @@ public class Editor_LuaBehaviour : Editor
     public override void OnInspectorGUI()
     {
         lb = (LuaBehaviour)target;
+
+        if (target is LuaWithNoFile)
+        {
+            EditorGUILayout.PropertyField(domain, new GUIContent("Domain:"));
+            lb.domain = domain.stringValue;
+            return;
+        }
+
         string relativeName = GetFilename(lb.gameObject , lb.tableName);
         string fullName = path + relativeName;
 

@@ -1,24 +1,29 @@
 tableName = {};
 local this = tableName;
-
+local inst;
 
 
 function this.Awake()
-
-	print("Awake");
+	inst = this.inst;
 end
 
 function this.Start()
-	print("Start");
+	
 end
 
-
 function this.OnEnable()
-	print("OnEnable");
+	
+end
+
+function  this.OnDisable( )
+	
 end
 
 function this.OnClick()
-	print("OnClick");
+	
 end
 
+function  this.OnCommand(command , param)
+
+end
 

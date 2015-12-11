@@ -18,7 +18,7 @@ function this.OnEnable()
 end
 
 function this.OnClick()
-	print("OnClick");
+	UITools.D("Login"):OnCommand("MoveLeft");
 end
 
 

@@ -11,7 +11,13 @@ public class UIToolsWrap
 			new LuaMethod("Log", Log),
 			new LuaMethod("LogError", LogError),
 			new LuaMethod("LogWarning", LogWarning),
+			new LuaMethod("ShowPanel", ShowPanel),
+			new LuaMethod("ClosePanel", ClosePanel),
+			new LuaMethod("HandlePanel", HandlePanel),
+			new LuaMethod("TweenPos_X", TweenPos_X),
 			new LuaMethod("TweenPos", TweenPos),
+			new LuaMethod("SA", SA),
+			new LuaMethod("D", D),
 			new LuaMethod("isValidString", isValidString),
 			new LuaMethod("GetLuaPathInEditor", GetLuaPathInEditor),
 			new LuaMethod("isLuaFileExits", isLuaFileExits),
@@ -29,25 +35,13 @@ public class UIToolsWrap
 			new LuaField("logWarning", get_logWarning, null),
 		};
 
-		LuaScriptMgr.RegisterLib(L, "UITools", typeof(UITools), regs, fields, typeof(object));
+		LuaScriptMgr.RegisterLib(L, "UITools", typeof(UITools), regs, fields, null);
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int _CreateUITools(IntPtr L)
 	{
-		int count = LuaDLL.lua_gettop(L);
-
-		if (count == 0)
-		{
-			UITools obj = new UITools();
-			LuaScriptMgr.PushObject(L, obj);
-			return 1;
-		}
-		else
-		{
-			LuaDLL.luaL_error(L, "invalid arguments to method: UITools.New");
-		}
-
+		LuaDLL.luaL_error(L, "UITools class does not have a constructor function");
 		return 0;
 	}
 
@@ -113,7 +107,7 @@ public class UIToolsWrap
 	static int Log(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 1);
-		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		object arg0 = LuaScriptMgr.GetVarObject(L, 1);
 		UITools.Log(arg0);
 		return 0;
 	}
@@ -122,7 +116,7 @@ public class UIToolsWrap
 	static int LogError(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 1);
-		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		object arg0 = LuaScriptMgr.GetVarObject(L, 1);
 		UITools.LogError(arg0);
 		return 0;
 	}
@@ -131,21 +125,131 @@ public class UIToolsWrap
 	static int LogWarning(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 1);
-		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		object arg0 = LuaScriptMgr.GetVarObject(L, 1);
 		UITools.LogWarning(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ShowPanel(IntPtr L)
+	{
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 1)
+		{
+			LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+			UITools.ShowPanel(arg0);
+			return 0;
+		}
+		else if (count == 2)
+		{
+			LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+			float arg1 = (float)LuaScriptMgr.GetNumber(L, 2);
+			UITools.ShowPanel(arg0,arg1);
+			return 0;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: UITools.ShowPanel");
+		}
+
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ClosePanel(IntPtr L)
+	{
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 1)
+		{
+			LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+			UITools.ClosePanel(arg0);
+			return 0;
+		}
+		else if (count == 2)
+		{
+			LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+			float arg1 = (float)LuaScriptMgr.GetNumber(L, 2);
+			UITools.ClosePanel(arg0,arg1);
+			return 0;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: UITools.ClosePanel");
+		}
+
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int HandlePanel(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 3);
+		LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+		bool arg1 = LuaScriptMgr.GetBoolean(L, 2);
+		float arg2 = (float)LuaScriptMgr.GetNumber(L, 3);
+		UITools.HandlePanel(arg0,arg1,arg2);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int TweenPos_X(IntPtr L)
+	{
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 2)
+		{
+			LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+			float arg1 = (float)LuaScriptMgr.GetNumber(L, 2);
+			UITools.TweenPos_X(arg0,arg1);
+			return 0;
+		}
+		else if (count == 3)
+		{
+			LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+			float arg1 = (float)LuaScriptMgr.GetNumber(L, 2);
+			float arg2 = (float)LuaScriptMgr.GetNumber(L, 3);
+			UITools.TweenPos_X(arg0,arg1,arg2);
+			return 0;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: UITools.TweenPos_X");
+		}
+
 		return 0;
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int TweenPos(IntPtr L)
 	{
-		LuaScriptMgr.CheckArgsCount(L, 4);
-		UITools obj = (UITools)LuaScriptMgr.GetNetObjectSelf(L, 1, "UITools");
-		LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 2, typeof(LuaBehaviour));
-		float arg1 = (float)LuaScriptMgr.GetNumber(L, 3);
-		Vector3 arg2 = LuaScriptMgr.GetVector3(L, 4);
-		obj.TweenPos(arg0,arg1,arg2);
+		LuaScriptMgr.CheckArgsCount(L, 3);
+		GameObject arg0 = (GameObject)LuaScriptMgr.GetUnityObject(L, 1, typeof(GameObject));
+		Vector3 arg1 = LuaScriptMgr.GetVector3(L, 2);
+		float arg2 = (float)LuaScriptMgr.GetNumber(L, 3);
+		UITools.TweenPos(arg0,arg1,arg2);
 		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SA(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+		bool arg1 = LuaScriptMgr.GetBoolean(L, 2);
+		UITools.SA(arg0,arg1);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int D(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		LuaBehaviour o = UITools.D(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

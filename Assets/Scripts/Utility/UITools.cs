@@ -6,13 +6,14 @@ using System.IO;
 using SimpleFramework;
 using System.Text;
 
-public delegate void FuncStr(string mes); 
-public class UITools{
+public delegate void FuncObj(object obj);
+public static partial class UITools
+{
     public static string[] keys = { "@", "$" };
     public static string[] values = { "UITools.", "inst" };
 
     #region  Debug 重构
-    public static FuncStr log
+    public static FuncObj log
     {
         get
         {
@@ -20,7 +21,7 @@ public class UITools{
             else return (str) => { };
         }
     }
-    public static FuncStr logError
+    public static FuncObj logError
     {
         get
         {
@@ -28,7 +29,7 @@ public class UITools{
             else return (str) => { };
         }
     }
-    public static FuncStr logWarning
+    public static FuncObj logWarning
     {
         get
         {
@@ -37,17 +38,17 @@ public class UITools{
         }
     }
 
-    public static void Log(string mes)
+    public static void Log(System.Object o)
     {
-        log(mes);
+        log(o);
     }
-    public static void LogError(string mes)
+    public static void LogError(System.Object o)
     {
-        logError(mes);
+        logError(o);
     }
-    public static void LogWarning(string mes)
+    public static void LogWarning(System.Object o)
     {
-        logWarning(mes);
+        logWarning(o);
     }
 #endregion
 
@@ -59,15 +60,95 @@ public class UITools{
         return t;
     }
 
-    public void TweenPos(LuaBehaviour lb , float duration , Vector3 targetPos)
+    #region 打开或者关闭面板
+
+    public static void ShowPanel(LuaBehaviour lb)
     {
-        //TweenPosition tp = Get<TweenPosition>(lb.gameObject);
-        TweenPosition tp = TweenPosition.Begin(lb.gameObject, duration, targetPos);
-        tp.AddOnFinished(() =>
-        {
-            lb.OnCommand("EndTween");
-        });
+        ShowPanel(lb ,1);
     }
+
+    public static void ClosePanel(LuaBehaviour lb)
+    { 
+        ClosePanel(lb ,PlayerSettingMgr.Instance.PanelDuration);
+    }
+
+    public static void ShowPanel(LuaBehaviour lb ,float duration)
+    {
+        HandlePanel(lb, true, PlayerSettingMgr.Instance.PanelDuration);
+    }
+
+    public static void ClosePanel(LuaBehaviour lb, float duration )
+    {
+        HandlePanel(lb, false, duration);
+    }
+
+
+    public static void HandlePanel(LuaBehaviour lb, bool isShow ,float duration)
+    {
+        float alpha = isShow ? 1 : 0;
+        if (isShow)
+        {
+            SA(lb,true);
+            TweenAlpha.Begin(lb.gameObject, duration, alpha);
+        }
+        else
+        {
+            TweenAlpha.Begin(lb.gameObject, duration, alpha).AddOnFinished(() =>
+            {
+                SA(lb, false);
+            });
+        }
+
+    }
+    #endregion
+
+    #region Tween 封装
+
+
+    public static void TweenPos_X(LuaBehaviour lb, float x)
+    {
+        Vector3 target = new Vector3(x, lb.transform.localPosition.y, lb.transform.localPosition.z);
+        TweenPos(lb.gameObject, target, 0.3f);
+    }
+
+    public static void TweenPos_X(LuaBehaviour lb, float x,float duration)
+    {
+        Vector3 target = new Vector3(x,lb.transform.localPosition.y, lb.transform.localPosition.z);
+        TweenPos(lb.gameObject, target, duration);
+    }
+
+    public static void TweenPos(GameObject go, Vector3 targetPos, float duration)
+    {
+        TweenPosition tp = TweenPosition.Begin(go, duration, targetPos);
+        LuaBehaviour lb = go.GetComponent<LuaBehaviour>();
+        if (lb != null)
+        {
+            tp.AddOnFinished(() =>
+            {
+                lb.OnCommand("EndTween");
+            });
+        }
+    }
+    #endregion
+
+
+    public static void SA(LuaBehaviour lb, bool isActive)
+    {
+        if (lb != null)
+        {
+            lb.gameObject.SetActive(isActive);
+        }
+    }
+
+    public static LuaBehaviour D(string domain)
+    {
+        if (LuaBehaviour.Domains.ContainsKey(domain))
+        {
+            return LuaBehaviour.Domains[domain];
+        }
+        return null;
+    }
+
 
     public static bool isValidString(string str)
     {

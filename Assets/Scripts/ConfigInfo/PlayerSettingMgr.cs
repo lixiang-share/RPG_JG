@@ -4,6 +4,9 @@ using System.Collections;
 public class PlayerSettingMgr {
 
     private float btnVolume = 0.5F;
+    public float PanelDuration = 0.3f;
+
+
     private static PlayerSettingMgr instance;
 
     public static PlayerSettingMgr Instance

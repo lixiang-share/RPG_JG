@@ -39,6 +39,7 @@ namespace SimpleFramework {
         public static int SocketPort = 0;                           //Socket服务器端口
         public static string SocketAddress = string.Empty;          //Socket服务器地址
 
+
         public static string LuaBasePath {
             get { return Application.dataPath + "/uLua/Source/"; }
         }

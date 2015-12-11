@@ -109,4 +109,10 @@ public class LuaComponent : MonoBehaviour {
             return m_ThreadMgr;
         }
     }
+
+
+
+
+    ////下面封装各种常用属性和方法
+
 }

@@ -2,6 +2,7 @@
 using System.Collections;
 using SimpleFramework;
 using System.IO;
+using LuaInterface;
 public class LuaManager {
 
 
@@ -20,6 +21,15 @@ public class LuaManager {
     }
 
     private LuaScriptMgr luaMgr;
+
+    public LuaState Lua
+    {
+        get
+        {
+            return luaMgr.lua;
+        }
+    }
+
 
     //TODO 此处有坑
     private LuaManager()
@@ -69,4 +79,6 @@ public class LuaManager {
     {
         return luaMgr.CallLuaFunction(funcName, args);
     }
+
+
 }
