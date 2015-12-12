@@ -7,25 +7,21 @@ function this.Awake()
 	inst = this.inst;
 end
 
-function this.Start()
-	
+function this.Login()
+	--local username = 
+	UITools.Log('Login');
 end
 
-
-function this.OnEnable()
-	
-end
-
-function this.OnClick()
-	
+function this.Register()
+	UITools.ClosePanel(inst);
+	UITools.D('Register'):OnCommand('Show');
 end
 
 function  this.OnCommand(command , param)
-	if command == "MoveLeft" then
-		UITools.TweenPos_X(inst,-540);
-	elseif command == "EndTween" then
-		UITools.SA(inst , false);
+	if command == 'Login' then
+		this.Login();
+	elseif command == 'Register' then
+		this.Register();
 	end
-
 end
 

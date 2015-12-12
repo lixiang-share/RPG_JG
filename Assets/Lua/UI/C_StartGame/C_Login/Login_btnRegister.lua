@@ -1,24 +1,16 @@
 ﻿Login_btnRegister = {};
 local this = Login_btnRegister;
-
+local inst;
 
 
 function this.Awake()
-
-	print("Awake");
-end
-
-function this.Start()
-	print("Start");
+	inst = this.inst;
 end
 
 
-function this.OnEnable()
-	print("OnEnable");
-end
 
 function this.OnClick()
-	UITools.D("Login"):OnCommand("MoveLeft");
+	UITools.D('Login'):OnCommand('Register');
 end
 
 
