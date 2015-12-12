@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace SimpleFramework {
     public class AppConst {
-        public const bool DebugMode = false;                        //调试模式-用于内部测试
+        public const bool DebugMode = true;                        //调试模式-用于内部测试
 
         /// <summary>
         /// 如果想删掉框架自带的例子，那这个例子模式必须要
@@ -38,6 +38,7 @@ namespace SimpleFramework {
         public static string UserId = string.Empty;                 //用户ID
         public static int SocketPort = 0;                           //Socket服务器端口
         public static string SocketAddress = string.Empty;          //Socket服务器地址
+
 
         public static string LuaBasePath {
             get { return Application.dataPath + "/uLua/Source/"; }

@@ -41,7 +41,7 @@ public static class WrapFile {
         _GT(typeof(UIRect)),
         _GT(typeof(Debugger)),
         _GT(typeof(TweenAlpha.Style)),
-        _GT(typeof(MusicManager)),
+        _GT(typeof(AudioManager)),
         _GT(typeof(DelegateFactory)),
         _GT(typeof(TestLuaDelegate)),
         _GT(typeof(TestDelegateListener)),
@@ -132,6 +132,12 @@ public static class WrapFile {
         _GT(typeof(TweenScale)),
         _GT(typeof(UICenterOnChild)),    
         _GT(typeof(UIAtlas)),*/         
+    
+        
+        //Custom lua Class
+        _GT(typeof(ScaleButton)),
+        _GT(typeof(UITools)),
+    
     };
 
     public static BindType _GT(Type t) {

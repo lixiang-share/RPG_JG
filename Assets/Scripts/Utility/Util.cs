@@ -489,7 +489,7 @@ namespace SimpleFramework {
         /// 执行Lua方法
         /// </summary>
         public static object[] CallMethod(string module, string func, params object[] args) {
-            LuaScriptMgr luaMgr = AppFacade.Instance.GetManager<LuaScriptMgr>(ManagerName.Lua);
+            LuaManager luaMgr = LuaManager.Instance;//AppFacade.Instance.GetManager<LuaScriptMgr>(ManagerName.Lua);
             if (luaMgr == null) return null;
             string funcName = module + "." + func;
             funcName = funcName.Replace("(Clone)", "");

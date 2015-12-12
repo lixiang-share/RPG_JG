@@ -7,10 +7,10 @@ using SimpleFramework.Manager;
 
 public class LuaComponent : MonoBehaviour {
     private AppFacade m_Facade;
-    private LuaScriptMgr m_LuaMgr;
+    private LuaManager m_LuaMgr;
     private ResourceManager m_ResMgr;
     private NetworkManager m_NetMgr;
-    private MusicManager m_MusicMgr;
+    private AudioManager m_MusicMgr;
     private TimerManager m_TimerMgr;
     private ThreadManager m_ThreadMgr;
 
@@ -22,7 +22,8 @@ public class LuaComponent : MonoBehaviour {
     /// </summary>
     /// <param name="view"></param>
     /// <param name="messages"></param>
-    protected void RegisterMessage(IView view, List<string> messages) {
+    public void RegisterMessage(IView view, List<string> messages)
+    {
         if (messages == null || messages.Count == 0) return;
         Controller.Instance.RegisterViewCommand(view, messages.ToArray());
     }
@@ -32,12 +33,14 @@ public class LuaComponent : MonoBehaviour {
     /// </summary>
     /// <param name="view"></param>
     /// <param name="messages"></param>
-    protected void RemoveMessage(IView view, List<string> messages) {
+    public void RemoveMessage(IView view, List<string> messages)
+    {
         if (messages == null || messages.Count == 0) return;
         Controller.Instance.RemoveViewCommand(view, messages.ToArray());
     }
 
-    protected AppFacade facade {
+    public AppFacade facade
+    {
         get {
             if (m_Facade == null) {
                 m_Facade = AppFacade.Instance;
@@ -46,17 +49,19 @@ public class LuaComponent : MonoBehaviour {
         }
     }
 
-    protected LuaScriptMgr LuaManager {
+    public LuaManager LuaMgr
+    {
         get {
             if (m_LuaMgr == null) {
-                m_LuaMgr = facade.GetManager<LuaScriptMgr>(ManagerName.Lua);
+                m_LuaMgr = LuaManager.Instance;//facade.GetManager<LuaManager>(ManagerName.Lua);
             }
             return m_LuaMgr;
         }
         set { m_LuaMgr = value; }
     }
 
-    protected ResourceManager ResManager {
+    public ResourceManager ResManager
+    {
         get {
             if (m_ResMgr == null) {
                 m_ResMgr = facade.GetManager<ResourceManager>(ManagerName.Resource);
@@ -65,7 +70,8 @@ public class LuaComponent : MonoBehaviour {
         }
     }
 
-    protected NetworkManager NetManager {
+    public NetworkManager NetManager
+    {
         get {
             if (m_NetMgr == null) {
                 m_NetMgr = facade.GetManager<NetworkManager>(ManagerName.Network);
@@ -74,16 +80,18 @@ public class LuaComponent : MonoBehaviour {
         }
     }
 
-    protected MusicManager MusicManager {
+    public AudioManager AudioMgr
+    {
         get {
             if (m_MusicMgr == null) {
-                m_MusicMgr = facade.GetManager<MusicManager>(ManagerName.Music);
+                m_MusicMgr = AudioManager.Instance;//facade.GetManager<AudioManager>(ManagerName.Music);
             }
             return m_MusicMgr;
         }
     }
 
-    protected TimerManager TimerManger {
+    public TimerManager TimerManger
+    {
         get {
             if (m_TimerMgr == null) {
                 m_TimerMgr = facade.GetManager<TimerManager>(ManagerName.Timer);
@@ -92,7 +100,8 @@ public class LuaComponent : MonoBehaviour {
         }
     }
 
-    protected ThreadManager ThreadManager {
+    public ThreadManager ThreadManager
+    {
         get {
             if (m_ThreadMgr == null) {
                 m_ThreadMgr = facade.GetManager<ThreadManager>(ManagerName.Thread);
@@ -100,4 +109,10 @@ public class LuaComponent : MonoBehaviour {
             return m_ThreadMgr;
         }
     }
+
+
+
+
+    ////下面封装各种常用属性和方法
+
 }

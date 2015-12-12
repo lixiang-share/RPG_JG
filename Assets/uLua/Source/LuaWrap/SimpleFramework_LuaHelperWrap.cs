@@ -80,8 +80,8 @@ public class SimpleFramework_LuaHelperWrap
 	static int GetMusicManager(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 0);
-		SimpleFramework.Manager.MusicManager o = SimpleFramework.LuaHelper.GetMusicManager();
-		LuaScriptMgr.Push(L, o);
+		AudioManager o = SimpleFramework.LuaHelper.GetMusicManager();
+		LuaScriptMgr.PushObject(L, o);
 		return 1;
 	}
 

@@ -32,7 +32,7 @@ public class Client : MonoBehaviour
     {
         if (luaMgr != null)
         {
-            luaMgr.LateUpate();
+            luaMgr.LateUpdate();
         }
     }
 

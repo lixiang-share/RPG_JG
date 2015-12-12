@@ -50,7 +50,7 @@ public class LuaCoroutines : MonoBehaviour
 
     void LateUpdate()
     {
-        lua.LateUpate();
+        lua.LateUpdate();
     }
 
     void FixedUpdate()

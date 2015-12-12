@@ -305,6 +305,8 @@ public class LuaScriptMgr
     {
         IntPtr L = lua.L;
         BindArray(L);
+        //TODO  此处有坑，，回头再填平
+       // DelegateFactory.Clear();
         DelegateFactory.Register(L);
         LuaBinder.Bind(L);
     }
@@ -480,7 +482,7 @@ public class LuaScriptMgr
         //}
     }
 
-    public void LateUpate()
+    public void LateUpdate()
     {
         if (lateUpdateFunc != null)
         {
