@@ -13,7 +13,6 @@ function this.Login()
 end
 
 function this.Register()
-	UITools.ClosePanel(inst);
 	UITools.D('Register'):OnCommand('Show');
 end
 

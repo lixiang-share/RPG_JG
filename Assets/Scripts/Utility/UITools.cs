@@ -93,9 +93,20 @@ public static partial class UITools
         }
         else
         {
+            UIWidget widget = lb.GetComponent<UIWidget>();
+            if (widget != null)
+            {
+                widget.alpha = widget.alpha >= 0.8f ? 0 : widget.alpha;
+            }
+            UIPanel panel = lb.GetComponent<UIPanel>();
+            if (panel != null)
+            {
+                panel.alpha = panel.alpha >= 0.8f ? 0 : panel.alpha;
+            }
             TweenAlpha.Begin(lb.gameObject, duration, alpha).AddOnFinished(() =>
             {
                 SA(lb, false);
+                UnityEngine.Object.Destroy(lb.GetComponent<TweenAlpha>());
             });
         }
 
