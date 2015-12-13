@@ -85,13 +85,8 @@ public static partial class UITools
 
     public static void HandlePanel(LuaBehaviour lb, bool isShow ,float duration)
     {
-        float alpha = isShow ? 1 : 0;
+       // float alpha = isShow ? 1 : 0;
         if (isShow)
-        {
-            SA(lb,true);
-            TweenAlpha.Begin(lb.gameObject, duration, alpha);
-        }
-        else
         {
             UIWidget widget = lb.GetComponent<UIWidget>();
             if (widget != null)
@@ -103,7 +98,12 @@ public static partial class UITools
             {
                 panel.alpha = panel.alpha >= 0.8f ? 0 : panel.alpha;
             }
-            TweenAlpha.Begin(lb.gameObject, duration, alpha).AddOnFinished(() =>
+            SA(lb,true);
+            TweenAlpha.Begin(lb.gameObject, duration, 1);
+        }
+        else
+        {
+            TweenAlpha.Begin(lb.gameObject, duration, 0).AddOnFinished(() =>
             {
                 SA(lb, false);
                 UnityEngine.Object.Destroy(lb.GetComponent<TweenAlpha>());

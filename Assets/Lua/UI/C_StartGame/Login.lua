@@ -9,7 +9,7 @@ end
 
 function this.Login()
 	--local username = 
-	UITools.Log('Login');
+	UITools.D('ServerSelect'):OnCommand('Show');
 end
 
 function this.Register()
