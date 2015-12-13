@@ -135,7 +135,7 @@ namespace SimpleFramework.Manager {
             downloadFiles.Clear();
 
             if (!AppConst.UpdateMode) {
-                ResManager.initialize(OnResourceInited);
+                //TODOResManager.initialize(OnResourceInited);
                 yield break;
             }
             string dataPath = Util.DataPath;  //数据目录
@@ -196,7 +196,7 @@ namespace SimpleFramework.Manager {
             message = "更新完成!!";
             facade.SendMessageCommand(NotiConst.UPDATE_MESSAGE, message);
 
-            ResManager.initialize(OnResourceInited);
+           //TODO  ResManager.initialize(OnResourceInited);
         }
 
         /// <summary>

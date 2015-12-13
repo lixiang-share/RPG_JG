@@ -32,6 +32,7 @@ public class LuaBehaviourWrap
 			new LuaField("domain", get_domain, set_domain),
 			new LuaField("Domains", get_Domains, set_Domains),
 			new LuaField("varDict", get_varDict, set_varDict),
+			new LuaField("varList", get_varList, set_varList),
 			new LuaField("facade", get_facade, null),
 			new LuaField("LuaMgr", get_LuaMgr, set_LuaMgr),
 			new LuaField("ResManager", get_ResManager, null),
@@ -165,6 +166,30 @@ public class LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_varList(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name varList");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index varList on a nil value");
+			}
+		}
+
+		LuaScriptMgr.PushObject(L, obj.varList);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_facade(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
@@ -232,7 +257,7 @@ public class LuaBehaviourWrap
 			}
 		}
 
-		LuaScriptMgr.Push(L, obj.ResManager);
+		LuaScriptMgr.PushObject(L, obj.ResManager);
 		return 1;
 	}
 
@@ -456,6 +481,30 @@ public class LuaBehaviourWrap
 		}
 
 		obj.varDict = (Dictionary<string,object>)LuaScriptMgr.GetNetObject(L, 3, typeof(Dictionary<string,object>));
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_varList(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name varList");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index varList on a nil value");
+			}
+		}
+
+		obj.varList = (List<ParamInspector>)LuaScriptMgr.GetNetObject(L, 3, typeof(List<ParamInspector>));
 		return 0;
 	}
 

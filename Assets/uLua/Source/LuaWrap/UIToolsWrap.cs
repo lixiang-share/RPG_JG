@@ -22,6 +22,7 @@ public class UIToolsWrap
 			new LuaMethod("GetLuaPathInEditor", GetLuaPathInEditor),
 			new LuaMethod("isLuaFileExits", isLuaFileExits),
 			new LuaMethod("Compile", Compile),
+			new LuaMethod("ShowMes", ShowMes),
 			new LuaMethod("New", _CreateUITools),
 			new LuaMethod("GetClassType", GetClassType),
 		};
@@ -287,6 +288,15 @@ public class UIToolsWrap
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
 		UITools.Compile(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ShowMes(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		UITools.ShowMes(arg0);
 		return 0;
 	}
 }

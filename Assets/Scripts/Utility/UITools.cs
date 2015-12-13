@@ -196,6 +196,9 @@ public static partial class UITools
 
     public static void ShowMes(string mes)
     {
-
+        GameObject mesPrefab = ResourceManager.Instance.LoadMesPrefab() as GameObject;
+        GameObject go = NGUITools.AddChild(GameObject.FindWithTag("JGNGUICamera"), mesPrefab);
+        ShowText st = go.GetComponent<ShowText>();
+        st.SetText(mes);
     }
 }

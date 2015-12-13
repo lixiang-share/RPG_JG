@@ -62,8 +62,8 @@ public class SimpleFramework_LuaHelperWrap
 	static int GetResManager(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 0);
-		SimpleFramework.Manager.ResourceManager o = SimpleFramework.LuaHelper.GetResManager();
-		LuaScriptMgr.Push(L, o);
+		ResourceManager o = SimpleFramework.LuaHelper.GetResManager();
+		LuaScriptMgr.PushObject(L, o);
 		return 1;
 	}
 

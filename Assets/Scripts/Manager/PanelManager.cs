@@ -22,9 +22,9 @@ namespace SimpleFramework.Manager {
         /// </summary>
         /// <param name="type"></param>
         public void CreatePanel(string name, LuaFunction func = null) {
-            AssetBundle bundle = ResManager.LoadBundle(name);
-            StartCoroutine(StartCreatePanel(name, bundle, func));
-            Debug.LogWarning("CreatePanel::>> " + name + " " + bundle);
+           //TODO  AssetBundle bundle = ResManager.LoadBundle(name);
+            //StartCoroutine(StartCreatePanel(name, bundle, func));
+           // Debug.LogWarning("CreatePanel::>> " + name + " " + bundle);
         }
 
         /// <summary>

@@ -56,6 +56,7 @@ public static class LuaBinder
 			case "RendererWrap": RendererWrap.Register(L); break;
 			case "RenderSettingsWrap": RenderSettingsWrap.Register(L); break;
 			case "RenderTextureWrap": RenderTextureWrap.Register(L); break;
+			case "ResourceManagerWrap": ResourceManagerWrap.Register(L); break;
 			case "ScaleButtonWrap": ScaleButtonWrap.Register(L); break;
 			case "ScreenWrap": ScreenWrap.Register(L); break;
 			case "SimpleFramework_AppConstWrap": SimpleFramework_AppConstWrap.Register(L); break;
@@ -63,7 +64,6 @@ public static class LuaBinder
 			case "SimpleFramework_LuaHelperWrap": SimpleFramework_LuaHelperWrap.Register(L); break;
 			case "SimpleFramework_Manager_NetworkManagerWrap": SimpleFramework_Manager_NetworkManagerWrap.Register(L); break;
 			case "SimpleFramework_Manager_PanelManagerWrap": SimpleFramework_Manager_PanelManagerWrap.Register(L); break;
-			case "SimpleFramework_Manager_ResourceManagerWrap": SimpleFramework_Manager_ResourceManagerWrap.Register(L); break;
 			case "SimpleFramework_Manager_TimerManagerWrap": SimpleFramework_Manager_TimerManagerWrap.Register(L); break;
 			case "SimpleFramework_UtilWrap": SimpleFramework_UtilWrap.Register(L); break;
 			case "SimpleFramework_WrapGridWrap": SimpleFramework_WrapGridWrap.Register(L); break;
