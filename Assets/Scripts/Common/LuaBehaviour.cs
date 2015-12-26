@@ -228,20 +228,20 @@ public class LuaBehaviour : MonoBehaviour
 
     ////下面封装各种常用属性和方法
 
-    public System.Object this[string key]
+    public object this[string key]
     {
         set
         {
+            UITools.log("Test");
             if(varDict == null) varDict = new Dictionary<string , System.Object>();
             if (varDict.ContainsKey(key))
             {
-                varDict.Remove(key);
-                UITools.logError("key: "+key+" has been exits");
+               // varDict.Remove(key);
                 varDict[key] = value;
             }
             else
             {
-                varDict[key] = value;
+                varDict.Add(key, value);
             }
         }
         get
