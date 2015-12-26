@@ -24,7 +24,6 @@ using System.Collections.Generic;
 
         private AudioManager()
         {
-            Debug.Log(this);
             LoadAllAudio();
         }
 

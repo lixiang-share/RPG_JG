@@ -7,7 +7,6 @@ function this.Awake()
 	inst = this.inst;
 end
 
-
 function this.OnClick()
 	inst.Parent:OnCommand("ChangeRole");
 end

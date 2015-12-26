@@ -232,7 +232,6 @@ public class LuaBehaviour : MonoBehaviour
     {
         set
         {
-            UITools.log("Test");
             if(varDict == null) varDict = new Dictionary<string , System.Object>();
             if (varDict.ContainsKey(key))
             {
@@ -252,6 +251,16 @@ public class LuaBehaviour : MonoBehaviour
             }
             return null;
         }
+    }
+
+    public void S(string key, object value)
+    {
+        this[key] = value;
+    }
+
+    public object G(string key)
+    {
+        return this[key];
     }
 
     public LuaBehaviour Parent

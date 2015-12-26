@@ -130,6 +130,7 @@ public static partial class UITools
 
     public static void TweenPos(GameObject go, Vector3 targetPos, float duration)
     {
+        
         TweenPosition tp = TweenPosition.Begin(go, duration, targetPos);
         LuaBehaviour lb = go.GetComponent<LuaBehaviour>();
         if (lb != null)
@@ -137,6 +138,7 @@ public static partial class UITools
             tp.AddOnFinished(() =>
             {
                 lb.OnCommand("EndTween");
+                if (go.GetComponent<TweenPosition>() != null) UnityEngine.Object.Destroy(go.GetComponent<TweenPosition>());
             });
         }
     }

@@ -20,6 +20,8 @@ public class LuaBehaviourWrap
 			new LuaMethod("OnDisable", OnDisable),
 			new LuaMethod("set_Item", set_Item),
 			new LuaMethod("get_Item", get_Item),
+			new LuaMethod("S", S),
+			new LuaMethod("G", G),
 			new LuaMethod("New", _CreateLuaBehaviour),
 			new LuaMethod("GetClassType", GetClassType),
 			new LuaMethod("__eq", Lua_Eq),
@@ -642,6 +644,28 @@ public class LuaBehaviourWrap
 		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
 		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
 		object o = obj[arg0];
+		LuaScriptMgr.PushVarObject(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int S(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 3);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
+		object arg1 = LuaScriptMgr.GetVarObject(L, 3);
+		obj.S(arg0,arg1);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int G(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
+		object o = obj.G(arg0);
 		LuaScriptMgr.PushVarObject(L, o);
 		return 1;
 	}
