@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ExitGames.Diagnostics.Rrd</name>
+    </assembly>
+    <members>
+        <member name="T:ExitGames.Diagnostics.Rrd.Configuration.RrdGraphDefaultSettings">
+            <summary>
+            The rrd graph defaults.
+            </summary>
+        </member>
+        <member name="P:ExitGames.Diagnostics.Rrd.Configuration.RrdGraphDefaultSettings.Width">
+            <summary>
+            Gets or sets Width.
+            </summary>
+        </member>
+        <member name="P:ExitGames.Diagnostics.Rrd.Configuration.RrdGraphDefaultSettings.Height">
+            <summary>
+            Gets or sets Height.
+            </summary>
+        </member>
+        <member name="P:ExitGames.Diagnostics.Rrd.Configuration.RrdGraphSection.DefaultSettings">
+            <summary>
+            Gets the default settings for graph elements.
+            </summary>
+        </member>
+        <member name="F:ExitGames.Diagnostics.Rrd.RrdCounterDataFile.log">
+            <summary>
+            Provides a <see cref="T:ExitGames.Logging.ILogger"/> instance used to log messages into the logging framework.
+            </summary>
+        </member>
+        <member name="M:ExitGames.Diagnostics.Rrd.RrdGraphManager.GraphError.#ctor(RrdNet.Graph.RrdGraph,System.Exception)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ExitGames.Diagnostics.Rrd.RrdGraphManager.GraphError"/> class.
+            </summary>
+            <param name="graphElement">The graph element.</param>
+            <param name="exception">The inner exception.</param>
+        </member>
+        <member name="M:ExitGames.Diagnostics.Rrd.SocketEndPoint.#ctor(System.Net.IPEndPoint,System.Net.Sockets.ProtocolType)">
+            <summary>
+            Initializes a new instance of the <see cref="T:ExitGames.Diagnostics.Rrd.SocketEndPoint"/> class.
+            </summary>
+            <param name="endPoint">The end point.</param>
+            <param name="protocolType">Type protocol type.</param>
+        </member>
+        <member name="P:ExitGames.Diagnostics.Rrd.SocketEndPoint.EndPoint">
+            <summary>
+            Gets the endpoint.
+            </summary>
+        </member>
+        <member name="P:ExitGames.Diagnostics.Rrd.SocketEndPoint.ProtocolType">
+            <summary>
+            Gets the protocol type.
+            </summary>
+        </member>
+    </members>
+</doc>

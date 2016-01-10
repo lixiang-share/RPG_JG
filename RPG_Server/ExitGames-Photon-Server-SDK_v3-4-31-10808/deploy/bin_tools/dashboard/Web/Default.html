@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>
+    	Photon Socket-Server Dashboard | Exit Games
+    </title>
+
+	<link rel="shortcut icon" href="http://www.exitgames.com/Content/img/favicon.ico" />
+	
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+	
+	<link rel="stylesheet" type="text/css" media="all" href="/css/oocss.css" />
+	<link rel="stylesheet" type="text/css" media="all" href="/css/egcss.css" />
+
+	<script type="text/javascript">
+	    $(document).ready(function () {
+	        changePic();
+	    });
+
+	    function setTimer() {
+	        window.setTimeout(function () {
+	            changePic();
+	        }, 10000);
+	    }
+
+	    function changePic() {
+	        if ($("img.graph").length == 0) {
+	            var noImgHTML = '<div class="borderLight bgGradient"><div class="inlinePage"><div class="mod alignCenter" id="reloadinfo"><img class="marginBottom" src="/web/css/img/loader.gif" alt="Waiting ..." title="Waiting ..."><br /><strong>No Counter Data yet, this page will automatically reload &hellip;</strong></div></div></div>';
+
+	            $("div.body").prepend(noImgHTML);
+	            window.setTimeout(function () {
+	                location.reload(true);
+	            }, 10000);
+	            return;
+	        }
+
+	        $("img.graph").each(function () {
+	            var oldSource = $(this).attr('src');
+	            var index = oldSource.lastIndexOf("&time");
+
+	            if (index > 0) {
+	                oldSource = oldSource.substring(0, index);
+	            }
+
+	            index = oldSource.indexOf("?");
+	            if (index > 0) {
+	                $(this).attr('src', oldSource + "&time=" + (new Date()).getTime());
+	            }
+	            else {
+	                $(this).attr('src', oldSource + "?time=" + (new Date()).getTime());
+	            }
+	        });
+
+	        setTimer();
+	    }
+	</script>
+</head>
+    <body>
+        <div class="page">
+
+        <div id="sites">
+            <div class="inlinePage">		
+                <a class="img floatRight" href="http://www.exitgames.com/" id="logo" rel="nofollow"><img src="/img/logo_exitgames.gif" alt="Exit Games" title="Exit Games" /></a>
+                <b class="clearRight"></b>	
+            </div>
+        </div>
+        
+        <div class="borderLight">
+            <a href="/Default.html?sender=$currentMachine">Default</a> 
+            <a href="/Details.html?sender=$currentMachine">Details</a> 
+        </div>
+
+         <div class="borderLight">
+            #foreach( $machine in $machines )
+            <a href="?sender=$machine">$machine</a> 
+            #end
+        </div>
+
+          
+        <div class="body" role="document">
+            <div class="borderLight">
+                <div class="inlinePage feedgetContainer">
+                    <div class="mod">
+                        <p>System</p>
+                        <div class="feedget floatLeft marginRight marginBottom" id="feedget-0">                            
+                            <div class="feedgetTitleContainer">Cpu usage</div>
+                            <div class="borderLight">
+                                <img class="graph" src="/Counter/GetImage/$sender/CpuUsage"/>
+                            </div>
+                        </div>
+                        
+                        <div class="feedget floatLeft marginRight marginBottom" id="Div2">                            
+                            <div class="feedgetTitleContainer">Available memory (MByte)</div>
+                            <div class="borderLight">
+                                <img class="graph" src="/Counter/GetImage/$sender/DefaultImage?counter=System.Memory"/>
+                            </div>
+                        </div>
+                        
+                        <div class="feedget floatLeft marginRight marginBottom" id="Div1">                            
+                            <div class="feedgetTitleContainer">Bytes in per second</div>
+                            <div class="borderLight">
+                                <img class="graph" src="/Counter/GetImage/$sender/DefaultImage?counter=SocketServer.BytesInPerSecond"/>
+                            </div>
+                        </div>
+                        
+                        <div class="feedget floatLeft marginRight marginBottom" id="Div3">                            
+                            <div class="feedgetTitleContainer">Bytes out per second</div>
+                            <div class="borderLight">
+                                <img class="graph" src="/Counter/GetImage/$sender/DefaultImage?counter=SocketServer.BytesOutPerSecond"/>
+                            </div>
+                        </div>
+                        
+                         <div class="feedget floatLeft marginRight marginBottom" id="Div4">                            
+                            <div class="feedgetTitleContainer">Messages in per second</div>
+                            <div class="borderLight">
+                                <img class="graph" src="/Counter/GetImage/$sender/DefaultImage?counter=SocketServer.MessagesInPerSecond"/>
+                            </div>
+                        </div>
+                        
+                        <div class="feedget floatLeft marginRight marginBottom" id="Div5">                            
+                            <div class="feedgetTitleContainer">Messages out per second</div>
+                            <div class="borderLight">
+                                <img class="graph" src="/Counter/GetImage/$sender/DefaultImage?counter=SocketServer.MessagesOutPerSecond"/>
+                            </div>
+                        </div>
+                        
+                        <div class="feedget floatLeft marginRight marginBottom" id="Div7">                            
+                            <div class="feedgetTitleContainer">Commands resent per second</div>
+                            <div class="borderLight">
+                                <img class="graph" src="/Counter/GetImage/$sender/DefaultImage?counter=SocketServer.CommandsResentPerSecond"/>
+                            </div>
+                        </div>
+
+                        <div class="feedget floatLeft marginRight marginBottom" id="Div6">                            
+                            <div class="feedgetTitleContainer">Peer count</div>
+                            <div class="borderLight">
+                                <img class="graph" src="/Counter/GetImage/$sender/DefaultImage?counter=SocketServer.Peers"/>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>

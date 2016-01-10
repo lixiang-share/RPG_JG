@@ -1,0 +1,419 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Photon.MmoDemo.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Photon.MmoDemo.Common.ReturnCode">
+            <summary>
+            This enumeration contains all known error codes.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ReturnCode.Ok">
+            <summary>
+            The ok code.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ReturnCode.Fatal">
+            <summary>
+            The fatal.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ReturnCode.ParameterOutOfRange">
+            <summary>
+            The parameter out of range.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ReturnCode.OperationNotSupported">
+            <summary>
+            The operation not supported.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ReturnCode.InvalidOperationParameter">
+            <summary>
+            The invalid operation parameter.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ReturnCode.InvalidOperation">
+            <summary>
+            The invalid operation.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ReturnCode.ItemAccessDenied">
+            <summary>
+            The avatar access denied.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ReturnCode.InterestAreaNotFound">
+            <summary>
+            interest area not found.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ReturnCode.InterestAreaAlreadyExists">
+            <summary>
+            The interest area already exists.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ReturnCode.WorldAlreadyExists">
+            <summary>
+            The world already exists.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ReturnCode.WorldNotFound">
+            <summary>
+            The world not found.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ReturnCode.ItemAlreadyExists">
+            <summary>
+            The item already exists.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ReturnCode.ItemNotFound">
+            <summary>
+            The item not found.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Common.EventCode">
+            <summary>
+            This enumeration contains all known event codes.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.EventCode.ItemDestroyed">
+            <summary>
+            The actor leave.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.EventCode.ItemMoved">
+            <summary>
+            The actor move.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.EventCode.ItemPropertiesSet">
+            <summary>
+            The item properties set.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.EventCode.ItemGeneric">
+            <summary>
+            The item generic.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.EventCode.WorldExited">
+            <summary>
+            The world exited.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.EventCode.ItemSubscribed">
+            <summary>
+            The item subscribed.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.EventCode.ItemUnsubscribed">
+            <summary>
+            The item unsubscribed.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.EventCode.ItemProperties">
+            <summary>
+            The item properties.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.EventCode.RadarUpdate">
+            <summary>
+            The radar update.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.EventCode.CounterData">
+            <summary>
+            The counter data.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Common.EventReceiver">
+            <summary>
+            This enumeration contains all known event receivers.
+            Used for operation <see cref="F:Photon.MmoDemo.Common.OperationCode.RaiseGenericEvent"/>.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.EventReceiver.ItemSubscriber">
+            <summary>
+            The item subscriber.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.EventReceiver.ItemOwner">
+            <summary>
+            The item owner.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Common.ItemType">
+            <summary>
+            This enum contains all know item types.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ItemType.Avatar">
+            <summary>
+            The avatar.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ItemType.Bot">
+            <summary>
+            The bot (fake avatar).
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Common.OperationCode">
+            <summary>
+            This enumeration contains known operation codes.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.Nil">
+            <summary>
+            The nil (nothing).
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.CreateWorld">
+            <summary>
+            Create world operation code
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.EnterWorld">
+            <summary>
+            The enter world.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.ExitWorld">
+            <summary>
+            The exit world.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.Move">
+            <summary>
+            The move code.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.RaiseGenericEvent">
+            <summary>
+            The raise generic event.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.SetProperties">
+            <summary>
+            The set properties.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.SpawnItem">
+            <summary>
+            The spawn item.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.DestroyItem">
+            <summary>
+            The destroy item.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.SubscribeItem">
+            <summary>
+            The subscribe item.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.UnsubscribeItem">
+            <summary>
+            The unsubscribe item.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.SetViewDistance">
+            <summary>
+            The set view distance.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.AttachInterestArea">
+            <summary>
+            The attach interest area.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.DetachInterestArea">
+            <summary>
+            The detach interest area.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.AddInterestArea">
+            <summary>
+            The add interest area.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.RemoveInterestArea">
+            <summary>
+            The remove interest area.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.GetProperties">
+            <summary>
+            The get properties.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.MoveInterestArea">
+            <summary>
+            The move interest area.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.RadarSubscribe">
+            <summary>
+            The radar subscribe.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.UnsubscribeCounter">
+            <summary>
+            The unsubscribe counter.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.OperationCode.SubscribeCounter">
+            <summary>
+            The subscribe counter.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Common.ParameterCode">
+            <summary>
+            This enumeration contains the values used for event parameter, operation request parameter and operation response parameter.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.EventCode">
+            <summary>
+            The event code.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.Username">
+            <summary>
+            The username.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.OldPosition">
+            <summary>
+            The old position.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.Position">
+            <summary>
+            The position.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.Properties">
+            <summary>
+            The properties.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.ItemId">
+            <summary>
+            The item id.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.ItemType">
+            <summary>
+            The item type.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.PropertiesRevision">
+            <summary>
+            The properties revision.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.CustomEventCode">
+            <summary>
+            The custom event code.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.EventData">
+            <summary>
+            The event data.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.TopLeftCorner">
+            <summary>
+            The top left corner.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.TileDimensions">
+            <summary>
+            The tile dimensions.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.BottomRightCorner">
+            <summary>
+            The bottom right corner.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.WorldName">
+            <summary>
+            The world name.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.ViewDistanceEnter">
+            <summary>
+            The view distance.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.PropertiesSet">
+            <summary>
+            The properties set.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.PropertiesUnset">
+            <summary>
+            The properties unset.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.EventReliability">
+            <summary>
+            The event reliability.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.EventReceiver">
+            <summary>
+            The event receiver.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.Subscribe">
+            <summary>
+            The subscribe.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.ViewDistanceExit">
+            <summary>
+            The view distance exit.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.InterestAreaId">
+            <summary>
+            The interest area id.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.CounterReceiveInterval">
+            <summary>
+            The counter receive interval.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.CounterName">
+            <summary>
+            The counter name.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.CounterTimeStamps">
+            <summary>
+            The counter time stamps.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.CounterValues">
+            <summary>
+            The counter values.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.Rotation">
+            <summary>
+            The current rotation.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Common.ParameterCode.OldRotation">
+            <summary>
+            The previous rotation.
+            </summary>
+        </member>
+    </members>
+</doc>

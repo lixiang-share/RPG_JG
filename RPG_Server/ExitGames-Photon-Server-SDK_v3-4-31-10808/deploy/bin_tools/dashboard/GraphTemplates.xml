@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Templates>
+    
+    <!-- Default for images -->
+    <Template Name="DefaultImage">
+        <![CDATA[-s {start:-1h} -e {end:now} -w {width:400} -h {height:120} -l {min:0} -u {max:10} -D -c BACK#ffffff00 --border 0 --full-size-mode 
+        DEF:ds={$Counter:PeerCount}:GAUGE:{cf:AVERAGE} CDEF:ds2=ds,{mul:1},* AREA:ds2#{Color:336699}:"{label:}"]]>
+    </Template>
+
+  <!-- Default for data -->
+    <Template Name="DefaultData">
+        <![CDATA[-s {start:-1h} -e {end:now} DEF:ds={$Counter:PeerCount}:GAUGE:{cf:AVERAGE} CDEF:ds2=ds,UN,0,ds,IF VDEF:dsmax=ds2,{af:MAXIMUM} PRINT:dsmax:"%.0lf"]]>
+    </Template>
+
+  <Template Name="CpuUsage">
+    <![CDATA[-s {start:-1h} -e {end:now} -w {width:400} -h {height:120} -l {min:0} -u {max:100} -D -c BACK#ffffff00 --border 0 --full-size-mode 
+    DEF:ds1={$$System.CpuTotal}:GAUGE:{cf:AVERAGE} 
+    DEF:ds2={$$System.Cpu}:GAUGE:{cf:AVERAGE}  
+    AREA:ds1#{Color:336699}:""
+    AREA:ds2#{Color:990033}:""]]>
+  </Template>
+  
+</Templates>

@@ -1,0 +1,5 @@
+2016-01-10 11:59:24,753 [1] INFO  Photon.SocketServer.Diagnostics.CounterPublisher [(null)] - CounterPublisher started on: 255.255.255.255:40001
+2016-01-10 11:59:24,765 [1] INFO  Photon.SocketServer.ApplicationBase [(null)] - Application start: AppId=CounterPublisher; AppPath=G:\U3D_WorkSpace\Personal_Project\RPG_Server\ExitGames-Photon-Server-SDK_v3-4-31-10808\deploy\CounterPublisher, Type=Photon.CounterPublisher.Application 
+2016-01-10 11:59:24,767 [1] INFO  Photon.SocketServer.Diagnostics.CounterPublisher [(null)] - CounterPublisher started on: 255.255.255.255:40001
+2016-01-10 11:59:34,444 [1] INFO  Photon.SocketServer.ApplicationBase [(null)] - Application is stopping: AppId=CounterPublisher
+2016-01-10 11:59:34,457 [1] INFO  Photon.SocketServer.ApplicationBase [(null)] - Application stop: AppId=CounterPublisher

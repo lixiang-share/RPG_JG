@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{918525F6-635E-4D56-A85C-7F4C5E95E822}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Photon.LoadBalancing</RootNamespace>
+    <AssemblyName>Photon.LoadBalancing</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <UpgradeBackupLocation />
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+    <StartAction>Program</StartAction>
+    <StartProgram>..\..\deploy\bin_Win32\PhotonSocketServer.exe</StartProgram>
+    <StartArguments>/debug LoadBalancing /config PhotonServer.LoadBalancing-Development.config</StartArguments>
+    <StartWorkingDirectory>..\..</StartWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite">
+      <HintPath>..\lib\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="ExitGames.Logging.Log4Net">
+      <HintPath>..\..\..\lib\ExitGames.Logging.Log4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="ExitGamesLibs">
+      <HintPath>..\..\..\lib\ExitGamesLibs.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\..\..\lib\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Photon.SocketServer">
+      <HintPath>..\..\..\lib\Photon.SocketServer.dll</HintPath>
+    </Reference>
+    <Reference Include="PhotonHostRuntimeInterfaces">
+      <HintPath>..\..\..\lib\PhotonHostRuntimeInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\CommonSettings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>CommonSettings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Common\DictionaryExtensions.cs" />
+    <Compile Include="Common\GameParameterReader.cs" />
+    <Compile Include="Common\Net\AsyncHttpRequest.cs" />
+    <Compile Include="Common\Net\AsyncHttpRequestStatus.cs" />
+    <Compile Include="Common\Net\HttpRequestQueue.cs" />
+    <Compile Include="Common\Net\HttpWebRequestExtensions.cs" />
+    <Compile Include="Common\PublicIPAddressReader.cs" />
+    <Compile Include="Common\Utilities.cs" />
+    <Compile Include="GameServer\ApplicationStatsPublisher.cs" />
+    <Compile Include="GameServer\GameServerSettings.cs" />
+    <Compile Include="LoadBalancer\Configuration\ConfigurationLoader.cs" />
+    <Compile Include="LoadBalancer\Configuration\DefaultConfiguration.cs" />
+    <Compile Include="LoadBalancer\Configuration\LoadBalancerSection.cs" />
+    <Compile Include="LoadBalancer\Configuration\LoadBalancerWeight.cs" />
+    <Compile Include="LoadBalancer\Configuration\LoadBalancerWeightsCollection.cs" />
+    <Compile Include="LoadBalancer\LoadBalancer.cs" />
+    <Compile Include="Events\AppStatsEvent.cs" />
+    <Compile Include="Events\EventCode.cs" />
+    <Compile Include="Events\GameListEvent.cs" />
+    <Compile Include="Events\GameListUpdateEvent.cs" />
+    <Compile Include="Events\GameServerOfflineEvent.cs" />
+    <Compile Include="Events\QueueEvent.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="GameServer\GameMessageCodes.cs" />
+    <Compile Include="LoadShedding\Configuration\ConfigurationLoader.cs" />
+    <Compile Include="LoadShedding\Configuration\DefaultConfiguration.cs" />
+    <Compile Include="LoadShedding\Configuration\FeedbackControllerElement.cs" />
+    <Compile Include="LoadShedding\Configuration\FeedbackControllerElementCollection.cs" />
+    <Compile Include="LoadShedding\Configuration\FeedbackControlSystemSection.cs" />
+    <Compile Include="LoadShedding\Configuration\FeedbackLevelElement.cs" />
+    <Compile Include="LoadShedding\Configuration\FeedbackLevelElementCollection.cs" />
+    <Compile Include="LoadShedding\Diagnostics\Counter.cs" />
+    <Compile Include="GameServer\Game.cs" />
+    <Compile Include="GameServer\GameApplication.cs" />
+    <Compile Include="GameServer\GameCache.cs" />
+    <Compile Include="GameServer\GameClientPeer.cs" />
+    <Compile Include="GameServer\GameServerSettings.Designer.cs">
+      <DependentUpon>GameServerSettings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="GameServer\Global.cs" />
+    <Compile Include="GameServer\OutgoingMasterServerPeer.cs" />
+    <Compile Include="LoadShedding\LatencyPeer.cs" />
+    <Compile Include="Common\ServerState.cs" />
+    <Compile Include="MasterServer\ApplicationStats.cs" />
+    <Compile Include="MasterServer\ChannelLobby\GameChannel.cs" />
+    <Compile Include="MasterServer\ChannelLobby\GameChannelKey.cs" />
+    <Compile Include="MasterServer\ChannelLobby\GameChannelList.cs" />
+    <Compile Include="MasterServer\GameApplication.cs" />
+    <Compile Include="MasterServer\GameServer\GameServerCollection.cs" />
+    <Compile Include="MasterServer\GameServer\GameServerState.cs" />
+    <Compile Include="MasterServer\GameServer\IncomingGameServerPeer.cs" />
+    <Compile Include="MasterServer\Lobby\AppLobby.cs" />
+    <Compile Include="MasterServer\Lobby\AppLobbyType.cs" />
+    <Compile Include="MasterServer\Lobby\GameDataBase.cs" />
+    <Compile Include="MasterServer\Lobby\GameList.cs" />
+    <Compile Include="MasterServer\Lobby\GameState.cs" />
+    <Compile Include="MasterServer\Lobby\IGameList.cs" />
+    <Compile Include="MasterServer\Lobby\IGameListSubscibtion.cs" />
+    <Compile Include="MasterServer\Lobby\ILobbyPeer.cs" />
+    <Compile Include="MasterServer\Lobby\LinkedListDictionary.cs" />
+    <Compile Include="MasterServer\Lobby\LobbyFactory.cs" />
+    <Compile Include="MasterServer\Lobby\PeerState.cs" />
+    <Compile Include="MasterServer\Lobby\SqlGameList.cs" />
+    <Compile Include="MasterServer\MasterApplication.cs" />
+    <Compile Include="MasterServer\MasterClientPeer.cs" />
+    <Compile Include="MasterServer\MasterServerSettings.Designer.cs">
+      <DependentUpon>MasterServerSettings.settings</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="MasterServer\OperationHelper.cs" />
+    <Compile Include="Common\NodesReader.cs" />
+    <Compile Include="MasterServer\PlayerCache.cs" />
+    <Compile Include="MasterServer\RedirectedClientPeer.cs" />
+    <Compile Include="Operations\ActorParameter.cs" />
+    <Compile Include="Operations\AuthenticateResponse.cs" />
+    <Compile Include="Operations\DebugGameRequest.cs" />
+    <Compile Include="Operations\DebugGameResponse.cs" />
+    <Compile Include="Operations\FindFriendsResponse.cs" />
+    <Compile Include="Operations\FindFriendsRequest.cs" />
+    <Compile Include="Operations\JoinLobbyRequest.cs" />
+    <Compile Include="Operations\JoinRandomType.cs" />
+    <Compile Include="Operations\RedirectRepeatResponse.cs" />
+    <Compile Include="ServerToServer\Events\AuthenticateUpdateEvent.cs" />
+    <Compile Include="ServerToServer\Events\ServerParameterCode.cs" />
+    <Compile Include="ServerToServer\Events\RemoveGameEvent.cs" />
+    <Compile Include="ServerToServer\Events\ServerEventCode.cs" />
+    <Compile Include="ServerToServer\Events\UpdateAppStatsEvent.cs" />
+    <Compile Include="ServerToServer\Events\UpdateGameEvent.cs" />
+    <Compile Include="ServerToServer\Events\UpdateServerEvent.cs" />
+    <Compile Include="LoadShedding\AverageCounterReader.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadShedding\FeedbackController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadShedding\FeedbackControllerCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadShedding\FeedbackControlSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadShedding\FeedbackLevel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadShedding\FeedbackLevelOrder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadShedding\FeedbackName.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadShedding\IFeedbackControlSystem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadShedding\ILatencyMonitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadShedding\LatencyMonitor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadShedding\ValueHistory.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="LoadShedding\WorkloadController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Operations\AuthenticateRequest.cs" />
+    <Compile Include="Operations\CreateGameRequest.cs" />
+    <Compile Include="Operations\CreateGameResponse.cs" />
+    <Compile Include="Operations\ErrorCode.cs" />
+    <Compile Include="Operations\GameParameter.cs" />
+    <Compile Include="Operations\JoinGameRequest.cs" />
+    <Compile Include="Operations\JoinGameResponse.cs" />
+    <Compile Include="Operations\JoinRandomGameRequest.cs" />
+    <Compile Include="Operations\JoinRandomGameResponse.cs" />
+    <Compile Include="LoadShedding\LatencyOperation.cs" />
+    <Compile Include="Operations\OperationCode.cs" />
+    <Compile Include="Operations\ParameterCode.cs" />
+    <Compile Include="ServerToServer\Operations\OperationCode.cs" />
+    <Compile Include="ServerToServer\Operations\RegisterGameServer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ServerToServer\Operations\RegisterGameServerResponse.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Common\CommonSettings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>CommonSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="GameServer\GameServerSettings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>GameServerSettings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="MasterServer\MasterServerSettings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>MasterServerSettings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Lite\Lite\Lite.csproj">
+      <Project>{E1F918F4-F581-4280-9D91-3CF77B24C290}</Project>
+      <Name>Lite</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="x64\SQLite.Interop.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x64\SQLite.Interop.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\SQLite.Interop.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="x86\SQLite.Interop.pdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

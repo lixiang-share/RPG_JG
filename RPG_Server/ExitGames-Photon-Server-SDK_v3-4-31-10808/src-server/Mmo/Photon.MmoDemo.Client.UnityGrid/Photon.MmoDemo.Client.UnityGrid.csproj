@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="3.5" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{5397016C-1A0D-47FB-B2CB-ACF05E9E5443}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Photon.MmoDemo.Client.UnityGrid</RootNamespace>
+    <AssemblyName>Photon.MmoDemo.Client.UnityGrid</AssemblyName>
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PhotonUnity3D, Version=5.7.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\Photon3Unity3D.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="UnityEditor, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\UnityEditor.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\lib\UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Assets\FramesPerSecond.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Assets\ItemBehaviour.cs" />
+    <Compile Include="Assets\Radar.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Assets\RoundTripTime.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Assets\RunBehaviour.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Assets\Settings.cs" />
+    <Compile Include="Assets\TextColor.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Photon.MmoDemo.Client.Unity3D\Photon.MmoDemo.Client.Unity3D.csproj">
+      <Project>{170CE1BC-2D9C-4344-8E9D-07BAA2E3FB94}</Project>
+      <Name>Photon.MmoDemo.Client.Unity3D</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Photon.MmoDemo.Common\Photon.MmoDemo.Common.csproj">
+      <Project>{8C1F7F02-10EA-436F-9679-D4DB5B666BDB}</Project>
+      <Name>Photon.MmoDemo.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets\Photon\" />
+    <Folder Include="Assets\Resources\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>
+copy "$(TargetDir)*.*" "$(ProjectDir)Assets\Photon\"
+del "$(ProjectDir)Assets\Photon\$(TargetFileName)"
+del "$(ProjectDir)Assets\Photon\Unity*.dll"
+	</PostBuildEvent>
+  </PropertyGroup>
+</Project>

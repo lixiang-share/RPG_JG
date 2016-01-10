@@ -1,0 +1,426 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LiteLobby</name>
+    </assembly>
+    <members>
+        <member name="T:LiteLobby.Caching.LiteLobbyGameCache">
+            <summary>
+            The lite lobby game cache.
+            </summary>
+        </member>
+        <member name="F:LiteLobby.Caching.LiteLobbyGameCache.Instance">
+            <summary>
+            The instance.
+            </summary>
+        </member>
+        <member name="M:LiteLobby.Caching.LiteLobbyGameCache.CreateRoom(System.String,System.Object[])">
+            <summary>
+            The create room.
+            </summary>
+            <param name="roomId">
+            The room id.
+            </param>
+            <param name="args">
+            The args.
+            </param>
+            <returns>
+            a <see cref="T:LiteLobby.LiteLobbyGame"/>
+            </returns>
+        </member>
+        <member name="T:LiteLobby.Caching.LiteLobbyRoomCache">
+            <summary>
+            The lite lobby room cache.
+            </summary>
+        </member>
+        <member name="F:LiteLobby.Caching.LiteLobbyRoomCache.Instance">
+            <summary>
+            The instance.
+            </summary>
+        </member>
+        <member name="M:LiteLobby.Caching.LiteLobbyRoomCache.CreateRoom(System.String,System.Object[])">
+            <summary>
+            The create room.
+            </summary>
+            <param name="roomId">
+            The room id.
+            </param>
+            <param name="args">
+            The args.
+            </param>
+            <returns>
+            a <see cref="T:LiteLobby.LiteLobbyRoom"/>  
+            </returns>
+        </member>
+        <member name="T:LiteLobby.LiteLobbyApplication">
+            <summary>
+            Main photon application that is started from the photon server.
+            This <see cref="T:Lite.LiteApplication"/> subclass creates a <see cref="T:LiteLobby.LiteLobbyPeer"/> instead of a <see cref="T:Lite.LitePeer"/>, therefore the <see cref="T:LiteLobby.LiteLobbyPeer"/> dispatches incoming <see cref="T:Photon.SocketServer.OperationRequest"/>s.
+            </summary>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyApplication.CreatePeer(Photon.SocketServer.InitRequest)">
+            <summary>
+            Creates a <see cref="T:LiteLobby.LiteLobbyPeer"/>.
+            </summary>
+            <param name="initRequest">
+            The initialization request sent by the peer.
+            </param>
+            <returns>
+            A new <see cref="T:LiteLobby.LiteLobbyPeer"/> instance.
+            </returns>
+        </member>
+        <member name="T:LiteLobby.LiteLobbyPeer">
+            <summary>
+              This <see cref="T:Lite.LitePeer"/> subclass handles join operations with different operation implementation.
+            </summary>
+        </member>
+        <member name="F:LiteLobby.LiteLobbyPeer.LobbySuffix">
+            <summary>
+              Games with this suffix will be handled as lobby-type.
+            </summary>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyPeer.#ctor(Photon.SocketServer.IRpcProtocol,PhotonHostRuntimeInterfaces.IPhotonPeer)">
+            <summary>
+              Initializes a new instance of the <see cref="T:LiteLobby.LiteLobbyPeer"/> class.
+            </summary>
+            <param name="rpcProtocol">
+              The rpc Protocol.
+            </param>
+            <param name="photonPeer">
+              The photon peer.
+            </param>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyPeer.HandleJoinGameWithLobby(LiteLobby.Operations.JoinRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Joins the peer to a <see cref="T:LiteLobby.LiteLobbyGame"/>.
+              Called by <see cref="M:LiteLobby.LiteLobbyPeer.HandleJoinOperation(Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">HandleJoinOperation</see>.
+            </summary>
+            <param name="joinOperation">
+              The join operation.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyPeer.HandleJoinLobby(LiteLobby.Operations.JoinRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Joins the peer to a <see cref="N:LiteLobby"/>.
+              Called by <see cref="M:LiteLobby.LiteLobbyPeer.HandleJoinOperation(Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">HandleJoinOperation</see>.
+            </summary>
+            <param name="joinRequest">
+              The join operation.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyPeer.HandleJoinOperation(Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              This override replaces the lite <see cref="T:Lite.Operations.JoinRequest"/> with the lobby <see cref="T:LiteLobby.Operations.JoinRequest"/> and enables lobby support.
+            </summary>
+            <param name="operationRequest">
+              The operation request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="T:LiteLobby.LiteLobbyRoom">
+            <summary>
+            A <see cref="T:Lite.LiteGame"/> that does not support event exchange between the joined <see cref="T:Lite.Actor"/>s.
+            Instead it tracks all existing <see cref="T:LiteLobby.LiteLobbyGame"/>s and informs joined actors about it. 
+            </summary>
+        </member>
+        <member name="F:LiteLobby.LiteLobbyRoom.roomList">
+            <summary>Hashtable containing all roomes for this lobby.</summary>
+        </member>
+        <member name="F:LiteLobby.LiteLobbyRoom.changedRoomList">
+            <summary>Hashtable containing all roomes which changed since last update.</summary>
+        </member>
+        <member name="F:LiteLobby.LiteLobbyRoom.schedule">
+            <summary>
+            The schedule.
+            </summary>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyRoom.#ctor(System.String,Lite.Caching.RoomCacheBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:LiteLobby.LiteLobbyRoom"/> class.
+            </summary>
+            <param name="lobbyName">
+            Name of the lobby.
+            </param>
+            <param name="roomCache">
+              The <see cref="T:Lite.Caching.RoomCacheBase"/> instance to which the room belongs.
+            </param>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyRoom.ExecuteOperation(Lite.LitePeer,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+            Dispatches the <see cref="T:LiteLobby.Operations.JoinRequest"/> different from the base <see cref="M:Lite.LiteGame.ExecuteOperation(Lite.LitePeer,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">LiteGame.ExecuteOperation</see>.
+            </summary>
+            <param name="peer">
+            The peer.
+            </param>
+            <param name="operationRequest">
+            The operation request to execute.
+            </param>
+            <param name="sendParameters">
+            The send Parameters.
+            </param>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyRoom.HandleJoinOperation(Lite.LitePeer,LiteLobby.Operations.JoinRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+            Executes the base <see cref="M:Lite.LiteGame.HandleJoinOperation(Lite.LitePeer,Lite.Operations.JoinRequest,Photon.SocketServer.SendParameters)">HandleJoinOperation</see> and then sends an updated game list to all <see cref="T:Lite.Actor"/>s in the lobby.
+            </summary>
+            <param name="peer">
+            The peer.
+            </param>
+            <param name="joinRequest">
+            The join request.
+            </param>
+            <param name="sendParameters">
+            The send Parameters.
+            </param>
+            <returns>
+            The new actor
+            </returns>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyRoom.ProcessMessage(Lite.Messages.IMessage)">
+            <summary>
+            Adds 3 new <see cref="P:Lite.Messages.IMessage.Action">message actions</see> to the <see cref="T:Lite.LiteGame"/>:
+            <list type="bullet">
+            <item><see cref="F:LiteLobby.Messages.LobbyMessageCode.AddGame"/>: Sent from <see cref="T:LiteLobby.LiteLobbyGame"/> when a player joins.</item>
+            <item><see cref="F:LiteLobby.Messages.LobbyMessageCode.RemoveGame"/>: Sent from <see cref="T:LiteLobby.LiteLobbyGame"/> when a player leaves.</item>
+            <item><see cref="F:LiteLobby.Messages.LobbyMessageCode.PublishChangeList"/>: Frequenyly sent with a timer to keep the clients updated.</item>
+            </list>
+            </summary>
+            <param name="message">
+            Message to process.
+            </param>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyRoom.PublishJoinEvent(Lite.LitePeer,Lite.Operations.JoinRequest)">
+            <summary>
+            This override disables the event publishing.
+            </summary>
+            <param name="peer">
+            The peer.
+            </param>
+            <param name="joinRequest">
+            The join request.
+            </param>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyRoom.PublishLeaveEvent(Lite.Actor,Lite.Operations.LeaveRequest)">
+            <summary>
+            This override disables the event publishing.
+            </summary>
+            <param name="peer">
+            The peer.
+            </param>
+            <param name="leaveOperation">
+            The leave operation.
+            </param>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyRoom.RemovePeerFromGame(Lite.LitePeer,Lite.Operations.LeaveRequest)">
+            <summary>
+            This override disables the event publishing.
+            </summary>
+            <param name="peer">
+            The peer.
+            </param>
+            <param name="leaveRequest">
+            The <see cref="T:Lite.Operations.LeaveRequest"/> sent by the peer or null if the peer have been disconnected without sending a leave request.
+            </param>
+            <returns>
+            the actor number.
+            </returns>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyRoom.AddInfoToList(System.Collections.IDictionary,System.String[])">
+            <summary>
+            Copies gameInfo into a dictionary that is used as a list of known games.
+            </summary>
+            <param name="gameData">
+            The list of known games.
+            </param>
+            <param name="gameInfo">
+            The array content but the first item are saved in <paramref name="gameData"/>. 
+            The key is the first item in gameInfo.
+            </param>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyRoom.GameListAddOrUpdateGameId(System.String[])">
+            <summary>
+            Adds the new <paramref name="gameInfo"/> information to the known rooms list.
+            </summary>
+            <param name="gameInfo">
+            The new or updated game info.
+            </param>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyRoom.GameListRemoveGameId(System.String[])">
+            <summary>
+            Removes info about a <see cref="T:LiteLobby.LiteLobbyGame"/> from the known rooms list.
+            </summary>
+            <param name="gameInfo">
+            The game info.
+            </param>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyRoom.PublishChangeList">
+            <summary>
+            Sends the change list to all users in the lobby and then clears it.
+            </summary>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyRoom.PublishGameList(Lite.Actor)">
+            <summary>
+            Sends the complete list of games to one actor in the lobby.
+            </summary>
+            <param name="actor">
+            The actor.
+            </param>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyRoom.SchedulePublishChanges">
+            <summary>
+            Schedules a broadcast of all changes.
+            </summary>
+        </member>
+        <member name="T:LiteLobby.LiteLobbyGame">
+            <summary>
+              A <see cref="T:Lite.LiteGame"/> that updates the <see cref="T:LiteLobby.LiteLobbyRoom"/> when a <see cref="T:LiteLobby.LiteLobbyPeer"/> joins or leaves.
+            </summary>
+        </member>
+        <member name="F:LiteLobby.LiteLobbyGame.lobbyReference">
+            <summary>
+              This <see cref="T:Lite.Caching.RoomReference"/> is the link to the <see cref="T:LiteLobby.LiteLobbyRoom"/> that needs to be updated when players join or leave.
+            </summary>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyGame.#ctor(System.String,System.String,Lite.Caching.RoomCacheBase)">
+            <summary>
+              Initializes a new instance of the <see cref="T:LiteLobby.LiteLobbyGame"/> class.
+            </summary>
+            <param name="gameName">
+              The name of the game.
+            </param>
+            <param name="lobbyName">
+              The name of the lobby for the game.
+            </param>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyGame.Dispose(System.Boolean)">
+            <summary>
+              Disposes the <see cref="F:LiteLobby.LiteLobbyGame.lobbyReference"/>.
+            </summary>
+            <param name="disposing">
+              The disposing.
+            </param>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyGame.HandleJoinOperation(Lite.LitePeer,Lite.Operations.JoinRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Updates the lobby when an <see cref="T:Lite.Actor"/> joins.
+            </summary>
+            <param name="peer">
+              The peer.
+            </param>
+            <param name="joinRequest">
+              The join operation.
+            </param>
+            <param name="sendParamters">
+              The send Paramters.
+            </param>
+            <returns>
+              The newly created (joined) <see cref="T:Lite.Actor"/>.
+            </returns>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyGame.RemovePeerFromGame(Lite.LitePeer,Lite.Operations.LeaveRequest)">
+            <summary>
+              Updates the lobby when an <see cref="T:Lite.Actor"/> leaves (disconnect, <see cref="T:Lite.Operations.LeaveRequest"/>, <see cref="T:Lite.Operations.JoinRequest"/> for another game).
+            </summary>
+            <param name="peer">
+              The <see cref="T:Lite.LitePeer"/> to remove.
+            </param>
+            <param name="leaveRequest">
+              The <see cref="T:Lite.Operations.LeaveRequest"/> sent by the peer or null if the peer have been disconnected without sending a leave request.
+            </param>
+            <returns>
+              The actore number of the removed actor.
+              If the specified peer does not exists -1 will be returned.
+            </returns>
+        </member>
+        <member name="M:LiteLobby.LiteLobbyGame.UpdateLobby">
+            <summary>
+              Updates the lobby if necessary.
+            </summary>
+        </member>
+        <member name="P:LiteLobby.LiteLobbyGame.Lobby">
+            <summary>
+              Gets the lobby for this game instance.
+            </summary>
+            <value>The lobby.</value>
+        </member>
+        <member name="T:LiteLobby.Messages.LobbyMessageCode">
+            <summary>
+            Defines message codes for <see cref="T:LiteLobby.LiteLobbyRoom"/> rooms.
+            </summary>
+        </member>
+        <member name="F:LiteLobby.Messages.LobbyMessageCode.AddGame">
+            <summary>
+            The add game.
+            </summary>
+        </member>
+        <member name="F:LiteLobby.Messages.LobbyMessageCode.RemoveGame">
+            <summary>
+            The remove game.
+            </summary>
+        </member>
+        <member name="F:LiteLobby.Messages.LobbyMessageCode.PublishChangeList">
+            <summary>
+            The publish change list.
+            </summary>
+        </member>
+        <member name="T:LiteLobby.Operations.LiteLobbyEventCode">
+            <summary>
+            defines the event codes used by the lite lobby application.
+            </summary>
+        </member>
+        <member name="F:LiteLobby.Operations.LiteLobbyEventCode.GameList">
+            <summary>
+            Event code for the game list event.
+            </summary>
+        </member>
+        <member name="F:LiteLobby.Operations.LiteLobbyEventCode.GameListUpdate">
+            <summary>
+            event code for the update game list event.
+            </summary>
+        </member>
+        <member name="T:LiteLobby.Operations.LobbyParameterKeys">
+            <summary>
+              The lobby parameter keys.
+            </summary>
+        </member>
+        <member name="F:LiteLobby.Operations.LobbyParameterKeys.LobbyId">
+            <summary>
+              The lobby id.
+            </summary>
+        </member>
+        <member name="T:LiteLobby.Operations.JoinRequest">
+            <summary>
+              The join operation.
+            </summary>
+        </member>
+        <member name="M:LiteLobby.Operations.JoinRequest.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+              Initializes a new instance of the <see cref="T:LiteLobby.Operations.JoinRequest"/> class.
+            </summary>
+            <param name="protocol">
+              The protocol.
+            </param>
+            <param name="operationRequest">
+              Operation request containing the operation parameters.
+            </param>
+        </member>
+        <member name="M:LiteLobby.Operations.JoinRequest.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:LiteLobby.Operations.JoinRequest"/> class.
+            </summary>
+        </member>
+        <member name="P:LiteLobby.Operations.JoinRequest.LobbyId">
+            <summary>
+              Gets or sets a lobby-room to the game that's joined.
+            </summary>
+        </member>
+    </members>
+</doc>
