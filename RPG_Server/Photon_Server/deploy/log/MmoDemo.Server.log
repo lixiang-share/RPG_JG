@@ -1,3 +1,34 @@
-2016-01-10 11:59:25,251 [1] INFO  Photon.SocketServer.ApplicationBase - Application start: AppId=MmoDemo; AppPath=G:\U3D_WorkSpace\Personal_Project\RPG_Server\ExitGames-Photon-Server-SDK_v3-4-31-10808\deploy\MmoDemo, Type=Photon.MmoDemo.Server.PhotonApplication 
-2016-01-10 11:59:34,454 [1] INFO  Photon.SocketServer.ApplicationBase - Application is stopping: AppId=MmoDemo
-2016-01-10 11:59:34,464 [1] INFO  Photon.SocketServer.ApplicationBase - Application stop: AppId=MmoDemo
+2016-01-17 13:40:59,270 [1] INFO  Photon.SocketServer.ApplicationBase - Application start: AppId=MmoDemo; AppPath=G:\U3D_WorkSpace\RPG_JG\RPG_Server\Photon_Server\deploy\MmoDemo, Type=Photon.MmoDemo.Server.PhotonApplication 
+2016-01-17 13:42:12,204 [1] INFO  Photon.SocketServer.ApplicationBase - Application is stopping: AppId=MmoDemo
+2016-01-17 13:42:12,244 [1] INFO  Photon.SocketServer.ApplicationBase - Application stop: AppId=MmoDemo
+2016-01-17 13:43:57,733 [1] INFO  Photon.SocketServer.ApplicationBase - Application start: AppId=MmoDemo; AppPath=G:\U3D_WorkSpace\RPG_JG\RPG_Server\Photon_Server\deploy\MmoDemo, Type=Photon.MmoDemo.Server.PhotonApplication 
+2016-01-17 13:46:15,826 [1] INFO  Photon.SocketServer.ApplicationBase - Application is stopping: AppId=MmoDemo
+2016-01-17 13:46:15,854 [1] INFO  Photon.SocketServer.ApplicationBase - Application stop: AppId=MmoDemo
+2016-01-17 13:46:25,513 [1] INFO  Photon.SocketServer.ApplicationBase - Application start: AppId=MmoDemo; AppPath=G:\U3D_WorkSpace\RPG_JG\RPG_Server\Photon_Server\deploy\MmoDemo, Type=Photon.MmoDemo.Server.PhotonApplication 
+2016-01-17 14:02:03,821 [1] INFO  Photon.SocketServer.ApplicationBase - Application is stopping: AppId=MmoDemo
+2016-01-17 14:02:03,876 [1] INFO  Photon.SocketServer.ApplicationBase - Application stop: AppId=MmoDemo
+2016-01-17 14:02:26,388 [1] INFO  Photon.SocketServer.ApplicationBase - Application start: AppId=MmoDemo; AppPath=G:\U3D_WorkSpace\RPG_JG\RPG_Server\Photon_Server\deploy\MmoDemo, Type=Photon.MmoDemo.Server.PhotonApplication 
+2016-01-17 14:05:40,753 [1] INFO  Photon.SocketServer.ApplicationBase - Application is stopping: AppId=MmoDemo
+2016-01-17 14:05:40,775 [1] INFO  Photon.SocketServer.ApplicationBase - Application stop: AppId=MmoDemo
+2016-01-17 14:06:23,440 [1] INFO  Photon.SocketServer.ApplicationBase - Application start: AppId=MmoDemo; AppPath=G:\U3D_WorkSpace\RPG_JG\RPG_Server\Photon_Server\deploy\MmoDemo, Type=Photon.MmoDemo.Server.PhotonApplication 
+2016-01-17 14:06:23,702 [1] INFO  Photon.SocketServer.ApplicationBase - Application is stopping: AppId=MmoDemo
+2016-01-17 14:06:23,712 [1] INFO  Photon.SocketServer.ApplicationBase - Application stop: AppId=MmoDemo
+2016-01-17 14:07:07,170 [1] INFO  Photon.SocketServer.ApplicationBase - Application start: AppId=MmoDemo; AppPath=G:\U3D_WorkSpace\RPG_JG\RPG_Server\Photon_Server\deploy\MmoDemo, Type=Photon.MmoDemo.Server.PhotonApplication 
+2016-01-17 14:07:07,383 [1] INFO  Photon.SocketServer.ApplicationBase - Application is stopping: AppId=MmoDemo
+2016-01-17 14:07:07,394 [1] INFO  Photon.SocketServer.ApplicationBase - Application stop: AppId=MmoDemo
+2016-01-17 14:08:39,869 [1] INFO  Photon.SocketServer.ApplicationBase - Application start: AppId=MmoDemo; AppPath=G:\U3D_WorkSpace\RPG_JG\RPG_Server\Photon_Server\deploy\MmoDemo, Type=Photon.MmoDemo.Server.PhotonApplication 
+2016-01-17 14:08:40,262 [1] INFO  Photon.SocketServer.ApplicationBase - Application is stopping: AppId=MmoDemo
+2016-01-17 14:08:40,279 [1] INFO  Photon.SocketServer.ApplicationBase - Application stop: AppId=MmoDemo
+2016-01-17 14:09:08,452 [1] INFO  Photon.SocketServer.ApplicationBase - Application start: AppId=MmoDemo; AppPath=G:\U3D_WorkSpace\RPG_JG\RPG_Server\Photon_Server\deploy\MmoDemo, Type=Photon.MmoDemo.Server.PhotonApplication 
+2016-01-17 14:16:40,777 [1] INFO  Photon.SocketServer.ApplicationBase - Application is stopping: AppId=MmoDemo
+2016-01-17 14:16:40,791 [1] INFO  Photon.SocketServer.ApplicationBase - Application stop: AppId=MmoDemo
+2016-01-17 14:16:52,911 [1] INFO  Photon.SocketServer.ApplicationBase - Application start: AppId=MmoDemo; AppPath=G:\U3D_WorkSpace\RPG_JG\RPG_Server\Photon_Server\deploy\MmoDemo, Type=Photon.MmoDemo.Server.PhotonApplication 
+2016-01-17 14:18:52,177 [1] INFO  Photon.SocketServer.ApplicationBase - Application is stopping: AppId=MmoDemo
+2016-01-17 14:18:52,200 [1] INFO  Photon.SocketServer.ApplicationBase - Application stop: AppId=MmoDemo
+2016-01-17 14:19:28,935 [1] INFO  Photon.SocketServer.ApplicationBase - Application start: AppId=MmoDemo; AppPath=G:\U3D_WorkSpace\RPG_JG\RPG_Server\Photon_Server\deploy\MmoDemo, Type=Photon.MmoDemo.Server.PhotonApplication 
+2016-01-17 14:22:14,935 [1] INFO  Photon.SocketServer.ApplicationBase - Application is stopping: AppId=MmoDemo
+2016-01-17 14:22:14,984 [1] INFO  Photon.SocketServer.ApplicationBase - Application stop: AppId=MmoDemo
+2016-01-17 14:35:49,838 [1] INFO  Photon.SocketServer.ApplicationBase - Application start: AppId=MmoDemo; AppPath=G:\U3D_WorkSpace\RPG_JG\RPG_Server\Photon_Server\deploy\MmoDemo, Type=Photon.MmoDemo.Server.PhotonApplication 
+2016-01-17 15:12:29,720 [1] INFO  Photon.SocketServer.ApplicationBase - Application is stopping: AppId=MmoDemo
+2016-01-17 15:12:29,799 [1] INFO  Photon.SocketServer.ApplicationBase - Application stop: AppId=MmoDemo
+2016-01-17 15:12:47,642 [1] INFO  Photon.SocketServer.ApplicationBase - Application start: AppId=MmoDemo; AppPath=G:\U3D_WorkSpace\RPG_JG\RPG_Server\Photon_Server\deploy\MmoDemo, Type=Photon.MmoDemo.Server.PhotonApplication 
