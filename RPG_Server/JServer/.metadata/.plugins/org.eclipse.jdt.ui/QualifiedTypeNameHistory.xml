@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="io.netty.channel.socket.SocketChannel"/>
+<fullyQualifiedTypeName name="java.nio.channels.SocketChannel"/>
+<fullyQualifiedTypeName name="io.netty.handler.logging.LogLevel"/>
+<fullyQualifiedTypeName name="io.netty.channel.SimpleChannelInboundHandler"/>
+</qualifiedTypeNameHistroy>

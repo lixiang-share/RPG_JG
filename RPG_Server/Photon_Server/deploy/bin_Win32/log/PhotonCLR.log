@@ -1371,3 +1371,4 @@ System.AppDomainUnloadedException: ≥¢ ‘∑√Œ “—–∂‘ÿµƒ AppDomain°£
 2016-01-17 15:12:47,335 [ 1] INFO  PhotonHostRuntime.PhotonDomainManager - PhotonRunning: ApplicationName = 'MmoDemo', DomainId='4' -- calling Application.Setup
 2016-01-17 15:12:47,348 [ 1] INFO  PhotonHostRuntime.PhotonDomainManager - AssemblyLoadEvent: ExitGames.Logging.Log4Net, Version=1.0.1.0, Culture=neutral, PublicKeyToken=eac0edd9746a4aa0 from file:///G:/U3D_WorkSpace/RPG_JG/RPG_Server/Photon_Server/deploy/MmoDemo/bin/ExitGames.Logging.Log4Net.DLL
 2016-01-17 15:12:47,657 [ 1] INFO  PhotonHostRuntime.PhotonDomainManager - PhotonRunning: ApplicationName = 'DefaultDomain', DomainId='1'
+2016-01-17 21:43:39,941 [ 1] INFO  PhotonHostRuntime.PhotonDomainManager - RequestStop: ApplicationName = 'DefaultDomain', DomainId='1'

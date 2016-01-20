@@ -61,3 +61,5 @@
 2016-01-17 15:12:47,175 [1] INFO  Lite.LiteApplication [(null)] - Created application Instance: type=Lite.LiteApplication
 2016-01-17 15:12:47,203 [1] INFO  Photon.SocketServer.ApplicationBase [(null)] - Application start: AppId=Lite; AppPath=G:\U3D_WorkSpace\RPG_JG\RPG_Server\Photon_Server\deploy\Lite, Type=Lite.LiteApplication 
 2016-01-17 15:12:47,214 [1] INFO  Photon.SocketServer.Diagnostics.CounterPublisher [(null)] - CounterPublisher started on: 255.255.255.255:40001
+2016-01-17 21:43:39,936 [1] INFO  Photon.SocketServer.ApplicationBase [(null)] - Application is stopping: AppId=Lite
+2016-01-17 21:43:39,950 [1] INFO  Photon.SocketServer.ApplicationBase [(null)] - Application stop: AppId=Lite
