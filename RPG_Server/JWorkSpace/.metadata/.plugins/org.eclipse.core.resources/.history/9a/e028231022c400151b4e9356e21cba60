@@ -1,0 +1,7 @@
+package jg.rpg.exceptions;
+
+import java.io.Exception;
+
+public class InitException extends Exception {
+
+}

@@ -1,0 +1,35 @@
+package jg.rpg.utils.config;
+
+import java.io.File;
+
+import org.dom4j.Document;
+import org.dom4j.bean.BeanDocumentFactory;
+import org.dom4j.io.SAXReader;
+
+public class ConfigMgr {
+
+	private static ConfigMgr inst;
+	public static ConfigMgr getInstance(){
+		if(inst == null){
+			inst = new ConfigMgr();
+		}
+		return inst;
+	}
+	
+	private ConfigMgr(){
+		String path = System.getProperty("user.dir")+
+				File.separator+"config"+File.separator+"config.xml";
+		init(path);
+	}
+
+	private void init(String path) {
+		
+		Document document = parse(path);
+	}
+	
+	protected Document parse(String url) throws Exception {
+        SAXReader reader = new SAXReader(BeanDocumentFactory.getInstance());
+        return reader.read(url);
+    }
+}
+

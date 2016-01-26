@@ -2,9 +2,9 @@ package jg.rpg.dao.db;
 
 public class DBMgr {
 
-	private DBMgr inst;
+	private static DBMgr inst;
 	
-	private DBMgr getInstance(){
+	public static DBMgr getInstance(){
 		if(inst == null){
 			inst = new DBMgr();
 		}
@@ -15,10 +15,11 @@ public class DBMgr {
 		init();
 	}
 
-	private void init() {
+	public void init() {
 		//TODO 初始化数据库连接信息
 		
-		
 	}
+	
+	
 	
 }

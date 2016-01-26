@@ -1,0 +1,22 @@
+package jg.rpg.utils.config;
+
+public class ConfigMgr {
+
+	private static ConfigMgr inst;
+	public static ConfigMgr getInstance(){
+		if(inst == null){
+			inst = new ConfigMgr();
+		}
+		return inst;
+	}
+	
+	private ConfigMgr(){
+		init("");
+	}
+
+	private void init(String path) {
+		
+		
+	}
+}
+

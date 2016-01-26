@@ -1,0 +1,8 @@
+package jg.rpg.utils;
+
+public class Utils {
+
+	public static log(string mes){
+		
+	}
+}
