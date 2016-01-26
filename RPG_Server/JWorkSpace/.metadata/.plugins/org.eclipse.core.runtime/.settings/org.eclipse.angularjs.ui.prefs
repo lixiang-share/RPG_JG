@@ -1,5 +1,5 @@
-angularExpression=\#95E454 | null | null | null | null | null
-angularExpressionBorder=\#F3F6EE | null | null | null | null | null
-directiveName=\#8AC6F2 | null | null | null | null | null
-directiveParameterName=\#D4C4A9 | null | null | null | null | null
+angularExpression=\#76BA53 | null | null | false | null | null
+angularExpressionBorder=\#F9F9F9 | null | null | false | null | null
+directiveName=\#EA9C77 | null | false | false | null | null
+directiveParameterName=\#4B9CE9 | null | null | false | false | false
 eclipse.preferences.version=1
