@@ -1,0 +1,40 @@
+log4j.rootLogger = ALL,systemOut,logFile ,A1 ,A2
+log4j.addivity.org.apache = true
+  
+# 应用于控制台  
+log4j.appender.systemOut = org.apache.log4j.ConsoleAppender
+log4j.appender.Threshold = DEBUG
+log4j.appender.systemOut.Target = System.out
+log4j.appender.systemOut.layout = org.apache.log4j.PatternLayout
+log4j.appender.systemOut.layout.ConversionPattern = [%-5p][%-22d{yyyy/MM/dd HH:mm:ssS}][%l]   %m%n
+
+log4j.appender.logFile = org.apache.log4j.FileAppender
+log4j.appender.logFile.layout = org.apache.log4j.PatternLayout
+log4j.appender.logFile.layout.ConversionPattern = [%-5p][%-22d{yyyy/MM/dd HH:mm:ssS}][%l]   %m%n
+log4j.appender.logFile.Threshold = DEBUG
+log4j.appender.logFile.ImmediateFlush = TRUE
+log4j.appender.logFile.Append = TRUE
+log4j.appender.logFile.File = log/server.log
+log4j.appender.logFile.Encoding = UTF-8
+
+#c3p0
+log4j.category.com.mchange.v2.log.log4j.Log4jMLog=OFF,A1
+log4j.category.com.mchange.v2.log.log4j.Log4jMLog=SEVERE,A1
+log4j.category.com.mchange.v2.log.log4j.Log4jMLog=WARNING,A1
+log4j.category.com.mchange.v2.log.log4j.Log4jMLog=INFO,A2
+log4j.category.com.mchange.v2.log.log4j.Log4jMLog=CONFIG,A2
+log4j.category.com.mchange.v2.log.log4j.Log4jMLog=FINE,A2
+log4j.category.com.mchange.v2.log.log4j.Log4jMLog=FINER,A2
+log4j.category.com.mchange.v2.log.log4j.Log4jMLog=FINEST,A2
+log4j.category.com.mchange.v2.log.log4j.Log4jMLog=ALL,A2
+
+#c3p0 appender
+log4j.appender.A1=org.apache.log4j.ConsoleAppender
+log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+log4j.appender.A1.layout.ConversionPattern=%d{yyyy-MM-dd HH:mm:ss,SSS} [%c]-[%p] %m%n
+log4j.appender.A2=org.apache.log4j.RollingFileAppender
+log4j.appender.A2.File=${sntweb.root}/logs/c3p0.log
+log4j.appender.A2.MaxFileSize=500KB
+log4j.appender.A2.MaxBackupIndex=1
+#log4j.appender.A2.layout=org.apache.log4j.HTMLLayout
+log4j.appender.A2.layout=org.apache.log4j.SimpleLayout

@@ -2,12 +2,27 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="java.io.File"/>
 <fullyQualifiedTypeName name="org.dom4j.Document"/>
-<fullyQualifiedTypeName name="jg.rpg.exceptions.InitException"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="java.util.Iterator"/>
 <fullyQualifiedTypeName name="java.awt.Component"/>
 <fullyQualifiedTypeName name="org.dom4j.Attribute"/>
 <fullyQualifiedTypeName name="org.dom4j.Element"/>
+<fullyQualifiedTypeName name="org.apache.logging.log4j.LogManager"/>
+<fullyQualifiedTypeName name="org.apache.logging.log4j.Logger"/>
+<fullyQualifiedTypeName name="org.apache.logging.log4j.core.Logger"/>
+<fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
+<fullyQualifiedTypeName name="jg.rpg.exceptions.InitException"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
+<fullyQualifiedTypeName name="jg.rpg.entity.DBHelper"/>
 <fullyQualifiedTypeName name="jg.rpg.entity.DBEntityInfo"/>
 <fullyQualifiedTypeName name="jg.rpg.utils.config.ConfigMgr"/>
+<fullyQualifiedTypeName name="jg.rpg.dao.db.DBHelper"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="org.apache.commons.dbutils.QueryRunner"/>
+<fullyQualifiedTypeName name="org.apache.commons.dbutils.ResultSetHandler"/>
+<fullyQualifiedTypeName name="com.mchange.v2.c3p0.ComboPooledDataSource"/>
+<fullyQualifiedTypeName name="javax.sql.DataSource"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
+<fullyQualifiedTypeName name="java.sql.Connection"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="jg.rpg.LaunchServer"/>
 </qualifiedTypeNameHistroy>

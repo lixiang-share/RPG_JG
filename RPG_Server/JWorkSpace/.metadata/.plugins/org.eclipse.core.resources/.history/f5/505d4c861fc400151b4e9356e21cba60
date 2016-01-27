@@ -1,9 +1,0 @@
-package jg.rpg.utils.config;
-
-public class ConfigMgr {
-
-	private ConfigMgr inst;
-	public static ConfigMgr ConfigMgr(){
-		
-	}
-}

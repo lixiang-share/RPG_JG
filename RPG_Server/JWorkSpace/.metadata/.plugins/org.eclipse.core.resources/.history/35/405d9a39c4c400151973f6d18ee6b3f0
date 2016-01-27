@@ -1,0 +1,17 @@
+package jg.rpg.entity;
+
+import java.sql.Connection;
+
+public class DBHelper {
+
+	public static Connection getConnection(String driver){
+		Connection conn = null;
+		try {
+			Class.forName(driver);
+		} catch (ClassNotFoundException e) {
+			
+		}
+		
+		
+	}
+}

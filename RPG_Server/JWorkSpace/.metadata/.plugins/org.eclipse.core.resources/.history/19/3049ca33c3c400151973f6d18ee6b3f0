@@ -1,0 +1,6 @@
+package jg.rpg.dao.db;
+
+protected class DBHandler {
+
+	
+}

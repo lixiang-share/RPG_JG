@@ -1,0 +1,8 @@
+package jg.rpg.entity;
+
+public class DBHelper {
+
+	public static void LoadingDriver(String driver){
+		
+	}
+}

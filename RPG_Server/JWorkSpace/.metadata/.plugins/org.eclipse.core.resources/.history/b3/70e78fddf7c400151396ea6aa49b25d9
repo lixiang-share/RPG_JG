@@ -1,0 +1,36 @@
+package jg.rpg;
+import java.beans.PropertyVetoException;
+import java.sql.SQLException;
+
+import javax.sql.DataSource;
+
+import org.apache.log4j.Logger;
+
+import com.mchange.v2.c3p0.ComboPooledDataSource;
+import com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource;
+
+import jg.rpg.dao.db.DBMgr;
+import jg.rpg.exceptions.InitException;
+import jg.rpg.utils.config.ConfigMgr;
+
+public class LaunchServer {
+	
+	public static void main(String[] args) throws PropertyVetoException, SQLException {	
+			try {
+				ConfigMgr.getInstance().init();
+				DBMgr.getInstance().init();
+			} catch (InitException e) {
+				e.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		
+		//ComboPooledDataSource cpds = new ComboPooledDataSource();
+		//cpds.setMaxStatements( 180 );
+		DataSource cpds = new ComboPooledDataSource();
+		
+		Connection conn = cpds.getConnection();
+		
+		((AbstractPoolBackedDataSource) cpds).close();
+	}
+}

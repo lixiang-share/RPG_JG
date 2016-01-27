@@ -1,0 +1,15 @@
+package jg.rpg.test;
+
+import static org.junit.Assert.*;
+
+import org.apache.logging.log4j.Logger;
+import org.junit.Test;
+
+public class LogTest {
+
+	@Test
+	public void test() {
+
+	}
+
+}

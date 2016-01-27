@@ -1,0 +1,11 @@
+package jg.rpg.dao.db;
+
+import jg.rpg.entity.DBEntityInfo;
+
+class DBHandler {
+	
+	protected DBHandler(DBEntityInfo info){
+		
+	}
+	
+}
