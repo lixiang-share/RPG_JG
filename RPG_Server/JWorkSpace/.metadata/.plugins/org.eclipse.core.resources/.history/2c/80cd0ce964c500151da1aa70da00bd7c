@@ -27,10 +27,6 @@ public class DBMgr {
 		dataSource = new ComboPooledDataSource();
 	}
 	
-	public void close(){
-		dataSource.close();
-	}
-	
 	public <T> List<T> GetAll(String sql) {
 		return null;
 	}

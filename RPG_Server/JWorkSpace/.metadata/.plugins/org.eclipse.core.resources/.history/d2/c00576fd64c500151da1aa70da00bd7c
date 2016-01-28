@@ -28,7 +28,7 @@ public class DBMgr {
 	}
 	
 	public void close(){
-		dataSource.close();
+		
 	}
 	
 	public <T> List<T> GetAll(String sql) {

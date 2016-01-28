@@ -24,11 +24,10 @@ public class DBMgr {
 	}
 
 	public void init() throws InitException {
-		dataSource = new ComboPooledDataSource();
-	}
-	
-	public void close(){
-		dataSource.close();
+		//DBEntityInfo info = ConfigMgr.getInstance().getStrogeDbInfo();
+		//strogeDBConn = DBHelper.getConnection(info.getDriver(), info.getUrl(), info.getUrl(),info.getPwd());
+		//ComboPooledDataSource cpds = new ComboPooledDataSource();
+		//cpds.setMaxStatements( 180 );
 	}
 	
 	public <T> List<T> GetAll(String sql) {
