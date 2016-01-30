@@ -1,0 +1,5 @@
+package jg.rpg.entity;
+
+public class Cat {
+
+}

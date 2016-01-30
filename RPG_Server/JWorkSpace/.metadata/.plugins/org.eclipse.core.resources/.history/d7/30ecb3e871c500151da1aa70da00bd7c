@@ -1,0 +1,9 @@
+package jg.rpg.dao.db;
+
+import org.apache.commons.dbutils.ResultSetHandler;
+
+public class RSHelper {
+	public static <T>  ResultSetHandler<T> getResultSetHandler(){
+		return null;
+	}
+}

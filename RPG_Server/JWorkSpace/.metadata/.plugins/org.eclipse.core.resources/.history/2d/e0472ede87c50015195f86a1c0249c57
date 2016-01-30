@@ -1,0 +1,5 @@
+package jg.rpg.dao.net;
+
+public class MsgMgr {
+
+}

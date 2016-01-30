@@ -1,18 +1,18 @@
 package jg.rpg;
 import java.beans.PropertyVetoException;
-import java.sql.Connection;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-
-import javax.sql.DataSource;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
-import com.mchange.v2.c3p0.impl.AbstractPoolBackedDataSource;
 
+import jg.rpg.dao.db.DBHelper;
 import jg.rpg.dao.db.DBMgr;
+import jg.rpg.dao.db.RSHHelper;
+import jg.rpg.entity.Cat;
 import jg.rpg.exceptions.InitException;
+import jg.rpg.net.NetworkMgr;
 import jg.rpg.utils.config.ConfigMgr;
 
 public class LaunchServer {
@@ -21,16 +21,13 @@ public class LaunchServer {
 			try {
 				ConfigMgr.getInstance().init();
 				DBMgr.getInstance().init();
+				NetworkMgr.getInstance().init(null);
 			} catch (InitException e) {
 				e.printStackTrace();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		Logger logger = Logger.getLogger(LaunchServer.class);
-		DataSource cpds = new ComboPooledDataSource();
-		Connection conn = cpds.getConnection();
-		ResultSet rs = conn.prepareStatement("select * from tcat").executeQuery();
-		rs.next();
-		System.out.println(rs.getString(1));
+
+			
 	}
 }

@@ -1,0 +1,14 @@
+package jg.rpg.dao.db;
+
+import org.apache.commons.dbutils.ResultSetHandler;
+
+import jg.rpg.entity.Player;
+
+public class RSHHelper {
+	
+	public static <T>  ResultSetHandler<Player> getPlayerRSH(){
+		return null;
+	}
+	
+}
+

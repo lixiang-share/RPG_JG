@@ -1,0 +1,111 @@
+package jg.rpg.net;
+
+import java.security.cert.CertificateException;
+
+import javax.net.ssl.SSLException;
+
+import io.netty.bootstrap.ServerBootstrap;
+import io.netty.channel.Channel;
+import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelInitializer;
+import io.netty.channel.ChannelOption;
+import io.netty.channel.ChannelPipeline;
+import io.netty.channel.EventLoopGroup;
+import io.netty.channel.nio.NioEventLoopGroup;
+import io.netty.channel.socket.SocketChannel;
+import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.LineBasedFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.codec.string.StringEncoder;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
+import io.netty.handler.ssl.SslContext;
+import io.netty.handler.ssl.SslContextBuilder;
+import io.netty.handler.ssl.util.SelfSignedCertificate;
+import io.netty.handler.stream.ChunkedWriteHandler;
+import io.netty.util.CharsetUtil;
+import jg.rpg.entity.NetEntityInfo;
+import jg.rpg.net.handler.DataEnsureHandler;
+
+public class NetworkMgr{
+
+	private static NetworkMgr inst;
+	private ChannelFuture channelFuture;
+	static final boolean SSL = System.getProperty("ssl") != null;
+	private NetworkMgr(){}
+	
+	private static NetworkMgr getInstance(){
+		if(inst == null){
+			synchronized (NetworkMgr.class) {
+				inst = new NetworkMgr();
+			}
+		}
+		return inst;
+	}
+	
+	public void init(NetEntityInfo info) {
+        final SslContext sslCtx;
+        if (SSL) {
+            SelfSignedCertificate ssc;
+			try {
+				ssc = new SelfSignedCertificate();
+				sslCtx = SslContextBuilder.forServer(ssc.certificate(), ssc.privateKey()).build();
+			} catch (CertificateException e) {
+				e.printStackTrace();
+			} catch (SSLException e) {
+				e.printStackTrace();
+			}
+            try {
+				
+			} catch (SSLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+        } else {
+            sslCtx = null;
+        }
+        EventLoopGroup bossGroup = new NioEventLoopGroup(1);
+        EventLoopGroup workerGroup = new NioEventLoopGroup();
+        try {
+            ServerBootstrap b = new ServerBootstrap();
+            b.group(bossGroup, workerGroup)
+             .channel(NioServerSocketChannel.class)
+             .option(ChannelOption.SO_BACKLOG, 100)
+             .handler(new LoggingHandler(LogLevel.INFO))
+             .childHandler(new ChannelInitializer<SocketChannel>() {
+                 @Override
+                 public void initChannel(SocketChannel ch) throws Exception {
+                     ChannelPipeline p = ch.pipeline();
+                     if (sslCtx != null) {
+                         p.addLast(sslCtx.newHandler(ch.alloc()));
+                     }
+                     p.addLast(
+                            // new StringEncoder(CharsetUtil.UTF_8),
+                            // new LineBasedFrameDecoder(8192),
+                            // new StringDecoder(CharsetUtil.UTF_8),
+                            // new ChunkedWriteHandler(),
+                             new DataEnsureHandler());
+                 }
+             });
+
+            // Start the server.
+            ChannelFuture f = b.bind(info.getPort()).sync();
+
+            // Wait until the server socket is closed.
+            f.channel().closeFuture().sync();
+        } finally {
+            // Shut down all event loops to terminate all threads.
+            bossGroup.shutdownGracefully();
+            workerGroup.shutdownGracefully();
+        }
+	}
+
+
+	public void close() {
+		try {
+			channelFuture.channel().closeFuture().sync();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}	
+}

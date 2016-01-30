@@ -1,0 +1,35 @@
+package jg.rpg.dao.db;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.sql.DataSource;
+
+import org.apache.commons.dbutils.QueryRunner;
+import org.apache.commons.dbutils.ResultSetHandler;
+
+public class DBHelper {
+	
+	public static <T> T GetAll(DataSource ds , String sql , ResultSetHandler<T> rsh){
+		return GetAll(ds,sql,rsh);
+	}
+	
+	public static <T> T GetAll(DataSource ds , String sql , ResultSetHandler<T> rsh , Object[] params) throws SQLException{
+		
+		ResultSetHandler<List<T>> listRS = new ResultSetHandler<List<T>>(){
+			@Override
+			public List<T> handle(ResultSet rs) throws SQLException {
+				 List<T> rses = new ArrayList<T>();
+				 T t = null;
+				 while(( t = rsh.handle(rs)) != null){
+					 rses.add(t);
+				 }
+				return rses;
+			}
+		};
+		QueryRunner qr = new QueryRunner(ds);
+		return qr.query(sql, listRS);
+	}
+}

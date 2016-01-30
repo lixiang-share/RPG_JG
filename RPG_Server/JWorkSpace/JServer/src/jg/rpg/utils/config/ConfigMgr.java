@@ -12,11 +12,13 @@ import org.dom4j.bean.BeanDocumentFactory;
 import org.dom4j.io.SAXReader;
 
 import jg.rpg.entity.DBEntityInfo;
+import jg.rpg.entity.NetEntityInfo;
 import jg.rpg.exceptions.InitException;
 
 public class ConfigMgr {
 
 	private DBEntityInfo strogeDbInfo;
+	private NetEntityInfo mainNetInfo;
 	
 	private static boolean isInit;
 	private static ConfigMgr inst;
@@ -49,9 +51,14 @@ public class ConfigMgr {
     private void process(Document document) throws Exception {
         // find all of the windows
     	Element root = document.getRootElement();
+    	
+    	
+    	
+    }
+    
+    private void readDBInfo(Element root){
     	Element eDB = root.element("db");
     	Element eSDB = eDB.element("StorageDB");
-    	
     	//·â×°StorgeDBxinxi
     	strogeDbInfo = new DBEntityInfo();
     	strogeDbInfo.setDriver(eSDB.elementTextTrim("driver"));

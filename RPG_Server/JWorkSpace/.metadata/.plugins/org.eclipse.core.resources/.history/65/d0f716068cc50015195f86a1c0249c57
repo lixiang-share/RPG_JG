@@ -1,0 +1,7 @@
+package jg.rpg.entity;
+
+public class NetEntityInfo {
+
+	private int port;
+	private String ip;
+}

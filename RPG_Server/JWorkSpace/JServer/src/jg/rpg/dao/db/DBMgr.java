@@ -23,6 +23,7 @@ public class DBMgr {
 		
 	}
 
+	
 	public void init() throws InitException {
 		dataSource = new ComboPooledDataSource();
 	}
@@ -30,6 +31,11 @@ public class DBMgr {
 	public void close(){
 		dataSource.close();
 	}
+	
+	public ComboPooledDataSource getDataSource() {
+		return dataSource;
+	}
+	
 	
 	public <T> List<T> GetAll(String sql) {
 		return null;

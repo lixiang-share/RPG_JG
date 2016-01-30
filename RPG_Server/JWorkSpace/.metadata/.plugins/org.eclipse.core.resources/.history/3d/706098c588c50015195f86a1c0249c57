@@ -1,0 +1,10 @@
+package jg.rpg.intf;
+
+public interface ISingleMgr {
+
+	void init();
+	
+	void start();
+	
+	void close();
+}
