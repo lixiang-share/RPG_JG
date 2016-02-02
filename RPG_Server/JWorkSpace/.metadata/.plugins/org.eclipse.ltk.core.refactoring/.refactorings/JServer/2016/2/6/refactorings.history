@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;jg.rpg.utils.Utils&apos; to &apos;CommonUtils&apos;&#x0D;&#x0A;- Original project: &apos;JServer&apos;&#x0D;&#x0A;- Original element: &apos;jg.rpg.utils.Utils&apos;&#x0D;&#x0A;- Renamed element: &apos;jg.rpg.utils.CommonUtils&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;Utils&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;jg.rpg.utils{Utils.java[Utils" matchStrategy="1" name="CommonUtils" qualified="false" references="true" similarDeclarations="false" stamp="1454297377766" textual="false" version="1.0"/>
+</session>

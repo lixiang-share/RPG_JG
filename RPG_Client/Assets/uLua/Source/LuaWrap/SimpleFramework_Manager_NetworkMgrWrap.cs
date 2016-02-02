@@ -3,7 +3,7 @@ using UnityEngine;
 using LuaInterface;
 using Object = UnityEngine.Object;
 
-public class SimpleFramework_Manager_NetworkManagerWrap
+public class SimpleFramework_Manager_NetworkMgrWrap
 {
 	public static void Register(IntPtr L)
 	{
@@ -15,7 +15,7 @@ public class SimpleFramework_Manager_NetworkManagerWrap
 			new LuaMethod("AddEvent", AddEvent),
 			new LuaMethod("SendConnect", SendConnect),
 			new LuaMethod("SendMessage", SendMessage),
-			new LuaMethod("New", _CreateSimpleFramework_Manager_NetworkManager),
+			new LuaMethod("New", _CreateSimpleFramework_Manager_NetworkMgr),
 			new LuaMethod("GetClassType", GetClassType),
 			new LuaMethod("__eq", Lua_Eq),
 		};
@@ -24,17 +24,17 @@ public class SimpleFramework_Manager_NetworkManagerWrap
 		{
 		};
 
-		LuaScriptMgr.RegisterLib(L, "SimpleFramework.Manager.NetworkManager", typeof(SimpleFramework.Manager.NetworkManager), regs, fields, typeof(LuaComponent));
+		LuaScriptMgr.RegisterLib(L, "SimpleFramework.Manager.NetworkMgr", typeof(SimpleFramework.Manager.NetworkMgr), regs, fields, typeof(LuaComponent));
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int _CreateSimpleFramework_Manager_NetworkManager(IntPtr L)
+	static int _CreateSimpleFramework_Manager_NetworkMgr(IntPtr L)
 	{
-		LuaDLL.luaL_error(L, "SimpleFramework.Manager.NetworkManager class does not have a constructor function");
+		LuaDLL.luaL_error(L, "SimpleFramework.Manager.NetworkMgr class does not have a constructor function");
 		return 0;
 	}
 
-	static Type classType = typeof(SimpleFramework.Manager.NetworkManager);
+	static Type classType = typeof(SimpleFramework.Manager.NetworkMgr);
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int GetClassType(IntPtr L)
@@ -47,7 +47,7 @@ public class SimpleFramework_Manager_NetworkManagerWrap
 	static int OnInit(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 1);
-		SimpleFramework.Manager.NetworkManager obj = (SimpleFramework.Manager.NetworkManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkManager");
+		SimpleFramework.Manager.NetworkMgr obj = (SimpleFramework.Manager.NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkMgr");
 		obj.OnInit();
 		return 0;
 	}
@@ -56,7 +56,7 @@ public class SimpleFramework_Manager_NetworkManagerWrap
 	static int Unload(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 1);
-		SimpleFramework.Manager.NetworkManager obj = (SimpleFramework.Manager.NetworkManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkManager");
+		SimpleFramework.Manager.NetworkMgr obj = (SimpleFramework.Manager.NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkMgr");
 		obj.Unload();
 		return 0;
 	}
@@ -65,7 +65,7 @@ public class SimpleFramework_Manager_NetworkManagerWrap
 	static int CallMethod(IntPtr L)
 	{
 		int count = LuaDLL.lua_gettop(L);
-		SimpleFramework.Manager.NetworkManager obj = (SimpleFramework.Manager.NetworkManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkManager");
+		SimpleFramework.Manager.NetworkMgr obj = (SimpleFramework.Manager.NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkMgr");
 		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
 		object[] objs1 = LuaScriptMgr.GetParamsObject(L, 3, count - 2);
 		object[] o = obj.CallMethod(arg0,objs1);
@@ -79,7 +79,7 @@ public class SimpleFramework_Manager_NetworkManagerWrap
 		LuaScriptMgr.CheckArgsCount(L, 2);
 		int arg0 = (int)LuaScriptMgr.GetNumber(L, 1);
 		SimpleFramework.ByteBuffer arg1 = (SimpleFramework.ByteBuffer)LuaScriptMgr.GetNetObject(L, 2, typeof(SimpleFramework.ByteBuffer));
-		SimpleFramework.Manager.NetworkManager.AddEvent(arg0,arg1);
+		SimpleFramework.Manager.NetworkMgr.AddEvent(arg0,arg1);
 		return 0;
 	}
 
@@ -87,7 +87,7 @@ public class SimpleFramework_Manager_NetworkManagerWrap
 	static int SendConnect(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 1);
-		SimpleFramework.Manager.NetworkManager obj = (SimpleFramework.Manager.NetworkManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkManager");
+		SimpleFramework.Manager.NetworkMgr obj = (SimpleFramework.Manager.NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkMgr");
 		obj.SendConnect();
 		return 0;
 	}
@@ -96,7 +96,7 @@ public class SimpleFramework_Manager_NetworkManagerWrap
 	static int SendMessage(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 2);
-		SimpleFramework.Manager.NetworkManager obj = (SimpleFramework.Manager.NetworkManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkManager");
+		SimpleFramework.Manager.NetworkMgr obj = (SimpleFramework.Manager.NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkMgr");
 		SimpleFramework.ByteBuffer arg0 = (SimpleFramework.ByteBuffer)LuaScriptMgr.GetNetObject(L, 2, typeof(SimpleFramework.ByteBuffer));
 		obj.SendMessage(arg0);
 		return 0;
