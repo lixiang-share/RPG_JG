@@ -9,12 +9,7 @@ public class SimpleFramework_Manager_NetworkMgrWrap
 	{
 		LuaMethod[] regs = new LuaMethod[]
 		{
-			new LuaMethod("OnInit", OnInit),
-			new LuaMethod("Unload", Unload),
-			new LuaMethod("CallMethod", CallMethod),
-			new LuaMethod("AddEvent", AddEvent),
-			new LuaMethod("SendConnect", SendConnect),
-			new LuaMethod("SendMessage", SendMessage),
+			new LuaMethod("Send", Send),
 			new LuaMethod("New", _CreateSimpleFramework_Manager_NetworkMgr),
 			new LuaMethod("GetClassType", GetClassType),
 			new LuaMethod("__eq", Lua_Eq),
@@ -44,61 +39,12 @@ public class SimpleFramework_Manager_NetworkMgrWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int OnInit(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 1);
-		SimpleFramework.Manager.NetworkMgr obj = (SimpleFramework.Manager.NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkMgr");
-		obj.OnInit();
-		return 0;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Unload(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 1);
-		SimpleFramework.Manager.NetworkMgr obj = (SimpleFramework.Manager.NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkMgr");
-		obj.Unload();
-		return 0;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int CallMethod(IntPtr L)
-	{
-		int count = LuaDLL.lua_gettop(L);
-		SimpleFramework.Manager.NetworkMgr obj = (SimpleFramework.Manager.NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkMgr");
-		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
-		object[] objs1 = LuaScriptMgr.GetParamsObject(L, 3, count - 2);
-		object[] o = obj.CallMethod(arg0,objs1);
-		LuaScriptMgr.PushArray(L, o);
-		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int AddEvent(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 2);
-		int arg0 = (int)LuaScriptMgr.GetNumber(L, 1);
-		SimpleFramework.ByteBuffer arg1 = (SimpleFramework.ByteBuffer)LuaScriptMgr.GetNetObject(L, 2, typeof(SimpleFramework.ByteBuffer));
-		SimpleFramework.Manager.NetworkMgr.AddEvent(arg0,arg1);
-		return 0;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int SendConnect(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 1);
-		SimpleFramework.Manager.NetworkMgr obj = (SimpleFramework.Manager.NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkMgr");
-		obj.SendConnect();
-		return 0;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int SendMessage(IntPtr L)
+	static int Send(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 2);
 		SimpleFramework.Manager.NetworkMgr obj = (SimpleFramework.Manager.NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkMgr");
-		SimpleFramework.ByteBuffer arg0 = (SimpleFramework.ByteBuffer)LuaScriptMgr.GetNetObject(L, 2, typeof(SimpleFramework.ByteBuffer));
-		obj.SendMessage(arg0);
+		MsgEntity arg0 = (MsgEntity)LuaScriptMgr.GetNetObject(L, 2, typeof(MsgEntity));
+		obj.Send(arg0);
 		return 0;
 	}
 

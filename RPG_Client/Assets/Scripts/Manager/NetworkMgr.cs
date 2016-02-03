@@ -14,74 +14,47 @@ namespace SimpleFramework.Manager {
         }
         void Init() {
             clientSocket = new ClientSocket();
-            clientSocket.Init(DefNetCallBack);
+            clientSocket.Init();
         }
 
         void OnGUI()
         {
             if (GUILayout.Button("Connect"))
             {
-                clientSocket.ConnectServer("127.0.0.1", 12345, (IAsyncResult iar)=>
-                {
-                    Debug.Log("Connected to Server");
-                });
+                StateObj state = new StateObj(); 
+                state.OnConnect = (StateObj s) => {
+                    UITools.log("Connect ro Server");
+                    MsgEntity msg = new MsgEntity();
+                    clientSocket.Send(msg ,s);
+                };
+                clientSocket.ConnectServer("127.0.0.1", 12345, state);
             }
         }
 
 
-        public void OnInit() {
-
-        }
-
-        public void Unload() {
-
-        }
-
-        /// <summary>
-        /// 执行Lua方法
-        /// </summary>
-        public object[] CallMethod(string func, params object[] args) {
-            return null;
-        }
-
-        ///------------------------------------------------------------------------------------
-        public static void AddEvent(int _event, ByteBuffer data) {
-    
-        }
-
-        /// <summary>
-        /// 交给Command，这里不想关心发给谁。
-        /// </summary>
-        void Update() {
-            
-        }
-
-        /// <summary>
-        /// 发送链接请求
-        /// </summary>
-        public void SendConnect() {
-            
-        }
-
-        /// <summary>
-        /// 发送SOCKET消息
-        /// </summary>
-        public void SendMessage(ByteBuffer buffer) {
-          
-        }
-
-        /// <summary>
-        /// 析构函数
-        /// </summary>
-        void OnDestroy() {
-           
-        }
-
-
-
-        public void DefNetCallBack(IAsyncResult iar)
+        void Connect()
         {
 
         }
+        void DisConnect()
+        {
+
+        }
+        public void Send(MsgEntity msg)
+        {
+
+        }
+
+        void OnConnect(StateObj state)
+        {
+
+        }
+        void OnDisConnect(StateObj state)
+        {
+
+        }
+
+
+
     }
 }

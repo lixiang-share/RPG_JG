@@ -5,35 +5,10 @@ using System.Collections;
 /// </summary>
 public class MsgEntity {
 
-    private int _msgLen;
-    private byte[] _msgContent;
+    private int _type;
+    private string _content;
     private IReceiveData _receiver;
-
-    public int MsgLen
-    {
-        get
-        {
-            return _msgLen;
-        }
-
-        set
-        {
-            _msgLen = value;
-        }
-    }
-
-    public byte[] MsgContent
-    {
-        get
-        {
-            return _msgContent;
-        }
-
-        set
-        {
-            _msgContent = value;
-        }
-    }
+    private bool isNeedRecv;
 
     internal IReceiveData Receiver
     {
@@ -45,6 +20,44 @@ public class MsgEntity {
         set
         {
             _receiver = value;
+        }
+    }
+
+    public int Type
+    {
+        get
+        {
+            return _type;
+        }
+
+        set
+        {
+            _type = value;
+        }
+    }
+
+    public string Content
+    {
+        get
+        {
+            return _content;
+        }
+
+        set
+        {
+            _content = value;
+        }
+    }
+
+    public bool IsNeedRecv
+    {
+        get
+        {
+            return isNeedRecv;
+        }
+        set
+        {
+            isNeedRecv = value;
         }
     }
 }

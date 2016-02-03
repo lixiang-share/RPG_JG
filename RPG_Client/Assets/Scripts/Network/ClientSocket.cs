@@ -6,12 +6,10 @@ using System;
 public class ClientSocket {
     private TcpClient tcpClient;
     private bool isInit;
-    private NetEventCallBack defEventCallBack;
-	public void Init(NetEventCallBack defEventCallBack)
+	public void Init()
     {
         if (!isInit)
         {
-            this.defEventCallBack = defEventCallBack;
             tcpClient = new TcpClient();
             tcpClient.SendTimeout = 1000;
             tcpClient.ReceiveTimeout = 1000;
@@ -24,16 +22,34 @@ public class ClientSocket {
     {
         if (!isInit)
         {
-            Debug.LogError("Init ClientSocket first");
+            UITools.logError("Init ClientSocket first");
             return;
         }
         state.Client = tcpClient.Client;
-        tcpClient.BeginConnect(ip, port, new AsyncCallback(state.OnConnect), state);
+        try
+        {
+            tcpClient.BeginConnect(ip, port, new AsyncCallback(OnConnected), state);
+        }
+        catch (Exception)
+        {
+            state.OnConnectError(state);
+        }
     }
 
-    public void Send(MsgEntity msg,StateObj state)
+    public void OnConnected(IAsyncResult iar)
+    {
+        StateObj state = (StateObj)iar.AsyncState;
+        if(state != null) state.OnConnect(state);
+    }
+
+
+
+
+    public void Send(MsgEntity msg,StateObj state = null)
     {
         byte[] buff = CommonUtils.SerializerMsg(msg);
+        if (state == null) state = new StateObj();
+        state.Msg = msg;
         state.Client = tcpClient.Client;
         try
         {
@@ -41,7 +57,7 @@ public class ClientSocket {
         }
         catch (Exception)
         {
-            Debug.Log("receive data timeout^=....");
+            Debug.Log("send data timeout....");
         }
         
     }
@@ -49,18 +65,99 @@ public class ClientSocket {
     private void OnSendCallBack(IAsyncResult iar)
     {
         StateObj state = (StateObj)iar.AsyncState;
-        if (state.OnReceive != null) state.OnSend(iar);
-
-        state.Client.BeginReceive(state.Buff, 0, state.Buff.Length, 0, new AsyncCallback(OnReceive), state);
+        state.OnSend(state);
+        if (state.Msg.IsNeedRecv)
+        {
+            try
+            {
+                state.Client.BeginReceive(state.Buff, 0, state.Buff.Length, 0, new AsyncCallback(OnReceive), state);
+            }
+            catch (Exception)
+            {
+                state.OnRecvError(state);
+            }
+        }
+        else
+        {
+            state.OnReceive(state);
+        }
     }
 
-    private void OnReceive(IAsyncResult ar)
+    private void OnReceive(IAsyncResult iar)
     {
+        StateObj state = (StateObj)iar.AsyncState;
+        //读取的消息总长度
+        int len = state.Client.EndReceive(iar);
+        if(len < 4)
+        {
+            UITools.logError("invaild msg");
+            state.OnRecvError(state);
+            return;
+        }
+        byte[] buff = state.Buff;
+        int msgRealLen = CommonUtils.DecodeMsgRealLen(buff, 0, 4);
+        state.RecvLen = msgRealLen - 4;
+        state.RecvBuff.addRange<byte>(buff, 3, len - 4);
+        
+        if(state.RecvLen - state.RecvBuff.Count > 0)
+        {
+            try
+            {
+                state.Client.BeginReceive(state.Buff, 0, state.Buff.Length, 0, new AsyncCallback(OnReceiveRestData), state);
+            }
+            catch (Exception)
+            {
+                state.OnReceive(state);
+                Debug.Log("receive data timeout....");
+            }
+        }
+        else
+        {
+            state.OnReceive(state);
+        }
+
         
     }
 
-    private void OnReceiveResetData(IAsyncResult ar)
+    private void OnReceiveRestData(IAsyncResult iar)
     {
+        StateObj state = (StateObj)iar.AsyncState;
+        int len = state.Client.EndReceive(iar);
+        byte[] buff = state.Buff;
+        state.RecvBuff.AddRange(buff);
+        int contentRest = state.RecvLen - state.RecvBuff.Count;
+        if(contentRest <= 0)
+        {
+            state.OnReceive(state);
+            return;
+        }
+        try
+        {
+            state.Client.BeginReceive(state.Buff, 0, state.Buff.Length, 0, new AsyncCallback(OnReceiveRestData), state);
+        }
+        catch (Exception)
+        {
+            state.OnRecvError(state);
+            Debug.Log("receive data timeout....");
+        }
+    }
 
+
+    public void CloseConnection(StateObj state)
+    {
+        try
+        {
+            tcpClient.Client.BeginDisconnect(true, new AsyncCallback(OnDisConnect), state);
+        }
+        catch (Exception)
+        {
+            UITools.logError("Close Connection error");
+        }
+    }
+
+    private void OnDisConnect(IAsyncResult iar)
+    {
+        StateObj state = (StateObj)iar.AsyncState;
+        state.OnDisConnect(state);
     }
 }
