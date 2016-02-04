@@ -1,0 +1,16 @@
+package jg.rpg.test.uitls;
+
+import static org.junit.Assert.*;
+
+import org.junit.Test;
+
+public class MsgUtilsTest {
+
+	@Test
+	public void test() {
+		byte[] buff = new byte[1024];
+		byte b = (byte)254;
+		System.out.println(b);
+	}
+
+}

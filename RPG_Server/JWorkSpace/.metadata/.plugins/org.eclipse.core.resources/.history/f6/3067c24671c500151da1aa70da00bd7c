@@ -1,6 +1,0 @@
-package jg.rpg.entity;
-
-public interface IEntity {
-
-	ResultSetHandler getResultSetHandler();
-}

@@ -1,0 +1,32 @@
+package jg.rpg.utils;
+
+import java.nio.ByteBuffer;
+
+import io.netty.buffer.ByteBuf;
+import jg.rpg.entity.MsgEntity;
+import jg.rpg.utils.config.GameConfig;
+
+public class MsgUtils {
+
+	public static ByteBuf serializerMsg(MsgEntity msg){
+		byte[] msgBytes = msgToBytes(msg);
+		byte[] msgLenBytes = defMsgLenEncoding(msgBytes.length);
+		return null;
+	}
+	
+	public static byte[] msgToBytes(MsgEntity msg){
+		return null;
+	}
+	
+	
+	public static byte[] defMsgLenEncoding(int num){
+		return intToBytes(num, GameConfig.MsgHeadLen);
+	}
+	
+	public static byte[] intToBytes(int num , int buffLen){
+		return null;
+	}
+	   
+	
+	
+}

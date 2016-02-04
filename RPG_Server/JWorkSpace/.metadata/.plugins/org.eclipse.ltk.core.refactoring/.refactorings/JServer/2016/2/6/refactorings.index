@@ -1,1 +1,6 @@
 1454297377766	Rename type 'Utils'
+1454552921194	Rename type 'CommonUtils'
+1454553535942	Delete element
+1454553821802	Rename type 'MesUtils'
+1454553854826	Rename type 'MegUtils'
+1454554161886	Rename method 'msgToByteBuffer'

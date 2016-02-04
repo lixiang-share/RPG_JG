@@ -42,12 +42,9 @@ public class ClientSocket {
         if(state != null) state.OnConnect(state);
     }
 
-
-
-
     public void Send(MsgEntity msg,StateObj state = null)
     {
-        byte[] buff = CommonUtils.SerializerMsg(msg);
+        byte[] buff = MsgUtils.SerializerMsg(msg);
         if (state == null) state = new StateObj();
         state.Msg = msg;
         state.Client = tcpClient.Client;
@@ -57,7 +54,7 @@ public class ClientSocket {
         }
         catch (Exception)
         {
-            Debug.Log("send data timeout....");
+            UITools.log("send data timeout....");
         }
         
     }
@@ -95,9 +92,10 @@ public class ClientSocket {
             return;
         }
         byte[] buff = state.Buff;
-        int msgRealLen = CommonUtils.DecodeMsgRealLen(buff, 0, 4);
-        state.RecvLen = msgRealLen - 4;
-        state.RecvBuff.addRange<byte>(buff, 3, len - 4);
+        int msgRealLen = MsgUtils.DecodeMsgRealLen(buff, 0, 4);
+        UITools.log("msg real length : "+msgRealLen);
+        state.RecvLen = msgRealLen;
+        state.RecvBuff.addRange<byte>(buff, AppConst.MsgHeadLen, len - 4);
         
         if(state.RecvLen - state.RecvBuff.Count > 0)
         {
@@ -107,8 +105,8 @@ public class ClientSocket {
             }
             catch (Exception)
             {
-                state.OnReceive(state);
-                Debug.Log("receive data timeout....");
+                state.OnRecvError(state);
+                UITools.log("receive data timeout....");
             }
         }
         else
@@ -124,7 +122,7 @@ public class ClientSocket {
         StateObj state = (StateObj)iar.AsyncState;
         int len = state.Client.EndReceive(iar);
         byte[] buff = state.Buff;
-        state.RecvBuff.AddRange(buff);
+        state.RecvBuff.addRange<byte>(buff , 0 , len);
         int contentRest = state.RecvLen - state.RecvBuff.Count;
         if(contentRest <= 0)
         {
@@ -138,7 +136,7 @@ public class ClientSocket {
         catch (Exception)
         {
             state.OnRecvError(state);
-            Debug.Log("receive data timeout....");
+            UITools.log("receive data timeout....");
         }
     }
 

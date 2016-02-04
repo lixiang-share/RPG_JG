@@ -1,0 +1,43 @@
+package jg.rpg.utils;
+
+import java.nio.ByteBuffer;
+
+import io.netty.buffer.ByteBuf;
+import jg.rpg.entity.MsgEntity;
+import jg.rpg.utils.config.GameConfig;
+
+public class MsgUtils {
+
+	public static ByteBuf serializerMsg(MsgEntity msg){
+		byte[] msgBytes = msgToBytes(msg);
+		
+		return null;
+	}
+	
+	public static byte[] msgToBytes(MsgEntity msg){
+		return null;
+	}
+	
+	
+	public static int defMegLenEncoding(int num){
+		return intToBytes(num, GameConfig.MsgHeadLen)
+	}
+	
+	public static byte[] intToBytes(int num , int buffLen){
+		return null;
+	}
+	
+	
+	
+	 public static int encodeMsgRealLen(byte[] buff , int starIndex , int len){
+		 return 0;
+	 }
+	 
+	 public static int encodeMsgRealLen(byte[] buff){
+		 return encodeMsgRealLen(buff, 0, 4);
+	 }
+	 
+	   
+	
+	
+}

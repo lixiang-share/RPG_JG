@@ -1,7 +1,0 @@
-package jg.rpg.common.intf;
-
-public interface ISingleMgr {
-public abstract void init();
-	
-	public abstract void close();
-}

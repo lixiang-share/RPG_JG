@@ -8,7 +8,7 @@ public class MsgEntity {
     private int _type;
     private string _content;
     private IReceiveData _receiver;
-    private bool isNeedRecv;
+    private bool isNeedRecv = true;
 
     internal IReceiveData Receiver
     {

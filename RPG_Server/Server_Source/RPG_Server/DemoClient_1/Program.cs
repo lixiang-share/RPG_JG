@@ -30,8 +30,11 @@ namespace DemoClient_1
             //tc.Close();
 
 
-            NetMgr nm = new NetMgr();
-            nm.Start("127.0.0.1", 12345);
+            //  NetMgr nm = new NetMgr();
+            // nm.Start("127.0.0.1", 12345);
+            //Console.ReadKey();
+            byte[] buff = {  104, 101, 108, 108, 111, 32, 119, 111, 114, 108, 100, 32, 67, 108, 105, 101, 110 };
+            Console.WriteLine(Encoding.UTF8.GetString(buff));
             Console.ReadKey();
         }
 

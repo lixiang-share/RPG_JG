@@ -1,6 +1,0 @@
-package jg.rpg.dao.db;
-
-public class DBMgr {
-
-	private DBMgr inst;
-}

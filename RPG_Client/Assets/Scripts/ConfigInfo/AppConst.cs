@@ -2,7 +2,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
+public enum ServerType
+{
+    TestServer,
+}
+
+public struct ServerEntity
+{
+    string ip;
+    int port;
+    public ServerEntity(string ip, int port)
+    {
+        this.ip = ip;
+        this.port = port;
+    }
+}
 
 public class AppConst {
     public const bool DebugMode = true;                        //调试模式-用于内部测试
@@ -48,5 +64,24 @@ public class AppConst {
         get { return LuaBasePath + "LuaWrap/"; }
     }
     //======================================================
+
+
     public const int MsgHeadLen = 4;
+
+
+    public static ServerEntity GetServer(ServerType type)
+    {
+        switch (type)
+        {
+            case ServerType.TestServer:
+                return testServer;
+            default:
+                return testServer;
+        }
+    }
+    public static ServerEntity testServer = new ServerEntity("127.0.0.1", 12345);
+
+    public const string MsgTerminator = "\n";
+    public const string MsgEncoding = "utf-8";
+    public static Encoding DefEncoding = Encoding.UTF8;
 }

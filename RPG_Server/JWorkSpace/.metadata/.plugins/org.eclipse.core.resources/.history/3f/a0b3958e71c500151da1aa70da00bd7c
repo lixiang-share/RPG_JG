@@ -1,8 +1,0 @@
-package jg.rpg.entity;
-
-import org.apache.commons.dbutils.ResultSetHandler;
-
-public interface IEntity<T> {
-
-	ResultSetHandler<T> getResultSetHandler();
-}

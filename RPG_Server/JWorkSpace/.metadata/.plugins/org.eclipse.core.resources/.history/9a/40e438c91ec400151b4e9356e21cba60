@@ -1,9 +1,0 @@
-package jg.rpg.dao.db;
-
-public class DBInfo {
-
-	private String user;
-	private String pwd;
-	private String url;
-	private String driver;
-}

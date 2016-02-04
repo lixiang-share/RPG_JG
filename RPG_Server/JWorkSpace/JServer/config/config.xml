@@ -8,4 +8,9 @@
 			<passworld>lixiang</passworld>
 		</StorageDB>
 	</db>
+	<gameConfig>
+		<encoding>UTF-8</encoding>
+		<msgHeadLen>4</msgHeadLen>
+	</gameConfig>
+	
 </Server>

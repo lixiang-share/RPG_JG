@@ -31,10 +31,15 @@
 <fullyQualifiedTypeName name="io.netty.channel.SimpleChannelInboundHandler"/>
 <fullyQualifiedTypeName name="jg.rpg.net.handler.DataEnsureHandler"/>
 <fullyQualifiedTypeName name="jg.rpg.entity.NetEntityInfo"/>
-<fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
 <fullyQualifiedTypeName name="jg.rpg.net.NetworkMgr"/>
-<fullyQualifiedTypeName name="java.nio.ByteBuffer"/>
 <fullyQualifiedTypeName name="io.netty.buffer.ReadOnlyByteBuf"/>
 <fullyQualifiedTypeName name="java.util.Date"/>
 <fullyQualifiedTypeName name="io.netty.buffer.Unpooled"/>
+<fullyQualifiedTypeName name="jg.rpg.entity.MsgEntity"/>
+<fullyQualifiedTypeName name="java.nio.ByteBuffer"/>
+<fullyQualifiedTypeName name="io.netty.buffer.ByteBuf"/>
+<fullyQualifiedTypeName name="jg.rpg.utils.config.GameConfig"/>
+<fullyQualifiedTypeName name="jg.rpg.utils.MsgUtils"/>
+<fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
+<fullyQualifiedTypeName name="org.msgpack.core.ExtensionTypeHeader"/>
 </qualifiedTypeNameHistroy>

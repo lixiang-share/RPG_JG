@@ -1,0 +1,10 @@
+package jg.rpg.entity;
+
+public class MsgEntity {
+
+	private int type;
+	
+	private String cotent;
+	
+	
+}

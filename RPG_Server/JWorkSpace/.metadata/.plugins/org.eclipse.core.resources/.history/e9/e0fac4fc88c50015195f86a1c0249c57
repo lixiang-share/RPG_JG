@@ -1,6 +1,0 @@
-package jg.rpg.common;
-
-public abstrace class SingleMgrBase {
-
-	public void init();
-}

@@ -22,15 +22,20 @@ public class ConfigMgr {
 	
 	private static boolean isInit;
 	private static ConfigMgr inst;
+	private ConfigMgr(){
+	}
 	public static ConfigMgr getInstance(){
-		if(inst == null){
-			inst = new ConfigMgr();
+		synchronized (ConfigMgr.class) {
+			if(inst == null){
+				inst = new ConfigMgr();
+			}
 		}
 		return inst;
 	}
-	private ConfigMgr(){
-
+	public DBEntityInfo getStrogeDbInfo() {
+		return strogeDbInfo;
 	}
+ 
 
 	public void init() throws Exception {
 		String path = System.getProperty("user.dir")+
@@ -49,28 +54,32 @@ public class ConfigMgr {
     }
 	
     private void process(Document document) throws Exception {
-        // find all of the windows
     	Element root = document.getRootElement();
-    	
-    	
-    	
+    	readDBInfo(root);
+    	readGameConfig(root);
     }
-    
-    private void readDBInfo(Element root){
+	    
+	/**
+	 * 读取DB信息
+	 * @param root
+	 */
+	private void readDBInfo(Element root){
     	Element eDB = root.element("db");
     	Element eSDB = eDB.element("StorageDB");
-    	//封装StorgeDBxinxi
     	strogeDbInfo = new DBEntityInfo();
     	strogeDbInfo.setDriver(eSDB.elementTextTrim("driver"));
     	strogeDbInfo.setUser(eSDB.elementTextTrim("user"));
     	strogeDbInfo.setPwd(eSDB.elementTextTrim("passworld"));
     	strogeDbInfo.setUrl(eSDB.elementTextTrim("url"));
     }
-    
-    
-	public DBEntityInfo getStrogeDbInfo() {
-		return strogeDbInfo;
+	
+    private void readGameConfig(Element root) {
+    	Element eGC = root.element("gameConfig");
+    	GameConfig.DefEncoding = eGC.elementTextTrim("encoding");
+    	GameConfig.MsgHeadLen = Integer.parseInt(eGC.elementTextTrim("msgHeadLen"));
 	}
- 
+    
+    
+
 }
 

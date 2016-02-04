@@ -1,6 +1,0 @@
-package jg.rpg.common.intf;
-
-public abstract class SingleMgrBase {
-	
-	
-}
