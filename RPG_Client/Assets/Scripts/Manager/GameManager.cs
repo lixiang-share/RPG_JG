@@ -242,7 +242,7 @@ namespace SimpleFramework.Manager {
             LuaMgr.DoFile("Logic/GameManager");    //加载游戏
             initialize = true;                     //初始化完 
 
-            NetManager.OnInit();    //初始化网络
+          //  NetManager.OnInit();    //初始化网络
 
             object[] panels = CallMethod("LuaScriptPanel");  
             //---------------------Lua面板---------------------------
@@ -286,7 +286,7 @@ namespace SimpleFramework.Manager {
         /// </summary>
         void OnDestroy() {
             if (NetManager != null) {
-                NetManager.Unload();
+             //   NetManager.Unload();
             }
             if (LuaMgr != null) {
                 LuaMgr.Destroy();

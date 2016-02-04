@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.37-bin.jar"/>
+	<classpathentry kind="lib" path="lib/netty-all-4.0.33.Final.jar" sourcepath="res/source/netty-netty-4.0.33.Final(1).zip"/>
+	<classpathentry kind="lib" path="lib/commons-dbutils-1.6.jar" sourcepath="res/source/commons-dbutils-1.6-src.zip"/>
+	<classpathentry kind="lib" path="lib/dom4j-1.6.1.jar" sourcepath="res/source/dom4j-src.zip"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.17.jar" sourcepath="res/source/log4j-1.2.17.zip"/>
+	<classpathentry kind="lib" path="lib/c3p0-0.9.5.2.jar" sourcepath="res/source/c3p0-c3p0-0.9.5.2.zip"/>
+	<classpathentry kind="lib" path="lib/mchange-commons-java-0.2.11.jar"/>
+	<classpathentry kind="lib" path="lib/msgpack-java-0.8.2.jar" sourcepath="res/source/msgpack-source.zip"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

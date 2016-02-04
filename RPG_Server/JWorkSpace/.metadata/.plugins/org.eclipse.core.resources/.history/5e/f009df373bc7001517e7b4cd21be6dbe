@@ -1,0 +1,34 @@
+package jg.rpg.net.handler;
+import java.nio.ByteBuffer;
+
+import org.apache.log4j.Logger;
+
+import io.netty.buffer.ByteBuf;
+import io.netty.buffer.ReadOnlyByteBuf;
+import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.SimpleChannelInboundHandler;
+import io.netty.util.ReferenceCountUtil;
+
+public class DataEnsureHandler extends SimpleChannelInboundHandler<Object> {
+	private Logger logger = Logger.getLogger(getClass());
+
+	@Override
+	protected void channelRead0(ChannelHandlerContext ctx, Object msg){
+		ByteBuf in = (ByteBuf) msg;
+		try{
+			logger.debug(in.readableBytes());
+			while (in.isReadable()) {
+				//logger.debug((char) in.readByte());
+			}
+		}finally{
+			//ReferenceCountUtil.release(msg);
+		}
+		ByteBuf bb= ctx.alloc().buffer(1024);
+		bb.setBytes(0, "hello client".getBytes());
+		ctx.writeAndFlush(bb);
+		Thread.sleep(2000);
+     //   ctx.flush();
+
+	}
+
+}

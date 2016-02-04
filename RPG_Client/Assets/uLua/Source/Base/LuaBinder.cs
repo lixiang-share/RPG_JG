@@ -13,6 +13,7 @@ public static class LuaBinder
 			case "AnimationClipWrap": AnimationClipWrap.Register(L); break;
 			case "AnimationStateWrap": AnimationStateWrap.Register(L); break;
 			case "AnimationWrap": AnimationWrap.Register(L); break;
+			case "AppConstWrap": AppConstWrap.Register(L); break;
 			case "ApplicationWrap": ApplicationWrap.Register(L); break;
 			case "AssetBundleWrap": AssetBundleWrap.Register(L); break;
 			case "AsyncOperationWrap": AsyncOperationWrap.Register(L); break;
@@ -59,10 +60,9 @@ public static class LuaBinder
 			case "ResourceManagerWrap": ResourceManagerWrap.Register(L); break;
 			case "ScaleButtonWrap": ScaleButtonWrap.Register(L); break;
 			case "ScreenWrap": ScreenWrap.Register(L); break;
-			case "SimpleFramework_AppConstWrap": SimpleFramework_AppConstWrap.Register(L); break;
 			case "SimpleFramework_ByteBufferWrap": SimpleFramework_ByteBufferWrap.Register(L); break;
 			case "SimpleFramework_LuaHelperWrap": SimpleFramework_LuaHelperWrap.Register(L); break;
-			case "SimpleFramework_Manager_NetworkManagerWrap": SimpleFramework_Manager_NetworkManagerWrap.Register(L); break;
+			case "SimpleFramework_Manager_NetworkMgrWrap": SimpleFramework_Manager_NetworkMgrWrap.Register(L); break;
 			case "SimpleFramework_Manager_PanelManagerWrap": SimpleFramework_Manager_PanelManagerWrap.Register(L); break;
 			case "SimpleFramework_Manager_TimerManagerWrap": SimpleFramework_Manager_TimerManagerWrap.Register(L); break;
 			case "SimpleFramework_UtilWrap": SimpleFramework_UtilWrap.Register(L); break;

@@ -9,7 +9,7 @@ public class LuaComponent : MonoBehaviour {
     private AppFacade m_Facade;
     private LuaManager m_LuaMgr;
     private ResourceManager m_ResMgr;
-    private NetworkManager m_NetMgr;
+    private NetworkMgr m_NetMgr;
     private AudioManager m_MusicMgr;
     private TimerManager m_TimerMgr;
     private ThreadManager m_ThreadMgr;
@@ -70,11 +70,11 @@ public class LuaComponent : MonoBehaviour {
         }
     }
 
-    public NetworkManager NetManager
+    public NetworkMgr NetManager
     {
         get {
             if (m_NetMgr == null) {
-                m_NetMgr = facade.GetManager<NetworkManager>(ManagerName.Network);
+                m_NetMgr = facade.GetManager<NetworkMgr>(ManagerName.Network);
             }
             return m_NetMgr;
         }
