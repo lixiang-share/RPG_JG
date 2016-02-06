@@ -2,13 +2,14 @@
 using System.Collections;
 using System.Text;
 using System.IO;
+using MsgPack;
 
 public class MsgUtils {
 
-	public static byte[] SerializerMsg(MsgEntity msg)
+	public static byte[] SerializerMsg(MsgPacker msg)
     {
-        string content = msg.Content + AppConst.MsgTerminator;
-        byte[] bs = String2Byte(content);
+        msg.add<string>(AppConst.MsgTerminator);
+        byte[] bs = msg.Serialize();
         return bs;
     }
 
@@ -20,12 +21,28 @@ public class MsgUtils {
     {
         return AppConst.DefEncoding.GetString(buff);
     }
-    public static MsgEntity DeserializerMsg(byte[] buff)
+    public static MsgUnPacker DeserializerMsg(byte[] buff)
     {
         UITools.log("DeserializerMsg len : " + buff.Length);
       //  string content = Byte2String(buff);
       //  UITools.log("Msg Content : " + content);
-        MsgEntity msg = new MsgEntity();
+        //MemoryStream stream = new MemoryStream(buff);
+        //Unpacker unpacker = Unpacker.Create(stream);
+        //int num = 0;
+        //unpacker.ReadInt32(out num);
+        //double d = 0;
+        //unpacker.ReadDouble(out d);
+        //string str = "";
+        //unpacker.ReadString(out str);
+        //UITools.log(num);
+        //UITools.log(d);
+        //UITools.log(str);
+        //unpacker.Dispose();
+        for (int i = 0; i < buff.Length; i++)
+        {
+            UITools.log(buff[i]);
+        }
+        MsgUnPacker msg = new MsgUnPacker(buff);
         return msg;
     }
 

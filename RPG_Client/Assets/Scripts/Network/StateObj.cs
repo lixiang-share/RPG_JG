@@ -7,9 +7,16 @@ using System;
 public class StateObj{
     #region 字段
     private Socket _client;
-    private MsgEntity _msg;
-    private byte[] _buff;
-    private List<byte> _recvBuff;
+  //  private MsgPacker _msg;
+    private IReceiveData _receiver;
+    private bool _isNeedRecv;
+    private byte[] _sendBuff;
+
+
+    private byte[] _recvTempBuff;
+ //   private List<byte> _recvBuff;
+    private ByteBuffer _recvBuff;
+
     private int _recvLen;
     private int _errorCode;
 
@@ -27,6 +34,42 @@ public class StateObj{
     #endregion
 
     #region 数据信息
+
+
+    public byte[] SendBuff
+    {
+        get { return _sendBuff; }
+        set { _sendBuff = value; }
+    }
+
+    public bool IsNeedRecv
+    {
+        get { return _isNeedRecv; }
+        set { _isNeedRecv = value; }
+    }
+
+    public ByteBuffer RecvBuff
+    {
+        get {
+            if (_recvBuff == null) _recvBuff = new ByteBuffer();
+            return _recvBuff;
+        }
+        set { _recvBuff = value; }
+    }
+
+
+
+
+    public IReceiveData Receiver
+    {
+        get { return _receiver; }
+        set {
+            _receiver = value; 
+        }
+    }
+
+
+
     public int ErrorCode
     {
         get
@@ -43,6 +86,7 @@ public class StateObj{
     {
         get
         {
+           
             return _recvLen;
         }
 
@@ -63,47 +107,17 @@ public class StateObj{
             _client = value;
         }
     }
-
-    public MsgEntity Msg
+    public byte[] RecvTempBuff
     {
         get
         {
-            return _msg;
+            if (_recvTempBuff == null) _recvTempBuff = new byte[AppConst.Max_Msg_Len];
+            return _recvTempBuff;
         }
 
         set
         {
-            _msg = value;
-        }
-    }
-
-
-
-    public byte[] Buff
-    {
-        get
-        {
-            if (_buff == null) _buff = new byte[1024];
-            return _buff;
-        }
-
-        set
-        {
-            _buff = value;
-        }
-    }
-
-    public List<byte> RecvBuff
-    {
-        get
-        {
-            if (_recvBuff == null) _recvBuff = new List<byte>();
-            return _recvBuff;
-        }
-
-        set
-        {
-            _recvBuff = value;
+            _recvTempBuff = value;
         }
     }
 

@@ -23,4 +23,15 @@ public class MsgUtilsTest {
 			System.out.println(buff[i]);
 		}
 	}
+	@Test
+	public void testType(){
+		int a = 4;
+		//boolean b = a instanceof Integer;
+		this.add(a);
+	}
+	
+	public <T> void add(T t){
+		boolean b = t instanceof Integer;
+		System.out.print(t);
+	}
 }

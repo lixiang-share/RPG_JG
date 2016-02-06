@@ -1,5 +1,6 @@
 package jg.rpg.net;
 
+import java.io.UnsupportedEncodingException;
 import java.security.cert.CertificateException;
 
 import javax.net.ssl.SSLException;
@@ -45,7 +46,7 @@ public class NetworkMgr{
 		return inst;
 	}
 	
-	public void init(NetEntityInfo info) throws CertificateException, SSLException, InterruptedException {
+	public void init(NetEntityInfo info) throws CertificateException, SSLException, InterruptedException, UnsupportedEncodingException {
 		final SslContext sslCtx;
         SelfSignedCertificate ssc = null;
         if (SSL) {
@@ -62,7 +63,8 @@ public class NetworkMgr{
              .channel(NioServerSocketChannel.class)
              .option(ChannelOption.SO_BACKLOG, 100)
              .handler(new LoggingHandler(LogLevel.INFO))
-             .childHandler(new ChannelInitializer<SocketChannel>() {
+             .childHandler(new RPGChannelInitializer());
+           /*  .childHandler(new ChannelInitializer<SocketChannel>() {
                  @Override
                  public void initChannel(SocketChannel ch) throws Exception {
                      ChannelPipeline p = ch.pipeline();
@@ -71,14 +73,14 @@ public class NetworkMgr{
                      }
                      logger.debug("register handler");
                      p.addLast(
-                            /* new StringEncoder(CharsetUtil.UTF_8),
+                             new StringEncoder(CharsetUtil.UTF_8),
                              new LineBasedFrameDecoder(8192),
                              new StringDecoder(CharsetUtil.UTF_8),
-                             new ChunkedWriteHandler(),*/
+                             new ChunkedWriteHandler(),
                     		 new LineBasedFrameDecoder(1024*1024*2),
                              new DataEnsureHandler());
                  }
-             });
+             });*/
            // channelFuture =  b.bind("127.0.0.1", 12345).sync();
             channelFuture = b.bind(12345).sync();
             channelFuture.channel().closeFuture().sync();

@@ -23,7 +23,7 @@ public static class WrapFile {
 		_GT(typeof(WWW)),
 		_GT(typeof(Util)),
 		_GT(typeof(AppConst)),
-		_GT(typeof(ByteBuffer)),
+		//_GT(typeof(ByteBuffer)),
         _GT(typeof(NetworkMgr)),
         _GT(typeof(ResourceManager)),
         _GT(typeof(PanelManager)),

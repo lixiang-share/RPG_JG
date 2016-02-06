@@ -7,6 +7,7 @@ public class AppConstWrap
 	{
 		LuaMethod[] regs = new LuaMethod[]
 		{
+			new LuaMethod("GetServer", GetServer),
 			new LuaMethod("New", _CreateAppConst),
 			new LuaMethod("GetClassType", GetClassType),
 		};
@@ -29,9 +30,13 @@ public class AppConstWrap
 			new LuaField("AppPrefix", get_AppPrefix, null),
 			new LuaField("WebUrl", get_WebUrl, null),
 			new LuaField("MsgHeadLen", get_MsgHeadLen, null),
+			new LuaField("MsgTerminator", get_MsgTerminator, null),
+			new LuaField("MsgEncoding", get_MsgEncoding, null),
 			new LuaField("UserId", get_UserId, set_UserId),
 			new LuaField("SocketPort", get_SocketPort, set_SocketPort),
 			new LuaField("SocketAddress", get_SocketAddress, set_SocketAddress),
+			new LuaField("testServer", get_testServer, set_testServer),
+			new LuaField("DefEncoding", get_DefEncoding, set_DefEncoding),
 			new LuaField("LuaBasePath", get_LuaBasePath, null),
 			new LuaField("LuaWrapPath", get_LuaWrapPath, null),
 		};
@@ -180,6 +185,20 @@ public class AppConstWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_MsgTerminator(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, AppConst.MsgTerminator);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_MsgEncoding(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, AppConst.MsgEncoding);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_UserId(IntPtr L)
 	{
 		LuaScriptMgr.Push(L, AppConst.UserId);
@@ -197,6 +216,20 @@ public class AppConstWrap
 	static int get_SocketAddress(IntPtr L)
 	{
 		LuaScriptMgr.Push(L, AppConst.SocketAddress);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_testServer(IntPtr L)
+	{
+		LuaScriptMgr.PushValue(L, AppConst.testServer);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_DefEncoding(IntPtr L)
+	{
+		LuaScriptMgr.PushObject(L, AppConst.DefEncoding);
 		return 1;
 	}
 
@@ -233,6 +266,30 @@ public class AppConstWrap
 	{
 		AppConst.SocketAddress = LuaScriptMgr.GetString(L, 3);
 		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_testServer(IntPtr L)
+	{
+		AppConst.testServer = (ServerEntity)LuaScriptMgr.GetNetObject(L, 3, typeof(ServerEntity));
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_DefEncoding(IntPtr L)
+	{
+		AppConst.DefEncoding = (System.Text.Encoding)LuaScriptMgr.GetNetObject(L, 3, typeof(System.Text.Encoding));
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetServer(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		ServerType arg0 = (ServerType)LuaScriptMgr.GetNetObject(L, 1, typeof(ServerType));
+		ServerEntity o = AppConst.GetServer(arg0);
+		LuaScriptMgr.PushValue(L, o);
+		return 1;
 	}
 }
 

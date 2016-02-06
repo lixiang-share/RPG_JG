@@ -122,7 +122,7 @@ public class SocketClient {
         int protocal = dis == DisType.Exception ?
         Protocal.Exception : Protocal.Disconnect;
 
-        ByteBuffer buffer = new ByteBuffer();
+        ByteBuf buffer = new ByteBuf();
         buffer.WriteShort((ushort)protocal);
        // NetworkMgr.AddEvent(protocal, buffer);
         Debug.LogError("Connection was closed by the server:>" + msg + " Distype:>" + dis);
@@ -195,7 +195,7 @@ public class SocketClient {
         byte[] message = r.ReadBytes((int)(ms.Length - ms.Position));
         //int msglen = message.Length;
 
-        ByteBuffer buffer = new ByteBuffer(message);
+        ByteBuf buffer = new ByteBuf(message);
         int mainId = buffer.ReadShort();
      //   NetworkMgr.AddEvent(mainId, buffer);
     }
@@ -229,7 +229,7 @@ public class SocketClient {
     /// <summary>
     /// 发送消息
     /// </summary>
-    public void SendMessage(ByteBuffer buffer) {
+    public void SendMessage(ByteBuf buffer) {
         SessionSend(buffer.ToBytes());
         buffer.Close();
     }

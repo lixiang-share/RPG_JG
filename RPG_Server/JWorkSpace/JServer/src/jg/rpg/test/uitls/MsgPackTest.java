@@ -1,7 +1,9 @@
 package jg.rpg.test.uitls;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 
 import org.junit.Test;
 import org.msgpack.core.ExtensionTypeHeader;
@@ -36,7 +38,6 @@ public class MsgPackTest {
 	            phones[i] = unpacker.unpackString();   // phones = {"xxx-xxxx", "yyy-yyyy"}
 	        }
 	        unpacker.close();
-
 	        System.out.println(String.format("id:%d, name:%s, phone:[%s]", id, name, join(phones)));
 	        System.out.println(num2);
 	}
@@ -123,8 +124,75 @@ public class MsgPackTest {
         headInfo.getType();
         byte[] buff = unpacker.readPayload(headInfo.getLength());
         msg = msg + new String(buff , "utf-8");
-        
         unpacker.close();
         System.out.println(msg);
+	}
+	
+	@Test
+	public void testMsgArr() throws IOException{
+        ByteArrayOutputStream out = new ByteArrayOutputStream();
+        MessagePacker packer = MessagePack.newDefaultPacker(out);
+        packer.packBoolean(true);
+        packer.packShort((short) 34);
+        packer.packInt(1);
+        int[] arr = new int[] {3, 5, 1, 0, -1, 255};
+        /*packer.packArrayHeader(arr.length);
+        for (int v : arr) {
+            packer.packInt(v);
+        }*/
+        packer.packMapHeader(2); // the number of (key, value) pairs
+        // Put "apple" -> 1
+        packer.packString("apple");
+        packer.packInt(1);
+        // Put "banana" -> 2
+        packer.packString("banana");
+        packer.packInt(2);
+        
+        packer.packString("hello message pack!");
+        packer.close();
+        MessageUnpacker unpacker = MessagePack.newDefaultUnpacker(out.toByteArray());
+        unpacker.skipValue();
+        unpacker.skipValue();
+        unpacker.skipValue();
+        unpacker.skipValue();
+      //  unpacker.skipValue();
+       // int i = unpacker.unpackInt();
+        String str = unpacker.unpackString();
+        System.out.println(str);
+        unpacker.close();
+	}
+	@Test
+	public void testIndex() throws IOException{
+		 ByteArrayOutputStream out = new ByteArrayOutputStream();
+	     MessagePacker packer = MessagePack.newDefaultPacker(out);
+	       packer.packMapHeader(2); // the number of (key, value) pairs
+	        // Put "apple" -> 1
+	        packer.packString("apple");
+	        packer.packInt(1);
+	        // Put "banana" -> 2
+	        packer.packString("banana");
+	        packer.packInt(2);
+	        
+	        packer.packString("hello message pack!");
+	        
+	        packer.packString("aaaaaaaaaaaaaaaaaaa");
+	        packer.packString("bbbbbbbbbbbbbbbbbbbb");
+	        packer.close();
+	        ByteArrayInputStream in = new ByteArrayInputStream(out.toByteArray());
+	        int len = in.available();
+	        byte[] buff = new byte[len];
+	        in.read(buff);
+        MessageUnpacker unpacker = MessagePack.newDefaultUnpacker(buff);
+        String msg = ""+unpacker.unpackMapHeader() +"\n"+
+        		unpacker.unpackString()+"\n"+
+        		unpacker.unpackInt();
+        System.out.println(msg);
+
+        MessageUnpacker _unpacker = MessagePack.newDefaultUnpacker(buff);
+        _unpacker.skipValue();
+        _unpacker.skipValue();
+        System.out.println(_unpacker.unpackString());
+        System.out.println(unpacker.unpackString());
+       // unpacker.skipValue();
 	}
 }

@@ -1,0 +1,8 @@
+package jg.rpg.net.handler;
+
+import io.netty.channel.SimpleChannelInboundHandler;
+import jg.rpg.entity.MsgUnPacker;
+
+public class LoginValidateHandler extends SimpleChannelInboundHandler<MsgUnPacker> {
+
+}

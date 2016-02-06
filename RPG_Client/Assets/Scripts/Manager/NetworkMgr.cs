@@ -9,12 +9,18 @@ namespace SimpleFramework.Manager {
 
         private ClientSocket clientSocket;
         private bool isConnected = false;
+        private MsgHandlerMgr handerMgr;
+
+
+
         void Awake() {
             Init();
         }
         void Init() {
             clientSocket = new ClientSocket();
             clientSocket.Init();
+            handerMgr = new MsgHandlerMgr()
+                .RegisterHander(new MsgFilterHandler());
         }
 
         void OnGUI()
@@ -26,8 +32,9 @@ namespace SimpleFramework.Manager {
             if (GUILayout.Button("Send Data"))
             {
 
-                MsgEntity msg = new MsgEntity();
-                msg.Content = "Hello server";
+                MsgPacker msg = new MsgPacker();
+                msg.setType(1);
+                msg.add<string>("hello server");
                 Send(msg);
             }
         }
@@ -44,12 +51,14 @@ namespace SimpleFramework.Manager {
         {
 
         }
-        public void Send(MsgEntity msg)
+        public void Send(MsgPacker msg)
         {
             StateObj _state = new StateObj();
+            _state.IsNeedRecv = msg.IsNeedRecv;
             _state.OnSend = OnSend;
             _state.OnReceive = OnReceiveData;
-            clientSocket.Send(msg, _state);
+            _state.SendBuff = MsgUtils.SerializerMsg(msg);
+            clientSocket.Send(_state);
         }
 
         void OnConnect(StateObj state)
@@ -68,7 +77,9 @@ namespace SimpleFramework.Manager {
         void OnReceiveData(StateObj state)
         {
             UITools.log("receive msg compelete and decode msg");
-            MsgUtils.DeserializerMsg(state.RecvBuff.ToArray());
+            MsgUnPacker unpacker = MsgUtils.DeserializerMsg(state.RecvBuff.ToByteArray());
+            handerMgr.HandleMsg(unpacker);
+
         }
 
 

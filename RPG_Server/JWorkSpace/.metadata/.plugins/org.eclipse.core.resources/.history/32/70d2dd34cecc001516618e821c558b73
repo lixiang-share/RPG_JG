@@ -1,0 +1,9 @@
+package jg.rpg.common.protocol;
+/**
+ * 协议，以后应该会有很多其他类型的协议
+ *
+ */
+public class MesProtocol {
+	
+	public final static int  Login = 0;
+}

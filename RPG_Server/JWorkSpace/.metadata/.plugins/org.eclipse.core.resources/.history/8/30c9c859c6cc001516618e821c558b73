@@ -1,0 +1,11 @@
+package jg.rpg.msg.chat;
+
+import jg.rpg.entity.MsgUnPacker;
+import jg.rpg.entity.Session;
+
+public class ChatService {
+
+	public void handlerChatMsg(Session session , MsgUnPacker unpacker){
+		
+	}
+}

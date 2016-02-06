@@ -1,0 +1,5 @@
+package jg.rpg.net.handler;
+
+public class MsgDeserializerHandler {
+
+}

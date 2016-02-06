@@ -1,24 +1,24 @@
 package jg.rpg.utils.config;
 
-import java.awt.Component;
 import java.io.File;
-import java.util.Iterator;
+import java.util.ArrayList;
 import java.util.List;
-
-import org.dom4j.Attribute;
-import org.dom4j.Document;
-import org.dom4j.Element;
-import org.dom4j.bean.BeanDocumentFactory;
-import org.dom4j.io.SAXReader;
 
 import jg.rpg.entity.DBEntityInfo;
 import jg.rpg.entity.NetEntityInfo;
 import jg.rpg.exceptions.InitException;
 
+import org.dom4j.Document;
+import org.dom4j.Element;
+import org.dom4j.bean.BeanDocumentFactory;
+import org.dom4j.io.SAXReader;
+
 public class ConfigMgr {
 
 	private DBEntityInfo strogeDbInfo;
 	private NetEntityInfo mainNetInfo;
+	private List<String> handlerNames;
+	
 	
 	private static boolean isInit;
 	private static ConfigMgr inst;
@@ -32,10 +32,7 @@ public class ConfigMgr {
 		}
 		return inst;
 	}
-	public DBEntityInfo getStrogeDbInfo() {
-		return strogeDbInfo;
-	}
- 
+
 
 	public void init() throws Exception {
 		String path = System.getProperty("user.dir")+
@@ -57,8 +54,21 @@ public class ConfigMgr {
     	Element root = document.getRootElement();
     	readDBInfo(root);
     	readGameConfig(root);
+    	readHandlerNames(root);
     }
 	    
+	public List<String> getHandlerNames() {
+		return handlerNames;
+	}
+	private void readHandlerNames(Element root) {
+		handlerNames = new ArrayList<String>();
+		Element ehn = root.element("handlers");
+		List<Element> eList = ehn.elements("handler");
+		for(Element e : eList){
+			String str = e.getText().trim();
+			handlerNames.add(str);
+		}
+	}
 	/**
 	 * ∂¡»°DB–≈œ¢
 	 * @param root
@@ -77,9 +87,14 @@ public class ConfigMgr {
     	Element eGC = root.element("gameConfig");
     	GameConfig.DefEncoding = eGC.elementTextTrim("encoding");
     	GameConfig.MsgHeadLen = Integer.parseInt(eGC.elementTextTrim("msgHeadLen"));
+    	GameConfig.Delimiter = eGC.elementTextTrim("delimiter");
+    	GameConfig.Max_Frame_Length = Integer.parseInt(eGC.elementTextTrim("max_msg_len"));
 	}
     
-    
+	public DBEntityInfo getStrogeDbInfo() {
+		return strogeDbInfo;
+	}
+ 
 
 }
 

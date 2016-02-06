@@ -1,19 +1,32 @@
 package jg.rpg.utils;
 
-import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
+import java.io.IOException;
 
 import org.apache.log4j.Logger;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
-import jg.rpg.entity.MsgEntity;
+import jg.rpg.entity.MsgPacker;
+import jg.rpg.entity.MsgUnPacker;
 import jg.rpg.utils.config.GameConfig;
 
 public class MsgUtils {
 
 	private static Logger logger = Logger.getLogger(MsgUtils.class);
-	public static ByteBuf serializerMsg(MsgEntity msg){
+	
+	public static MsgUnPacker DeserializerMsg(ByteBuf buf) throws IOException{
+		int len = buf.readableBytes();
+		byte[] bs =new byte[len];
+		buf.getBytes(0, bs);
+		return DeserializerMsg(bs);
+	}
+	public static MsgUnPacker DeserializerMsg(byte[] buf) throws IOException{
+		return new MsgUnPacker(buf);
+	}
+	
+	
+	
+	public static ByteBuf serializerMsg(MsgPacker msg) throws IOException{
 		byte[] msgBytes = msgToBytes(msg);
 		byte[] msgLenBytes = defMsgLenEncoding(msgBytes.length);
 		int totalSize = msgBytes.length + msgLenBytes.length;
@@ -24,16 +37,9 @@ public class MsgUtils {
 		return buff;
 	}
 	
-	public static byte[] msgToBytes(MsgEntity msg){
-		byte[] buff = null;
-		try {
-			buff = msg.getCotent().getBytes(GameConfig.DefEncoding);
-		} catch (UnsupportedEncodingException e) {
-		}
-		return buff;
+	public static byte[] msgToBytes(MsgPacker msg) throws IOException{
+		return msg.Serialize();
 	}
-	
-	
 	public static byte[] defMsgLenEncoding(int num){
 		return intToBytes(num, GameConfig.MsgHeadLen);
 	}
@@ -49,7 +55,4 @@ public class MsgUtils {
 		}
 		return buff;
 	}
-	   
-	
-	
 }

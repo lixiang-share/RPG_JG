@@ -60,7 +60,6 @@ public static class LuaBinder
 			case "ResourceManagerWrap": ResourceManagerWrap.Register(L); break;
 			case "ScaleButtonWrap": ScaleButtonWrap.Register(L); break;
 			case "ScreenWrap": ScreenWrap.Register(L); break;
-			case "SimpleFramework_ByteBufferWrap": SimpleFramework_ByteBufferWrap.Register(L); break;
 			case "SimpleFramework_LuaHelperWrap": SimpleFramework_LuaHelperWrap.Register(L); break;
 			case "SimpleFramework_Manager_NetworkMgrWrap": SimpleFramework_Manager_NetworkMgrWrap.Register(L); break;
 			case "SimpleFramework_Manager_PanelManagerWrap": SimpleFramework_Manager_PanelManagerWrap.Register(L); break;

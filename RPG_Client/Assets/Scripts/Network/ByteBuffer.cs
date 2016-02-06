@@ -1,135 +1,65 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.IO;
-using System.Text;
-using System;
+using System.Collections.Generic;
 
-namespace SimpleFramework {
-    public class ByteBuffer {
-        MemoryStream stream = null;
-        BinaryWriter writer = null;
-        BinaryReader reader = null;
+public class ByteBuffer {
 
-        public ByteBuffer() {
-            stream = new MemoryStream();
-            writer = new BinaryWriter(stream);
+   // private MemoryStream stream;
+    private int _length;
+    private List<byte> listBuf;
+    public int Length
+    {
+       // get { return (int)stream.Length; }
+        get { return listBuf.Count; }
+    }
+
+    //public ByteBuffer(byte[] buff)
+    //{
+    //    if (buff != null)
+    //    {
+    //        stream = new MemoryStream(buff);
+    //    }
+    //    else
+    //    {
+    //        stream = new MemoryStream();
+    //    }
+    //}
+    public ByteBuffer()
+    {
+        listBuf = new List<byte>();
+        //stream = new MemoryStream();
+    }
+    public void Write(byte b)
+    {
+        listBuf.Add(b);
+      //  stream.WriteByte(b);
+    }
+
+    public void Write(byte[] buff)
+    {
+        listBuf.AddRange(buff);
+       // Write(buff, 0, buff.Length);
+    }
+
+    public void Write(byte[] buff, int offset, int len)
+    {
+        if (buff == null || offset < 0 || len < 0 || offset>=buff.Length || offset + len > buff.Length)
+        {
+            UITools.log("params is wrong and can not write to ByteBuffer!!");
         }
-
-        public ByteBuffer(byte[] data) {
-            if (data != null) {
-                stream = new MemoryStream(data);
-                reader = new BinaryReader(stream);
-            } else {
-                stream = new MemoryStream();
-                writer = new BinaryWriter(stream);
-            }
+        else
+        {
+            listBuf.addRange<byte>(buff, offset, len);
+           // stream.Write(buff, 0,len);
         }
+    }
 
-        public void Close() {
-            if (writer != null) writer.Close();
-            if (reader != null) reader.Close();
-
-            stream.Close();
-            writer = null;
-            reader = null;
-            stream = null;
-        }
-
-        public void WriteByte(byte v) {
-            writer.Write(v);
-        }
-
-        public void WriteInt(int v) {
-            writer.Write((int)v);
-        }
-
-        public void WriteShort(ushort v) {
-            writer.Write((ushort)v);
-        }
-
-        public void WriteLong(long v) {
-            writer.Write((long)v);
-        }
-
-        public void WriteFloat(float v) {
-            byte[] temp = BitConverter.GetBytes(v);
-            Array.Reverse(temp);
-            writer.Write(BitConverter.ToSingle(temp, 0));
-        }
-
-        public void WriteDouble(double v) {
-            byte[] temp = BitConverter.GetBytes(v);
-            Array.Reverse(temp);
-            writer.Write(BitConverter.ToDouble(temp, 0));
-        }
-
-        public void WriteString(string v) {
-            byte[] bytes = Encoding.UTF8.GetBytes(v);
-            writer.Write((ushort)bytes.Length);
-            writer.Write(bytes);
-        }
-
-        public void WriteBytes(byte[] v) {
-            writer.Write((int)v.Length);
-            writer.Write(v);
-        }
-
-        public void WriteBuffer(LuaStringBuffer strBuffer) {
-            WriteBytes(strBuffer.buffer);
-        }
-
-        public byte ReadByte() {
-            return reader.ReadByte();
-        }
-
-        public int ReadInt() {
-            return (int)reader.ReadInt32();
-        }
-
-        public ushort ReadShort() {
-            return (ushort)reader.ReadInt16();
-        }
-
-        public long ReadLong() {
-            return (long)reader.ReadInt64();
-        }
-
-        public float ReadFloat() {
-            byte[] temp = BitConverter.GetBytes(reader.ReadSingle());
-            Array.Reverse(temp);
-            return BitConverter.ToSingle(temp, 0);
-        }
-
-        public double ReadDouble() {
-            byte[] temp = BitConverter.GetBytes(reader.ReadDouble());
-            Array.Reverse(temp);
-            return BitConverter.ToDouble(temp, 0);
-        }
-
-        public string ReadString() {
-            ushort len = ReadShort();
-            byte[] buffer = new byte[len];
-            buffer = reader.ReadBytes(len);
-            return Encoding.UTF8.GetString(buffer);
-        }
-
-        public byte[] ReadBytes() {
-            int len = ReadInt();
-            return reader.ReadBytes(len);
-        }
-
-        public LuaStringBuffer ReadBuffer() {
-            byte[] bytes = ReadBytes();
-            return new LuaStringBuffer(bytes);
-        }
-
-        public byte[] ToBytes() {
-            writer.Flush();
-            return stream.ToArray();
-        }
-
-        public void Flush() {
-            writer.Flush();
-        }
+    public byte[] ToByteArray()
+    {
+       // stream.Flush();
+      //  stream.GetBuffer();
+     //   return stream.GetBuffer();
+        return listBuf.ToArray();
     }
 }

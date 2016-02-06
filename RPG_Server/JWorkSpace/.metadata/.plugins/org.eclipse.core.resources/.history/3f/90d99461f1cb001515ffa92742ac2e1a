@@ -1,0 +1,5 @@
+@Target(ElementType.FIELD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface TestAn {
+	String value() default "";
+}

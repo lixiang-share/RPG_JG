@@ -1,0 +1,9 @@
+package jg.rpg.entity;
+
+import java.lang.reflect.Method;
+
+public class MsgHandlerItem {
+
+	private Method handlerMethod;
+	private Object obj;
+}

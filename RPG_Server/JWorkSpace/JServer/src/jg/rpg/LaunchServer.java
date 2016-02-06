@@ -12,6 +12,7 @@ import jg.rpg.dao.db.DBMgr;
 import jg.rpg.dao.db.RSHHelper;
 import jg.rpg.entity.Cat;
 import jg.rpg.exceptions.InitException;
+import jg.rpg.msg.MsgMgr;
 import jg.rpg.net.NetworkMgr;
 import jg.rpg.utils.config.ConfigMgr;
 
@@ -21,6 +22,7 @@ public class LaunchServer {
 			try {
 				ConfigMgr.getInstance().init();
 				DBMgr.getInstance().init();
+				MsgMgr.getInstance().init();
 				NetworkMgr.getInstance().init(null);
 			} catch (InitException e) {
 				e.printStackTrace();

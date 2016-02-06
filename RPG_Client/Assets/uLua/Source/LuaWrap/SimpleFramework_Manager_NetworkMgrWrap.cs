@@ -43,7 +43,7 @@ public class SimpleFramework_Manager_NetworkMgrWrap
 	{
 		LuaScriptMgr.CheckArgsCount(L, 2);
 		SimpleFramework.Manager.NetworkMgr obj = (SimpleFramework.Manager.NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.NetworkMgr");
-		MsgEntity arg0 = (MsgEntity)LuaScriptMgr.GetNetObject(L, 2, typeof(MsgEntity));
+		MsgPacker arg0 = (MsgPacker)LuaScriptMgr.GetNetObject(L, 2, typeof(MsgPacker));
 		obj.Send(arg0);
 		return 0;
 	}

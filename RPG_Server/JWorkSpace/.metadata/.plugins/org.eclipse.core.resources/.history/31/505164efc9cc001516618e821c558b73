@@ -1,0 +1,13 @@
+package jg.rpg.entity;
+
+import java.lang.reflect.Method;
+
+import jg.rpg.common.intf.IMsgHandler;
+
+public class MsgHandlerItem implements IMsgHandler {
+
+	private Method handlerMethod;
+	private Object obj;
+	
+	
+}

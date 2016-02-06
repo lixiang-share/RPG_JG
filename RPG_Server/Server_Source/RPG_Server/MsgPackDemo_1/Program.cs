@@ -13,6 +13,25 @@ namespace MsgPackDemo_1
     {
         static void Main(string[] args)
         {
+            MemoryStream outStream = new MemoryStream();
+            Packer packer = Packer.Create(outStream);
+           // packer.PackArrayHeader(2);
+            packer.Pack(1);
+            packer.Pack("hello");
+            packer.Dispose();
+            byte[] buff = outStream.ToArray();
+            Console.WriteLine(buff.Length);
+
+            MemoryStream inStream = new MemoryStream(buff);
+            Unpacker unpacker = Unpacker.Create(inStream);
+            bool b = unpacker.IsArrayHeader;
+            int rst = 0;
+            unpacker.ReadInt32(out rst);
+            Console.WriteLine(rst);
+            string str = "";
+            unpacker.ReadString(out str);
+            Console.WriteLine(str);
+            Console.ReadKey();
             var targetObject = new PackableUnpackableObject();
 
             var stream = new MemoryStream();

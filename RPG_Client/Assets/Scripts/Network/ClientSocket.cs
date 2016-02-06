@@ -13,7 +13,7 @@ public class ClientSocket {
             tcpClient = new TcpClient();
             tcpClient.SendTimeout = 1000;
             tcpClient.ReceiveTimeout = 1000;
-            tcpClient.SendBufferSize = 1014 * 1024;
+            tcpClient.SendBufferSize = 1024 * 1024;
             isInit = true;
 
         }
@@ -42,11 +42,12 @@ public class ClientSocket {
         if(state != null) state.OnConnect(state);
     }
 
-    public void Send(MsgEntity msg,StateObj state = null)
+    public void Send(StateObj state)
     {
-        byte[] buff = MsgUtils.SerializerMsg(msg);
+        byte[] buff = state.SendBuff;
+        UITools.log("send Buff size : " + buff.Length);
         if (state == null) state = new StateObj();
-        state.Msg = msg;
+       // state.Msg = msg;
         state.Client = tcpClient.Client;
         try
         {
@@ -63,11 +64,11 @@ public class ClientSocket {
     {
         StateObj state = (StateObj)iar.AsyncState;
         state.OnSend(state);
-        if (state.Msg.IsNeedRecv)
+        if (state.IsNeedRecv)
         {
             try
             {
-                state.Client.BeginReceive(state.Buff, 0, state.Buff.Length, 0, new AsyncCallback(OnReceive), state);
+                state.Client.BeginReceive(state.RecvTempBuff, 0, state.RecvTempBuff.Length, 0, new AsyncCallback(OnReceive), state);
             }
             catch (Exception)
             {
@@ -91,17 +92,18 @@ public class ClientSocket {
             state.OnRecvError(state);
             return;
         }
-        byte[] buff = state.Buff;
+        byte[] buff = state.RecvTempBuff;
         int msgRealLen = MsgUtils.DecodeMsgRealLen(buff, 0, 4);
         UITools.log("msg real length : "+msgRealLen);
         state.RecvLen = msgRealLen;
-        state.RecvBuff.addRange<byte>(buff, AppConst.MsgHeadLen, len - 4);
+       // state.RecvBuff.addRange<byte>(buff, AppConst.MsgHeadLen, len - 4);
+        state.RecvBuff.Write(buff, AppConst.MsgHeadLen, len - AppConst.MsgHeadLen);
         
-        if(state.RecvLen - state.RecvBuff.Count > 0)
+        if(state.RecvLen - state.RecvBuff.Length > 0)
         {
             try
             {
-                state.Client.BeginReceive(state.Buff, 0, state.Buff.Length, 0, new AsyncCallback(OnReceiveRestData), state);
+                state.Client.BeginReceive(state.RecvTempBuff, 0, state.RecvTempBuff.Length, 0, new AsyncCallback(OnReceiveRestData), state);
             }
             catch (Exception)
             {
@@ -121,9 +123,10 @@ public class ClientSocket {
     {
         StateObj state = (StateObj)iar.AsyncState;
         int len = state.Client.EndReceive(iar);
-        byte[] buff = state.Buff;
-        state.RecvBuff.addRange<byte>(buff , 0 , len);
-        int contentRest = state.RecvLen - state.RecvBuff.Count;
+        byte[] buff = state.RecvTempBuff;
+      //  state.RecvBuff.addRange<byte>(buff , 0 , len);
+        state.RecvBuff.Write(buff, 0, len);
+        int contentRest = state.RecvLen - state.RecvBuff.Length;
         if(contentRest <= 0)
         {
             state.OnReceive(state);
@@ -131,7 +134,7 @@ public class ClientSocket {
         }
         try
         {
-            state.Client.BeginReceive(state.Buff, 0, state.Buff.Length, 0, new AsyncCallback(OnReceiveRestData), state);
+            state.Client.BeginReceive(state.RecvTempBuff, 0, state.RecvTempBuff.Length, 0, new AsyncCallback(OnReceiveRestData), state);
         }
         catch (Exception)
         {

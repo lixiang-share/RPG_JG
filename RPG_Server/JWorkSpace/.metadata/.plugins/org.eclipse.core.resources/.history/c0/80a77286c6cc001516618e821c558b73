@@ -1,0 +1,13 @@
+package jg.rpg.msg.chat;
+
+import jg.rpg.common.anotation.HandlerMsg;
+import jg.rpg.entity.MsgUnPacker;
+import jg.rpg.entity.Session;
+
+public class ChatService {
+
+	@HandlerMsg(msgType = 1)
+	public void handlerChatMsg(Session session , MsgUnPacker unpacker){
+		
+	}
+}

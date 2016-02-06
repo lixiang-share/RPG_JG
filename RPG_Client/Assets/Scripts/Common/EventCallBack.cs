@@ -15,4 +15,4 @@ public delegate void DefAction();
 /// <summary>
 /// 消息回调接口
 /// </summary>
-public delegate void MsgCallBack(MsgEntity msg);
+public delegate void MsgCallBack(MsgPacker msg);

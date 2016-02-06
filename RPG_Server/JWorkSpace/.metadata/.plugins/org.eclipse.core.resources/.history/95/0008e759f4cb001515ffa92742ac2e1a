@@ -1,0 +1,16 @@
+import java.lang.reflect.Field;
+
+
+public class Test {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Fruit f = new Fruit();
+		Field[] fs = f.getClass().getFields();
+		for(Field field : fs){
+			
+		}
+		System.out.println(f.getName());
+	}
+
+}

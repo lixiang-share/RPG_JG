@@ -7,7 +7,7 @@ using SimpleFramework;
 using SimpleFramework.Manager;
 
 
-public class LuaBehaviour : MonoBehaviour
+public class LuaBehaviour : MonoBehaviour , IReceiveData
 {
     protected bool initialize = false;
     private string data = null;
@@ -127,7 +127,15 @@ public class LuaBehaviour : MonoBehaviour
         CallMethod("OnDisable");
     }
 
+    public void SendMsg(MsgPacker msg)
+    {
 
+    }
+
+    public void ReceiveData(MsgPacker msg)
+    {
+        CallMethod("");
+    }
     /// <summary>
     /// 执行Lua方法
     /// </summary>
@@ -283,5 +291,7 @@ public class LuaBehaviour : MonoBehaviour
             }
         }
     }
+
+
 
 }

@@ -65,10 +65,6 @@ public class AppConst {
     }
     //======================================================
 
-
-    public const int MsgHeadLen = 4;
-
-
     public static ServerEntity GetServer(ServerType type)
     {
         switch (type)
@@ -80,8 +76,9 @@ public class AppConst {
         }
     }
     public static ServerEntity testServer = new ServerEntity("127.0.0.1", 12345);
-
-    public const string MsgTerminator = "\n";
+    public const string MsgTerminator = "#";
     public const string MsgEncoding = "utf-8";
     public static Encoding DefEncoding = Encoding.UTF8;
+    public const int MsgHeadLen = 4;
+    public const int Max_Msg_Len = 1024;
 }

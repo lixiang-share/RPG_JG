@@ -11,6 +11,12 @@
 	<gameConfig>
 		<encoding>UTF-8</encoding>
 		<msgHeadLen>4</msgHeadLen>
+		<delimiter>#</delimiter>
+		<max_msg_len>2048</max_msg_len>
 	</gameConfig>
+	
+	<handlers>
+		<handler>jg.rpg.msg.chat.ChatService</handler>
+	</handlers>
 	
 </Server>
