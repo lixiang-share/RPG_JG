@@ -1,3 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">&#x0A;<refactoring comment="Delete resource &apos;MsgPackJar&apos;" deleteContents="false" description="Delete resource &apos;MsgPackJar&apos;" element1="/MsgPackJar" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1454597284554"/>&#x0A;<refactoring comment="Delete resource &apos;MasgPackDemo&apos;" deleteContents="false" description="Delete resource &apos;MasgPackDemo&apos;" element1="/MasgPackDemo" flags="7" id="org.eclipse.ltk.core.refactoring.delete.resources" resources="1" stamp="1454597294999"/>
-</session>

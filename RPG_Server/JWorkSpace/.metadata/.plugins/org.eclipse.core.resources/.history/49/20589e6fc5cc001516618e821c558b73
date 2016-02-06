@@ -1,5 +1,0 @@
-package jg.rpg.common.anotation;
-
-public @interface HandlerMsg {
-
-}

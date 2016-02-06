@@ -1,6 +1,0 @@
-package jg.rpg.common.protocol;
-
-public class MesProtocol {
-
-	public int final static Login = 1;
-}

@@ -1,7 +1,0 @@
-package jg.rpg.utils.config;
-
-public class GameConfig {
-
-	public static int MsgHeadLen = 4;
-	public static String DefEncoding;
-}

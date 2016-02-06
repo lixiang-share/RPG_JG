@@ -1,6 +1,0 @@
-package jg.rpg.common.intf;
-
-public interface IMsgHandler {
-
-	void handleMsg(Session session , MsgUnPacker unpacker );
-}

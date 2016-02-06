@@ -1,7 +1,0 @@
-
-public class MTest {
-
-	public void Test(String str){
-		
-	}
-}

@@ -1,6 +1,0 @@
-package jg.rpg.utils.config;
-
-public class GameConfig {
-
-	public static String DefEncoding;
-}

@@ -1,8 +1,0 @@
-package jg.rpg.common.intf;
-
-import jg.rpg.entity.MsgUnPacker;
-import io.netty.channel.ChannelHandlerContext;
-
-public interface IServiceMsgHanler {
-	void handleMsg(ChannelHandlerContext ctx,MsgUnPacker unpacker);
-}
