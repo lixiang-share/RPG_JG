@@ -187,3 +187,14 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+
+
+#Eclipse
+*.class
+RPG_Server/JServer/.metadata/
+RPG_Server/JServer/JRPGServer_JG/bin/
+RPG_Server/JWorkSpace/.metadata/
+RPG_Server/JWorkSpace/.recommenders/
+*.json
+*.metadata/
+*.recommenders/
