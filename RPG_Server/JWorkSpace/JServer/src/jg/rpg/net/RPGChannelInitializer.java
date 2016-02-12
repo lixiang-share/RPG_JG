@@ -7,11 +7,10 @@ import javax.net.ssl.SSLException;
 
 import org.apache.log4j.Logger;
 
-import jg.rpg.net.handler.DataEnsureHandler;
-import jg.rpg.net.handler.LoginValidateHandler;
-import jg.rpg.net.handler.MsgDeserializerHandler;
-import jg.rpg.net.handler.MsgFilterHandler;
-import jg.rpg.net.handler.MsgTransferHandler;
+import jg.rpg.net.handlers.DataEnsureHandler;
+import jg.rpg.net.handlers.LoginValidateHandler;
+import jg.rpg.net.handlers.MsgDeserializerHandler;
+import jg.rpg.net.handlers.MsgFilterHandler;
 import jg.rpg.utils.config.GameConfig;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -61,9 +60,7 @@ public class RPGChannelInitializer extends ChannelInitializer<SocketChannel> {
         		  new DelimiterBasedFrameDecoder(GameConfig.Max_Frame_Length , delimiter),
         		  new MsgDeserializerHandler(),
         		  new MsgFilterHandler(),
-        		  new LoginValidateHandler(),
-        		  new MsgTransferHandler(),
-        		  new DataEnsureHandler()
+        		  new LoginValidateHandler()
           );
 		
 	}

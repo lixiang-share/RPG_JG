@@ -75,9 +75,14 @@ public class LuaManager {
         luaMgr.Destroy();
     }
 
-    public object[] CallLuaFunction(string funcName, object[] args)
+    public object[] CallLuaFunction(string funcName, params object[] args)
     {
         return luaMgr.CallLuaFunction(funcName, args);
+    }
+
+    public object[] DoString(string command)
+    {
+        return luaMgr.DoString(command);
     }
 
 

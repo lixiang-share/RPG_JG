@@ -52,6 +52,8 @@ public static partial class UITools
     }
 #endregion
 
+
+    #region LuaBehavior 的一些方法支持
     public static T Get<T>(GameObject go) where T : Component
     {
         T t = go.GetComponent<T>();
@@ -59,6 +61,75 @@ public static partial class UITools
             t = go.AddComponent<T>();
         return t;
     }
+
+    public static void SA(LuaBehaviour lb, bool isActive)
+    {
+        if (lb != null)
+        {
+            lb.gameObject.SetActive(isActive);
+        }
+    }
+    public static LuaBehaviour D(string domain)
+    {
+        if (LuaBehaviour.Domains.ContainsKey(domain))
+        {
+            return LuaBehaviour.Domains[domain];
+        }
+        return null;
+    }
+    public static string GetLuaPathInEditor()
+    {
+        string path = Application.dataPath + "/lua";
+        return path;
+    }
+
+    public static bool isLuaFileExits(string filename)
+    {
+        return File.Exists(Util.LuaPath(filename));
+    }
+    public static void Compile(string filename)
+    {
+        if (File.Exists(filename))
+        {
+            string content = File.ReadAllText(filename);
+            for (int i = 0; i < keys.Length; i++)
+            {
+                content = content.Replace(keys[i], values[i]);
+            }
+            File.WriteAllText(filename, content, Encoding.UTF8);
+        }
+    }
+
+    public static void ShowMsg(string mes)
+    {
+        GameObject mesPrefab = ResourceManager.Instance.LoadMesPrefab() as GameObject;
+        GameObject go = NGUITools.AddChild(GameObject.FindWithTag("JGNGUICamera"), mesPrefab);
+        go.transform.localPosition = new Vector3(0, 60, 0);
+        ShowText st = go.GetComponent<ShowText>();
+        st.SetText(mes);
+    }
+
+    public static void Set(GameObject go, string name)
+    {
+        if (go == null) return;
+        if (go.GetComponent<UILabel>() != null)
+        {
+            go.GetComponent<UILabel>().text = name;
+        }
+        else if (go.GetComponent<UISprite>() != null)
+        {
+            go.GetComponent<UISprite>().spriteName = name;
+        }
+        else if (go.GetComponent<UITexture>() != null)
+        {
+            go.GetComponent<UITexture>();
+        }
+    }
+
+
+
+
+    #endregion
 
     #region 打开或者关闭面板
 
@@ -144,25 +215,7 @@ public static partial class UITools
     }
     #endregion
 
-
-    public static void SA(LuaBehaviour lb, bool isActive)
-    {
-        if (lb != null)
-        {
-            lb.gameObject.SetActive(isActive);
-        }
-    }
-
-    public static LuaBehaviour D(string domain)
-    {
-        if (LuaBehaviour.Domains.ContainsKey(domain))
-        {
-            return LuaBehaviour.Domains[domain];
-        }
-        return null;
-    }
-
-
+    #region string 方法扩展
     public static bool isValidString(string str)
     {
         if (str == null || str.Trim().Length == 0)
@@ -171,36 +224,75 @@ public static partial class UITools
         }
         return true;
     }
+    #endregion
 
-    public static string GetLuaPathInEditor()
+    #region PlayerPrefs 封装
+
+    public static void StoreSessionKey(string sessionKey){
+        AppConst.SessionKey = sessionKey;
+        StoreString("SessionKey", sessionKey);
+    }
+    public static string GetSessionKey()
     {
-        string path = Application.dataPath + "/lua";
-        return path;
+        return GetString("SessionKey");
+    }
+    public static void StoreString(string key, string value)
+    {
+        PlayerPrefs.SetString(key, value);
+    }
+    public static void StoreInt(string key, int value)
+    {
+        PlayerPrefs.SetInt(key, value);
+    }
+    public static void StoreFloat(string key, float value)
+    {
+        PlayerPrefs.SetFloat(key, value);
     }
 
-    public static bool isLuaFileExits(string filename)
+    public static string GetString(string key)
     {
-        return File.Exists(Util.LuaPath(filename));
-    }
-
-    public static void Compile(string filename)
-    {
-        if (File.Exists(filename))
+        if (PlayerPrefs.HasKey(key))
         {
-            string content = File.ReadAllText(filename);
-            for (int i = 0; i < keys.Length; i++)
-            {
-                content = content.Replace(keys[i], values[i]);
-            }
-            File.WriteAllText(filename, content, Encoding.UTF8);
+            return PlayerPrefs.GetString(key);
+        }
+        else
+        {
+            return "";
+        }
+        
+    }
+
+    public static int GetInt(string key)
+    {
+        if (PlayerPrefs.HasKey(key))
+        {
+           return PlayerPrefs.GetInt(key);
+        }
+        else
+        {
+            return 0;
         }
     }
-
-    public static void ShowMes(string mes)
+    public static float GetFloat(string key)
     {
-        GameObject mesPrefab = ResourceManager.Instance.LoadMesPrefab() as GameObject;
-        GameObject go = NGUITools.AddChild(GameObject.FindWithTag("JGNGUICamera"), mesPrefab);
-        ShowText st = go.GetComponent<ShowText>();
-        st.SetText(mes);
+        if(PlayerPrefs.HasKey(key))
+        {
+            return PlayerPrefs.GetFloat(key);
+        }
+        else
+        {
+            return 0;
+        }
     }
+    #endregion
+
+    #region 一些实体类的转换方法
+    public static IList MsgToServerList(MsgUnPacker unpacker)
+    {
+        return ConvertUitls.MsgToServerList(unpacker);
+    }
+
+
+    #endregion
+
 }

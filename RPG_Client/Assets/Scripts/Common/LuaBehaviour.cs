@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using LuaInterface;
 using System.Collections;
-using System.Collections.Generic;
 using System;
 using SimpleFramework;
 using SimpleFramework.Manager;
+using System.Collections.Generic;
 
 
-public class LuaBehaviour : MonoBehaviour , IReceiveData
+public class LuaBehaviour : MonoBehaviour, IReceiveData
 {
     protected bool initialize = false;
     private string data = null;
@@ -20,10 +20,31 @@ public class LuaBehaviour : MonoBehaviour , IReceiveData
     [HideInInspector]
     public string domain;
     public static Dictionary<string, LuaBehaviour> Domains = new Dictionary<string, LuaBehaviour>();
-    public Dictionary<string , System.Object> varDict;
+    public Dictionary<string, System.Object> varDict;
     public List<ParamInspector> varList;
+    private MsgPacker packer;
+    private bool isFirstEnable = true;
 
-
+    [HideInInspector]
+    public Boolean isDoString = false;
+    [HideInInspector]
+    public string lua_OnClick = "";
+    [HideInInspector]
+    public string lua_OnDisable = "";
+    [HideInInspector]
+    public string lua_OnCommand = "";
+    [HideInInspector]
+    public string lua_Awake = "";
+    [HideInInspector]
+    public string lua_Start = "";
+    [HideInInspector]
+    public string lua_OnEnable = "";
+    [HideInInspector]
+    public string lua_OnHold = "";
+    [HideInInspector]
+    public string lua_ReceiveData = "";
+    [HideInInspector]
+    public string lua_OnFirstEnable = "";
     #region 各种管理器
     private AppFacade m_Facade;
     private LuaManager m_LuaMgr;
@@ -32,12 +53,28 @@ public class LuaBehaviour : MonoBehaviour , IReceiveData
     private AudioManager m_MusicMgr;
     private TimerManager m_TimerMgr;
     private ThreadManager m_ThreadMgr;
+
+
     #endregion
 
+    #region 初始化lua环境
     public virtual void Awake()
     {
-        InitLuaFile();
-        CallMethod("Awake", gameObject);
+        SetDomain();
+        UIEventListener.Get(gameObject).onPress += (go, b) =>
+        {
+            OnHold(b);
+        };
+        if (!isDoString)
+        {
+            InitLuaFile();
+            HandleParams();
+            CallMethod("Awake", gameObject);
+        }
+        else
+        {
+            DoString(lua_Awake);
+        }
     }
 
     public virtual void InitLuaFile()
@@ -50,17 +87,13 @@ public class LuaBehaviour : MonoBehaviour , IReceiveData
             tableName = luaFilename.Substring(startIndex, endIndex - startIndex);
             LuaMgr.DoFile(luaFilename);
             initialize = true;
-            SetDomain();
-            HandleParams();
         }
-        UIEventListener.Get(gameObject).onPress += (go, b) =>
-        {
-            OnHold(b);
-        };
+       
     }
 
 
-    protected void  SetDomain(){
+    protected void SetDomain()
+    {
 
         if (UITools.isValidString(domain))
         {
@@ -90,31 +123,102 @@ public class LuaBehaviour : MonoBehaviour , IReceiveData
             luaState[tableName + ".inst"] = this;
         }
     }
+    #endregion
+
     #region  Lua事件封装
-    public virtual void Start()
+    public virtual void Parse(IList list)
     {
-        
-        CallMethod("Start");
     }
 
     public virtual void OnEnable()
     {
-        CallMethod("OnEnable");
+        if (!isDoString)
+        {
+            if (isFirstEnable)
+            {
+                isFirstEnable = false;
+                CallMethod("OnFirstEnable");
+            }
+            else
+            {
+                CallMethod("OnEnable");
+            }
+        }
+        else
+        {
+            if (isFirstEnable)
+            {
+                isFirstEnable = false;
+                DoString(lua_OnFirstEnable);
+            }
+            else
+            {
+                DoString(lua_OnEnable);
+            }
+        }
+
     }
 
+    public virtual object[] CallLuaMethod(string m_name, params object[] objs)
+    {
+        if (!isDoString)
+        {
+            return CallMethod(m_name, objs);
+        }
+        return null;
+    }
+    public virtual object[] ExcuteCommand(string command, params object[] objs)
+    {
+        return DoString(command, objs);
+    }
+
+
+    public virtual void Start()
+    {
+        if (!isDoString)
+        {
+            CallMethod("Start");
+        }
+        else
+        {
+            DoString(lua_Start);
+        }
+    }
     public virtual void OnClick()
     {
-        CallMethod("OnClick");
+
+        if (!isDoString)
+        {
+            CallMethod("OnClick");
+        }
+        else
+        {
+            DoString(lua_OnClick);
+        }
     }
 
     public virtual void OnHold(bool b)
     {
-        CallMethod("OnHold", b);
+        if (!isDoString)
+        {
+            CallMethod("OnHold", b);
+        }
+        else
+        {
+            DoString(lua_OnHold);
+        }
     }
 
     public virtual void OnCommand(string command, System.Object o)
     {
-        CallMethod("OnCommand",command , o);
+        if (!isDoString)
+        {
+            CallMethod("OnCommand", command, o);
+        }
+        else
+        {
+            DoString(lua_OnCommand, command, o);
+        }
     }
 
     public virtual void OnCommand(string command)
@@ -122,19 +226,46 @@ public class LuaBehaviour : MonoBehaviour , IReceiveData
         OnCommand(command, null);
     }
 
-    public void OnDisable()
+    public virtual void OnDisable()
     {
-        CallMethod("OnDisable");
+        if (!isDoString)
+        {
+            CallMethod("OnDisable");
+        }
+        else
+        {
+            DoString(lua_OnDisable);
+        }
     }
 
-    public void SendMsg(MsgPacker msg)
+    public void ReceiveData(object msg)
     {
-
+        if (!isDoString)
+        {
+            CallMethod("OnReceiveData" ,msg);
+        }
+        else
+        {
+            DoString(lua_ReceiveData , msg);
+        }
     }
-
-    public void ReceiveData(MsgPacker msg)
+    protected object[] DoString(string command)
     {
-        CallMethod("");
+        command = "function func(inst)\n" + command + "\n end";
+        LuaMgr.DoString(command);
+        return LuaMgr.CallLuaFunction("func", this);
+    }
+    protected object[] DoString(string command, object param)
+    {
+        command = "function func(param , inst)\n" + command + "\n end";
+        LuaMgr.DoString(command);
+        return LuaMgr.CallLuaFunction("func", param , this);
+    }
+    protected object[] DoString(string command, object param, object paramEX)
+    {
+        command = "function func(param , paramEX , inst)\n" + command + "\n end";
+        LuaMgr.DoString(command);
+        return LuaMgr.CallLuaFunction("func", param, paramEX ,this);
     }
     /// <summary>
     /// 执行Lua方法
@@ -144,9 +275,12 @@ public class LuaBehaviour : MonoBehaviour , IReceiveData
         if (!initialize) return null;
         return Util.CallMethod(tableName, func, args);
     }
+  
     #endregion
 
     #region 各种管理器获取方式
+
+
     public AppFacade facade
     {
         get
@@ -165,11 +299,10 @@ public class LuaBehaviour : MonoBehaviour , IReceiveData
         {
             if (m_LuaMgr == null)
             {
-                m_LuaMgr = LuaManager.Instance;//facade.GetManager<LuaManager>(ManagerName.Lua);
+                m_LuaMgr = LuaManager.Instance;
             }
             return m_LuaMgr;
         }
-        set { m_LuaMgr = value; }
     }
 
     public ResourceManager ResManager
@@ -190,7 +323,7 @@ public class LuaBehaviour : MonoBehaviour , IReceiveData
         {
             if (m_NetMgr == null)
             {
-                m_NetMgr = facade.GetManager<NetworkMgr>(ManagerName.Network);
+                m_NetMgr = NetworkMgr.instance;//facade.GetManager<NetworkMgr>(ManagerName.Network);
             }
             return m_NetMgr;
         }
@@ -202,7 +335,7 @@ public class LuaBehaviour : MonoBehaviour , IReceiveData
         {
             if (m_MusicMgr == null)
             {
-                m_MusicMgr = AudioManager.Instance;//facade.GetManager<AudioManager>(ManagerName.Music);
+                m_MusicMgr = AudioManager.Instance;
             }
             return m_MusicMgr;
         }
@@ -234,16 +367,68 @@ public class LuaBehaviour : MonoBehaviour , IReceiveData
     #endregion
 
 
-    ////下面封装各种常用属性和方法
+    #region 消息发送
+    public void SendMsg(MsgPacker msg)
+    {
+        NetManager.Send(msg);
+    }
+
+    public LuaBehaviour CreateMsg()
+    {
+        Packer = new MsgPacker();
+        return this;
+    }
+    public LuaBehaviour SetMsgType(int msgType)
+    {
+        Packer.SetType(msgType);
+        return this;
+    }
+    public LuaBehaviour AddInt(int i)
+    {
+        Packer.add<int>(i);
+        return this;
+    }
+    public LuaBehaviour AddBool(bool b)
+    {
+        Packer.add<bool>(b);
+        return this;
+    }
+    public LuaBehaviour AddFloat(float f)
+    {
+        Packer.add<float>(f);
+        return this;
+    }
+    public LuaBehaviour AddString(string str)
+    {
+        Packer.add<string>(str);
+        return this;
+    }
+    public void Send()
+    {
+        if (Packer != null)
+        {
+            Packer.Receiver = this;
+            NetManager.Send(Packer);
+            Packer = null;
+        }
+    }
+    #endregion
+
+    #region Set and Get 下面封装各种常用属性和方法
+    public MsgPacker Packer
+    {
+        get { return packer; }
+        set { packer = value; }
+    }
 
     public object this[string key]
     {
         set
         {
-            if(varDict == null) varDict = new Dictionary<string , System.Object>();
+            if (varDict == null) varDict = new Dictionary<string, System.Object>();
             if (varDict.ContainsKey(key))
             {
-               // varDict.Remove(key);
+                // varDict.Remove(key);
                 varDict[key] = value;
             }
             else
@@ -271,27 +456,74 @@ public class LuaBehaviour : MonoBehaviour , IReceiveData
         return this[key];
     }
 
+    public Component C(string name)
+    {
+        return gameObject.GetComponent(name);
+    }
+
+    public string Value
+    {
+        get
+        {
+            if (gameObject.GetComponent<UIInput>() != null)
+            {
+                return gameObject.GetComponent<UIInput>().value;
+            }
+            else if(gameObject.GetComponent<UILabel>() != null)
+            {
+                return gameObject.GetComponent<UILabel>().text;
+            }
+            else if (gameObject.GetComponent<UISprite>() != null)
+            {
+                return gameObject.GetComponent<UISprite>().spriteName;
+            }
+            return "";
+        }
+        set
+        {
+            if (gameObject.GetComponent<UIInput>() != null)
+            {
+                gameObject.GetComponent<UIInput>().value = value;
+            }
+            else if (gameObject.GetComponent<UILabel>() != null)
+            {
+                gameObject.GetComponent<UILabel>().text = value;
+            }
+            else if (gameObject.GetComponent<UISprite>() != null)
+            {
+                gameObject.GetComponent<UISprite>().spriteName = value;
+            }
+        }
+    }
+
+    
     public LuaBehaviour Parent
     {
         get
         {
             Transform parent = this.transform.parent;
-            if (parent == null || parent == this.transform)
+            if (parent != null && parent.gameObject != null)
             {
-                return null;
+                return UITools.Get<LuaBehaviour>(parent.gameObject);
             }
-            else
-            {
-                LuaBehaviour lb = parent.gameObject.GetComponent<LuaBehaviour>();
-                if (lb == null)
-                {
-                    lb = parent.gameObject.AddComponent<LuaBehaviour>();
-                }
-                return lb;
-            }
+            return null;
         }
     }
 
+    public LuaBehaviour GetChild(string name)
+    {
+        GameObject go = transform.FindChild(name).gameObject;
+        if (go != null)
+        {
+            return UITools.Get<LuaBehaviour>(go);
+        }
+        return null;
+    }
+    public GameObject Child(string name)
+    {
+        return transform.FindChild(name).gameObject;
+    }
 
+    #endregion
 
 }

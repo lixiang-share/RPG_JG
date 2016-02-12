@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using LuaInterface;
 using Object = UnityEngine.Object;
@@ -12,16 +13,31 @@ public class LuaBehaviourWrap
 		{
 			new LuaMethod("Awake", Awake),
 			new LuaMethod("InitLuaFile", InitLuaFile),
-			new LuaMethod("Start", Start),
+			new LuaMethod("Parse", Parse),
 			new LuaMethod("OnEnable", OnEnable),
+			new LuaMethod("CallLuaMethod", CallLuaMethod),
+			new LuaMethod("ExcuteCommand", ExcuteCommand),
+			new LuaMethod("Start", Start),
 			new LuaMethod("OnClick", OnClick),
 			new LuaMethod("OnHold", OnHold),
 			new LuaMethod("OnCommand", OnCommand),
 			new LuaMethod("OnDisable", OnDisable),
+			new LuaMethod("ReceiveData", ReceiveData),
+			new LuaMethod("SendMsg", SendMsg),
+			new LuaMethod("CreateMsg", CreateMsg),
+			new LuaMethod("SetMsgType", SetMsgType),
+			new LuaMethod("AddInt", AddInt),
+			new LuaMethod("AddBool", AddBool),
+			new LuaMethod("AddFloat", AddFloat),
+			new LuaMethod("AddString", AddString),
+			new LuaMethod("Send", Send),
 			new LuaMethod("set_Item", set_Item),
 			new LuaMethod("get_Item", get_Item),
 			new LuaMethod("S", S),
 			new LuaMethod("G", G),
+			new LuaMethod("C", C),
+			new LuaMethod("GetChild", GetChild),
+			new LuaMethod("Child", Child),
 			new LuaMethod("New", _CreateLuaBehaviour),
 			new LuaMethod("GetClassType", GetClassType),
 			new LuaMethod("__eq", Lua_Eq),
@@ -35,13 +51,25 @@ public class LuaBehaviourWrap
 			new LuaField("Domains", get_Domains, set_Domains),
 			new LuaField("varDict", get_varDict, set_varDict),
 			new LuaField("varList", get_varList, set_varList),
+			new LuaField("isDoString", get_isDoString, set_isDoString),
+			new LuaField("lua_OnClick", get_lua_OnClick, set_lua_OnClick),
+			new LuaField("lua_OnDisable", get_lua_OnDisable, set_lua_OnDisable),
+			new LuaField("lua_OnCommand", get_lua_OnCommand, set_lua_OnCommand),
+			new LuaField("lua_Awake", get_lua_Awake, set_lua_Awake),
+			new LuaField("lua_Start", get_lua_Start, set_lua_Start),
+			new LuaField("lua_OnEnable", get_lua_OnEnable, set_lua_OnEnable),
+			new LuaField("lua_OnHold", get_lua_OnHold, set_lua_OnHold),
+			new LuaField("lua_ReceiveData", get_lua_ReceiveData, set_lua_ReceiveData),
+			new LuaField("lua_OnFirstEnable", get_lua_OnFirstEnable, set_lua_OnFirstEnable),
 			new LuaField("facade", get_facade, null),
-			new LuaField("LuaMgr", get_LuaMgr, set_LuaMgr),
+			new LuaField("LuaMgr", get_LuaMgr, null),
 			new LuaField("ResManager", get_ResManager, null),
 			new LuaField("NetManager", get_NetManager, null),
 			new LuaField("AudioMgr", get_AudioMgr, null),
 			new LuaField("TimerManger", get_TimerManger, null),
 			new LuaField("ThreadManager", get_ThreadManager, null),
+			new LuaField("Packer", get_Packer, set_Packer),
+			new LuaField("Value", get_Value, set_Value),
 			new LuaField("Parent", get_Parent, null),
 		};
 
@@ -188,6 +216,246 @@ public class LuaBehaviourWrap
 		}
 
 		LuaScriptMgr.PushObject(L, obj.varList);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_isDoString(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name isDoString");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index isDoString on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.isDoString);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_lua_OnClick(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_OnClick");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_OnClick on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.lua_OnClick);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_lua_OnDisable(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_OnDisable");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_OnDisable on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.lua_OnDisable);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_lua_OnCommand(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_OnCommand");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_OnCommand on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.lua_OnCommand);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_lua_Awake(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_Awake");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_Awake on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.lua_Awake);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_lua_Start(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_Start");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_Start on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.lua_Start);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_lua_OnEnable(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_OnEnable");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_OnEnable on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.lua_OnEnable);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_lua_OnHold(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_OnHold");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_OnHold on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.lua_OnHold);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_lua_ReceiveData(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_ReceiveData");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_ReceiveData on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.lua_ReceiveData);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_lua_OnFirstEnable(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_OnFirstEnable");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_OnFirstEnable on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.lua_OnFirstEnable);
 		return 1;
 	}
 
@@ -360,6 +628,54 @@ public class LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Packer(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name Packer");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index Packer on a nil value");
+			}
+		}
+
+		LuaScriptMgr.PushObject(L, obj.Packer);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Value(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name Value");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index Value on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.Value);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_Parent(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
@@ -511,7 +827,7 @@ public class LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int set_LuaMgr(IntPtr L)
+	static int set_isDoString(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
 		LuaBehaviour obj = (LuaBehaviour)o;
@@ -522,15 +838,279 @@ public class LuaBehaviourWrap
 
 			if (types == LuaTypes.LUA_TTABLE)
 			{
-				LuaDLL.luaL_error(L, "unknown member name LuaMgr");
+				LuaDLL.luaL_error(L, "unknown member name isDoString");
 			}
 			else
 			{
-				LuaDLL.luaL_error(L, "attempt to index LuaMgr on a nil value");
+				LuaDLL.luaL_error(L, "attempt to index isDoString on a nil value");
 			}
 		}
 
-		obj.LuaMgr = (LuaManager)LuaScriptMgr.GetNetObject(L, 3, typeof(LuaManager));
+		obj.isDoString = LuaScriptMgr.GetBoolean(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_lua_OnClick(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_OnClick");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_OnClick on a nil value");
+			}
+		}
+
+		obj.lua_OnClick = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_lua_OnDisable(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_OnDisable");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_OnDisable on a nil value");
+			}
+		}
+
+		obj.lua_OnDisable = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_lua_OnCommand(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_OnCommand");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_OnCommand on a nil value");
+			}
+		}
+
+		obj.lua_OnCommand = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_lua_Awake(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_Awake");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_Awake on a nil value");
+			}
+		}
+
+		obj.lua_Awake = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_lua_Start(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_Start");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_Start on a nil value");
+			}
+		}
+
+		obj.lua_Start = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_lua_OnEnable(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_OnEnable");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_OnEnable on a nil value");
+			}
+		}
+
+		obj.lua_OnEnable = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_lua_OnHold(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_OnHold");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_OnHold on a nil value");
+			}
+		}
+
+		obj.lua_OnHold = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_lua_ReceiveData(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_ReceiveData");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_ReceiveData on a nil value");
+			}
+		}
+
+		obj.lua_ReceiveData = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_lua_OnFirstEnable(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lua_OnFirstEnable");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lua_OnFirstEnable on a nil value");
+			}
+		}
+
+		obj.lua_OnFirstEnable = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_Packer(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name Packer");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index Packer on a nil value");
+			}
+		}
+
+		obj.Packer = (MsgPacker)LuaScriptMgr.GetNetObject(L, 3, typeof(MsgPacker));
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_Value(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name Value");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index Value on a nil value");
+			}
+		}
+
+		obj.Value = LuaScriptMgr.GetString(L, 3);
 		return 0;
 	}
 
@@ -553,11 +1133,12 @@ public class LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Start(IntPtr L)
+	static int Parse(IntPtr L)
 	{
-		LuaScriptMgr.CheckArgsCount(L, 1);
+		LuaScriptMgr.CheckArgsCount(L, 2);
 		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
-		obj.Start();
+		IList arg0 = (IList)LuaScriptMgr.GetNetObject(L, 2, typeof(IList));
+		obj.Parse(arg0);
 		return 0;
 	}
 
@@ -567,6 +1148,39 @@ public class LuaBehaviourWrap
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
 		obj.OnEnable();
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CallLuaMethod(IntPtr L)
+	{
+		int count = LuaDLL.lua_gettop(L);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
+		object[] objs1 = LuaScriptMgr.GetParamsObject(L, 3, count - 2);
+		object[] o = obj.CallLuaMethod(arg0,objs1);
+		LuaScriptMgr.PushArray(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ExcuteCommand(IntPtr L)
+	{
+		int count = LuaDLL.lua_gettop(L);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
+		object[] objs1 = LuaScriptMgr.GetParamsObject(L, 3, count - 2);
+		object[] o = obj.ExcuteCommand(arg0,objs1);
+		LuaScriptMgr.PushArray(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Start(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		obj.Start();
 		return 0;
 	}
 
@@ -627,6 +1241,100 @@ public class LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ReceiveData(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		object arg0 = LuaScriptMgr.GetVarObject(L, 2);
+		obj.ReceiveData(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SendMsg(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		MsgPacker arg0 = (MsgPacker)LuaScriptMgr.GetNetObject(L, 2, typeof(MsgPacker));
+		obj.SendMsg(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CreateMsg(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		LuaBehaviour o = obj.CreateMsg();
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetMsgType(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		int arg0 = (int)LuaScriptMgr.GetNumber(L, 2);
+		LuaBehaviour o = obj.SetMsgType(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddInt(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		int arg0 = (int)LuaScriptMgr.GetNumber(L, 2);
+		LuaBehaviour o = obj.AddInt(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddBool(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		bool arg0 = LuaScriptMgr.GetBoolean(L, 2);
+		LuaBehaviour o = obj.AddBool(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddFloat(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		float arg0 = (float)LuaScriptMgr.GetNumber(L, 2);
+		LuaBehaviour o = obj.AddFloat(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int AddString(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
+		LuaBehaviour o = obj.AddString(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Send(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		obj.Send();
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_Item(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 3);
@@ -667,6 +1375,39 @@ public class LuaBehaviourWrap
 		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
 		object o = obj.G(arg0);
 		LuaScriptMgr.PushVarObject(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int C(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
+		Component o = obj.C(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetChild(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
+		LuaBehaviour o = obj.GetChild(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Child(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
+		GameObject o = obj.Child(arg0);
+		LuaScriptMgr.Push(L, o);
 		return 1;
 	}
 

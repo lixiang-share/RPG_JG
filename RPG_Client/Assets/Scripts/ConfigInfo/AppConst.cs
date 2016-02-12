@@ -81,4 +81,27 @@ public class AppConst {
     public static Encoding DefEncoding = Encoding.UTF8;
     public const int MsgHeadLen = 4;
     public const int Max_Msg_Len = 1024;
+    private static string _sessionKey;
+    public static string SessionKey
+    {
+        get
+        {
+            if (!UITools.isValidString(_sessionKey))
+            {
+                _sessionKey = UITools.GetSessionKey();
+            }
+            if (UITools.isValidString(_sessionKey))
+            {
+                return _sessionKey;
+            }
+            else
+            {
+                return "NONE";
+            }
+        }
+        set
+        {
+            _sessionKey = value;
+        }
+    }
 }

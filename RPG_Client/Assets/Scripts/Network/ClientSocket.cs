@@ -53,9 +53,9 @@ public class ClientSocket {
         {
             tcpClient.Client.BeginSend(buff, 0, buff.Length, 0, new AsyncCallback(OnSendCallBack), state);
         }
-        catch (Exception)
+        catch (Exception e)
         {
-            UITools.log("send data timeout....");
+            UITools.log("send data timeout...." + e.Message);
         }
         
     }

@@ -7,10 +7,11 @@ import org.apache.log4j.Logger;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
+import jg.rpg.common.PlayerMgr;
 import jg.rpg.dao.db.DBHelper;
 import jg.rpg.dao.db.DBMgr;
 import jg.rpg.dao.db.RSHHelper;
-import jg.rpg.entity.Cat;
+import jg.rpg.entity.msgEntity.Cat;
 import jg.rpg.exceptions.InitException;
 import jg.rpg.msg.MsgMgr;
 import jg.rpg.net.NetworkMgr;
@@ -22,6 +23,7 @@ public class LaunchServer {
 			try {
 				ConfigMgr.getInstance().init();
 				DBMgr.getInstance().init();
+				PlayerMgr.getInstance().init();
 				MsgMgr.getInstance().init();
 				NetworkMgr.getInstance().init(null);
 			} catch (InitException e) {

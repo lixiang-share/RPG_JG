@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ShowText : MonoBehaviour {
 
-    public float showTime = 1f;
+    public float showTime = 2f;
 
     public void SetText(string mes)
     {

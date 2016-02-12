@@ -11,6 +11,13 @@ public class MsgPacker {
     private IReceiveData _receiver;
     private bool _isNeedRecv = true;
     private bool _isSetType = false;
+    private int _msgType;
+
+    public int MsgType
+    {
+        get { return _msgType; }
+        set { _msgType = value; }
+    }
     private MemoryStream stream;
     private Packer packer;
 
@@ -59,9 +66,11 @@ public class MsgPacker {
 		packer.Dispose();
         stream.Close();
 	}
-    public MsgPacker setType(int msgType)
+    public MsgPacker SetType(int msgType)
     {
         IsSetType = true;
+        MsgType = msgType;
+        add<string>(AppConst.SessionKey);
         return add(msgType);
     }
 

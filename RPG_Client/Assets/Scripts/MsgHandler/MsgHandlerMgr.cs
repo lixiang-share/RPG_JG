@@ -39,6 +39,7 @@ public class MsgHandlerMgr
 
     public void HandleMsg(MsgUnPacker unpacker)
     {
+        UITools.log("start to Handler msg");
         curHandlerIndex = 0;
         if (curHandlerIndex < handlers.Count)
         {

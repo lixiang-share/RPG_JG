@@ -6,6 +6,8 @@ import org.apache.log4j.Logger;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import io.netty.channel.ChannelHandlerContext;
+import jg.rpg.common.protocol.MsgProtocol;
 import jg.rpg.entity.MsgPacker;
 import jg.rpg.entity.MsgUnPacker;
 import jg.rpg.utils.config.GameConfig;
@@ -23,9 +25,6 @@ public class MsgUtils {
 	public static MsgUnPacker DeserializerMsg(byte[] buf) throws IOException{
 		return new MsgUnPacker(buf);
 	}
-	
-	
-	
 	public static ByteBuf serializerMsg(MsgPacker msg) throws IOException{
 		byte[] msgBytes = msgToBytes(msg);
 		byte[] msgLenBytes = defMsgLenEncoding(msgBytes.length);
@@ -54,5 +53,21 @@ public class MsgUtils {
 			num = num / 256;
 		}
 		return buff;
+	}
+	
+	public static void sendMsg(ChannelHandlerContext ctx , MsgPacker packer) throws IOException{
+		ByteBuf buff = serializerMsg(packer);
+		packer.close();
+		if(buff != null){
+			ctx.writeAndFlush(buff);
+		}else{
+			throw new IOException("buff is null!!");
+		}
+	}
+	public static void SendErroInfo(ChannelHandlerContext ctx , String info) throws IOException{
+		MsgPacker packer = new MsgPacker();
+		packer.addInt(MsgProtocol.Error)
+			.addString(info);
+		sendMsg(ctx,packer);
 	}
 }

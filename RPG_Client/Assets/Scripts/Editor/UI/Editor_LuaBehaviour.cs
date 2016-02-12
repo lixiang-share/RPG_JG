@@ -8,97 +8,108 @@ using System.Text;
 [CustomEditor(typeof(LuaBehaviour), true)]
 public class Editor_LuaBehaviour : Editor
 {
-    public static string path = UITools.GetLuaPathInEditor()+"/";
-    public static string templetPath = path + "UI/Templet.lua";
+    public static string rootPath = UITools.GetLuaPathInEditor()+"/";
+    public static string templetPath = rootPath + "UI/Templet.lua";
 
-   // public static string tableName;
-
-    public SerializedProperty tableName;
-    public SerializedProperty luaFileName;
-    public SerializedProperty domain;
-    public LuaBehaviour lb;
-    public SerializedProperty varList;
+    public static LuaBehaviour lb;
     public string rename = "";
-    //public bool isEdit;
-    void OnEnable()
-    {
-        tableName = serializedObject.FindProperty("tableName");
-        luaFileName = serializedObject.FindProperty("luaFilename");
-        domain = serializedObject.FindProperty("domain");
-        varList = serializedObject.FindProperty("varList");
-    }
+
+    public static string curTablename = "";
+    public static string oldTablename = "";
+
+    public static string curFileFullname = "";
+    public static string oldFileFullname = "";
+
+
+
     public override void OnInspectorGUI()
     {
         lb = (LuaBehaviour)target;
 
+        base.DrawDefaultInspector();
         if (target is LuaWithNoFile)
         {
-            EditorGUILayout.PropertyField(domain, new GUIContent("Domain:"));
-            lb.domain = domain.stringValue;
+            lb.domain = EditorGUILayout.TextField(new GUIContent("Domain:"), lb.domain);
+            return;
+        }
+        lb.isDoString = EditorGUILayout.Toggle(new GUIContent("DoString?"), lb.isDoString);
+        if (lb.isDoString)
+        {
+            lb.domain = EditorGUILayout.TextField(new GUIContent("Domain:"), lb.domain);
+            lb.lua_Awake = EditorGUILayout.TextField(new GUIContent("Awake:"), lb.lua_Awake);
+            lb.lua_OnClick = EditorGUILayout.TextField(new GUIContent("OnClick:"), lb.lua_OnClick);
+            lb.lua_OnCommand = EditorGUILayout.TextField(new GUIContent("OnCommand:"), lb.lua_OnCommand);
+            lb.lua_OnEnable = EditorGUILayout.TextField(new GUIContent("OnDisable:"), lb.lua_OnDisable);
+            lb.lua_OnHold = EditorGUILayout.TextField(new GUIContent("OnHold:"), lb.lua_OnHold);
+            lb.lua_ReceiveData = EditorGUILayout.TextField(new GUIContent("ReceiveData:"), lb.lua_ReceiveData);
+            lb.lua_Start = EditorGUILayout.TextField(new GUIContent("Start:"), lb.lua_Start);
             return;
         }
 
-        string relativeName = GetFilename(lb.gameObject , lb.tableName);
-        string fullName = path + relativeName;
 
-        if (!File.Exists(fullName))
+        InitFilename(lb);
+        //处理因为节点移动而造成的文件与节点不匹配的情况
+        if (File.Exists(rootPath + oldFileFullname))
         {
-            EditorGUILayout.BeginHorizontal();
-
-            EditorGUILayout.PropertyField(tableName, new GUIContent("TableName:"));
-            lb.tableName = tableName.stringValue;
-            if (GUILayout.Button("Create File"))
+            if (oldFileFullname != curFileFullname || oldTablename != curTablename)
             {
-                CreateFile(fullName);
+                MoveFile(rootPath + oldFileFullname, rootPath + curFileFullname);
             }
-            EditorGUILayout.EndHorizontal();
         }
         else
         {
+            lb.luaFilename = "";
+            lb.tableName = "";
+        }
+        if (File.Exists(rootPath + curFileFullname))
+        {
+            lb.luaFilename = curFileFullname;
+            lb.tableName = curTablename;
             EditorGUILayout.BeginHorizontal();
-            lb.luaFilename = relativeName;
-            luaFileName.stringValue = relativeName;
-            EditorGUILayout.PropertyField(luaFileName, new GUIContent("LuaFilename:"));
-            EditorGUILayout.EndHorizontal();
-
-            EditorGUILayout.BeginHorizontal();
-            GUILayout.Label(new GUIContent("Rename:"));
-            rename = EditorGUILayout.TextField(rename);
-            if (GUILayout.Button("RenameFile"))
+            if (GUILayout.Button("Open File"))
             {
-                string oldName = fullName;
-                string oldTable = lb.tableName;
-                string newTable = rename;
-                string newName = path + GetFilename(lb.gameObject , rename);
-                if (renameFile(oldName, newName, oldTable, newTable))
-                {
-                    lb.tableName = tableName.stringValue = rename;
-                    rename = "";
-                }
+                OpenFile(rootPath + curFileFullname);
+            }
+            if (GUILayout.Button("Delete File"))
+            {
+                Rect wr = new Rect(500, 200, 200, 100);
+                DeleteConfirm window = (DeleteConfirm)EditorWindow.GetWindowWithRect(typeof(DeleteConfirm), wr, true, "widow name");
+                window.Show();
             }
             EditorGUILayout.EndHorizontal();
+
+            lb.domain = EditorGUILayout.TextField(new GUIContent("Domain:"), lb.domain);
+            EditorGUILayout.TextField(new GUIContent("Filename:"), curFileFullname);
+            EditorGUILayout.TextField(new GUIContent("Tablename:"), curTablename);
+
+           
         }
-
-        EditorGUILayout.BeginHorizontal();
-
-        GUILayout.Label(new GUIContent("Domain:"));
-        lb.domain = EditorGUILayout.TextField(lb.domain);
-
-        if (GUILayout.Button("Commpile"))
+        else
         {
-            UITools.Compile(fullName);
+            if (GUILayout.Button("Create File"))
+            {
+                CreateFile(rootPath + curFileFullname);
+            }
         }
-        EditorGUILayout.EndHorizontal();
-
-        if (File.Exists(fullName) && GUILayout.Button("OpenFile"))
-        {
-            OpenFile(fullName);
-        }
-        base.DrawDefaultInspector();
+        
     }
 
 
+    public void MoveFile(string originFile, string targetFile)
+    {
+        if (File.Exists(targetFile)) CreateFileDir(targetFile);
 
+        string content = File.ReadAllText(originFile);
+        content = content.Replace(oldTablename, curTablename);
+        File.WriteAllText(targetFile , content , Encoding.UTF8);
+        File.Delete(originFile);
+        string originDir = Path.GetDirectoryName(originFile);
+        if (Directory.GetFiles(originDir) == null || Directory.GetFiles(originDir).Length == 0)
+        {
+            Directory.Delete(originDir);
+        }
+        AssetDatabase.Refresh();
+    }
 
     public bool renameFile(string oldName , string newName ,string oldTable ,string newTable)
     {
@@ -134,7 +145,8 @@ public class Editor_LuaBehaviour : Editor
     }
 
 
-    public void CreateFile(string filename) 
+
+    public void CreateFileDir(string filename)
     {
         if (File.Exists(filename))
         {
@@ -145,21 +157,33 @@ public class Editor_LuaBehaviour : Editor
         {
             Directory.CreateDirectory(p);
         }
-        //复制模板的内容
-        string content = File.ReadAllText(templetPath);
-        content = content.Replace("tableName", lb.tableName);
-        File.WriteAllText(filename, content, Encoding.UTF8);
-        AssetDatabase.Refresh();
+
     }
 
-    public string GetFilename(GameObject go , string luaName)
+    public void CreateFile(string filename)
     {
-        string filename = "UI";
+        CreateFileDir(filename);
+        //复制模板的内容
+        string content = File.ReadAllText(templetPath);
+        content = content.Replace("tableName", curTablename);
+        File.WriteAllText(filename, content, Encoding.UTF8);
+        AssetDatabase.Refresh();
+        OpenFile(filename);
+    }
+
+
+    public void InitFilename(LuaBehaviour lb)
+    {
+
+        GameObject go = lb.gameObject;
+        string fileFullname = "UI";
+        string fileShortname = go.transform.name.Trim().Replace("Clone" , "");
         List<string> ps = new List<string>();
+
         Transform p = go.transform.parent;
         while (p != null && p.transform.parent != p)
         {
-            if (p.name != "Camera")
+            if (p.name != "Camera" && p.name != "UI Root")
             {
                 ps.Add(p.name);
                 p = p.parent;
@@ -171,8 +195,53 @@ public class Editor_LuaBehaviour : Editor
         }
         for (int i = ps.Count - 1; i >= 0; i--)
         {
-            filename = filename + "/" + ps[i];
+            fileFullname = fileFullname + "/" + ps[i];
+            fileShortname = fileShortname + "_" + ps[i];
         }
-        return (filename + "/" + luaName + ".lua").Replace(" ", "");
+        oldTablename = lb.tableName;
+        curTablename = fileShortname;
+
+        oldFileFullname = lb.luaFilename;
+        curFileFullname = fileFullname + "/" + curTablename + ".lua";
+
+
+    }
+
+
+    public static void DeleteFile()
+    {
+        if (File.Exists(rootPath + curFileFullname))
+        {
+            File.Delete(rootPath + curFileFullname);
+            lb.tableName = "";
+            lb.luaFilename = "";
+            AssetDatabase.Refresh();
+        }
+    }
+
+}
+
+
+class DeleteConfirm : EditorWindow
+{
+    void OnGUI()
+    {
+        EditorGUILayout.Separator();
+        EditorGUILayout.LabelField(new GUIContent("是否确定删除该文件？"));
+        EditorGUILayout.Separator();
+        EditorGUILayout.Separator();
+        EditorGUILayout.Separator();
+
+        EditorGUILayout.BeginHorizontal();
+        if (GUILayout.Button("Cancel"))
+        {
+            this.Close();
+        }
+        if (GUILayout.Button("Delete File"))
+        {
+            Editor_LuaBehaviour.DeleteFile();
+            this.Close();
+        }
+        EditorGUILayout.EndHorizontal();
     }
 }

@@ -2,5 +2,5 @@
 using System.Collections;
 public interface IReceiveData {
 
-    void ReceiveData(MsgPacker msg);
+    void ReceiveData(object o);
 }

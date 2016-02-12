@@ -15,6 +15,7 @@ public static class LuaBinder
 			case "AnimationWrap": AnimationWrap.Register(L); break;
 			case "AppConstWrap": AppConstWrap.Register(L); break;
 			case "ApplicationWrap": ApplicationWrap.Register(L); break;
+			case "ArrayListWrap": ArrayListWrap.Register(L); break;
 			case "AssetBundleWrap": AssetBundleWrap.Register(L); break;
 			case "AsyncOperationWrap": AsyncOperationWrap.Register(L); break;
 			case "AudioClipWrap": AudioClipWrap.Register(L); break;
@@ -39,12 +40,17 @@ public static class LuaBinder
 			case "KeyCodeWrap": KeyCodeWrap.Register(L); break;
 			case "LightTypeWrap": LightTypeWrap.Register(L); break;
 			case "LightWrap": LightWrap.Register(L); break;
+			case "List_objectWrap": List_objectWrap.Register(L); break;
 			case "LuaBehaviourWrap": LuaBehaviourWrap.Register(L); break;
 			case "LuaEnumTypeWrap": LuaEnumTypeWrap.Register(L); break;
 			case "MaterialWrap": MaterialWrap.Register(L); break;
 			case "MeshColliderWrap": MeshColliderWrap.Register(L); break;
 			case "MeshRendererWrap": MeshRendererWrap.Register(L); break;
 			case "MonoBehaviourWrap": MonoBehaviourWrap.Register(L); break;
+			case "MsgPackerWrap": MsgPackerWrap.Register(L); break;
+			case "MsgProtocolWrap": MsgProtocolWrap.Register(L); break;
+			case "MsgUnPackerWrap": MsgUnPackerWrap.Register(L); break;
+			case "NetworkMgrWrap": NetworkMgrWrap.Register(L); break;
 			case "ObjectWrap": ObjectWrap.Register(L); break;
 			case "ParticleAnimatorWrap": ParticleAnimatorWrap.Register(L); break;
 			case "ParticleEmitterWrap": ParticleEmitterWrap.Register(L); break;
@@ -60,8 +66,8 @@ public static class LuaBinder
 			case "ResourceManagerWrap": ResourceManagerWrap.Register(L); break;
 			case "ScaleButtonWrap": ScaleButtonWrap.Register(L); break;
 			case "ScreenWrap": ScreenWrap.Register(L); break;
+			case "ServerItemWrap": ServerItemWrap.Register(L); break;
 			case "SimpleFramework_LuaHelperWrap": SimpleFramework_LuaHelperWrap.Register(L); break;
-			case "SimpleFramework_Manager_NetworkMgrWrap": SimpleFramework_Manager_NetworkMgrWrap.Register(L); break;
 			case "SimpleFramework_Manager_PanelManagerWrap": SimpleFramework_Manager_PanelManagerWrap.Register(L); break;
 			case "SimpleFramework_Manager_TimerManagerWrap": SimpleFramework_Manager_TimerManagerWrap.Register(L); break;
 			case "SimpleFramework_UtilWrap": SimpleFramework_UtilWrap.Register(L); break;

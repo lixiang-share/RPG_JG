@@ -24,24 +24,6 @@ public class MsgUtils {
     public static MsgUnPacker DeserializerMsg(byte[] buff)
     {
         UITools.log("DeserializerMsg len : " + buff.Length);
-      //  string content = Byte2String(buff);
-      //  UITools.log("Msg Content : " + content);
-        //MemoryStream stream = new MemoryStream(buff);
-        //Unpacker unpacker = Unpacker.Create(stream);
-        //int num = 0;
-        //unpacker.ReadInt32(out num);
-        //double d = 0;
-        //unpacker.ReadDouble(out d);
-        //string str = "";
-        //unpacker.ReadString(out str);
-        //UITools.log(num);
-        //UITools.log(d);
-        //UITools.log(str);
-        //unpacker.Dispose();
-        for (int i = 0; i < buff.Length; i++)
-        {
-            UITools.log(buff[i]);
-        }
         MsgUnPacker msg = new MsgUnPacker(buff);
         return msg;
     }

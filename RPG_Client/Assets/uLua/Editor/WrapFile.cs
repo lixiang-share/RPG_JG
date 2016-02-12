@@ -137,7 +137,12 @@ public static class WrapFile {
         //Custom lua Class
         _GT(typeof(ScaleButton)),
         _GT(typeof(UITools)),
-    
+        _GT(typeof(MsgProtocol)),
+        _GT(typeof(MsgUnPacker)),
+        _GT(typeof(MsgPacker)),
+        _GT(typeof(System.Collections.Generic.List<object>)),
+        _GT(typeof(System.Collections.ArrayList)),
+        _GT(typeof(ServerItem)),
     };
 
     public static BindType _GT(Type t) {

@@ -9,6 +9,7 @@ import java.util.Map;
 
 import jg.rpg.common.anotation.HandlerMsg;
 import jg.rpg.common.intf.IMsgHandler;
+import jg.rpg.entity.MsgHandlerItem;
 import jg.rpg.entity.MsgUnPacker;
 import jg.rpg.entity.Session;
 import jg.rpg.utils.config.ConfigMgr;
@@ -31,8 +32,6 @@ public class MsgMgr implements IMsgHandler{
 	
 	public void init() throws ClassNotFoundException, InstantiationException, IllegalAccessException{
 		handlers = new HashMap<Integer,IMsgHandler>();
-		//List<String> list = new ArrayList<String>();
-		//list.add("jg.rpg.msg.chat.ChatService");
 		registerAllHandlers(ConfigMgr.getInstance().getHandlerNames());
 	}
 	
@@ -79,21 +78,17 @@ public class MsgMgr implements IMsgHandler{
 	private boolean isHandlerMsgMethod(Method m){
 		return m.isAnnotationPresent(HandlerMsg.class);
 	}
+	
 	@Override
 	public void handleMsg(Session session, MsgUnPacker unpacker) {
 		int type = -1;
 		try {
 			type = unpacker.popInt();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		logger.debug("MsgType : " + type);
-		try {
+			logger.debug("MsgType : " + type);
 			if(handlers.containsKey(type))
-					handlers.get(type).handleMsg(session, unpacker.reset());
+				handlers.get(type).handleMsg(session, unpacker);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	
 	}
 }

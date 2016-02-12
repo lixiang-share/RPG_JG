@@ -44,6 +44,10 @@ public class MsgUnPacker {
 		return new MsgUnPacker(buff);
 	}
 	
+	public boolean hasNext() throws IOException{
+		return unpacker.hasNext();
+	}
+	
 	
 	public Value popValue() throws IOException{
 			return unpacker.unpackValue();

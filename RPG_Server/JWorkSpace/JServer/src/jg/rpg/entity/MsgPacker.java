@@ -29,6 +29,10 @@ public class MsgPacker {
 		packer.close();
 	}
 	
+	public MsgPacker setMsgType(int msgType) throws IOException{
+		return addInt(msgType);
+	}
+	
 	public MsgPacker addInt(int num) throws IOException{
 		packer.packInt(num);
 		return this;

@@ -12,9 +12,9 @@ import org.apache.commons.dbutils.ResultSetHandler;
 
 public class DBHelper {
 	
-	public static <T> T GetFirst(DataSource ds , String sql , ResultSetHandler<T> rsh) throws SQLException{
+	public static <T> T GetFirst(DataSource ds , String sql , ResultSetHandler<T> rsh ,Object... params) throws SQLException{
 		QueryRunner qr = new QueryRunner(ds);
-		return qr.query(sql, rsh);
+		return qr.query(sql, rsh,params);
 	}
 
 	public static <T> List<T> GetAll(DataSource ds , String sql , final ResultSetHandler<T> rsh ,  Object... params) throws SQLException{
@@ -38,5 +38,10 @@ public class DBHelper {
 		List<T> rst = null;
 		rst = qr.query(sql, listRS, params);
 		return rst;
+	}
+	
+	public  static <T> T insert(DataSource ds , String sql , ResultSetHandler<T> rsh ,Object... params) throws SQLException{
+		QueryRunner qr = new QueryRunner(ds);
+		return qr.insert(sql, rsh,params);
 	}
 }

@@ -7,18 +7,23 @@ using System;
 public class StateObj{
     #region 字段
     private Socket _client;
-  //  private MsgPacker _msg;
     private IReceiveData _receiver;
     private bool _isNeedRecv;
     private byte[] _sendBuff;
 
 
     private byte[] _recvTempBuff;
- //   private List<byte> _recvBuff;
     private ByteBuffer _recvBuff;
 
     private int _recvLen;
     private int _errorCode;
+    private int _msgType;
+
+    public int MsgType
+    {
+        get { return _msgType; }
+        set { _msgType = value; }
+    }
 
 
     private NetEventCallBack _OnSend;

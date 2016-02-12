@@ -27,7 +27,7 @@ import io.netty.handler.ssl.util.SelfSignedCertificate;
 import io.netty.handler.stream.ChunkedWriteHandler;
 import io.netty.util.CharsetUtil;
 import jg.rpg.entity.NetEntityInfo;
-import jg.rpg.net.handler.DataEnsureHandler;
+import jg.rpg.net.handlers.DataEnsureHandler;
 
 public class NetworkMgr{
 

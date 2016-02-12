@@ -60,7 +60,7 @@ public class UIWrapContent : MonoBehaviour
 	UIScrollView mScroll;
 	bool mHorizontal = false;
 	bool mFirstTime = true;
-	List<Transform> mChildren = new List<Transform>();
+	public List<Transform> mChildren = new List<Transform>();
 
 	/// <summary>
 	/// Initialize everything and register a callback with the UIPanel to be notified when the clipping region moves.

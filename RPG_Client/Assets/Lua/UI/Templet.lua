@@ -7,23 +7,14 @@ function this.Awake()
 	inst = this.inst;
 end
 
-function this.Start()
-	
-end
+function this.OnFirstEnable()
 
+end
 function this.OnEnable()
 	
 end
 
 function  this.OnDisable( )
 	
-end
-
-function this.OnClick()
-	
-end
-
-function  this.OnCommand(command , param)
-
 end
 

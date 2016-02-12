@@ -29,9 +29,10 @@ public class AppConstWrap
 			new LuaField("AppName", get_AppName, null),
 			new LuaField("AppPrefix", get_AppPrefix, null),
 			new LuaField("WebUrl", get_WebUrl, null),
-			new LuaField("MsgHeadLen", get_MsgHeadLen, null),
 			new LuaField("MsgTerminator", get_MsgTerminator, null),
 			new LuaField("MsgEncoding", get_MsgEncoding, null),
+			new LuaField("MsgHeadLen", get_MsgHeadLen, null),
+			new LuaField("Max_Msg_Len", get_Max_Msg_Len, null),
 			new LuaField("UserId", get_UserId, set_UserId),
 			new LuaField("SocketPort", get_SocketPort, set_SocketPort),
 			new LuaField("SocketAddress", get_SocketAddress, set_SocketAddress),
@@ -39,6 +40,7 @@ public class AppConstWrap
 			new LuaField("DefEncoding", get_DefEncoding, set_DefEncoding),
 			new LuaField("LuaBasePath", get_LuaBasePath, null),
 			new LuaField("LuaWrapPath", get_LuaWrapPath, null),
+			new LuaField("SessionKey", get_SessionKey, set_SessionKey),
 		};
 
 		LuaScriptMgr.RegisterLib(L, "AppConst", typeof(AppConst), regs, fields, typeof(object));
@@ -178,13 +180,6 @@ public class AppConstWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_MsgHeadLen(IntPtr L)
-	{
-		LuaScriptMgr.Push(L, AppConst.MsgHeadLen);
-		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_MsgTerminator(IntPtr L)
 	{
 		LuaScriptMgr.Push(L, AppConst.MsgTerminator);
@@ -195,6 +190,20 @@ public class AppConstWrap
 	static int get_MsgEncoding(IntPtr L)
 	{
 		LuaScriptMgr.Push(L, AppConst.MsgEncoding);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_MsgHeadLen(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, AppConst.MsgHeadLen);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Max_Msg_Len(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, AppConst.Max_Msg_Len);
 		return 1;
 	}
 
@@ -248,6 +257,13 @@ public class AppConstWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_SessionKey(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, AppConst.SessionKey);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_UserId(IntPtr L)
 	{
 		AppConst.UserId = LuaScriptMgr.GetString(L, 3);
@@ -279,6 +295,13 @@ public class AppConstWrap
 	static int set_DefEncoding(IntPtr L)
 	{
 		AppConst.DefEncoding = (System.Text.Encoding)LuaScriptMgr.GetNetObject(L, 3, typeof(System.Text.Encoding));
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_SessionKey(IntPtr L)
+	{
+		AppConst.SessionKey = LuaScriptMgr.GetString(L, 3);
 		return 0;
 	}
 

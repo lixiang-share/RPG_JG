@@ -71,7 +71,7 @@ public class SimpleFramework_LuaHelperWrap
 	static int GetNetManager(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 0);
-		SimpleFramework.Manager.NetworkMgr o = SimpleFramework.LuaHelper.GetNetManager();
+		NetworkMgr o = SimpleFramework.LuaHelper.GetNetManager();
 		LuaScriptMgr.Push(L, o);
 		return 1;
 	}

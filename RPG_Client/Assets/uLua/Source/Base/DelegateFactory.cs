@@ -36,6 +36,9 @@ public static class DelegateFactory
 		dict.Add(typeof(AudioClip.PCMSetPositionCallback), new DelegateValue(AudioClip_PCMSetPositionCallback));
 		dict.Add(typeof(Application.LogCallback), new DelegateValue(Application_LogCallback));
 		dict.Add(typeof(FuncObj), new DelegateValue(FuncObj));
+		dict.Add(typeof(Predicate<object>), new DelegateValue(Predicate_object));
+		dict.Add(typeof(Action<object>), new DelegateValue(Action_object));
+		dict.Add(typeof(Comparison<object>), new DelegateValue(Comparison_object));
 	}
 
 	[NoToLuaAttribute]
@@ -370,6 +373,50 @@ public static class DelegateFactory
 			LuaScriptMgr.PushVarObject(L, param0);
 			func.PCall(top, 1);
 			func.EndPCall(top);
+		};
+		return d;
+	}
+
+	public static Delegate Predicate_object(LuaFunction func)
+	{
+		Predicate<object> d = (param0) =>
+		{
+			int top = func.BeginPCall();
+			IntPtr L = func.GetLuaState();
+			LuaScriptMgr.PushVarObject(L, param0);
+			func.PCall(top, 1);
+			object[] objs = func.PopValues(top);
+			func.EndPCall(top);
+			return (bool)objs[0];
+		};
+		return d;
+	}
+
+	public static Delegate Action_object(LuaFunction func)
+	{
+		Action<object> d = (param0) =>
+		{
+			int top = func.BeginPCall();
+			IntPtr L = func.GetLuaState();
+			LuaScriptMgr.PushVarObject(L, param0);
+			func.PCall(top, 1);
+			func.EndPCall(top);
+		};
+		return d;
+	}
+
+	public static Delegate Comparison_object(LuaFunction func)
+	{
+		Comparison<object> d = (param0, param1) =>
+		{
+			int top = func.BeginPCall();
+			IntPtr L = func.GetLuaState();
+			LuaScriptMgr.PushVarObject(L, param0);
+			LuaScriptMgr.PushVarObject(L, param1);
+			func.PCall(top, 2);
+			object[] objs = func.PopValues(top);
+			func.EndPCall(top);
+			return (int)objs[0];
 		};
 		return d;
 	}

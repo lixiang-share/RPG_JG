@@ -37,10 +37,4 @@ public class DBMgr {
 	}
 	
 	
-	public <T> List<T> GetAll(String sql) {
-		return null;
-	}
-	
-	
-	
 }

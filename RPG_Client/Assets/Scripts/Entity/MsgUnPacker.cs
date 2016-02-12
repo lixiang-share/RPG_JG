@@ -9,11 +9,24 @@ public class MsgUnPacker{
     private byte[] buff;
     private MemoryStream stream ;
     private Unpacker unpacker;
-    
+    private IReceiveData _receiver;
+    private int msgType;
+
+    public int MsgType
+    {
+        get { return msgType; }
+        set { msgType = value; }
+    }
+
     public MsgUnPacker(byte[] buff){
         this.buff = buff;
         stream = new MemoryStream(buff);
         unpacker = Unpacker.Create(stream);
+    }
+    public IReceiveData Receiver
+    {
+        get { return _receiver; }
+        set { _receiver = value; }
     }
 
     public static MsgUnPacker Create(byte[] buff)
@@ -33,6 +46,15 @@ public class MsgUnPacker{
         {
             unpacker.Skip();
         }
+    }
+
+    public MsgUnPacker Reset()
+    {
+        this.Close();
+        MsgUnPacker unpacker = new MsgUnPacker(this.buff);
+        unpacker.Receiver = this.Receiver;
+        unpacker.MsgType = this.MsgType;
+        return unpacker;
     }
 
     #region 泛型方法，似乎与java端不能互通，暂时无法使用

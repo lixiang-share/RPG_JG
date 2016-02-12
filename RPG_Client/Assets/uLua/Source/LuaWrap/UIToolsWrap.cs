@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using System.Collections;
 using LuaInterface;
 
 public class UIToolsWrap
@@ -11,18 +12,28 @@ public class UIToolsWrap
 			new LuaMethod("Log", Log),
 			new LuaMethod("LogError", LogError),
 			new LuaMethod("LogWarning", LogWarning),
+			new LuaMethod("SA", SA),
+			new LuaMethod("D", D),
+			new LuaMethod("GetLuaPathInEditor", GetLuaPathInEditor),
+			new LuaMethod("isLuaFileExits", isLuaFileExits),
+			new LuaMethod("Compile", Compile),
+			new LuaMethod("ShowMsg", ShowMsg),
+			new LuaMethod("Set", Set),
 			new LuaMethod("ShowPanel", ShowPanel),
 			new LuaMethod("ClosePanel", ClosePanel),
 			new LuaMethod("HandlePanel", HandlePanel),
 			new LuaMethod("TweenPos_X", TweenPos_X),
 			new LuaMethod("TweenPos", TweenPos),
-			new LuaMethod("SA", SA),
-			new LuaMethod("D", D),
 			new LuaMethod("isValidString", isValidString),
-			new LuaMethod("GetLuaPathInEditor", GetLuaPathInEditor),
-			new LuaMethod("isLuaFileExits", isLuaFileExits),
-			new LuaMethod("Compile", Compile),
-			new LuaMethod("ShowMes", ShowMes),
+			new LuaMethod("StoreSessionKey", StoreSessionKey),
+			new LuaMethod("GetSessionKey", GetSessionKey),
+			new LuaMethod("StoreString", StoreString),
+			new LuaMethod("StoreInt", StoreInt),
+			new LuaMethod("StoreFloat", StoreFloat),
+			new LuaMethod("GetString", GetString),
+			new LuaMethod("GetInt", GetInt),
+			new LuaMethod("GetFloat", GetFloat),
+			new LuaMethod("MsgToServerList", MsgToServerList),
 			new LuaMethod("New", _CreateUITools),
 			new LuaMethod("GetClassType", GetClassType),
 		};
@@ -132,6 +143,73 @@ public class UIToolsWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SA(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+		bool arg1 = LuaScriptMgr.GetBoolean(L, 2);
+		UITools.SA(arg0,arg1);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int D(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		LuaBehaviour o = UITools.D(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetLuaPathInEditor(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 0);
+		string o = UITools.GetLuaPathInEditor();
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int isLuaFileExits(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		bool o = UITools.isLuaFileExits(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Compile(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		UITools.Compile(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int ShowMsg(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		UITools.ShowMsg(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Set(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		GameObject arg0 = (GameObject)LuaScriptMgr.GetUnityObject(L, 1, typeof(GameObject));
+		string arg1 = LuaScriptMgr.GetLuaString(L, 2);
+		UITools.Set(arg0,arg1);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int ShowPanel(IntPtr L)
 	{
 		int count = LuaDLL.lua_gettop(L);
@@ -234,26 +312,6 @@ public class UIToolsWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int SA(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 2);
-		LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
-		bool arg1 = LuaScriptMgr.GetBoolean(L, 2);
-		UITools.SA(arg0,arg1);
-		return 0;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int D(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 1);
-		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
-		LuaBehaviour o = UITools.D(arg0);
-		LuaScriptMgr.Push(L, o);
-		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int isValidString(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 1);
@@ -264,40 +322,91 @@ public class UIToolsWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int GetLuaPathInEditor(IntPtr L)
+	static int StoreSessionKey(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		UITools.StoreSessionKey(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetSessionKey(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 0);
-		string o = UITools.GetLuaPathInEditor();
+		string o = UITools.GetSessionKey();
 		LuaScriptMgr.Push(L, o);
 		return 1;
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int isLuaFileExits(IntPtr L)
+	static int StoreString(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		string arg1 = LuaScriptMgr.GetLuaString(L, 2);
+		UITools.StoreString(arg0,arg1);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int StoreInt(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		int arg1 = (int)LuaScriptMgr.GetNumber(L, 2);
+		UITools.StoreInt(arg0,arg1);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int StoreFloat(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
+		float arg1 = (float)LuaScriptMgr.GetNumber(L, 2);
+		UITools.StoreFloat(arg0,arg1);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int GetString(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
-		bool o = UITools.isLuaFileExits(arg0);
+		string o = UITools.GetString(arg0);
 		LuaScriptMgr.Push(L, o);
 		return 1;
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Compile(IntPtr L)
+	static int GetInt(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
-		UITools.Compile(arg0);
-		return 0;
+		int o = UITools.GetInt(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int ShowMes(IntPtr L)
+	static int GetFloat(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
-		UITools.ShowMes(arg0);
-		return 0;
+		float o = UITools.GetFloat(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int MsgToServerList(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		MsgUnPacker arg0 = (MsgUnPacker)LuaScriptMgr.GetNetObject(L, 1, typeof(MsgUnPacker));
+		IList o = UITools.MsgToServerList(arg0);
+		LuaScriptMgr.PushObject(L, o);
+		return 1;
 	}
 }
 
