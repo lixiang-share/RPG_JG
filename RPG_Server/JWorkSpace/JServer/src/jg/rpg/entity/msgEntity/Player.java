@@ -1,4 +1,4 @@
-package jg.rpg.entity;
+package jg.rpg.entity.msgEntity;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -11,7 +11,22 @@ public class Player {
 	private String username;
 	private String pwd;
 	private String phoneNum;
+	private ServerEntity server;
+	private Role role;
 	
+	
+	public ServerEntity getServer() {
+		return server;
+	}
+	public void setServer(ServerEntity server) {
+		this.server = server;
+	}
+	public Role getRole() {
+		return role;
+	}
+	public void setRole(Role role) {
+		this.role = role;
+	}
 	public String getPhoneNum() {
 		return phoneNum;
 	}

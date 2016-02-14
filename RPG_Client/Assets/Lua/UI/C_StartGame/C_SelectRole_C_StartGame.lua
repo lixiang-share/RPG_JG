@@ -7,10 +7,38 @@ function this.Awake()
 	inst = this.inst;
 end
 
-function this.Start()
-	
+function this.OnFirstEnable()
+	UITools.SA(inst , false)
 end
 
+function this.OnEnable()
+	--inst:S('curSelect' , 'none')
+end
+
+function this.SelectRole(name)
+	local roles = UITools.D('EnterGame'):G('All_Roles')
+	for i=0,roles.Count - 1 do
+		if roles:get_Item(i).Role_id == name then
+			inst:S('curSelect' , roles:get_Item(i))
+		end
+	end
+	inst:GetChild('input_name'):GetChild('inputFiled').Value = inst:G('curSelect').Name
+	if name == 'boy' then
+		UITools.Tween_Scale(inst:GetChild('c_role_boy') , 1.2,1.2)
+		UITools.Tween_Scale(inst:GetChild('c_role_girl') , 1,1)
+	elseif name == 'girl' then
+		UITools.Tween_Scale(inst:GetChild('c_role_boy') , 1,1)
+		UITools.Tween_Scale(inst:GetChild('c_role_girl') , 1.2,1.2)
+	end
+end
+
+function this.ChangeName()
+	local text = inst:GetChild('input_name'):GetChild('inputFiled').Value
+	if inst:G('curSelect') ~= nil and inst:G('curSelect') ~= 'none' and UITools.isValidString(text) then
+		inst:G('curSelect').Name =  text
+		UITools.D('EnterGame'):CallLuaMethod('SelectRole',inst:G('curSelect'))
+	end
+end
 
 
 function  this.OnCommand(command , param)

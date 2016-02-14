@@ -143,6 +143,7 @@ public static class WrapFile {
         _GT(typeof(System.Collections.Generic.List<object>)),
         _GT(typeof(System.Collections.ArrayList)),
         _GT(typeof(ServerItem)),
+        _GT(typeof(RoleItem)),
     };
 
     public static BindType _GT(Type t) {

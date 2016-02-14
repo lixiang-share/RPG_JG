@@ -125,6 +125,11 @@ public static partial class UITools
             go.GetComponent<UITexture>();
         }
     }
+    public static void Set(LuaBehaviour lb, string name)
+    {
+        if(lb != null)
+            Set(lb.gameObject, name);
+    }
 
 
 
@@ -213,6 +218,27 @@ public static partial class UITools
             });
         }
     }
+
+    public static void Tween_Scale(LuaBehaviour lb, float x, float y)
+    {
+        Tween_Scale(lb, x, y, lb.transform.localScale.z, 0.2f);
+    }
+
+    public static void Tween_Scale(LuaBehaviour lb, float x, float y, float z, float duration)
+    {
+        if (lb == null)
+        {
+            logError("Tween_Scale Error ,LuaBehaviour is null ");
+            return;
+        }
+        GameObject go = lb.gameObject;
+       TweenScale ts = TweenScale.Begin(go, duration, new Vector3(x, y, z));
+       ts.AddOnFinished(() => {
+           lb.OnCommand("EndTweenScale");
+           if (go.GetComponent<TweenScale>() != null) UnityEngine.Object.Destroy(go.GetComponent<TweenScale>());
+       });
+
+    }
     #endregion
 
     #region string 方法扩展
@@ -290,6 +316,10 @@ public static partial class UITools
     public static IList MsgToServerList(MsgUnPacker unpacker)
     {
         return ConvertUitls.MsgToServerList(unpacker);
+    }
+    public static IList MsgToRoleList(MsgUnPacker unpacker)
+    {
+        return ConvertUitls.MsgToRoleList(unpacker);
     }
 
 

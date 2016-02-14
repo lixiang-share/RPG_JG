@@ -44,4 +44,9 @@ public class DBHelper {
 		QueryRunner qr = new QueryRunner(ds);
 		return qr.insert(sql, rsh,params);
 	}
+	
+	public  static int update(DataSource ds , String sql ,Object... params) throws SQLException{
+		QueryRunner qr = new QueryRunner(ds);
+		return qr.update(sql, params);
+	}
 }

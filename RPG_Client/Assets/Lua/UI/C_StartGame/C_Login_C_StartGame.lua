@@ -10,6 +10,10 @@ function  this.Cancel()
 	UITools.ShowMsg("Exits Game!!!");
 end
 
+function this.OnFirstEnable()
+	inst:CreateMsg():SetMsgType(MsgProtocol.Query_Status):Send()
+end
+
 function this.Login()
 	local username = inst:GetChild('c_username'):GetChild('inputFiled').Value
 	local pwd = inst:GetChild('c_pwd'):GetChild('inputFiled').Value
@@ -21,14 +25,18 @@ function this.Login()
 	inst:CreateMsg():SetMsgType(MsgProtocol.Login):AddString(username):AddString(pwd):Send()
 end
 function this.OnReceiveData(data)
-	local sessionKey = data:PopString()
-	UITools.StoreSessionKey(sessionKey)
-	UITools.ClosePanel(inst);
-	UITools.ShowPanel(UITools.D('ServerSelect'))
+	if data.MsgType == MsgProtocol.Login then
+		local sessionKey = data:PopString()
+		UITools.StoreSessionKey(sessionKey)
+		UITools.ClosePanel(inst);
+		UITools.ShowPanel(UITools.D('ServerSelect'))
+	elseif data.MsgType == MsgProtocol.Query_Status then
+		UITools.ClosePanel(inst);
+		UITools.ShowPanel(UITools.D('ServerSelect'))
+	end
 end
 
 function this.Register()
-	UITools.Log("===========");
 	UITools.ClosePanel(inst);
 	UITools.ShowPanel(UITools.D('Register'))
 end

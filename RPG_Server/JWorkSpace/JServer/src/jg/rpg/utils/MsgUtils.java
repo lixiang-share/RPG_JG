@@ -64,10 +64,21 @@ public class MsgUtils {
 			throw new IOException("buff is null!!");
 		}
 	}
-	public static void SendErroInfo(ChannelHandlerContext ctx , String info) throws IOException{
+	public static void SendErroInfo(ChannelHandlerContext ctx , String info){
 		MsgPacker packer = new MsgPacker();
-		packer.addInt(MsgProtocol.Error)
-			.addString(info);
-		sendMsg(ctx,packer);
+		try {
+			packer.addInt(MsgProtocol.Error)
+				.addString(info);
+			sendMsg(ctx,packer);
+		} catch (IOException e) {
+			logger.error("Server is Error");
+		}
+	
+	}
+	
+	public static MsgPacker getSuccessPacker() throws IOException{
+		MsgPacker packer = new MsgPacker();
+		packer.addInt(MsgProtocol.Success);
+		return packer;
 	}
 }

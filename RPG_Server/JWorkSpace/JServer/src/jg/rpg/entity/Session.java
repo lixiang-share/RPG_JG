@@ -1,5 +1,6 @@
 package jg.rpg.entity;
 
+import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.utils.config.GameConfig;
 import io.netty.channel.ChannelHandlerContext;
 
@@ -35,8 +36,9 @@ public class Session {
 	}
 
 	
-	public void updata(){
+	public void updata(ChannelHandlerContext ctx){
 		setGenerateTime(System.currentTimeMillis());
+		setCtx(ctx);
 	}
 	public boolean isVaild(){
 		return System.currentTimeMillis() < getGenerateTime() + getVaildTimeInterval();

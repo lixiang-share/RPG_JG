@@ -24,6 +24,7 @@ public class UIToolsWrap
 			new LuaMethod("HandlePanel", HandlePanel),
 			new LuaMethod("TweenPos_X", TweenPos_X),
 			new LuaMethod("TweenPos", TweenPos),
+			new LuaMethod("Tween_Scale", Tween_Scale),
 			new LuaMethod("isValidString", isValidString),
 			new LuaMethod("StoreSessionKey", StoreSessionKey),
 			new LuaMethod("GetSessionKey", GetSessionKey),
@@ -34,6 +35,7 @@ public class UIToolsWrap
 			new LuaMethod("GetInt", GetInt),
 			new LuaMethod("GetFloat", GetFloat),
 			new LuaMethod("MsgToServerList", MsgToServerList),
+			new LuaMethod("MsgToRoleList", MsgToRoleList),
 			new LuaMethod("New", _CreateUITools),
 			new LuaMethod("GetClassType", GetClassType),
 		};
@@ -202,10 +204,27 @@ public class UIToolsWrap
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int Set(IntPtr L)
 	{
-		LuaScriptMgr.CheckArgsCount(L, 2);
-		GameObject arg0 = (GameObject)LuaScriptMgr.GetUnityObject(L, 1, typeof(GameObject));
-		string arg1 = LuaScriptMgr.GetLuaString(L, 2);
-		UITools.Set(arg0,arg1);
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 2 && LuaScriptMgr.CheckTypes(L, 1, typeof(LuaBehaviour), typeof(string)))
+		{
+			LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetLuaObject(L, 1);
+			string arg1 = LuaScriptMgr.GetString(L, 2);
+			UITools.Set(arg0,arg1);
+			return 0;
+		}
+		else if (count == 2 && LuaScriptMgr.CheckTypes(L, 1, typeof(GameObject), typeof(string)))
+		{
+			GameObject arg0 = (GameObject)LuaScriptMgr.GetLuaObject(L, 1);
+			string arg1 = LuaScriptMgr.GetString(L, 2);
+			UITools.Set(arg0,arg1);
+			return 0;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: UITools.Set");
+		}
+
 		return 0;
 	}
 
@@ -312,6 +331,37 @@ public class UIToolsWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Tween_Scale(IntPtr L)
+	{
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 3)
+		{
+			LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+			float arg1 = (float)LuaScriptMgr.GetNumber(L, 2);
+			float arg2 = (float)LuaScriptMgr.GetNumber(L, 3);
+			UITools.Tween_Scale(arg0,arg1,arg2);
+			return 0;
+		}
+		else if (count == 5)
+		{
+			LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+			float arg1 = (float)LuaScriptMgr.GetNumber(L, 2);
+			float arg2 = (float)LuaScriptMgr.GetNumber(L, 3);
+			float arg3 = (float)LuaScriptMgr.GetNumber(L, 4);
+			float arg4 = (float)LuaScriptMgr.GetNumber(L, 5);
+			UITools.Tween_Scale(arg0,arg1,arg2,arg3,arg4);
+			return 0;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: UITools.Tween_Scale");
+		}
+
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int isValidString(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 1);
@@ -405,6 +455,16 @@ public class UIToolsWrap
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		MsgUnPacker arg0 = (MsgUnPacker)LuaScriptMgr.GetNetObject(L, 1, typeof(MsgUnPacker));
 		IList o = UITools.MsgToServerList(arg0);
+		LuaScriptMgr.PushObject(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int MsgToRoleList(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		MsgUnPacker arg0 = (MsgUnPacker)LuaScriptMgr.GetNetObject(L, 1, typeof(MsgUnPacker));
+		IList o = UITools.MsgToRoleList(arg0);
 		LuaScriptMgr.PushObject(L, o);
 		return 1;
 	}

@@ -18,4 +18,22 @@ public static class ConvertUitls {
         }
         return list;
     }
+
+    public static IList MsgToRoleList(MsgUnPacker unpacker)
+    {
+        IList list = new ArrayList();
+        int roleLen = unpacker.PopInt();
+        for (int i = 0; i < roleLen; i++)
+        {
+            RoleItem role  = new RoleItem();
+            role.Id = unpacker.PopInt();
+            role.OwnerId = unpacker.PopInt();
+            role.Role_id = unpacker.PopString();
+            role.Name = unpacker.PopString();
+            role.Level = unpacker.PopInt();
+            role.Gender = unpacker.PopInt();
+            list.Add(role);
+        }
+        return list;
+    }
 }

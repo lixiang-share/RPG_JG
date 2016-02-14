@@ -5,8 +5,9 @@ import java.sql.SQLException;
 
 import org.apache.commons.dbutils.ResultSetHandler;
 
-import jg.rpg.entity.Player;
 import jg.rpg.entity.msgEntity.Cat;
+import jg.rpg.entity.msgEntity.Player;
+import jg.rpg.entity.msgEntity.Role;
 import jg.rpg.entity.msgEntity.ServerEntity;
 /**
  * 集中处理model层的ORM映射问题
@@ -67,6 +68,33 @@ public class RSHHelper {
 				if(columnCount >= 4)
 					player.setPhoneNum(rs.getString("phone"));
 				return player;
+			}
+		};
+		return rsh;
+	}
+
+	public static ResultSetHandler<Role> getRoleRSH() {
+		ResultSetHandler<Role> rsh = new ResultSetHandler<Role>(){
+			@Override
+			public Role handle(ResultSet rs) throws SQLException {
+				if(!rs.next()){
+					return null;
+				}
+				int columnCount = rs.getMetaData().getColumnCount();
+				Role role = new Role();
+				if(columnCount >=1 )
+					role.setId(rs.getInt(1));
+				if(columnCount >=2 )
+					role.setOwnerId(rs.getInt("ownerId"));
+				if(columnCount >=3 )
+					role.setRole_id(rs.getString("roleId"));
+				if(columnCount >=4 )
+					role.setName(rs.getString("name"));
+				if(columnCount >=5 )
+					role.setLevel(rs.getInt("level"));
+				if(columnCount >=6 )
+					role.setGender(rs.getInt("gender"));
+				return role;
 			}
 		};
 		return rsh;

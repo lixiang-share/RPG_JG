@@ -64,6 +64,7 @@ public static class LuaBinder
 			case "RenderSettingsWrap": RenderSettingsWrap.Register(L); break;
 			case "RenderTextureWrap": RenderTextureWrap.Register(L); break;
 			case "ResourceManagerWrap": ResourceManagerWrap.Register(L); break;
+			case "RoleItemWrap": RoleItemWrap.Register(L); break;
 			case "ScaleButtonWrap": ScaleButtonWrap.Register(L); break;
 			case "ScreenWrap": ScreenWrap.Register(L); break;
 			case "ServerItemWrap": ServerItemWrap.Register(L); break;

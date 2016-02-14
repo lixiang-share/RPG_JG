@@ -12,4 +12,7 @@ public class MsgProtocol {
     public const int Login = 1;
     public const int Get_ServerList = 2;
     public const int Register = 3;
+    public const int Query_Status = 4;
+    public const int PreSelectHero = 5;
+    public const int EnterGame = 6;
 }

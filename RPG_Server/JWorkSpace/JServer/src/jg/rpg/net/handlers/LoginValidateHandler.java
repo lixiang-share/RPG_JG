@@ -42,13 +42,13 @@ public class LoginValidateHandler extends SimpleChannelInboundHandler<MsgUnPacke
 			}
 		}
 		if(session != null){
-			session.updata();
-			session.setCtx(ctx);
+			session.updata(ctx);
 			msgMgr.handleMsg(session, msg);
 		}else{
-			MsgPacker packer = new MsgPacker();
+			/*MsgPacker packer = new MsgPacker();
 			packer.addInt(MsgProtocol.Error);
-			MsgUtils.sendMsg(ctx, packer);
+			MsgUtils.sendMsg(ctx, packer);*/
+			MsgUtils.SendErroInfo(ctx, "会话超时,请重新登录");
 		}
 			
 	}

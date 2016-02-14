@@ -12,7 +12,6 @@ function this.OnFirstEnable()
 end
 
 function this.OnEnable()
-	UITools.Log('=====OnEnable=======')
 	inst:CreateMsg():SetMsgType(MsgProtocol.Get_ServerList):Send()
 end
 
@@ -37,6 +36,12 @@ function this.SetCurSelect(data)
 end
 
 function this.EnterGame()
-	UITools.Log('EnterGame')
+	UITools.ClosePanel(inst);
+	UITools.D('EnterGame'):S('curServer' , inst:G('curSelect'))
+	UITools.ShowPanel(UITools.D('EnterGame'))
+end
+function this.Cancel( )
+	UITools.ClosePanel(inst);
+	UITools.ShowPanel(UITools.D('Login'))
 end
 

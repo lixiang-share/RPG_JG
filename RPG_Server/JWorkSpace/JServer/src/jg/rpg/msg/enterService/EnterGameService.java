@@ -9,8 +9,9 @@ import jg.rpg.common.anotation.HandlerMsg;
 import jg.rpg.common.protocol.MsgProtocol;
 import jg.rpg.entity.MsgPacker;
 import jg.rpg.entity.MsgUnPacker;
-import jg.rpg.entity.Player;
 import jg.rpg.entity.Session;
+import jg.rpg.entity.msgEntity.Player;
+import jg.rpg.entity.msgEntity.Role;
 import jg.rpg.entity.msgEntity.ServerEntity;
 import jg.rpg.exceptions.PlayerHandlerException;
 import jg.rpg.msg.enterService.controller.EnterGameController;
@@ -104,12 +105,104 @@ public class EnterGameService {
 				throw new PlayerHandlerException("inset to tb_user error : "+player);
 			}
 		} catch (Exception e) {
-			try {
-				logger.warn("registerPlayer get data error : "+e.getMessage());
-				MsgUtils.SendErroInfo(session.getCtx(), "信息输入错误,用户名已存在");
-			} catch (IOException e1) {
-				logger.error("server is fatal : "+e.getMessage());
-			}
+			logger.warn("registerPlayer get data error : "+e.getMessage());
+			MsgUtils.SendErroInfo(session.getCtx(), "信息输入错误,用户名已存在");
+		
 		}
 	}
+	
+	@HandlerMsg(msgType = MsgProtocol.Query_Status)
+	public void queryStatus(Session session , MsgUnPacker unpacker){
+		MsgPacker packer = new MsgPacker();
+		try {
+			packer.setMsgType(MsgProtocol.Success);
+			MsgUtils.sendMsg(session.getCtx(), packer);
+		} catch (IOException e) {
+			logger.debug("server error : "+e.getMessage());
+		}
+		
+	}
+	
+	
+	@HandlerMsg(msgType = MsgProtocol.PreSelectHero)
+	public void preSelectHero(Session session , MsgUnPacker unpacker){
+		logger.debug("preSelectHero");
+		int playerID = session.getPlayer().getId();
+		try {
+			List<Role> roles = egContoller.getRolesByPlayerID(playerID);
+			MsgPacker packer = MsgUtils.getSuccessPacker();
+			packer.addString("公告测试数据\n具体数据形式未确定");
+			if(roles == null || roles.isEmpty()){
+				packer.addInt(0);
+			}else{
+				packer.addInt(roles.size());
+				for(Role r : roles){
+					packer.addInt(r.getId())
+						.addInt(r.getOwnerId())
+						.addString(r.getRole_id())
+						.addString(r.getName())
+						.addInt(r.getLevel())
+						.addInt(r.getGender());
+				}
+			}
+			MsgUtils.sendMsg(session.getCtx(), packer);
+			
+		} catch (Exception e) {
+			MsgUtils.SendErroInfo(session.getCtx(), "获取角色信息失败");
+			logger.warn(e.getMessage());
+		}
+	}
+	
+	@HandlerMsg(msgType = MsgProtocol.EnterGame)
+	public void enterGame(Session session , MsgUnPacker unpacker){
+		logger.debug("enterGame");
+		Player player = session.getPlayer();
+		int playerID = player.getId();
+		try {
+			int serverID = unpacker.popInt();
+			ServerEntity server = egContoller.getServerByID(serverID);
+			if(server != null){
+				player.setServer(server);
+			}else{
+				MsgUtils.SendErroInfo(session.getCtx(), "请正确选择服务器");
+				unpacker.close();
+				return;
+			}
+		} catch (IOException | SQLException e) {
+			MsgUtils.SendErroInfo(session.getCtx(), "请正确选择服务器");
+			logger.warn(e.getMessage());
+		}
+		
+		Role role = new Role();
+		try {
+			role.setOwnerId(player.getId());
+			role.setRole_id(unpacker.popString());
+			role.setName(unpacker.popString());
+			role.setLevel(unpacker.popInt());
+			role.setGender(unpacker.popInt());
+			if(egContoller.getRoleByPlayerIDAndRole_ID(playerID , role.getRole_id()) != null){
+				egContoller.updateRoleInfo(playerID , role);
+			}else{
+				Role _role = egContoller.insertRole(role);
+			}
+			player.setRole(role);
+		} catch (IOException | SQLException e) {
+			logger.warn(e.getMessage());
+			MsgUtils.SendErroInfo(session.getCtx(), "请正确选择服务器");
+		}
+		
+		try {
+			MsgPacker packer = MsgUtils.getSuccessPacker();
+			MsgUtils.sendMsg(session.getCtx(), packer);
+		} catch (IOException e) {
+			MsgUtils.SendErroInfo(session.getCtx(), "服务器错误");
+			logger.warn(e.getMessage());
+		}
+		
+		
+		
+	}
+	
+	
+	
 }

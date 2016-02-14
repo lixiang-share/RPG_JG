@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import jg.rpg.common.PlayerMgr;
 import jg.rpg.dao.db.DBMgr;
-import jg.rpg.entity.Player;
+import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.exceptions.InitException;
 import jg.rpg.exceptions.PlayerHandlerException;
 import jg.rpg.msg.MsgMgr;
@@ -25,7 +25,7 @@ public class TestEnterGameController {
 			MsgMgr.getInstance().init();
 			EnterGameController c = new EnterGameController();
 			Player player = new Player();
-			player.setUsername("b2");
+			player.setUsername("b4");
 			player.setPwd("2222");
 			player.setPhoneNum("3333");
 		

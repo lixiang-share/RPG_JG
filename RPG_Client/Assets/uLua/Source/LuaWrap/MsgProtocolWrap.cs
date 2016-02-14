@@ -18,6 +18,9 @@ public class MsgProtocolWrap
 			new LuaField("Login", get_Login, null),
 			new LuaField("Get_ServerList", get_Get_ServerList, null),
 			new LuaField("Register", get_Register, null),
+			new LuaField("Query_Status", get_Query_Status, null),
+			new LuaField("PreSelectHero", get_PreSelectHero, null),
+			new LuaField("EnterGame", get_EnterGame, null),
 		};
 
 		LuaScriptMgr.RegisterLib(L, "MsgProtocol", typeof(MsgProtocol), regs, fields, typeof(object));
@@ -83,6 +86,27 @@ public class MsgProtocolWrap
 	static int get_Register(IntPtr L)
 	{
 		LuaScriptMgr.Push(L, MsgProtocol.Register);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Query_Status(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, MsgProtocol.Query_Status);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_PreSelectHero(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, MsgProtocol.PreSelectHero);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_EnterGame(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, MsgProtocol.EnterGame);
 		return 1;
 	}
 }
