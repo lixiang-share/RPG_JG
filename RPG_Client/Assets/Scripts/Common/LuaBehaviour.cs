@@ -9,6 +9,7 @@ using System.Collections.Generic;
 
 public class LuaBehaviour : MonoBehaviour, IReceiveData
 {
+    #region 字段
     protected bool initialize = false;
     private string data = null;
     private AssetBundle bundle = null;
@@ -26,6 +27,8 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
     private bool isFirstEnable = true;
 
     [HideInInspector]
+    public string doStringLuaFile;
+    [HideInInspector]
     public Boolean isDoString = false;
     [HideInInspector]
     public string lua_OnClick = "";
@@ -38,13 +41,17 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
     [HideInInspector]
     public string lua_Start = "";
     [HideInInspector]
+    public string lus_OnFirstEnable;
+    [HideInInspector]
     public string lua_OnEnable = "";
     [HideInInspector]
     public string lua_OnHold = "";
     [HideInInspector]
-    public string lua_ReceiveData = "";
+    public string lua_OnReceiveData = "";
     [HideInInspector]
     public string lua_OnFirstEnable = "";
+    #endregion
+
     #region 各种管理器
     private AppFacade m_Facade;
     private LuaManager m_LuaMgr;
@@ -141,7 +148,7 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
             }
             else
             {
-                CallMethod("OnEnable");
+                CallMethod("lus_OnFirstEnable");
             }
         }
         else
@@ -246,7 +253,7 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
         }
         else
         {
-            DoString(lua_ReceiveData , msg);
+            DoString(lua_OnReceiveData , msg);
         }
     }
     protected object[] DoString(string command)
@@ -365,7 +372,6 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
         }
     }
     #endregion
-
 
     #region 消息发送
     public void SendMsg(MsgPacker msg)

@@ -431,7 +431,7 @@ public class LuaBehaviourWrap
 			}
 		}
 
-		LuaScriptMgr.Push(L, obj.lua_ReceiveData);
+		LuaScriptMgr.Push(L, obj.lua_OnReceiveData);
 		return 1;
 	}
 
@@ -1038,7 +1038,7 @@ public class LuaBehaviourWrap
 			}
 		}
 
-		obj.lua_ReceiveData = LuaScriptMgr.GetString(L, 3);
+		obj.lua_OnReceiveData = LuaScriptMgr.GetString(L, 3);
 		return 0;
 	}
 

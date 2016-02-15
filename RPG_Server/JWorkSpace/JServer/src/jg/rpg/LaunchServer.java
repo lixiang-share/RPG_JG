@@ -31,7 +31,5 @@ public class LaunchServer {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
-			
 	}
 }

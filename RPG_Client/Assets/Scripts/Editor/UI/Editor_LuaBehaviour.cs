@@ -4,9 +4,10 @@ using UnityEditor;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System;
 
 [CustomEditor(typeof(LuaBehaviour), true)]
-public class Editor_LuaBehaviour : Editor
+public partial class Editor_LuaBehaviour : Editor
 {
     public static string rootPath = UITools.GetLuaPathInEditor()+"/";
     public static string templetPath = rootPath + "UI/Templet.lua";
@@ -20,13 +21,15 @@ public class Editor_LuaBehaviour : Editor
     public static string curFileFullname = "";
     public static string oldFileFullname = "";
 
-
+  
 
     public override void OnInspectorGUI()
     {
         lb = (LuaBehaviour)target;
 
         base.DrawDefaultInspector();
+
+        #region 使用DoString方式执行的节点
         if (target is LuaWithNoFile)
         {
             lb.domain = EditorGUILayout.TextField(new GUIContent("Domain:"), lb.domain);
@@ -35,18 +38,41 @@ public class Editor_LuaBehaviour : Editor
         lb.isDoString = EditorGUILayout.Toggle(new GUIContent("DoString?"), lb.isDoString);
         if (lb.isDoString)
         {
-            lb.domain = EditorGUILayout.TextField(new GUIContent("Domain:"), lb.domain);
-            lb.lua_Awake = EditorGUILayout.TextField(new GUIContent("Awake:"), lb.lua_Awake);
-            lb.lua_OnClick = EditorGUILayout.TextField(new GUIContent("OnClick:"), lb.lua_OnClick);
-            lb.lua_OnCommand = EditorGUILayout.TextField(new GUIContent("OnCommand:"), lb.lua_OnCommand);
-            lb.lua_OnEnable = EditorGUILayout.TextField(new GUIContent("OnDisable:"), lb.lua_OnDisable);
-            lb.lua_OnHold = EditorGUILayout.TextField(new GUIContent("OnHold:"), lb.lua_OnHold);
-            lb.lua_ReceiveData = EditorGUILayout.TextField(new GUIContent("ReceiveData:"), lb.lua_ReceiveData);
-            lb.lua_Start = EditorGUILayout.TextField(new GUIContent("Start:"), lb.lua_Start);
+            if (lb.doStringLuaFile != null && File.Exists(lb.doStringLuaFile))
+            {
+                EditorGUILayout.BeginHorizontal();
+                if (GUILayout.Button("Open File"))
+                {
+                    OpenLuaFile();
+                }
+                if (GUILayout.Button("Copy File"))
+                {
+                    CopyeLuaFile();
+                }
+                EditorGUILayout.EndHorizontal();
+            }
+            else
+            {
+                if (GUILayout.Button("Create File"))
+                {
+                    CreateLuaFile();
+                }
+            }
+
+            lb.domain = TextArea("Domain:", lb.domain);
+            lb.lua_OnFirstEnable = TextArea("OnFirstEnable:", lb.lua_OnFirstEnable);
+            lb.lua_OnEnable = TextArea("OnEnable:", lb.lua_OnEnable);
+            lb.lua_OnDisable = TextArea("OnDisable:", lb.lua_OnDisable);
+            lb.lua_OnClick = TextArea("OnClick:", lb.lua_OnClick);
+            lb.lua_OnCommand = TextArea("OnCommand:", lb.lua_OnCommand);
+            lb.lua_OnReceiveData = TextArea("OnReceiveData:", lb.lua_OnReceiveData);
+
             return;
         }
+        #endregion
 
 
+        #region 处理是用lua文件执行
         InitFilename(lb);
         //处理因为节点移动而造成的文件与节点不匹配的情况
         if (File.Exists(rootPath + oldFileFullname))
@@ -91,10 +117,10 @@ public class Editor_LuaBehaviour : Editor
                 CreateFile(rootPath + curFileFullname);
             }
         }
-        
+        #endregion
     }
 
-
+    #region 使用lua文件执行的相关辅助方法
     public void MoveFile(string originFile, string targetFile)
     {
         if (File.Exists(targetFile)) CreateFileDir(targetFile);
@@ -146,7 +172,7 @@ public class Editor_LuaBehaviour : Editor
 
 
 
-    public void CreateFileDir(string filename)
+    public static void CreateFileDir(string filename)
     {
         if (File.Exists(filename))
         {
@@ -218,8 +244,217 @@ public class Editor_LuaBehaviour : Editor
             AssetDatabase.Refresh();
         }
     }
+    #endregion
+
+
+    //=================================================================================================================
+
+
+    public static string doStringluaFileRoot = Directory.GetParent(Application.dataPath).FullName + "/LuaFiles";
+
+    public static string[] funcName = {"Domain","OnFirstEnable" ,"OnEnble","OnDisable" , "OnClick" , "OnCommand(param,paramEX)",
+                               "OnHold(param)","OnParseData(param)"};
+
+    public static string TextArea(string desc , string content)
+    {
+        EditorGUILayout.BeginVertical();
+        EditorGUILayout.LabelField(desc);
+        string str = EditorGUILayout.TextArea(content);
+        EditorGUILayout.EndVertical();
+        EditorGUILayout.Space();
+        return str;
+    }
+
+
+    public void CreateLuaFile()
+    {
+        lb.doStringLuaFile = doStringluaFileRoot + curFileFullname;
+        CreateDoStringFile(lb.doStringLuaFile);
+        OpenFile(lb.doStringLuaFile);
+    }
+
+    public void OpenLuaFile()
+    {
+        OpenFile(lb.doStringLuaFile);
+    }
+
+    public void CopyeLuaFile()
+    {
+        StringBuilder sb = new StringBuilder();
+        string lastFunc = string.Empty;
+        string[] contents = File.ReadAllLines(lb.doStringLuaFile);
+        foreach (string line in contents)
+        {
+            if (line.Trim().StartsWith("======"))
+            {
+                if (lastFunc != string.Empty)
+                {
+                    if (Application.isPlaying)
+                    {
+                        if (sb.Length != 0)
+                            SetGiuCardInfo(lastFunc, sb.ToString());
+                    }
+                    else
+                    {
+                        SetGiuCardInfo(lastFunc, sb.ToString());
+                    }
+                }
+                sb.Remove(0, sb.Length);
+                lastFunc = line.Replace('=', ' ').Trim();
+            }
+            else
+            {
+                if (line.Trim().Length != 0)
+                {
+                    sb.Append(System.Environment.NewLine).Append(line);
+                }
+            }
+        }
+        if (sb.Length != 0 && lastFunc != string.Empty)
+        {
+            SetGiuCardInfo(lastFunc, sb.ToString());
+        }
+    }
+
+    private void SetGiuCardInfo(string lastFunc, string v)
+    {
+        Debug.Log(lastFunc + " : " + v);
+        switch (lastFunc)
+        {
+            case "Domain":
+                lb.domain = v;
+                break;
+            case "OnFirstEnable":
+                lb.lua_OnFirstEnable = v;
+                break;
+            case "OnEnble":
+                lb.lua_OnEnable = v;
+                break;
+            case "OnDisable":
+                lb.lua_OnDisable = v;
+                break;
+            case "OnClick":
+                lb.lua_OnClick = v;
+                break;
+            case "OnCommand(param,paramEX)":
+                lb.lua_OnCommand = v;
+                break;
+            case "OnHold(param)":
+                lb.lua_OnHold = v;
+                break;
+            case "OnParseData(param)":
+                lb.lua_OnReceiveData = v;
+                break;
+        }
+    }
+
+    private static void CreateDoStringFile(string filename)
+    {
+        CreateFileDir(filename);
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < funcName.Length; i++)
+        {
+            string str = GetGiuCardInfo(funcName[i]);
+            if (str != null && str.Length != 0)
+            {
+                sb.Append(@"=========================  " + funcName[i] + "  ========================")
+                    .Append(System.Environment.NewLine)
+                    .Append(System.Environment.NewLine)
+                    .Append(str)
+                    .Append(System.Environment.NewLine)
+                    .Append(System.Environment.NewLine);
+            }
+            else
+            {
+                sb.Append(@"=========================  " + funcName[i] + "  ========================")
+                .Append(System.Environment.NewLine)
+                .Append(str)
+                .Append(System.Environment.NewLine);
+            }
+        }
+        sb.Append("========================= End =========================");
+        File.WriteAllText(filename, sb.ToString(), Encoding.UTF8);
+    }
+    private static string GetGiuCardInfo(string key)
+    {
+        switch (key)
+        {
+            case "Domain":
+                return lb.domain;
+            case "OnFirstEnable":
+                return lb.lua_OnFirstEnable;
+            case "OnEnble":
+                return lb.lua_OnEnable;
+            case "OnDisable":
+                return lb.lua_OnDisable;
+            case "OnClick":
+                return lb.lua_OnClick;
+            case "OnCommand(param,paramEX)":
+                return lb.lua_OnCommand;
+            case "OnHold(param)":
+                return lb.lua_OnHold;
+            case "OnParseData(param)":
+                return lb.lua_OnReceiveData;
+        }
+        return "";
+    }
+
+
+
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 class DeleteConfirm : EditorWindow
@@ -244,4 +479,24 @@ class DeleteConfirm : EditorWindow
         }
         EditorGUILayout.EndHorizontal();
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
 }
