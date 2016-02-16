@@ -37,6 +37,8 @@ function this.ChangeName()
 	if inst:G('curSelect') ~= nil and inst:G('curSelect') ~= 'none' and UITools.isValidString(text) then
 		inst:G('curSelect').Name =  text
 		UITools.D('EnterGame'):CallLuaMethod('SelectRole',inst:G('curSelect'))
+		inst:OnCommand("Right");
+		UITools.D("EnterGame"):OnCommand("MoveCenter");
 	end
 end
 
