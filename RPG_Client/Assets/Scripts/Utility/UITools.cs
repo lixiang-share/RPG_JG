@@ -102,10 +102,11 @@ public static partial class UITools
 
     public static void ShowMsg(string mes)
     {
-        GameObject mesPrefab = ResourceManager.Instance.LoadMesPrefab() as GameObject;
-        GameObject go = NGUITools.AddChild(GameObject.FindWithTag("JGNGUICamera"), mesPrefab);
-        go.transform.localPosition = new Vector3(0, 60, 0);
-        ShowText st = go.GetComponent<ShowText>();
+        //GameObject mesPrefab = ResourceManager.Instance.LoadMesPrefab() as GameObject;
+        //GameObject go = NGUITools.AddChild(GameObject.FindWithTag("JGNGUICamera"), mesPrefab);
+        //go.transform.localPosition = new Vector3(0, 60, 0);
+        //ShowText st = go.GetComponent<ShowText>();
+        ShowText st = D("ShowMsg") as ShowText;
         st.SetText(mes);
     }
 
