@@ -11,8 +11,8 @@ public enum ServerType
 
 public struct ServerEntity
 {
-    string ip;
-    int port;
+   public string ip;
+   public int port;
     public ServerEntity(string ip, int port)
     {
         this.ip = ip;

@@ -16,6 +16,7 @@ public static class DelegateFactory
 		dict.Add(typeof(UnityEngine.Events.UnityAction), new DelegateValue(UnityEngine_Events_UnityAction));
 		dict.Add(typeof(System.Reflection.MemberFilter), new DelegateValue(System_Reflection_MemberFilter));
 		dict.Add(typeof(System.Reflection.TypeFilter), new DelegateValue(System_Reflection_TypeFilter));
+		dict.Add(typeof(DefAction), new DelegateValue(DefAction));
 		dict.Add(typeof(UIEventListener.VoidDelegate), new DelegateValue(UIEventListener_VoidDelegate));
 		dict.Add(typeof(UIEventListener.BoolDelegate), new DelegateValue(UIEventListener_BoolDelegate));
 		dict.Add(typeof(UIEventListener.FloatDelegate), new DelegateValue(UIEventListener_FloatDelegate));
@@ -113,6 +114,15 @@ public static class DelegateFactory
 			object[] objs = func.PopValues(top);
 			func.EndPCall(top);
 			return (bool)objs[0];
+		};
+		return d;
+	}
+
+	public static Delegate DefAction(LuaFunction func)
+	{
+		DefAction d = () =>
+		{
+			func.Call();
 		};
 		return d;
 	}

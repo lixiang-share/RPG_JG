@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,14 +12,24 @@ public class NetworkMgr : MonoBehaviour
     private bool isConnected = false;
     private MsgHandlerMgr handerMgr;
     private List<StateObj> eventQueue;
+    private DefAction connectCallBack;
+    private bool isConnect;
     public static NetworkMgr instance;
 
 
 
     void Awake()
     {
-        instance = this;
-        Init();
+        if (instance == null)
+        {
+            instance = this;
+            Init();
+        }
+        else
+        {
+            UITools.logError("more NetWorkMgr in Game");
+        }
+        
     }
     void Init()
     {
@@ -41,13 +51,20 @@ public class NetworkMgr : MonoBehaviour
             }
         }
         eventQueue.Clear();
+        if(connectCallBack != null && isConnect)
+        {
+            connectCallBack();
+            connectCallBack = null;
+        }
     }
     
     void OnGUI()
     {
         if (GUILayout.Button("Connect"))
         {
-            Connect();
+            StateObj state = new StateObj();
+            state.OnConnect = OnConnect;
+            clientSocket.ConnectServer("127.0.0.1", 12345, state);
         }
         if (GUILayout.Button("Send Data"))
         {
@@ -57,11 +74,12 @@ public class NetworkMgr : MonoBehaviour
             Send(msg);
         }
     }
-    public void Connect()
+	public void Connect(ServerEntity server , DefAction callBack )
     {
+        this.connectCallBack = callBack;
         StateObj state = new StateObj();
         state.OnConnect = OnConnect;
-        clientSocket.ConnectServer("127.0.0.1", 12345, state);
+        clientSocket.ConnectServer(server.ip, server.port , state);
     }
 
     void DisConnect()
@@ -80,13 +98,14 @@ public class NetworkMgr : MonoBehaviour
         clientSocket.Send(_state);
     }
 
-    void OnConnect(StateObj state)
+	public void OnConnect(StateObj state)
     {
         UITools.log("Connect ro Server and start send msg");
+        isConnect = true;
     }
     void OnDisConnect(StateObj state)
     {
-
+        isConnect = false;
     }
     void OnSend(StateObj state)
     {

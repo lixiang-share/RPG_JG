@@ -12,6 +12,7 @@ public class NetworkMgrWrap
 			new LuaMethod("Update", Update),
 			new LuaMethod("Connect", Connect),
 			new LuaMethod("Send", Send),
+			new LuaMethod("OnConnect", OnConnect),
 			new LuaMethod("New", _CreateNetworkMgr),
 			new LuaMethod("GetClassType", GetClassType),
 			new LuaMethod("__eq", Lua_Eq),
@@ -67,9 +68,26 @@ public class NetworkMgrWrap
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int Connect(IntPtr L)
 	{
-		LuaScriptMgr.CheckArgsCount(L, 1);
+		LuaScriptMgr.CheckArgsCount(L, 3);
 		NetworkMgr obj = (NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "NetworkMgr");
-		obj.Connect();
+		ServerEntity arg0 = (ServerEntity)LuaScriptMgr.GetNetObject(L, 2, typeof(ServerEntity));
+		DefAction arg1 = null;
+		LuaTypes funcType3 = LuaDLL.lua_type(L, 3);
+
+		if (funcType3 != LuaTypes.LUA_TFUNCTION)
+		{
+			 arg1 = (DefAction)LuaScriptMgr.GetNetObject(L, 3, typeof(DefAction));
+		}
+		else
+		{
+			LuaFunction func = LuaScriptMgr.GetLuaFunction(L, 3);
+			arg1 = () =>
+			{
+				func.Call();
+			};
+		}
+
+		obj.Connect(arg0,arg1);
 		return 0;
 	}
 
@@ -80,6 +98,16 @@ public class NetworkMgrWrap
 		NetworkMgr obj = (NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "NetworkMgr");
 		MsgPacker arg0 = (MsgPacker)LuaScriptMgr.GetNetObject(L, 2, typeof(MsgPacker));
 		obj.Send(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int OnConnect(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		NetworkMgr obj = (NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "NetworkMgr");
+		StateObj arg0 = (StateObj)LuaScriptMgr.GetNetObject(L, 2, typeof(StateObj));
+		obj.OnConnect(arg0);
 		return 0;
 	}
 
