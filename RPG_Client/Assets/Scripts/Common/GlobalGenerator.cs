@@ -22,7 +22,7 @@ namespace SimpleFramework {
                 manager = new GameObject(name);
                 manager.name = name;
 
-                AppFacade.Instance.StartUp();   //启动游戏
+               // AppFacade.Instance.StartUp();   //启动游戏
             }
         }
     }

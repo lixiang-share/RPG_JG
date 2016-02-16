@@ -53,7 +53,6 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
     #endregion
 
     #region 各种管理器
-    private AppFacade m_Facade;
     private LuaManager m_LuaMgr;
     private ResourceManager m_ResMgr;
     private NetworkMgr m_NetMgr;
@@ -288,19 +287,6 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
 
     #region 各种管理器获取方式
 
-
-    public AppFacade facade
-    {
-        get
-        {
-            if (m_Facade == null)
-            {
-                m_Facade = AppFacade.Instance;
-            }
-            return m_Facade;
-        }
-    }
-
     public LuaManager LuaMgr
     {
         get
@@ -319,7 +305,7 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
         {
             if (m_ResMgr == null)
             {
-                m_ResMgr = facade.GetManager<ResourceManager>(ManagerName.Resource);
+                m_ResMgr = ResourceManager.Instance;
             }
             return m_ResMgr;
         }
@@ -349,29 +335,6 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
         }
     }
 
-    public TimerManager TimerManger
-    {
-        get
-        {
-            if (m_TimerMgr == null)
-            {
-                m_TimerMgr = facade.GetManager<TimerManager>(ManagerName.Timer);
-            }
-            return m_TimerMgr;
-        }
-    }
-
-    public ThreadManager ThreadManager
-    {
-        get
-        {
-            if (m_ThreadMgr == null)
-            {
-                m_ThreadMgr = facade.GetManager<ThreadManager>(ManagerName.Thread);
-            }
-            return m_ThreadMgr;
-        }
-    }
     #endregion
 
     #region 消息发送

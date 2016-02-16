@@ -24,35 +24,6 @@ namespace SimpleFramework {
             return t;
         }
 
-        /// <summary>
-        /// 面板管理器
-        /// </summary>
-        public static PanelManager GetPanelManager() {
-            return AppFacade.Instance.GetManager<PanelManager>(ManagerName.Panel);
-        }
-
-        /// <summary>
-        /// 资源管理器
-        /// </summary>
-        public static ResourceManager GetResManager() {
-            return AppFacade.Instance.GetManager<ResourceManager>(ManagerName.Resource);
-        }
-
-        /// <summary>
-        /// 网络管理器
-        /// </summary>
-        public static NetworkMgr GetNetManager() {
-            return AppFacade.Instance.GetManager<NetworkMgr>(ManagerName.Network);
-        }
-
-        /// <summary>
-        /// 音乐管理器
-        /// </summary>
-        public static AudioManager GetMusicManager() {
-            return AppFacade.Instance.GetManager<AudioManager>(ManagerName.Music);
-        }
-
-
         public static Action Action(LuaFunction func) {
             Action action = () => {
                 func.Call();
@@ -74,7 +45,7 @@ namespace SimpleFramework {
         public static void OnCallLuaFunc(LuaStringBuffer data, LuaFunction func) {
             byte[] buffer = data.buffer;
             if (func != null) {
-                LuaScriptMgr mgr = AppFacade.Instance.GetManager<LuaScriptMgr>(ManagerName.Lua);
+                LuaScriptMgr mgr = LuaScriptMgr.Instance;// AppFacade.Instance.GetManager<LuaScriptMgr>(ManagerName.Lua);
                 int oldTop = func.BeginPCall();
                 LuaDLL.lua_pushlstring(mgr.lua.L, buffer, buffer.Length);
                 if (func.PCall(oldTop, 1)) func.EndPCall(oldTop);

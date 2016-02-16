@@ -1,7 +1,5 @@
 ﻿using System;
-using UnityEngine;
 using LuaInterface;
-using Object = UnityEngine.Object;
 
 public class SimpleFramework_Manager_TimerManagerWrap
 {
@@ -17,7 +15,6 @@ public class SimpleFramework_Manager_TimerManagerWrap
 			new LuaMethod("ResumeTimerEvent", ResumeTimerEvent),
 			new LuaMethod("New", _CreateSimpleFramework_Manager_TimerManager),
 			new LuaMethod("GetClassType", GetClassType),
-			new LuaMethod("__eq", Lua_Eq),
 		};
 
 		LuaField[] fields = new LuaField[]
@@ -25,13 +22,25 @@ public class SimpleFramework_Manager_TimerManagerWrap
 			new LuaField("Interval", get_Interval, set_Interval),
 		};
 
-		LuaScriptMgr.RegisterLib(L, "SimpleFramework.Manager.TimerManager", typeof(SimpleFramework.Manager.TimerManager), regs, fields, typeof(LuaComponent));
+		LuaScriptMgr.RegisterLib(L, "SimpleFramework.Manager.TimerManager", typeof(SimpleFramework.Manager.TimerManager), regs, fields, typeof(object));
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int _CreateSimpleFramework_Manager_TimerManager(IntPtr L)
 	{
-		LuaDLL.luaL_error(L, "SimpleFramework.Manager.TimerManager class does not have a constructor function");
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 0)
+		{
+			SimpleFramework.Manager.TimerManager obj = new SimpleFramework.Manager.TimerManager();
+			LuaScriptMgr.PushObject(L, obj);
+			return 1;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: SimpleFramework.Manager.TimerManager.New");
+		}
+
 		return 0;
 	}
 
@@ -96,7 +105,7 @@ public class SimpleFramework_Manager_TimerManagerWrap
 	static int StartTimer(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 2);
-		SimpleFramework.Manager.TimerManager obj = (SimpleFramework.Manager.TimerManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.TimerManager");
+		SimpleFramework.Manager.TimerManager obj = (SimpleFramework.Manager.TimerManager)LuaScriptMgr.GetNetObjectSelf(L, 1, "SimpleFramework.Manager.TimerManager");
 		float arg0 = (float)LuaScriptMgr.GetNumber(L, 2);
 		obj.StartTimer(arg0);
 		return 0;
@@ -106,7 +115,7 @@ public class SimpleFramework_Manager_TimerManagerWrap
 	static int StopTimer(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 1);
-		SimpleFramework.Manager.TimerManager obj = (SimpleFramework.Manager.TimerManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.TimerManager");
+		SimpleFramework.Manager.TimerManager obj = (SimpleFramework.Manager.TimerManager)LuaScriptMgr.GetNetObjectSelf(L, 1, "SimpleFramework.Manager.TimerManager");
 		obj.StopTimer();
 		return 0;
 	}
@@ -115,7 +124,7 @@ public class SimpleFramework_Manager_TimerManagerWrap
 	static int AddTimerEvent(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 2);
-		SimpleFramework.Manager.TimerManager obj = (SimpleFramework.Manager.TimerManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.TimerManager");
+		SimpleFramework.Manager.TimerManager obj = (SimpleFramework.Manager.TimerManager)LuaScriptMgr.GetNetObjectSelf(L, 1, "SimpleFramework.Manager.TimerManager");
 		SimpleFramework.Manager.TimerInfo arg0 = (SimpleFramework.Manager.TimerInfo)LuaScriptMgr.GetNetObject(L, 2, typeof(SimpleFramework.Manager.TimerInfo));
 		obj.AddTimerEvent(arg0);
 		return 0;
@@ -125,7 +134,7 @@ public class SimpleFramework_Manager_TimerManagerWrap
 	static int RemoveTimerEvent(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 2);
-		SimpleFramework.Manager.TimerManager obj = (SimpleFramework.Manager.TimerManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.TimerManager");
+		SimpleFramework.Manager.TimerManager obj = (SimpleFramework.Manager.TimerManager)LuaScriptMgr.GetNetObjectSelf(L, 1, "SimpleFramework.Manager.TimerManager");
 		SimpleFramework.Manager.TimerInfo arg0 = (SimpleFramework.Manager.TimerInfo)LuaScriptMgr.GetNetObject(L, 2, typeof(SimpleFramework.Manager.TimerInfo));
 		obj.RemoveTimerEvent(arg0);
 		return 0;
@@ -135,7 +144,7 @@ public class SimpleFramework_Manager_TimerManagerWrap
 	static int StopTimerEvent(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 2);
-		SimpleFramework.Manager.TimerManager obj = (SimpleFramework.Manager.TimerManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.TimerManager");
+		SimpleFramework.Manager.TimerManager obj = (SimpleFramework.Manager.TimerManager)LuaScriptMgr.GetNetObjectSelf(L, 1, "SimpleFramework.Manager.TimerManager");
 		SimpleFramework.Manager.TimerInfo arg0 = (SimpleFramework.Manager.TimerInfo)LuaScriptMgr.GetNetObject(L, 2, typeof(SimpleFramework.Manager.TimerInfo));
 		obj.StopTimerEvent(arg0);
 		return 0;
@@ -145,21 +154,10 @@ public class SimpleFramework_Manager_TimerManagerWrap
 	static int ResumeTimerEvent(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 2);
-		SimpleFramework.Manager.TimerManager obj = (SimpleFramework.Manager.TimerManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "SimpleFramework.Manager.TimerManager");
+		SimpleFramework.Manager.TimerManager obj = (SimpleFramework.Manager.TimerManager)LuaScriptMgr.GetNetObjectSelf(L, 1, "SimpleFramework.Manager.TimerManager");
 		SimpleFramework.Manager.TimerInfo arg0 = (SimpleFramework.Manager.TimerInfo)LuaScriptMgr.GetNetObject(L, 2, typeof(SimpleFramework.Manager.TimerInfo));
 		obj.ResumeTimerEvent(arg0);
 		return 0;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Lua_Eq(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 2);
-		Object arg0 = LuaScriptMgr.GetLuaObject(L, 1) as Object;
-		Object arg1 = LuaScriptMgr.GetLuaObject(L, 2) as Object;
-		bool o = arg0 == arg1;
-		LuaScriptMgr.Push(L, o);
-		return 1;
 	}
 }
 

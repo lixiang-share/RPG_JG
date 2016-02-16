@@ -69,7 +69,6 @@ public static class LuaBinder
 			case "ScreenWrap": ScreenWrap.Register(L); break;
 			case "ServerItemWrap": ServerItemWrap.Register(L); break;
 			case "SimpleFramework_LuaHelperWrap": SimpleFramework_LuaHelperWrap.Register(L); break;
-			case "SimpleFramework_Manager_PanelManagerWrap": SimpleFramework_Manager_PanelManagerWrap.Register(L); break;
 			case "SimpleFramework_Manager_TimerManagerWrap": SimpleFramework_Manager_TimerManagerWrap.Register(L); break;
 			case "SimpleFramework_UtilWrap": SimpleFramework_UtilWrap.Register(L); break;
 			case "SimpleFramework_WrapGridWrap": SimpleFramework_WrapGridWrap.Register(L); break;

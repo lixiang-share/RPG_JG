@@ -63,13 +63,10 @@ public class LuaBehaviourWrap
 			new LuaField("lua_OnHold", get_lua_OnHold, set_lua_OnHold),
 			new LuaField("lua_OnReceiveData", get_lua_OnReceiveData, set_lua_OnReceiveData),
 			new LuaField("lua_OnFirstEnable", get_lua_OnFirstEnable, set_lua_OnFirstEnable),
-			new LuaField("facade", get_facade, null),
 			new LuaField("LuaMgr", get_LuaMgr, null),
 			new LuaField("ResManager", get_ResManager, null),
 			new LuaField("NetManager", get_NetManager, null),
 			new LuaField("AudioMgr", get_AudioMgr, null),
-			new LuaField("TimerManger", get_TimerManger, null),
-			new LuaField("ThreadManager", get_ThreadManager, null),
 			new LuaField("Packer", get_Packer, set_Packer),
 			new LuaField("Value", get_Value, set_Value),
 			new LuaField("Parent", get_Parent, null),
@@ -510,30 +507,6 @@ public class LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_facade(IntPtr L)
-	{
-		object o = LuaScriptMgr.GetLuaObject(L, 1);
-		LuaBehaviour obj = (LuaBehaviour)o;
-
-		if (obj == null)
-		{
-			LuaTypes types = LuaDLL.lua_type(L, 1);
-
-			if (types == LuaTypes.LUA_TTABLE)
-			{
-				LuaDLL.luaL_error(L, "unknown member name facade");
-			}
-			else
-			{
-				LuaDLL.luaL_error(L, "attempt to index facade on a nil value");
-			}
-		}
-
-		LuaScriptMgr.PushObject(L, obj.facade);
-		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_LuaMgr(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
@@ -626,54 +599,6 @@ public class LuaBehaviourWrap
 		}
 
 		LuaScriptMgr.PushObject(L, obj.AudioMgr);
-		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_TimerManger(IntPtr L)
-	{
-		object o = LuaScriptMgr.GetLuaObject(L, 1);
-		LuaBehaviour obj = (LuaBehaviour)o;
-
-		if (obj == null)
-		{
-			LuaTypes types = LuaDLL.lua_type(L, 1);
-
-			if (types == LuaTypes.LUA_TTABLE)
-			{
-				LuaDLL.luaL_error(L, "unknown member name TimerManger");
-			}
-			else
-			{
-				LuaDLL.luaL_error(L, "attempt to index TimerManger on a nil value");
-			}
-		}
-
-		LuaScriptMgr.Push(L, obj.TimerManger);
-		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_ThreadManager(IntPtr L)
-	{
-		object o = LuaScriptMgr.GetLuaObject(L, 1);
-		LuaBehaviour obj = (LuaBehaviour)o;
-
-		if (obj == null)
-		{
-			LuaTypes types = LuaDLL.lua_type(L, 1);
-
-			if (types == LuaTypes.LUA_TTABLE)
-			{
-				LuaDLL.luaL_error(L, "unknown member name ThreadManager");
-			}
-			else
-			{
-				LuaDLL.luaL_error(L, "attempt to index ThreadManager on a nil value");
-			}
-		}
-
-		LuaScriptMgr.Push(L, obj.ThreadManager);
 		return 1;
 	}
 

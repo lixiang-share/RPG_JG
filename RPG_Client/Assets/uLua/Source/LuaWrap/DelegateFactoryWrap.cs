@@ -12,6 +12,7 @@ public class DelegateFactoryWrap
 			new LuaMethod("UnityEngine_Events_UnityAction", UnityEngine_Events_UnityAction),
 			new LuaMethod("System_Reflection_MemberFilter", System_Reflection_MemberFilter),
 			new LuaMethod("System_Reflection_TypeFilter", System_Reflection_TypeFilter),
+			new LuaMethod("DefAction", DefAction),
 			new LuaMethod("UIEventListener_VoidDelegate", UIEventListener_VoidDelegate),
 			new LuaMethod("UIEventListener_BoolDelegate", UIEventListener_BoolDelegate),
 			new LuaMethod("UIEventListener_FloatDelegate", UIEventListener_FloatDelegate),
@@ -105,6 +106,16 @@ public class DelegateFactoryWrap
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		LuaFunction arg0 = LuaScriptMgr.GetLuaFunction(L, 1);
 		Delegate o = DelegateFactory.System_Reflection_TypeFilter(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DefAction(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		LuaFunction arg0 = LuaScriptMgr.GetLuaFunction(L, 1);
+		Delegate o = DelegateFactory.DefAction(arg0);
 		LuaScriptMgr.Push(L, o);
 		return 1;
 	}

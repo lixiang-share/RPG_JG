@@ -8,10 +8,6 @@ public class SimpleFramework_LuaHelperWrap
 		LuaMethod[] regs = new LuaMethod[]
 		{
 			new LuaMethod("GetType", GetType),
-			new LuaMethod("GetPanelManager", GetPanelManager),
-			new LuaMethod("GetResManager", GetResManager),
-			new LuaMethod("GetNetManager", GetNetManager),
-			new LuaMethod("GetMusicManager", GetMusicManager),
 			new LuaMethod("Action", Action),
 			new LuaMethod("VoidDelegate", VoidDelegate),
 			new LuaMethod("OnCallLuaFunc", OnCallLuaFunc),
@@ -46,42 +42,6 @@ public class SimpleFramework_LuaHelperWrap
 		string arg0 = LuaScriptMgr.GetLuaString(L, 1);
 		Type o = SimpleFramework.LuaHelper.GetType(arg0);
 		LuaScriptMgr.Push(L, o);
-		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int GetPanelManager(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 0);
-		SimpleFramework.Manager.PanelManager o = SimpleFramework.LuaHelper.GetPanelManager();
-		LuaScriptMgr.Push(L, o);
-		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int GetResManager(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 0);
-		ResourceManager o = SimpleFramework.LuaHelper.GetResManager();
-		LuaScriptMgr.PushObject(L, o);
-		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int GetNetManager(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 0);
-		NetworkMgr o = SimpleFramework.LuaHelper.GetNetManager();
-		LuaScriptMgr.Push(L, o);
-		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int GetMusicManager(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 0);
-		AudioManager o = SimpleFramework.LuaHelper.GetMusicManager();
-		LuaScriptMgr.PushObject(L, o);
 		return 1;
 	}
 

@@ -18,7 +18,7 @@ namespace SimpleFramework.Manager {
     }
 
 
-    public class TimerManager : LuaComponent {
+    public class TimerManager  {
         private float interval = 0;
         private List<TimerInfo> objects = new List<TimerInfo>();
 
@@ -38,14 +38,14 @@ namespace SimpleFramework.Manager {
         /// <param name="interval"></param>
         public void StartTimer(float value) {
             interval = value;
-            InvokeRepeating("Run", 0, interval);
+           // InvokeRepeating("Run", 0, interval);
         }
 
         /// <summary>
         /// Í£Ö¹¼ÆÊ±Æ÷
         /// </summary>
         public void StopTimer() {
-            CancelInvoke("Run");
+           // CancelInvoke("Run");
         }
 
         /// <summary>

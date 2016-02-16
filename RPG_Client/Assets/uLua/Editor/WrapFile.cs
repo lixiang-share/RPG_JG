@@ -26,7 +26,6 @@ public static class WrapFile {
 		//_GT(typeof(ByteBuffer)),
         _GT(typeof(NetworkMgr)),
         _GT(typeof(ResourceManager)),
-        _GT(typeof(PanelManager)),
 		_GT(typeof(UIEventListener)),
         _GT(typeof(TimerManager)),
         _GT(typeof(LuaHelper)),
