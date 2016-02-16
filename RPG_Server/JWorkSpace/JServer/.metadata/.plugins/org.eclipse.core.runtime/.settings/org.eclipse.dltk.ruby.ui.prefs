@@ -1,0 +1,17 @@
+DLTK_comment_task_tag_bold=false
+DLTK_doc_italic=false
+DLTK_keyword_bold=false
+DLTK_keyword_return_bold=false
+DLTK_single_line_comment_bold=false
+DLTK_single_line_comment_italic=false
+const_bold=false
+eclipse.preferences.version=1
+ruby.symbols_bold=false
+sourceHoverBackgroundColor.SystemDefault=false
+variable.class_bold=false
+variable.class_strikethrough=false
+variable.class_underline=false
+variable.global_bold=false
+variable.instance_bold=false
+variable.instance_strikethrough=false
+variable.instance_underline=false

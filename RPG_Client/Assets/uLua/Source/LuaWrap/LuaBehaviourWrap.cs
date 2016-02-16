@@ -51,15 +51,17 @@ public class LuaBehaviourWrap
 			new LuaField("Domains", get_Domains, set_Domains),
 			new LuaField("varDict", get_varDict, set_varDict),
 			new LuaField("varList", get_varList, set_varList),
+			new LuaField("doStringLuaFile", get_doStringLuaFile, set_doStringLuaFile),
 			new LuaField("isDoString", get_isDoString, set_isDoString),
 			new LuaField("lua_OnClick", get_lua_OnClick, set_lua_OnClick),
 			new LuaField("lua_OnDisable", get_lua_OnDisable, set_lua_OnDisable),
 			new LuaField("lua_OnCommand", get_lua_OnCommand, set_lua_OnCommand),
 			new LuaField("lua_Awake", get_lua_Awake, set_lua_Awake),
 			new LuaField("lua_Start", get_lua_Start, set_lua_Start),
+			new LuaField("lus_OnFirstEnable", get_lus_OnFirstEnable, set_lus_OnFirstEnable),
 			new LuaField("lua_OnEnable", get_lua_OnEnable, set_lua_OnEnable),
 			new LuaField("lua_OnHold", get_lua_OnHold, set_lua_OnHold),
-			new LuaField("lua_ReceiveData", get_lua_ReceiveData, set_lua_ReceiveData),
+			new LuaField("lua_OnReceiveData", get_lua_OnReceiveData, set_lua_OnReceiveData),
 			new LuaField("lua_OnFirstEnable", get_lua_OnFirstEnable, set_lua_OnFirstEnable),
 			new LuaField("facade", get_facade, null),
 			new LuaField("LuaMgr", get_LuaMgr, null),
@@ -220,6 +222,30 @@ public class LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_doStringLuaFile(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name doStringLuaFile");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index doStringLuaFile on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.doStringLuaFile);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_isDoString(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
@@ -364,6 +390,30 @@ public class LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_lus_OnFirstEnable(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lus_OnFirstEnable");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lus_OnFirstEnable on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.lus_OnFirstEnable);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_lua_OnEnable(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
@@ -412,7 +462,7 @@ public class LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int get_lua_ReceiveData(IntPtr L)
+	static int get_lua_OnReceiveData(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
 		LuaBehaviour obj = (LuaBehaviour)o;
@@ -423,11 +473,11 @@ public class LuaBehaviourWrap
 
 			if (types == LuaTypes.LUA_TTABLE)
 			{
-				LuaDLL.luaL_error(L, "unknown member name lua_ReceiveData");
+				LuaDLL.luaL_error(L, "unknown member name lua_OnReceiveData");
 			}
 			else
 			{
-				LuaDLL.luaL_error(L, "attempt to index lua_ReceiveData on a nil value");
+				LuaDLL.luaL_error(L, "attempt to index lua_OnReceiveData on a nil value");
 			}
 		}
 
@@ -827,6 +877,30 @@ public class LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_doStringLuaFile(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name doStringLuaFile");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index doStringLuaFile on a nil value");
+			}
+		}
+
+		obj.doStringLuaFile = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_isDoString(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
@@ -971,6 +1045,30 @@ public class LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_lus_OnFirstEnable(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name lus_OnFirstEnable");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index lus_OnFirstEnable on a nil value");
+			}
+		}
+
+		obj.lus_OnFirstEnable = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_lua_OnEnable(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
@@ -1019,7 +1117,7 @@ public class LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int set_lua_ReceiveData(IntPtr L)
+	static int set_lua_OnReceiveData(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
 		LuaBehaviour obj = (LuaBehaviour)o;
@@ -1030,11 +1128,11 @@ public class LuaBehaviourWrap
 
 			if (types == LuaTypes.LUA_TTABLE)
 			{
-				LuaDLL.luaL_error(L, "unknown member name lua_ReceiveData");
+				LuaDLL.luaL_error(L, "unknown member name lua_OnReceiveData");
 			}
 			else
 			{
-				LuaDLL.luaL_error(L, "attempt to index lua_ReceiveData on a nil value");
+				LuaDLL.luaL_error(L, "attempt to index lua_OnReceiveData on a nil value");
 			}
 		}
 

@@ -169,7 +169,7 @@ ModelImporter:
     400162: Particle View 01 9
     4300000: ce01_leg01
     4300002: lod1
-    7400000: Take 001
+    7400000: idle
     9500000: //RootNode
     11100000: //RootNode
     13700000: ce01_leg01
@@ -183,7 +183,7 @@ ModelImporter:
     bakeSimulation: 0
     optimizeGameObjects: 0
     motionNodeName: 
-    animationCompression: 1
+    animationCompression: 3
     animationRotationError: .5
     animationPositionError: .5
     animationScaleError: .5
@@ -191,7 +191,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: idle
       takeName: Take 001
       firstFrame: 0
       lastFrame: 40
@@ -200,8 +200,8 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
-      loopTime: 0
-      loopBlend: 0
+      loopTime: 1
+      loopBlend: 1
       loopBlendOrientation: 0
       loopBlendPositionY: 0
       loopBlendPositionXZ: 0
@@ -444,6 +444,6 @@ ModelImporter:
     feetSpacing: 0
     rootMotionBoneName: 
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  animationType: 2
   additionalBone: 0
   userData: 

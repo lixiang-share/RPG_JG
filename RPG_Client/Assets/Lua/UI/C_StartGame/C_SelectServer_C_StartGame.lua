@@ -12,6 +12,7 @@ function this.OnFirstEnable()
 end
 
 function this.OnEnable()
+	UITools.Log('select server =======> OnEnable')
 	inst:CreateMsg():SetMsgType(MsgProtocol.Get_ServerList):Send()
 end
 
@@ -19,8 +20,8 @@ function this.OnReceiveData(unpacker)
 	local list = UITools.MsgToServerList(unpacker)
 	UITools.Log(list.Count)
 	this.SetCurSelect(list:get_Item(0))
-	UITools.SA(inst:GetChild('Scroll View'), true)
-	inst:GetChild('Scroll View'):Parse(list)
+	UITools.SA(inst:GetChild('ScrollView'), true)
+	inst:GetChild('ScrollView'):Parse(list)
 end
 
 function this.SetCurSelect(data)

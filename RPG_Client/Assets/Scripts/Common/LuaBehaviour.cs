@@ -139,24 +139,25 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
 
     public virtual void OnEnable()
     {
-        if (!isDoString)
+
+
+        if (isFirstEnable)
         {
-            if (isFirstEnable)
+            isFirstEnable = false;
+            if (!isDoString)
             {
-                isFirstEnable = false;
                 CallMethod("OnFirstEnable");
             }
             else
             {
-                CallMethod("lus_OnFirstEnable");
+                DoString(lus_OnFirstEnable);
             }
         }
         else
         {
-            if (isFirstEnable)
+            if (!isDoString)
             {
-                isFirstEnable = false;
-                DoString(lua_OnFirstEnable);
+                CallMethod("OnEnable");
             }
             else
             {

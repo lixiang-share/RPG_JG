@@ -29,6 +29,8 @@ public partial class Editor_LuaBehaviour : Editor
 
         base.DrawDefaultInspector();
 
+        InitFilename(lb);
+
         #region 使用DoString方式执行的节点
         if (target is LuaWithNoFile)
         {
@@ -73,7 +75,7 @@ public partial class Editor_LuaBehaviour : Editor
 
 
         #region 处理是用lua文件执行
-        InitFilename(lb);
+        
         //处理因为节点移动而造成的文件与节点不匹配的情况
         if (File.Exists(rootPath + oldFileFullname))
         {

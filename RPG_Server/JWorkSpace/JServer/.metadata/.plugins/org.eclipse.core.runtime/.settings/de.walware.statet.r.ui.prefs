@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+text_R_rComment.italic=false
+text_R_rFlowcontrol.bold=false
+text_R_rLogicalConstants.bold=false
+text_R_rRoxygen.italic=false
+text_R_rSpecialConstants.bold=false
+text_R_rUndefined.bold=false
+text_R_rUndefined.strikethrough=true
+text_R_rUndefined.underline=false
+text_R_taskTag.bold=false
+text_Rd_rdComment.italic=false
+text_Rd_rdPlatformSpecif.bold=false
+text_Rd_rdSectionTag.bold=false
+text_Rd_rdSectionTag.strikethrough=false
+text_Rd_rdSectionTag.underline=false
+text_Rd_rdUnlistedTag.bold=false
+text_Rd_taskTag.bold=false

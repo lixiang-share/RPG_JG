@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+org.eclipse.debug.ui.MemoryHistoryKnownColor=0,0,0
+org.eclipse.debug.ui.MemoryHistoryUnknownColor=114,119,129
+org.eclipse.debug.ui.PREF_CHANGED_VALUE_BACKGROUND=255,255,0
+org.eclipse.debug.ui.changedDebugElement=255,0,0
+org.eclipse.debug.ui.consoleBackground=255,255,255
+org.eclipse.debug.ui.errorColor=255,0,0
+org.eclipse.debug.ui.inColor=0,200,125
+org.eclipse.debug.ui.outColor=0,0,0
