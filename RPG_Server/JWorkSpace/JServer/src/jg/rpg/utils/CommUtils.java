@@ -5,7 +5,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
 
-import jg.rpg.utils.config.GameConfig;
+import jg.rpg.config.GameConfig;
 
 public class CommUtils {
 

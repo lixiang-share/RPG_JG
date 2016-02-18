@@ -7,7 +7,9 @@ import org.apache.log4j.Logger;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
-import jg.rpg.common.PlayerMgr;
+import jg.rpg.common.manager.PlayerMgr;
+import jg.rpg.common.manager.TaskMgr;
+import jg.rpg.config.ConfigMgr;
 import jg.rpg.dao.db.DBHelper;
 import jg.rpg.dao.db.DBMgr;
 import jg.rpg.dao.db.RSHHelper;
@@ -15,13 +17,13 @@ import jg.rpg.entity.msgEntity.Cat;
 import jg.rpg.exceptions.InitException;
 import jg.rpg.msg.MsgMgr;
 import jg.rpg.net.NetworkMgr;
-import jg.rpg.utils.config.ConfigMgr;
 
 public class LaunchServer {
 	
 	public static void main(String[] args) throws PropertyVetoException, SQLException {	
 			try {
 				ConfigMgr.getInstance().init();
+				TaskMgr.getInstance().init();
 				DBMgr.getInstance().init();
 				PlayerMgr.getInstance().init();
 				MsgMgr.getInstance().init();

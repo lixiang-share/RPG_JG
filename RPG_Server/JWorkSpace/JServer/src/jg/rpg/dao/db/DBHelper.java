@@ -45,7 +45,7 @@ public class DBHelper {
 		return qr.insert(sql, rsh,params);
 	}
 	
-	public  static int update(DataSource ds , String sql ,Object... params) throws SQLException{
+	public static int update(DataSource ds , String sql ,Object... params) throws SQLException{
 		QueryRunner qr = new QueryRunner(ds);
 		return qr.update(sql, params);
 	}

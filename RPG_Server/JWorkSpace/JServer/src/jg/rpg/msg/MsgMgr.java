@@ -9,10 +9,10 @@ import java.util.Map;
 
 import jg.rpg.common.anotation.HandlerMsg;
 import jg.rpg.common.intf.IMsgHandler;
+import jg.rpg.config.ConfigMgr;
 import jg.rpg.entity.MsgHandlerItem;
 import jg.rpg.entity.MsgUnPacker;
 import jg.rpg.entity.Session;
-import jg.rpg.utils.config.ConfigMgr;
 
 import org.apache.log4j.Logger;
 

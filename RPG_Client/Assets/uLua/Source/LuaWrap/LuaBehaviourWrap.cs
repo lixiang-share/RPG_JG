@@ -38,6 +38,9 @@ public class LuaBehaviourWrap
 			new LuaMethod("C", C),
 			new LuaMethod("GetChild", GetChild),
 			new LuaMethod("Child", Child),
+			new LuaMethod("SetX", SetX),
+			new LuaMethod("SetY", SetY),
+			new LuaMethod("SetPos", SetPos),
 			new LuaMethod("New", _CreateLuaBehaviour),
 			new LuaMethod("GetClassType", GetClassType),
 			new LuaMethod("__eq", Lua_Eq),
@@ -1432,6 +1435,75 @@ public class LuaBehaviourWrap
 		GameObject o = obj.Child(arg0);
 		LuaScriptMgr.Push(L, o);
 		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetX(IntPtr L)
+	{
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 2)
+		{
+			LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+			float arg0 = (float)LuaScriptMgr.GetNumber(L, 2);
+			obj.SetX(arg0);
+			return 0;
+		}
+		else if (count == 3)
+		{
+			LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+			float arg0 = (float)LuaScriptMgr.GetNumber(L, 2);
+			bool arg1 = LuaScriptMgr.GetBoolean(L, 3);
+			obj.SetX(arg0,arg1);
+			return 0;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: LuaBehaviour.SetX");
+		}
+
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetY(IntPtr L)
+	{
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 2)
+		{
+			LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+			float arg0 = (float)LuaScriptMgr.GetNumber(L, 2);
+			obj.SetY(arg0);
+			return 0;
+		}
+		else if (count == 3)
+		{
+			LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+			float arg0 = (float)LuaScriptMgr.GetNumber(L, 2);
+			bool arg1 = LuaScriptMgr.GetBoolean(L, 3);
+			obj.SetY(arg0,arg1);
+			return 0;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: LuaBehaviour.SetY");
+		}
+
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetPos(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 5);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		float arg0 = (float)LuaScriptMgr.GetNumber(L, 2);
+		float arg1 = (float)LuaScriptMgr.GetNumber(L, 3);
+		float arg2 = (float)LuaScriptMgr.GetNumber(L, 4);
+		bool arg3 = LuaScriptMgr.GetBoolean(L, 5);
+		obj.SetPos(arg0,arg1,arg2,arg3);
+		return 0;
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]

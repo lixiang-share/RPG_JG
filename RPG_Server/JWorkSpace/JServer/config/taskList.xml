@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tasks>
+	<Task>
+		<id>1001</id>
+		<roleId>0</roleId>
+		<type>Main</type>
+		<status>0</status>
+		<goldCount>1000</goldCount>
+		<diamondCount>5000</diamondCount>
+	</Task>
+
+	<Task>
+		<id>1002</id>
+		<roleId>0</roleId>
+		<type>Reward</type>
+		<status>0</status>
+		<goldCount>2000</goldCount>
+		<diamondCount>4000</diamondCount>
+	</Task>
+	
+	<Task>
+		<id>1003</id>
+		<roleId>0</roleId>
+		<type>Daily</type>
+		<status>0</status>
+		<goldCount>3000</goldCount>
+		<diamondCount>2000</diamondCount>
+	</Task>
+	
+	
+	<Task>
+		<id>1004</id>
+		<roleId>0</roleId>
+		<type>Daily</type>
+		<status>0</status>
+		<goldCount>1000</goldCount>
+		<diamondCount>6000</diamondCount>
+	</Task>
+</Tasks>

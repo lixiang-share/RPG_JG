@@ -4,8 +4,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-import jg.rpg.common.PlayerMgr;
 import jg.rpg.common.anotation.HandlerMsg;
+import jg.rpg.common.manager.PlayerMgr;
+import jg.rpg.common.manager.TaskMgr;
 import jg.rpg.common.protocol.MsgProtocol;
 import jg.rpg.entity.MsgPacker;
 import jg.rpg.entity.MsgUnPacker;
@@ -13,6 +14,7 @@ import jg.rpg.entity.Session;
 import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.entity.msgEntity.Role;
 import jg.rpg.entity.msgEntity.ServerEntity;
+import jg.rpg.entity.msgEntity.Task;
 import jg.rpg.exceptions.PlayerHandlerException;
 import jg.rpg.msg.enterService.controller.EnterGameController;
 import jg.rpg.utils.CommUtils;
@@ -56,7 +58,6 @@ public class EnterGameService {
 		} catch (Exception e) {
 			logger.warn("handle user login error : "+e.getMessage());
 		}
-
 	}
 	
 	
@@ -183,24 +184,23 @@ public class EnterGameService {
 			if(egContoller.getRoleByPlayerIDAndRole_ID(playerID , role.getRole_id()) != null){
 				egContoller.updateRoleInfo(playerID , role);
 			}else{
-				Role _role = egContoller.insertRole(role);
+				//Role _role = egContoller.insertRole(role);
+				List<Task> tasks = TaskMgr.getInstance().getTaskList();
+				role.setTasks(tasks);
+				role.insertToDB();
 			}
 			player.setRole(role);
 		} catch (IOException | SQLException e) {
 			logger.warn(e.getMessage());
 			MsgUtils.SendErroInfo(session.getCtx(), "请正确选择服务器");
-		}
-		
+		}	
 		try {
 			MsgPacker packer = MsgUtils.getSuccessPacker();
 			MsgUtils.sendMsg(session.getCtx(), packer);
 		} catch (IOException e) {
 			MsgUtils.SendErroInfo(session.getCtx(), "服务器错误");
 			logger.warn(e.getMessage());
-		}
-		
-		
-		
+		}	
 	}
 	
 	

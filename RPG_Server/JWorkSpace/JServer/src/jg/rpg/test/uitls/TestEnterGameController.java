@@ -2,7 +2,8 @@ package jg.rpg.test.uitls;
 
 import java.sql.SQLException;
 
-import jg.rpg.common.PlayerMgr;
+import jg.rpg.common.manager.PlayerMgr;
+import jg.rpg.config.ConfigMgr;
 import jg.rpg.dao.db.DBMgr;
 import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.exceptions.InitException;
@@ -10,7 +11,6 @@ import jg.rpg.exceptions.PlayerHandlerException;
 import jg.rpg.msg.MsgMgr;
 import jg.rpg.msg.enterService.controller.EnterGameController;
 import jg.rpg.utils.CommUtils;
-import jg.rpg.utils.config.ConfigMgr;
 
 import org.junit.Test;
 

@@ -7,11 +7,11 @@ import javax.net.ssl.SSLException;
 
 import org.apache.log4j.Logger;
 
+import jg.rpg.config.GameConfig;
 import jg.rpg.net.handlers.DataEnsureHandler;
 import jg.rpg.net.handlers.LoginValidateHandler;
 import jg.rpg.net.handlers.MsgDeserializerHandler;
 import jg.rpg.net.handlers.MsgFilterHandler;
-import jg.rpg.utils.config.GameConfig;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelInitializer;

@@ -1,7 +1,7 @@
 package jg.rpg.entity;
 
+import jg.rpg.config.GameConfig;
 import jg.rpg.entity.msgEntity.Player;
-import jg.rpg.utils.config.GameConfig;
 import io.netty.channel.ChannelHandlerContext;
 
 public class Session {

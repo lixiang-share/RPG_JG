@@ -494,6 +494,43 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
         return transform.FindChild(name).gameObject;
     }
 
+    #region Position 
+
+
+    public void SetX(float x)
+    {
+        SetX(x, true);
+    }
+
+    public void SetY(float y)
+    {
+        SetY(y, true);
+    }
+
+    public void SetX(float x, bool isLocal)
+    {
+        if(isLocal)
+            SetPos(x, transform.localPosition.y, transform.localPosition.z, isLocal);
+        else
+            SetPos(x, transform.position.y, transform.position.z, isLocal);
+    }
+    public void SetY(float y , bool isLocal)
+    {
+        if (isLocal)
+            SetPos(transform.localPosition.x, y, transform.localPosition.z, isLocal);
+        else
+            SetPos(transform.position.x,y, transform.position.z, isLocal);
+    }
+
+    public void SetPos(float x , float y , float z,bool isLocal = true)
+    {
+        if (isLocal)
+            gameObject.transform.localPosition = new Vector3(x, y, z);
+        else
+            gameObject.transform.position = new Vector3(x, y, z);
+    }
+    #endregion
+
     #endregion
 
 }

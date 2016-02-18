@@ -8,9 +8,9 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import jg.rpg.common.protocol.MsgProtocol;
+import jg.rpg.config.GameConfig;
 import jg.rpg.entity.MsgPacker;
 import jg.rpg.entity.MsgUnPacker;
-import jg.rpg.utils.config.GameConfig;
 
 public class MsgUtils {
 

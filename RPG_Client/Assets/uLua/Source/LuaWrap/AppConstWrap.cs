@@ -38,6 +38,7 @@ public class AppConstWrap
 			new LuaField("SocketAddress", get_SocketAddress, set_SocketAddress),
 			new LuaField("testServer", get_testServer, set_testServer),
 			new LuaField("DefEncoding", get_DefEncoding, set_DefEncoding),
+			new LuaField("TaskListPath", get_TaskListPath, set_TaskListPath),
 			new LuaField("LuaBasePath", get_LuaBasePath, null),
 			new LuaField("LuaWrapPath", get_LuaWrapPath, null),
 			new LuaField("SessionKey", get_SessionKey, set_SessionKey),
@@ -243,6 +244,13 @@ public class AppConstWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_TaskListPath(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, AppConst.TaskListPath);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_LuaBasePath(IntPtr L)
 	{
 		LuaScriptMgr.Push(L, AppConst.LuaBasePath);
@@ -295,6 +303,13 @@ public class AppConstWrap
 	static int set_DefEncoding(IntPtr L)
 	{
 		AppConst.DefEncoding = (System.Text.Encoding)LuaScriptMgr.GetNetObject(L, 3, typeof(System.Text.Encoding));
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_TaskListPath(IntPtr L)
+	{
+		AppConst.TaskListPath = LuaScriptMgr.GetString(L, 3);
 		return 0;
 	}
 

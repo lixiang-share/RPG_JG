@@ -1,6 +1,7 @@
 package jg.rpg.test.uitls;
 
-import jg.rpg.common.PlayerMgr;
+import jg.rpg.common.manager.PlayerMgr;
+import jg.rpg.config.ConfigMgr;
 import jg.rpg.dao.db.DBMgr;
 import jg.rpg.entity.MsgPacker;
 import jg.rpg.entity.MsgUnPacker;
@@ -9,7 +10,6 @@ import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.msg.MsgMgr;
 import jg.rpg.msg.enterService.EnterGameService;
 import jg.rpg.msg.enterService.controller.EnterGameController;
-import jg.rpg.utils.config.ConfigMgr;
 
 import org.junit.Test;
 

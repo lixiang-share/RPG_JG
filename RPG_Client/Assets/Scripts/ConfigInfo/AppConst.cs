@@ -81,6 +81,10 @@ public class AppConst {
     public static Encoding DefEncoding = Encoding.UTF8;
     public const int MsgHeadLen = 4;
     public const int Max_Msg_Len = 1024;
+    public static string TaskListPath = Application.streamingAssetsPath + "/csvFiles/taskList.csv";
+
+
+
     private static string _sessionKey;
     public static string SessionKey
     {

@@ -9,6 +9,7 @@ import jg.rpg.entity.msgEntity.Cat;
 import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.entity.msgEntity.Role;
 import jg.rpg.entity.msgEntity.ServerEntity;
+import jg.rpg.entity.msgEntity.Task;
 /**
  * 集中处理model层的ORM映射问题
  * @author jiuguang
@@ -95,6 +96,33 @@ public class RSHHelper {
 				if(columnCount >=6 )
 					role.setGender(rs.getInt("gender"));
 				return role;
+			}
+		};
+		return rsh;
+	}
+	
+	public static ResultSetHandler<Task> getTaskRSH(){
+		ResultSetHandler<Task> rsh = new ResultSetHandler<Task>(){
+			@Override
+			public Task handle(ResultSet rs) throws SQLException {
+				if(!rs.next()){
+					return null;
+				}
+				int columnCount = rs.getMetaData().getColumnCount();
+				Task task = new Task();
+				if(columnCount >=1 )
+					task.setId(rs.getInt(1));
+				if(columnCount >=2 )
+					task.setRoleId(rs.getInt("roleId"));
+				if(columnCount >=3 )
+					task.setType(rs.getString("type"));
+				if(columnCount >=4 )
+					task.setStatus(rs.getInt("status"));
+				if(columnCount >=5 )
+					task.setGoldCount(rs.getInt("goldCount"));
+				if(columnCount >=6 )
+					task.setDiamondCount(rs.getInt("diamondCount"));
+				return task;
 			}
 		};
 		return rsh;

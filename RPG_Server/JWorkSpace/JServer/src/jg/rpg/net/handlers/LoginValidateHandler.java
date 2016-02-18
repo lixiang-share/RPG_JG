@@ -2,7 +2,7 @@ package jg.rpg.net.handlers;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import jg.rpg.common.PlayerMgr;
+import jg.rpg.common.manager.PlayerMgr;
 import jg.rpg.common.protocol.MsgProtocol;
 import jg.rpg.entity.MsgPacker;
 import jg.rpg.entity.MsgUnPacker;

@@ -9,6 +9,7 @@
 	<classpathentry kind="lib" path="lib/c3p0-0.9.5.2.jar" sourcepath="res/source/c3p0-c3p0-0.9.5.2.zip"/>
 	<classpathentry kind="lib" path="lib/mchange-commons-java-0.2.11.jar"/>
 	<classpathentry kind="lib" path="lib/msgpack-java-0.8.2.jar" sourcepath="res/source/msgpack-source.zip"/>
+	<classpathentry kind="lib" path="lib/fastjson-1.2.7.jar" sourcepath="res/source/fastjson.zip"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="output" path="bin"/>
