@@ -13,4 +13,5 @@ public class MsgProtocol {
 	public final static int Query_Status = 4;
 	public final static int PreSelectHero = 5;
 	public final static int EnterGame = 6;
+	public final static int Get_TaskList = 7;
 }
