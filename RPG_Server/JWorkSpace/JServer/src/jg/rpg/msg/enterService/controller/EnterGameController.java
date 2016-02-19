@@ -12,6 +12,7 @@ import jg.rpg.dao.db.RSHHelper;
 import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.entity.msgEntity.Role;
 import jg.rpg.entity.msgEntity.ServerEntity;
+import jg.rpg.entity.msgEntity.Task;
 import jg.rpg.exceptions.PlayerHandlerException;
 import jg.rpg.utils.CommUtils;
 
@@ -95,6 +96,12 @@ public class EnterGameController {
 		Role _role = DBHelper.insert(dbMgr.getDataSource(), sql, 
 				RSHHelper.getRoleRSH() ,role.getOwnerId() ,role.getRole_id(),role.getName(),role.getLevel(),role.getGender());
 		return _role;
+	}
+	public List<Task> getTaskListByRoleID(int roleId) throws SQLException {
+		String sql = "select * from tb_task where roleId = ?";
+		List<Task> tasks = DBHelper.GetAll(DBMgr.getInstance().getDataSource(), sql,
+				RSHHelper.getTaskRSH(), roleId);
+		return tasks;
 	}
 
 }

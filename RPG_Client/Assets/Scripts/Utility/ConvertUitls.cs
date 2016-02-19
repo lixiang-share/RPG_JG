@@ -36,4 +36,23 @@ public static class ConvertUitls {
         }
         return list;
     }
+
+    public static IList MsgToTaskList(MsgUnPacker unpacker)
+    {
+        IList list = new ArrayList();
+        int taskLen = unpacker.PopInt();
+        for (int i = 0; i < taskLen; i++)
+        {
+            TaskEntity task = new TaskEntity();
+            task.Id = unpacker.PopInt();
+            task.RoleId = unpacker.PopInt();
+            task.Type = unpacker.PopString();
+            task.Status = unpacker.PopInt();
+            task.GoldCount = unpacker.PopInt();
+            task.DiamondCount = unpacker.PopInt();
+
+            list.Add(TaskMgr.Instance.ComposeTask(task));
+        }
+        return list;
+    }
 }

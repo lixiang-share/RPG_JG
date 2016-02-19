@@ -7,21 +7,20 @@ using System.Collections.Generic;
 
 public class TaskMgr : MonoBehaviour {
 
-    public static TaskMgr inst;
+    public static TaskMgr Instance;
     private static string TaskListPath;
     private IDictionary<int , TaskEntity> taskDict;
     private char defSperator = '|';
 
     void Awake()
     {
-        inst = this;
+        Instance = this;
         taskDict = new Dictionary<int, TaskEntity>();
         TaskListPath = AppConst.TaskListPath;
     }
     void Start()
     {
         Init();
-
     }
 
 

@@ -59,7 +59,7 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
     private AudioManager m_MusicMgr;
     private TimerManager m_TimerMgr;
     private ThreadManager m_ThreadMgr;
-
+    private GameMgr m_gameMgr;
 
     #endregion
 
@@ -332,6 +332,17 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
                 m_MusicMgr = AudioManager.Instance;
             }
             return m_MusicMgr;
+        }
+    }
+
+    public GameMgr GameMgr
+    {
+        get
+        {
+            if(m_gameMgr == null){
+                m_gameMgr = GameMgr.Instance;
+            }
+            return m_gameMgr;
         }
     }
 

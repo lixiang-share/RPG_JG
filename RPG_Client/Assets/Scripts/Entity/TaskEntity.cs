@@ -7,7 +7,7 @@ public class TaskEntity : MonoBehaviour {
     private int _id;
     private string _name;
     private string _desc;
-    private string _status;
+    private int _status;
     private string _iconName;
     private List<string> _talkNPC;
     private int _npc_id;
@@ -17,6 +17,10 @@ public class TaskEntity : MonoBehaviour {
     private string _extra03;
     private int _goldCount;
     private int _diamondCount;
+    private int _roleId;
+    private string type;
+
+
 
     public TaskEntity() { }
     public TaskEntity(TaskEntity task)
@@ -34,6 +38,8 @@ public class TaskEntity : MonoBehaviour {
         this.Extra01 = task.Extra01;
         this.Extra02 = task.Extra02;
         this.Extra03 = task.Extra03;
+        this.RoleId = task.RoleId;
+        this.Type = task.Type;
     }
 
 
@@ -73,19 +79,6 @@ public class TaskEntity : MonoBehaviour {
         set
         {
             _desc = value;
-        }
-    }
-
-    public string Status
-    {
-        get
-        {
-            return _status;
-        }
-
-        set
-        {
-            _status = value;
         }
     }
 
@@ -203,6 +196,45 @@ public class TaskEntity : MonoBehaviour {
         set
         {
             _diamondCount = value;
+        }
+    }
+
+    public int RoleId
+    {
+        get
+        {
+            return _roleId;
+        }
+
+        set
+        {
+            _roleId = value;
+        }
+    }
+
+    public string Type
+    {
+        get
+        {
+            return type;
+        }
+
+        set
+        {
+            type = value;
+        }
+    }
+
+    public int Status
+    {
+        get
+        {
+            return _status;
+        }
+
+        set
+        {
+            _status = value;
         }
     }
 }

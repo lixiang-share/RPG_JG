@@ -34,6 +34,7 @@ public static class LuaBinder
 			case "DelegateWrap": DelegateWrap.Register(L); break;
 			case "EnumWrap": EnumWrap.Register(L); break;
 			case "EventDelegateWrap": EventDelegateWrap.Register(L); break;
+			case "GameMgrWrap": GameMgrWrap.Register(L); break;
 			case "GameObjectWrap": GameObjectWrap.Register(L); break;
 			case "IEnumeratorWrap": IEnumeratorWrap.Register(L); break;
 			case "InputWrap": InputWrap.Register(L); break;

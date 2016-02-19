@@ -181,10 +181,15 @@ public class EnterGameService {
 			role.setName(unpacker.popString());
 			role.setLevel(unpacker.popInt());
 			role.setGender(unpacker.popInt());
-			if(egContoller.getRoleByPlayerIDAndRole_ID(playerID , role.getRole_id()) != null){
+			Role _role =egContoller.getRoleByPlayerIDAndRole_ID(playerID , role.getRole_id());
+			if(_role != null){
+				role.setId(_role.getId());
 				egContoller.updateRoleInfo(playerID , role);
+				List<Task> tasks = egContoller.getTaskListByRoleID(role.getId());
+				role.setTasks(tasks);
 			}else{
 				//Role _role = egContoller.insertRole(role);
+				//未选择过的角色，赋予初始任务，并落地到数据库
 				List<Task> tasks = TaskMgr.getInstance().getTaskList();
 				role.setTasks(tasks);
 				role.insertToDB();
@@ -194,6 +199,7 @@ public class EnterGameService {
 			logger.warn(e.getMessage());
 			MsgUtils.SendErroInfo(session.getCtx(), "请正确选择服务器");
 		}	
+		
 		try {
 			MsgPacker packer = MsgUtils.getSuccessPacker();
 			MsgUtils.sendMsg(session.getCtx(), packer);

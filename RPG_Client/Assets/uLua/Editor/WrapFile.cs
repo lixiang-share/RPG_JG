@@ -143,6 +143,7 @@ public static class WrapFile {
         _GT(typeof(System.Collections.ArrayList)),
         _GT(typeof(ServerItem)),
         _GT(typeof(RoleItem)),
+        _GT(typeof(GameMgr)),
     };
 
     public static BindType _GT(Type t) {

@@ -12,10 +12,10 @@ function this.OnFirstEnable()
 	inst:S('curPos' , 'Right')
 end
 function this.OnEnable()
-	
+	inst:CreateMsg():SetMsgType(MsgProtocol.Get_TaskList):Send()
 end
-function  this.OnDisable()
-	
+function  this.OnReceiveData(data)
+	local taskList = UITools.
 end
 
 function this.Show()

@@ -56,6 +56,7 @@ function this.OnReceiveData( data )
 		this.SelectRole(list:get_Item(0))
 	elseif data.MsgType == MsgProtocol.EnterGame then
 		UITools.ShowMsg('EnterGame')
+		inst.GameMgr:LoadScene('NewPlayerCity')
 	end
 end
 

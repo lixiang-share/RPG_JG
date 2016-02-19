@@ -18,6 +18,7 @@
 	<handlers>
 		<handler>jg.rpg.msg.chatService.ChatService</handler>
 		<handler>jg.rpg.msg.enterService.EnterGameService</handler>
+		<handler>jg.rpg.msg.cityService.MainCityService</handler>
 	</handlers>
 	
 </Server>

@@ -2,8 +2,13 @@
 using System.Collections;
 
 public class GameMgr : MonoBehaviour {
-	
+	public static GameMgr Instance;
 	public GameObject go;
+	
+	void Awake(){
+		Instance = this;
+	}
+	
 	void Start () {
 		go = GameObject.FindWithTag("GameManager");
 		DontDestroyOnLoad(go);
@@ -18,10 +23,17 @@ public class GameMgr : MonoBehaviour {
         UITools.log("GameMgr == > OnConnect");
         LoadGame();
     }
+    public void LoadGame()
+    {
+        LoadScene("StartScene");
+    }
 
-    public void LoadGame(){
+    public void LoadScene(string sceneName)
+    {
         DontDestroyOnLoad(go);
-        AsyncOperation operation = Application.LoadLevelAsync("StartScene");
+        AsyncOperation operation = Application.LoadLevelAsync(sceneName);
 		LoadingCotroller.instance.ShowLoadinge(operation);
-	}
+    }
+
+
 }

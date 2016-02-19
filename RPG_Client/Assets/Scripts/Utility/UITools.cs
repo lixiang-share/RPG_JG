@@ -322,7 +322,10 @@ public static partial class UITools
     {
         return ConvertUitls.MsgToRoleList(unpacker);
     }
-
+    public static IList MsgToTaskList(MsgUnPacker unpacker)
+    {
+        return ConvertUitls.MsgToTaskList(unpacker);
+    }
 
     #endregion
 
