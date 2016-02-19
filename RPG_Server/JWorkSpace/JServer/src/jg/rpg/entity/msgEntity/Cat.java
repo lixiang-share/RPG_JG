@@ -1,10 +1,22 @@
 package jg.rpg.entity.msgEntity;
 
+import java.util.List;
+
 public class Cat {
 
 	private String id;
 	private String breed;
 	private String name;
+	private List<Dog> dogs;
+	
+	
+	
+	public List<Dog> getDogs() {
+		return dogs;
+	}
+	public void setDogs(List<Dog> dogs) {
+		this.dogs = dogs;
+	}
 	public String getId() {
 		return id;
 	}
