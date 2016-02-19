@@ -40,7 +40,7 @@ public class DataEnsureHandler extends SimpleChannelInboundHandler<Object> {
 		ByteBuf buf = Unpooled.buffer(str.getBytes().length);
 		buf.writeBytes(str.getBytes("UTF-8"));
 		ctx.writeAndFlush(buff);
-
+		
 	}
 
 }

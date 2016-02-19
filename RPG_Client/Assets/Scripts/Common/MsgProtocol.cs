@@ -14,5 +14,6 @@ public class MsgProtocol {
     public const int Register = 3;
     public const int Query_Status = 4;
     public const int PreSelectHero = 5;
-    public const int EnterGame = 6;
+	public const int EnterGame = 6;
+	public const int Get_TaskList = 7;
 }
