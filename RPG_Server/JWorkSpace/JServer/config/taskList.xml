@@ -7,6 +7,8 @@
 		<status>0</status>
 		<goldCount>1000</goldCount>
 		<diamondCount>5000</diamondCount>
+		<curStage>0</curStage>
+		<totalStage>4</totalStage>
 	</Task>
 
 	<Task>
@@ -16,6 +18,8 @@
 		<status>0</status>
 		<goldCount>2000</goldCount>
 		<diamondCount>4000</diamondCount>
+		<curStage>0</curStage>
+		<totalStage>4</totalStage>
 	</Task>
 	
 	<Task>
@@ -25,6 +29,8 @@
 		<status>0</status>
 		<goldCount>3000</goldCount>
 		<diamondCount>2000</diamondCount>
+		<curStage>0</curStage>
+		<totalStage>4</totalStage>
 	</Task>
 	
 	
@@ -35,5 +41,7 @@
 		<status>0</status>
 		<goldCount>1000</goldCount>
 		<diamondCount>6000</diamondCount>
+		<curStage>0</curStage>
+		<totalStage>4</totalStage>
 	</Task>
 </Tasks>

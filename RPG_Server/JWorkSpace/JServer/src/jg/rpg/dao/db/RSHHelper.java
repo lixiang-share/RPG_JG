@@ -122,6 +122,12 @@ public class RSHHelper {
 					task.setGoldCount(rs.getInt("goldCount"));
 				if(columnCount >=6 )
 					task.setDiamondCount(rs.getInt("diamondCount"));
+				if(columnCount>=7)
+					task.setTaskId(rs.getInt("taskId"));
+				if(columnCount>=8) 
+					task.setCurStage(rs.getInt("curStage"));
+				if(columnCount >= 9)
+					task.setTotalStage(rs.getInt("totalStage"));
 				return task;
 			}
 		};

@@ -56,14 +56,15 @@ public class TaskMgr {
 		for(Element e : eTasks){
 			Task task = new Task();
 			
-			task.setId(Integer.parseInt(e.elementText("id")));
+			task.setTaskId(Integer.parseInt(e.elementText("id")));
 			task.setRoleId(Integer.parseInt(e.elementText("roleId")));
 			task.setType(e.elementText("type"));
 			task.setStatus(Integer.parseInt(e.elementText("status")));
 			task.setDiamondCount(Integer.parseInt(e.elementText("diamondCount")));
 			task.setGoldCount(Integer.parseInt(e.elementText("goldCount")));
-			
-			taskMap.put(task.getId(), task);
+			task.setCurStage(Integer.parseInt(e.elementText("curStage")));
+			task.setTotalStage(Integer.parseInt(e.elementText("totalStage")));
+			taskMap.put(task.getTaskId(), task);
 		}
 	}
 	

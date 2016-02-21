@@ -15,7 +15,8 @@ function this.OnEnable()
 	inst:CreateMsg():SetMsgType(MsgProtocol.Get_TaskList):Send()
 end
 function  this.OnReceiveData(data)
-	local taskList = UITools.
+	local taskList = UITools.MsgToTaskList(data)
+	inst:GetChild('ScrollView'):Parse(taskList)
 end
 
 function this.Show()

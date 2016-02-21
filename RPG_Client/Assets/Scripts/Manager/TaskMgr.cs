@@ -58,10 +58,15 @@ public class TaskMgr : MonoBehaviour {
 
     public TaskEntity ComposeTask(TaskEntity task)
     {
-        TaskEntity _task = GetTaskByID(task.Id);
+        TaskEntity _task = GetTaskByID(task.TaskId);
         _task.Status = task.Status;
         _task.GoldCount = task.GoldCount;
         _task.DiamondCount = task.DiamondCount;
+        _task.TaskId = task.TaskId;
+        _task.CurStage = task.CurStage;
+        _task.TotalStage = task.TotalStage;
+        _task.RoleId = task.RoleId;
+        _task.Type = task.Type;
         return new TaskEntity(_task);
     }
 

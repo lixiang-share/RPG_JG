@@ -12,24 +12,33 @@ public class InfiniteList : LuaBehaviour {
     private int minIndex;
     private int maxIndex;
     private Vector3 defScrollViewPos;
+    private bool isInitListPos;
 
 
     public override void Awake()
     {
         base.Awake();
-        defScrollViewPos = scrollView.transform.localPosition;
+        if (!isInitListPos)
+        {
+            defScrollViewPos = scrollView.transform.localPosition;
+            isInitListPos = true;
+        }
         wrapContent.onInitializeItem += OnInitializeItem;
         mChildren = wrapContent.mChildren;
         gameObject.SetActive(false);
     }
     public override void OnDisable()
     {
+        UITools.log("Disable...");
         base.OnDisable();
         gameObject.SetActive(false);
         scrollView.transform.localPosition = defScrollViewPos;
+        foreach (Transform t in mChildren)
+            t.gameObject.SetActive(false);
     }
     public override void Parse(IList list)
     {
+        UITools.log("Data Count : " + list.Count);
         listData = list;
         InitIndex();
      //   InitItem();
@@ -113,6 +122,12 @@ public class InfiniteList : LuaBehaviour {
             if(row <= 1){
                 wrapContent.minIndex = minIndex = (listData.Count - 1) * -1;
                 wrapContent.maxIndex = maxIndex = 0;
+                for (int i = 0; i < listData.Count && i<mChildren.Count; i++)
+                {
+                    mChildren[i].gameObject.SetActive(true);
+                }
+
+
             }else{
                 minIndex = (listData.Count / 2)-1;
                 if (listData.Count % 2 > 0) minIndex++;
@@ -137,10 +152,17 @@ public class InfiniteList : LuaBehaviour {
         int index = realIndex * -1;
         int totalCount = listData.Count;
 
-        if (row <= 1 && index < totalCount)
+        if (row <= 1)
         {
-            go.SetActive(true);
-            UITools.Get<LuaBehaviour>(go).ReceiveData(listData[index]);
+            if (index < totalCount)
+            {
+                go.SetActive(true);
+                UITools.Get<LuaBehaviour>(go).ReceiveData(listData[index]);
+            }
+            else
+            {
+                go.SetActive(false);
+            }
         }
         else if (row > 1 && index < totalCount/row)
         {

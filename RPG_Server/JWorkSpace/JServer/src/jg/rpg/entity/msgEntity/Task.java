@@ -10,12 +10,35 @@ import jg.rpg.dao.db.RSHHelper;
 public class Task extends EntityBase<Task>{
 
 	private int id;
+	private int taskId;
 	private String type;
 	private int roleId;
 	private int status;
 	private int goldCount;
 	private int diamondCount;
+	private int curStage;
+	private int totalStage;
 	
+	
+	
+	public int getCurStage() {
+		return curStage;
+	}
+	public void setCurStage(int curStage) {
+		this.curStage = curStage;
+	}
+	public int getTotalStage() {
+		return totalStage;
+	}
+	public void setTotalStage(int totalStage) {
+		this.totalStage = totalStage;
+	}
+	public int getTaskId() {
+		return taskId;
+	}
+	public void setTaskId(int taskId) {
+		this.taskId = taskId;
+	}
 	public int getRoleId() {
 		return roleId;
 	}
@@ -58,18 +81,18 @@ public class Task extends EntityBase<Task>{
 	}
 	@Override
 	public boolean isExistInDB() throws SQLException {
-		String sql = "select * from tb_task where id = ? and roleId = ?";
+		String sql = "select * from tb_task where id = ?";
 		Task task = DBHelper.GetFirst(DBMgr.getInstance().getDataSource(), sql,
-				RSHHelper.getTaskRSH(), getId() , getRoleId());
+				RSHHelper.getTaskRSH(), getId());
 		return task != null;
 	}
 
 	@Override
 	public int updateToDB() throws SQLException {
-		String sql = "update tb_task set status = ? where id = ? and roleId = ?";
+		String sql = "update tb_task set status = ? where id = ?";
 		
 		return DBHelper.update(DBMgr.getInstance().getDataSource(), sql 
-				,getStatus(), getId() , getRoleId());
+				,getStatus(), getId());
 	}
 	@Override
 	public int deleteFromDB() throws SQLException {
@@ -82,9 +105,10 @@ public class Task extends EntityBase<Task>{
 		if(isExistInDB()){
 			throw new SQLException("Task has Exist!");
 		}
-		String sql = "insert into tb_task values(null ,?,?,?,?,?)";
+		String sql = "insert into tb_task values(null,? ,?,?,?,?,?,?,?)";
 		Task task = DBHelper.insert(DBMgr.getInstance().getDataSource(), sql,
-				RSHHelper.getTaskRSH(), getRoleId() , getType(),getStatus() , getGoldCount() , getDiamondCount());
+				RSHHelper.getTaskRSH(), getTaskId(),getRoleId() , getType(),getStatus() , getGoldCount()
+				, getDiamondCount(),getCurStage(),getTotalStage());
 		setId(task.getId());
 		return this;
 	}

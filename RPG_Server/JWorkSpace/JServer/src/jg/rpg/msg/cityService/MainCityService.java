@@ -35,11 +35,14 @@ public class MainCityService {
 				packer.addInt(tasks.size());
 				for(Task t : tasks){
 					packer.addInt(t.getId())
+						.addInt(t.getTaskId())
 						.addInt(t.getRoleId())
 						.addString(t.getType())
 						.addInt(t.getStatus())
 						.addInt(t.getGoldCount())
-						.addInt(t.getDiamondCount());
+						.addInt(t.getDiamondCount())
+						.addInt(t.getCurStage())
+						.addInt(t.getTotalStage());
 				}
 			}
 			MsgUtils.sendMsg(session.getCtx(), packer);

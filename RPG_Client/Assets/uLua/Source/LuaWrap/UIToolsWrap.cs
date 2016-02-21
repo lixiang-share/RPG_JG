@@ -36,6 +36,7 @@ public class UIToolsWrap
 			new LuaMethod("GetFloat", GetFloat),
 			new LuaMethod("MsgToServerList", MsgToServerList),
 			new LuaMethod("MsgToRoleList", MsgToRoleList),
+			new LuaMethod("MsgToTaskList", MsgToTaskList),
 			new LuaMethod("New", _CreateUITools),
 			new LuaMethod("GetClassType", GetClassType),
 		};
@@ -465,6 +466,16 @@ public class UIToolsWrap
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		MsgUnPacker arg0 = (MsgUnPacker)LuaScriptMgr.GetNetObject(L, 1, typeof(MsgUnPacker));
 		IList o = UITools.MsgToRoleList(arg0);
+		LuaScriptMgr.PushObject(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int MsgToTaskList(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		MsgUnPacker arg0 = (MsgUnPacker)LuaScriptMgr.GetNetObject(L, 1, typeof(MsgUnPacker));
+		IList o = UITools.MsgToTaskList(arg0);
 		LuaScriptMgr.PushObject(L, o);
 		return 1;
 	}

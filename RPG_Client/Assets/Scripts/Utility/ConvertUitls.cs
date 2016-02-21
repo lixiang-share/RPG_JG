@@ -45,12 +45,14 @@ public static class ConvertUitls {
         {
             TaskEntity task = new TaskEntity();
             task.Id = unpacker.PopInt();
+            task.TaskId = unpacker.PopInt();
             task.RoleId = unpacker.PopInt();
             task.Type = unpacker.PopString();
             task.Status = unpacker.PopInt();
             task.GoldCount = unpacker.PopInt();
             task.DiamondCount = unpacker.PopInt();
-
+            task.CurStage = unpacker.PopInt();
+            task.TotalStage = unpacker.PopInt();
             list.Add(TaskMgr.Instance.ComposeTask(task));
         }
         return list;

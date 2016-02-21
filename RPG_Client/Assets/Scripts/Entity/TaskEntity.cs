@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class TaskEntity : MonoBehaviour {
 
     private int _id;
+    private int _taskId;
     private string _name;
     private string _desc;
     private int _status;
@@ -19,7 +20,20 @@ public class TaskEntity : MonoBehaviour {
     private int _diamondCount;
     private int _roleId;
     private string type;
+    private int _curStage;
+    private int _totalStage;
 
+    public int TotalStage
+    {
+        get { return _totalStage; }
+        set { _totalStage = value; }
+    }
+    public int CurStage
+    {
+        get { return _curStage; }
+        set { _curStage = value; }
+    }
+   
 
 
     public TaskEntity() { }
@@ -40,9 +54,16 @@ public class TaskEntity : MonoBehaviour {
         this.Extra03 = task.Extra03;
         this.RoleId = task.RoleId;
         this.Type = task.Type;
+        this.CurStage = task.CurStage;
+        this.TotalStage = task.TotalStage;
+        this.TaskId = TaskId;
     }
 
-
+    public int TaskId
+    {
+        get { return _taskId; }
+        set { _taskId = value; }
+    }
     public int Id
     {
         get
