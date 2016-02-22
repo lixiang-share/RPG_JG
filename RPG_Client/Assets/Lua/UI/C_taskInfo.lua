@@ -17,6 +17,7 @@ end
 function  this.OnReceiveData(data)
 	local taskList = UITools.MsgToTaskList(data)
 	inst:GetChild('ScrollView'):Parse(taskList)
+	UITools.Log(taskList.Count)
 end
 
 function this.Show()

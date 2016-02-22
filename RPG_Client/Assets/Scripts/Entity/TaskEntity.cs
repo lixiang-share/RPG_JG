@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class TaskEntity : MonoBehaviour {
+public class TaskEntity{
 
     private int _id;
     private int _taskId;
