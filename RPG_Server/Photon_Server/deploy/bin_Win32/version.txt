@@ -1,0 +1,14 @@
+== Core ==
+PhotonSocketServer.2013
+Win32 Unicode Release
+BuildDate: 2015-11-26 18:21:36
+Version: 3.4.9.2931
+SVN repository: photon-socketserver
+SVN revisions of...
+... this project: 2931
+== SDK ==
+BuildDate: 2015-11-27 11:11:56
+Version: 3.4.31.10808
+SVN repository: photon-socketserver-sdk
+SVN revisions of...
+... this project: 10808

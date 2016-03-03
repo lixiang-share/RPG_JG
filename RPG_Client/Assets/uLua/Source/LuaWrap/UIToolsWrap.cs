@@ -23,6 +23,7 @@ public class UIToolsWrap
 			new LuaMethod("ClosePanel", ClosePanel),
 			new LuaMethod("HandlePanel", HandlePanel),
 			new LuaMethod("TweenPos_X", TweenPos_X),
+			new LuaMethod("TweenPos_Y", TweenPos_Y),
 			new LuaMethod("TweenPos", TweenPos),
 			new LuaMethod("Tween_Scale", Tween_Scale),
 			new LuaMethod("isValidString", isValidString),
@@ -315,6 +316,34 @@ public class UIToolsWrap
 		else
 		{
 			LuaDLL.luaL_error(L, "invalid arguments to method: UITools.TweenPos_X");
+		}
+
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int TweenPos_Y(IntPtr L)
+	{
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 2)
+		{
+			LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+			float arg1 = (float)LuaScriptMgr.GetNumber(L, 2);
+			UITools.TweenPos_Y(arg0,arg1);
+			return 0;
+		}
+		else if (count == 3)
+		{
+			LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+			float arg1 = (float)LuaScriptMgr.GetNumber(L, 2);
+			float arg2 = (float)LuaScriptMgr.GetNumber(L, 3);
+			UITools.TweenPos_Y(arg0,arg1,arg2);
+			return 0;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: UITools.TweenPos_Y");
 		}
 
 		return 0;

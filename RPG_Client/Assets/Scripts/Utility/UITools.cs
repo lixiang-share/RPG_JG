@@ -205,6 +205,18 @@ public static partial class UITools
         TweenPos(lb.gameObject, target, duration);
     }
 
+    public static void TweenPos_Y(LuaBehaviour lb, float y)
+    {
+        Vector3 target = new Vector3(lb.transform.localPosition.x, y, lb.transform.localPosition.z);
+        TweenPos(lb.gameObject, target, 0.3f);
+    }
+
+    public static void TweenPos_Y(LuaBehaviour lb, float y, float duration)
+    {
+        Vector3 target = new Vector3(lb.transform.localPosition.x, y, lb.transform.localPosition.z);
+        TweenPos(lb.gameObject, target, duration);
+    }
+
     public static void TweenPos(GameObject go, Vector3 targetPos, float duration)
     {
         

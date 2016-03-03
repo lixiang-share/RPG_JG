@@ -36,9 +36,9 @@ public class EnterGameController {
 				RSHHelper.getPlayerRSH() ,username ,pwd);
 		return player;
 	}
-	public Player registerPlayer(Player player) throws SQLException, PlayerHandlerException, NoSuchAlgorithmException, UnsupportedEncodingException {
+	public Player registerPlayer(Player player) throws SQLException, PlayerHandlerException  {
 		
-		String sql = "select * from tb_user where name = ?";
+		/*String sql = "select * from tb_user where name = ?";
 		Player _player = DBHelper.GetFirst(dbMgr.getDataSource(), sql, 
 				RSHHelper.getPlayerRSH() ,player.getUsername());
 		if(_player!= null){
@@ -47,8 +47,8 @@ public class EnterGameController {
 		sql = "insert into tb_user values(null,? ,?,?)";
 		String pwd = CommUtils.md5Encrypt(player.getPwd());
 		_player = DBHelper.insert(dbMgr.getDataSource(), sql, 
-				RSHHelper.getPlayerRSH() ,player.getUsername() ,pwd,player.getPhoneNum());
-		return _player;
+				RSHHelper.getPlayerRSH() ,player.getUsername() ,pwd,player.getPhoneNum());*/
+		return player.insertToDB();
 	}
 	public List<Role> getRolesByPlayerID(int playerID) throws SQLException {
 		String sql = "select * from tb_role where ownerId = ?";

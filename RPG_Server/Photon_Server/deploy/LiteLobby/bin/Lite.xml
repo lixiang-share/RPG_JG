@@ -1,0 +1,2128 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Lite</name>
+    </assembly>
+    <members>
+        <member name="T:Lite.Actor">
+            <summary>
+            An actor is the glue between <see cref="T:Lite.LitePeer"/> and <see cref="T:Lite.Room"/>.
+            In addition to the peer it has a <see cref="P:Lite.Actor.ActorNr">number</see> and <see cref="P:Lite.Actor.Properties"/>.
+            </summary>
+        </member>
+        <member name="M:Lite.Actor.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Actor"/> class.
+            </summary>
+        </member>
+        <member name="M:Lite.Actor.#ctor(Photon.SocketServer.PeerBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Actor"/> class.
+            </summary>
+            <param name="peer">
+            The peer for this actor.
+            </param>
+        </member>
+        <member name="P:Lite.Actor.ActorNr">
+            <summary>
+            Gets or sets the actor nr.
+            </summary>
+        </member>
+        <member name="P:Lite.Actor.Peer">
+            <summary>
+            Gets or sets the peer.
+            </summary>
+        </member>
+        <member name="P:Lite.Actor.Properties">
+            <summary>
+            Gets the actors custom properties.
+            </summary>
+        </member>
+        <member name="T:Lite.ActorCollection">
+            <summary>
+            A collection for <see cref="T:Lite.Actor"/>s.
+            </summary>
+        </member>
+        <member name="M:Lite.ActorCollection.GetActorByNumber(System.Int32)">
+            <summary>
+            Gets an actor by the actor number.
+            </summary>
+            <param name="actorNumber">
+            The actor number.
+            </param>
+            <returns>
+            Return the actor with the specified actor number if found.
+            If no actor with the specified actor number exits null will be returned.
+            </returns>
+        </member>
+        <member name="M:Lite.ActorCollection.GetActorByPeer(Photon.SocketServer.PeerBase)">
+            <summary>
+            Gets an actor by a specified peer.
+            </summary>
+            <param name="peer">
+            The peer.
+            </param>
+            <returns>
+            Returns the actor for the specified peer or null 
+            if no actor for the specified peer was found.
+            </returns>
+        </member>
+        <member name="M:Lite.ActorCollection.GetActorNumbers">
+            <summary>
+            Gets the actor numbers of all actors in this instance as an array.
+            </summary>
+            <returns>
+            Array of the actor numbers.
+            </returns>
+        </member>
+        <member name="M:Lite.ActorCollection.GetExcludedList(Lite.Actor)">
+            <summary>
+            Gets a list of actors in the room exluding a specified actor.
+            This method can be used to get the actor list for an event, 
+            where the actor causing the event should not be notified.
+            </summary>
+            <param name="actorToExclude">
+            The actor to exclude.
+            </param>
+            <returns>
+            the actors without <paramref name="actorToExclude"/>
+            </returns>
+        </member>
+        <member name="M:Lite.ActorCollection.RemoveActorByPeer(Lite.LitePeer)">
+            <summary>
+            Removes the actor for a a specified peer.
+            </summary>
+            <param name="peer">
+            The peer.
+            </param>
+            <returns>
+            The <see cref="T:Lite.Actor"/> removed or <c>null</c> if no actor for the specified peer exists.
+            </returns>
+        </member>
+        <member name="M:Lite.ActorCollection.GetActorsByNumbers(System.Int32[])">
+            <summary>
+            Returns all actors with the given actor numbers.
+            </summary>
+            <param name="actors">
+            The actor numbers.
+            </param>
+            <returns>
+            The actors with the given actor numbers.
+            </returns>
+        </member>
+        <member name="M:Lite.ActorCollection.IsSorted(System.Int32[])">
+            <summary>
+            Checks whether an array is sorted.
+            </summary>
+            <param name="array">
+            The array.
+            </param>
+            <returns>
+            True if the array is sorted, otherwise false.
+            </returns>
+        </member>
+        <member name="T:Lite.Caching.EventCache">
+            <summary>
+            A cache for events that a stored for actors that join a game later.
+            The key is the event code, the value the event content.
+            The event cache is ordered by event code.
+            </summary>
+        </member>
+        <member name="T:Lite.Caching.EventCacheDictionary">
+            <summary>
+            Dictionary implementation to store <see cref="T:Lite.Caching.EventCache"/> instances by actor number.
+            </summary>
+        </member>
+        <member name="T:Lite.Caching.LiteGameCache">
+            <summary>
+            The cache for <see cref="T:Lite.LiteGame"/>s.
+            </summary>
+        </member>
+        <member name="T:Lite.Caching.RoomCacheBase">
+            <summary>
+            Base class for room caches.
+            </summary>
+        </member>
+        <member name="F:Lite.Caching.RoomCacheBase.log">
+            <summary>
+            An <see cref="T:ExitGames.Logging.ILogger"/> instance used to log messages to the logging framework.
+            </summary>
+        </member>
+        <member name="F:Lite.Caching.RoomCacheBase.RoomInstances">
+            <summary>A Dictionary used to store room instances.</summary>
+        </member>
+        <member name="F:Lite.Caching.RoomCacheBase.SyncRoot">
+            <summary>used to syncronize acces to the cache.</summary>
+        </member>
+        <member name="M:Lite.Caching.RoomCacheBase.TryGetRoomWithoutReference(System.String,Lite.Room@)">
+            <summary>
+            Tries to get room reference for a room with the specified id, without holding a reference to that room. 
+            </summary>
+            <param name="roomId">The room id.</param>
+            <param name="room">The room, in case it exists.</param>
+            <returns>
+            True if the cache contains a room with the specified room id; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Lite.Caching.RoomCacheBase.GetRoomReference(System.String,Photon.SocketServer.PeerBase,System.Object[])">
+            <summary>
+            Gets a room reference for a room with a specified id.
+            If the room with the specified id does not exists, a new room will be created.
+            </summary>
+            <param name="roomName">
+            The room id.
+            </param>
+            <param name="ownerPeer">
+            The peer that holds this reference.
+            </param>
+            <param name="args">
+            Optionally arguments used for room creation.
+            </param>
+            <returns>
+            a <see cref="T:Lite.Caching.RoomReference"/>
+            </returns>
+        </member>
+        <member name="M:Lite.Caching.RoomCacheBase.GetRoomNames">
+            <summary>
+            Returns the names of all rooms that are currently cached in this <see cref="T:Lite.Caching.RoomCacheBase"/>.
+            </summary>
+            <returns>The list of room names.</returns>
+        </member>
+        <member name="M:Lite.Caching.RoomCacheBase.GetDebugString(System.String)">
+            <summary>
+            Gathers debug information about the specified room (actors, peers, references etc.). 
+            </summary>
+            <param name="roomName">The room name.</param>
+            <returns>A string with debug information.</returns>
+        </member>
+        <member name="M:Lite.Caching.RoomCacheBase.TryCreateRoom(System.String,Photon.SocketServer.PeerBase,Lite.Caching.RoomReference@,System.Object[])">
+            <summary>
+            Tries to create a new room.
+            </summary>
+            <param name="roomName">
+            The room id.
+            </param>
+            <param name="ownerPeer">
+            The peer that holds this reference.
+            </param>
+            <param name="roomReference">
+            When this method returns true, contains a new <see cref="T:Lite.Caching.RoomReference"/> for the room 
+            with the specified room id; otherwise, set to null. 
+            </param>
+            <param name="args">
+            Optionally arguments used for room creation.
+            </param>
+            <returns>
+            False if the cache contains a room with the specified room id; otherwise, true.
+            </returns>
+        </member>
+        <member name="M:Lite.Caching.RoomCacheBase.TryGetRoomReference(System.String,Photon.SocketServer.PeerBase,Lite.Caching.RoomReference@)">
+            <summary>
+            Tries to get room reference for a room with the specified id. 
+            </summary>
+            <param name="roomId">
+            The room id.
+            </param>
+            <param name="ownerPeer">
+            The peer that holds this reference.
+            </param>
+            <param name="roomReference">
+            When this method returns true, contains a new <see cref="T:Lite.Caching.RoomReference"/> for the room 
+            with the specified room id; otherwise, set to null. 
+            </param>
+            <returns>
+            True if the cache contains a room with the specified room id; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Lite.Caching.RoomCacheBase.ReleaseRoomReference(Lite.Caching.RoomReference)">
+            <summary>
+            Releases a room reference. 
+            The related room instance will be removed from the cache if 
+            no more references to the room exists.
+            </summary>
+            <param name="roomReference">
+            The room reference to relaease.
+            </param>
+        </member>
+        <member name="M:Lite.Caching.RoomCacheBase.TryRemoveRoomInstance(Lite.Room)">
+            <summary>
+            Tries to remove a romm instance from the room cache. 
+            The room will only be removed if there are no references to the romm instance left.
+            </summary>
+            <param name="room">
+            The room to remove.
+            </param>
+            <returns>
+            Returns true if the room was removed from the cache; otherwise false.
+            </returns>
+        </member>
+        <member name="M:Lite.Caching.RoomCacheBase.CreateRoom(System.String,System.Object[])">
+            <summary>
+            Must be implementated by inheritors to create new room instances.
+            This method is called when a room reference is requesteted for a
+            room that does not exists in the cache.
+            </summary>
+            <param name="roomId">
+            The room id.
+            </param>
+            <param name="args">
+            Optionally arguments used for room creation.
+            </param>
+            <returns>
+            a new room
+            </returns>
+        </member>
+        <member name="M:Lite.Caching.RoomCacheBase.OnRoomRemoved(Lite.Room)">
+            <summary>
+            Invoked if the last reference for a room is released and the room was removed from the cache. 
+            Can be overloaded by inheritors to provide a custom cleanup logic after a room has been disposed. 
+            </summary>
+            <param name="room">The <see cref="T:Lite.Room"/> that was removed from the cache.</param>
+        </member>
+        <member name="T:Lite.Caching.RoomCacheBase.RoomInstance">
+            <summary>
+            Used to track references for a room instance.
+            </summary>
+        </member>
+        <member name="F:Lite.Caching.RoomCacheBase.RoomInstance.references">
+            <summary>
+            The references.
+            </summary>
+        </member>
+        <member name="F:Lite.Caching.RoomCacheBase.RoomInstance.roomFactory">
+            <summary>
+            The room factory.
+            </summary>
+        </member>
+        <member name="M:Lite.Caching.RoomCacheBase.RoomInstance.#ctor(Lite.Caching.RoomCacheBase,Lite.Room)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Caching.RoomCacheBase.RoomInstance"/> class.
+            </summary>
+            <param name="roomFactory">
+            The room factory.
+            </param>
+            <param name="room">
+            The room.
+            </param>
+        </member>
+        <member name="M:Lite.Caching.RoomCacheBase.RoomInstance.AddReference(Photon.SocketServer.PeerBase)">
+            <summary>
+            Adds a reference to the room instance.
+            </summary>
+            <param name="ownerPeer">
+            The peer that holds this reference.
+            </param>
+            <returns>
+            a new <see cref="T:Lite.Caching.RoomReference"/>
+            </returns>
+        </member>
+        <member name="M:Lite.Caching.RoomCacheBase.RoomInstance.ReleaseReference(Lite.Caching.RoomReference)">
+            <summary>
+            Releases a reference from this instance.
+            </summary>
+            <param name="reference">
+            The room reference.
+            </param>
+        </member>
+        <member name="P:Lite.Caching.RoomCacheBase.RoomInstance.ReferenceCount">
+            <summary>
+            Gets the number of references for the room instance.
+            </summary>
+        </member>
+        <member name="P:Lite.Caching.RoomCacheBase.RoomInstance.Room">
+            <summary>
+            Gets the room.
+            </summary>
+        </member>
+        <member name="F:Lite.Caching.LiteGameCache.Instance">
+            <summary>
+            The singleton instance.
+            </summary>
+        </member>
+        <member name="M:Lite.Caching.LiteGameCache.CreateRoom(System.String,System.Object[])">
+            <summary>
+            Creates a new <see cref="T:Lite.LiteGame"/>.
+            </summary>
+            <param name="roomId">
+            The room id.
+            </param>
+            <param name="args">
+            The args.
+            </param>
+            <returns>
+            A new <see cref="T:Lite.LiteGame"/>
+            </returns>
+        </member>
+        <member name="T:Lite.Caching.RoomReference">
+            <summary>
+            Used to observe references to room instances from a room cache.
+            A reference to a room should be released (disposed) if it is not
+            longer needed. The related cache observes the number of references
+            to a room and removes a room if it has no references left. 
+            </summary>
+            <remarks>
+            In the Lite application the room reference will be stored in a 
+            peers state property whern the peer joines a room. When a 
+            peer leaves a room the reference to the room will be disposed.
+            This pattern ensures that room/game instances will not be 
+            disposed if there are still peers/clients holding a reference 
+            to the room/game.
+            </remarks>
+        </member>
+        <member name="F:Lite.Caching.RoomReference.id">
+            <summary>
+            The id.
+            </summary>
+        </member>
+        <member name="F:Lite.Caching.RoomReference.roomCache">
+            <summary>
+            The room cache.
+            </summary>
+        </member>
+        <member name="M:Lite.Caching.RoomReference.#ctor(Lite.Caching.RoomCacheBase,Lite.Room,Photon.SocketServer.PeerBase)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Caching.RoomReference"/> class.
+            </summary>
+            <param name="roomCache">
+            The room cache.
+            </param>
+            <param name="room">
+            The room.
+            </param>
+            <param name="ownerPeer">
+            An <see cref="T:Photon.SocketServer.PeerBase"/> instance which obtained the room reference.
+            </param>
+        </member>
+        <member name="M:Lite.Caching.RoomReference.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:Lite.Caching.RoomReference"/> class. 
+            Releases unmanaged resources and performs other cleanup operations before the
+            <see cref="T:Lite.Caching.RoomReference"/> is reclaimed by garbage collection.
+            </summary>
+        </member>
+        <member name="M:Lite.Caching.RoomReference.Dispose">
+            <summary>
+            Removes the room reference from the associated room cache.
+            The related room instance will be removed from the cache if 
+            no more references to the room exists.
+            </summary>
+        </member>
+        <member name="M:Lite.Caching.RoomReference.Dispose(System.Boolean)">
+            <summary>
+            Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name="disposing">
+            <c>true</c> to release both managed and unmanaged resources; 
+            <c>false</c> to release only unmanaged resources.
+            </param>
+        </member>
+        <member name="P:Lite.Caching.RoomReference.Id">
+            <summary>
+            Gets the unique id for this instance.
+            </summary>
+        </member>
+        <member name="P:Lite.Caching.RoomReference.IsDisposed">
+            <summary>
+            Gets a value indicating whether this instance is disposed.
+            </summary>
+            <value>
+            <c>true</c> if this instance is disposed; otherwise, <c>false</c>.
+            </value>
+        </member>
+        <member name="P:Lite.Caching.RoomReference.Room">
+            <summary>
+            Gets or sets the room of this reference.
+            </summary>
+            <value>The room.</value>
+        </member>
+        <member name="T:Lite.Common.Property`1">
+            <summary>
+            The property.
+            </summary>
+            <typeparam name="TKey">
+            The property key type.
+            </typeparam>
+        </member>
+        <member name="F:Lite.Common.Property`1.value">
+            <summary>
+            The value.
+            </summary>
+        </member>
+        <member name="M:Lite.Common.Property`1.#ctor(`0,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Common.Property`1"/> class.
+            </summary>
+            <param name="key">
+            The key.
+            </param>
+            <param name="value">
+            The value.
+            </param>
+        </member>
+        <member name="M:Lite.Common.Property`1.RaisePropertyChanged">
+            <summary>
+            Invokes the <see cref="E:Lite.Common.Property`1.PropertyChanged"/> event. 
+            </summary>
+        </member>
+        <member name="E:Lite.Common.Property`1.PropertyChanged">
+            <summary>
+            The property changed.
+            </summary>
+        </member>
+        <member name="P:Lite.Common.Property`1.Key">
+            <summary>
+            Gets Key.
+            </summary>
+        </member>
+        <member name="P:Lite.Common.Property`1.Value">
+            <summary>
+            Gets or sets Value.
+            </summary>
+        </member>
+        <member name="T:Lite.Common.PropertyBag`1">
+            <summary>
+            The property bag.
+            </summary>
+            <typeparam name="TKey">
+            The property key type
+            </typeparam>
+        </member>
+        <member name="F:Lite.Common.PropertyBag`1.dictionary">
+            <summary>
+            The dictionary.
+            </summary>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Common.PropertyBag`1"/> class.
+            </summary>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.#ctor(System.Collections.Generic.IEnumerable{System.Collections.Generic.KeyValuePair{`0,System.Object}})">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Common.PropertyBag`1"/> class.
+            </summary>
+            <param name="values">
+            The values.
+            </param>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.#ctor(System.Collections.IDictionary)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Common.PropertyBag`1"/> class.
+            </summary>
+            <param name="values">
+            The values.
+            </param>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.GetAll">
+            <summary>
+            The get all.
+            </summary>
+            <returns>
+            A list of all properties
+            </returns>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.GetProperties">
+            <summary>
+            Get all properties.
+            </summary>
+            <returns>
+            A copy of all properties with keys
+            </returns>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.GetProperties(System.Collections.Generic.IList{`0})">
+            <summary>
+            The get properties.
+            </summary>
+            <param name="propertyKeys">
+            The property keys.
+            </param>
+            <returns>
+            The values for the given <paramref name="propertyKeys"/>
+            </returns>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.GetProperties(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            The get properties.
+            </summary>
+            <param name="propertyKeys">
+            The property keys.
+            </param>
+            <returns>
+            The values for the given <paramref name="propertyKeys"/>
+            </returns>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.GetProperties(System.Collections.IEnumerable)">
+            <summary>
+            The get properties.
+            </summary>
+            <param name="propertyKeys">
+            The property keys.
+            </param>
+            <returns>
+            The values for the given <paramref name="propertyKeys"/>
+            </returns>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.GetProperty(`0)">
+            <summary>
+            The get property.
+            </summary>
+            <param name="key">
+            The key.
+            </param>
+            <returns>
+            The value for the <paramref name="key"/>.
+            </returns>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.Set(`0,System.Object)">
+            <summary>
+            The set.
+            </summary>
+            <param name="key">
+            The key.
+            </param>
+            <param name="value">
+            The value.
+            </param>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.SetProperties(System.Collections.IDictionary)">
+            <summary>
+            The set properties.
+            </summary>
+            <param name="values">
+            The values.
+            </param>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.SetProperties(System.Collections.Generic.IDictionary{`0,System.Object})">
+            <summary>
+            The set properties.
+            </summary>
+            <param name="values">
+            The values.
+            </param>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.CopyPropertiesToHashtable(System.Collections.IDictionary)">
+            <summary>
+            The copy properties to hashtable.
+            </summary>
+            <param name="hashtable">
+            The hashtable.
+            </param>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.CopyPropertiesToHashtable(System.Collections.IDictionary,System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+            The copy properties to hashtable.
+            </summary>
+            <param name="hashtable">
+            The hashtable.
+            </param>
+            <param name="propertyKeys">
+            The property keys.
+            </param>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.CopyPropertiesToHashtable(System.Collections.IDictionary,System.Collections.IEnumerable)">
+            <summary>
+            The copy properties to hashtable.
+            </summary>
+            <param name="hashtable">
+            The hashtable.
+            </param>
+            <param name="propertyKeys">
+            The property keys.
+            </param>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.OnPropertyPropertyChanged(System.Object,System.EventArgs)">
+            <summary>
+            The on property property changed.
+            </summary>
+            <param name="sender">
+            The sender.
+            </param>
+            <param name="e">
+            The e.
+            </param>
+        </member>
+        <member name="M:Lite.Common.PropertyBag`1.RaisePropertyChanged(`0,System.Object)">
+            <summary>
+            The raise property changed.
+            </summary>
+            <param name="key">
+            The key.
+            </param>
+            <param name="value">
+            The value.
+            </param>
+        </member>
+        <member name="E:Lite.Common.PropertyBag`1.PropertyChanged">
+            <summary>
+            The property changed event.
+            </summary>
+        </member>
+        <member name="P:Lite.Common.PropertyBag`1.Count">
+            <summary>
+            Gets the number of properties in this instance.
+            </summary>
+        </member>
+        <member name="T:Lite.Common.PropertyChangedEventArgs`1">
+            <summary>
+            The property changed event args.
+            </summary>
+            <typeparam name="TKey">
+            The property key type.
+            </typeparam>
+        </member>
+        <member name="M:Lite.Common.PropertyChangedEventArgs`1.#ctor(`0,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Common.PropertyChangedEventArgs`1"/> class. 
+            </summary>
+            <param name="key">
+            The property key.
+            </param>
+            <param name="value">
+            The property value.
+            </param>
+        </member>
+        <member name="P:Lite.Common.PropertyChangedEventArgs`1.Key">
+            <summary>
+            Gets the key of the changed property.
+            </summary>
+        </member>
+        <member name="P:Lite.Common.PropertyChangedEventArgs`1.Value">
+            <summary>
+            Gets the value of the changed property.
+            </summary>
+        </member>
+        <member name="T:Lite.Events.PropertiesChangedEvent">
+            <summary>
+            Implementation if the PropertiesChanged event.
+            </summary>
+        </member>
+        <member name="T:Lite.Events.LiteEventBase">
+            <summary>
+            Base class implementation for all Lite events.
+            </summary>
+        </member>
+        <member name="M:Lite.Events.LiteEventBase.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Events.LiteEventBase"/> class. 
+            </summary>
+            <param name="actorNr">
+            Actor number.
+            </param>
+        </member>
+        <member name="P:Lite.Events.LiteEventBase.ActorNr">
+            <summary>
+            Gets or sets the actor number of the sender.
+            </summary>
+            <value>The actor nr.</value>
+        </member>
+        <member name="P:Lite.Events.LiteEventBase.Code">
+            <summary>
+            Gets or sets the event code.
+            </summary>
+            <value>The event code.</value>
+        </member>
+        <member name="M:Lite.Events.PropertiesChangedEvent.#ctor(System.Int32)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Events.PropertiesChangedEvent"/> class.
+            </summary>
+            <param name="actorNumber">
+            The actor number.
+            </param>
+        </member>
+        <member name="P:Lite.Events.PropertiesChangedEvent.Properties">
+            <summary>
+            Gets or sets Properties.
+            </summary>
+        </member>
+        <member name="P:Lite.Events.PropertiesChangedEvent.TargetActorNumber">
+            <summary>
+            Gets or sets the number of the actor whos properties have been changed.
+            A value of 0 indactes that game properties have been changed.
+            </summary>
+        </member>
+        <member name="T:Lite.LiteApplication">
+            <summary>
+            Main photon application. This application is started from the photon server.
+            This class creates <see cref="T:Lite.LitePeer"/>s for new clients.
+            Operation dispatch logic is handled by the <see cref="T:Lite.LitePeer"/>. 
+            </summary>
+        </member>
+        <member name="M:Lite.LiteApplication.CreatePeer(Photon.SocketServer.InitRequest)">
+            <summary>
+            Creates a <see cref="T:Lite.LitePeer"/> to handle <see cref="T:Photon.SocketServer.OperationRequest"/>s.
+            </summary>
+            <param name="initRequest">
+            The initialization request.
+            </param>
+            <returns>
+            A new <see cref="T:Lite.LitePeer"/> instance.
+            </returns>
+        </member>
+        <member name="M:Lite.LiteApplication.Setup">
+            <summary>
+            Application initializtion.
+            </summary>
+        </member>
+        <member name="M:Lite.LiteApplication.TearDown">
+            <summary>
+            Called when the server shuts down.
+            </summary>
+        </member>
+        <member name="T:Lite.LiteGame">
+            <summary>
+              A <see cref="T:Lite.Room"/> that supports the following requests:
+              <list type="bullet">
+                <item>
+                  <see cref="T:Lite.Operations.JoinRequest"/>
+                </item>
+                <item>
+                  <see cref="T:Lite.Operations.RaiseEventRequest"/>
+                </item>
+                <item>
+                  <see cref="T:Lite.Operations.SetPropertiesRequest"/>
+                </item>
+                <item>
+                  <see cref="T:Lite.Operations.GetPropertiesRequest"/>
+                </item>
+                <item>
+                  <see cref="T:Lite.Operations.LeaveRequest"/>
+                </item>
+              </list>
+            </summary>
+        </member>
+        <member name="T:Lite.Room">
+            <summary>
+              A room has <see cref="T:Lite.Actor"/>s, can have properties, and provides an <see cref="P:Lite.Room.ExecutionFiber"/> with a few wrapper methods to solve otherwise complicated threading issues:
+              All actions enqueued to the <see cref="P:Lite.Room.ExecutionFiber"/> are executed in a serial order. Operations of all Actors in a room are handled via ExecutionFiber.
+            </summary>
+        </member>
+        <member name="F:Lite.Room.Log">
+            <summary>
+              An <see cref="T:ExitGames.Logging.ILogger"/> instance used to log messages to the logging framework.
+            </summary>
+        </member>
+        <member name="F:Lite.Room.name">
+            <summary>
+              The room name.
+            </summary>
+        </member>
+        <member name="M:Lite.Room.#ctor(System.String,Lite.Caching.RoomCacheBase,System.Int32)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Lite.Room"/> class without a room name.
+            </summary>
+            <param name="name">
+              The room name.
+            </param>
+            <param name="roomCache">
+              The <see cref="T:Lite.Caching.RoomCacheBase"/> instance to which the room belongs.
+            </param>
+            <param name="emptyRoomLiveTime">
+              A value indicating how long the room instance will be keeped alive 
+              in the room cache after all peers have left the room.
+            </param>
+        </member>
+        <member name="M:Lite.Room.#ctor(System.String,ExitGames.Concurrency.Fibers.PoolFiber,Lite.Caching.RoomCacheBase,System.Int32)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Lite.Room"/> class.
+            </summary>
+            <param name="name">
+              The room name.
+            </param>
+            <param name="executionFiber">
+              The execution fiber used to synchronize access to this instance.
+            </param>
+            <param name="roomCache">
+              The <see cref="T:Lite.Caching.RoomCacheBase"/> instance to which the room belongs.
+            </param>
+            <param name="emptyRoomLiveTime">
+              A value indicating how long the room instance will be keeped alive 
+              in the room cache after all peers have left the room.
+            </param>
+        </member>
+        <member name="M:Lite.Room.Finalize">
+            <summary>
+              Finalizes an instance of the <see cref="T:Lite.Room"/> class. 
+              This destructor will run only if the Dispose method does not get called.
+              It gives your base class the opportunity to finalize.
+              Do not provide destructors in types derived from this class.
+            </summary>
+        </member>
+        <member name="M:Lite.Room.BeforeRemoveFromCache">
+            <summary>
+            Called by the <see cref="T:Lite.Caching.RoomCacheBase"/> if the room is about to be removed from the cache.
+            </summary>
+            <returns>
+            True if the room should be automaticly by removed by the <see cref="T:Lite.Caching.RoomCacheBase"/>.
+            False if the room has an custom remove implementation and will remove itself from the cache.
+            </returns>
+            <remarks>
+            The default implementation checks if the EmptyRoomLiveTime value is set to a value greater zero.
+            If it's set the method will return false to indicate that the cache should not remove this
+            instance automaticly. The removal of the room is then scheduled using the <see cref="P:Lite.Room.ExecutionFiber"/>.
+            </remarks>
+        </member>
+        <member name="M:Lite.Room.EnqueueMessage(Lite.Messages.IMessage)">
+            <summary>
+              Enqueues an <see cref="T:Lite.Messages.IMessage"/> to the end of the execution queue.
+            </summary>
+            <param name="message">
+              The message to enqueue.
+            </param>
+            <remarks>
+              <see cref="M:Lite.Room.ProcessMessage(Lite.Messages.IMessage)"/> is called sequentially for each operation request 
+              stored in the execution queue.
+              Using an execution queue ensures that messages are processed in order
+              and sequentially to prevent object synchronization (multi threading).
+            </remarks>
+        </member>
+        <member name="M:Lite.Room.EnqueueOperation(Lite.LitePeer,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Enqueues an <see cref="T:Photon.SocketServer.OperationRequest"/> to the end of the execution queue.
+            </summary>
+            <param name="peer">
+              The peer.
+            </param>
+            <param name="operationRequest">
+              The operation request to enqueue.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <remarks>
+              <see cref="M:Lite.Room.ExecuteOperation(Lite.LitePeer,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)"/> is called sequentially for each operation request 
+              stored in the execution queue.
+              Using an execution queue ensures that operation request are processed in order
+              and sequentially to prevent object synchronization (multi threading).
+            </remarks>
+        </member>
+        <member name="M:Lite.Room.ScheduleMessage(Lite.Messages.IMessage,System.Int64)">
+            <summary>
+              Schedules a message to be processed after a specified time.
+            </summary>
+            <param name="message">
+              The message to schedule.
+            </param>
+            <param name="timeMs">
+              The time in milliseconds to wait before the message will be processed.
+            </param>
+            <returns>
+              an <see cref="T:System.IDisposable"/>
+            </returns>
+        </member>
+        <member name="M:Lite.Room.Dispose">
+            <summary>
+              Releases resources used by this instance.
+            </summary>
+        </member>
+        <member name="M:Lite.Room.Dispose(System.Boolean)">
+            <summary>
+              Releases unmanaged and - optionally - managed resources
+            </summary>
+            <param name = "dispose">
+              <c>true</c> to release both managed and unmanaged resources; 
+              <c>false</c> to release only unmanaged resources.
+            </param>
+        </member>
+        <member name="M:Lite.Room.ExecuteOperation(Lite.LitePeer,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              This method is invoked sequentially for each operation request 
+              enqueued in the <see cref="P:Lite.Room.ExecutionFiber"/> using the 
+              <see cref="M:Lite.Room.EnqueueOperation(Lite.LitePeer,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)"/> method.
+            </summary>
+            <param name="peer">
+              The peer.
+            </param>
+            <param name="operation">
+              The operation request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:Lite.Room.ProcessMessage(Lite.Messages.IMessage)">
+            <summary>
+              This method is invoked sequentially for each message enqueued 
+              by the <see cref="M:Lite.Room.EnqueueMessage(Lite.Messages.IMessage)"/> or <see cref="M:Lite.Room.ScheduleMessage(Lite.Messages.IMessage,System.Int64)"/>
+              method.
+            </summary>
+            <param name="message">
+              The message to process.
+            </param>
+        </member>
+        <member name="M:Lite.Room.PublishEvent(Lite.Events.LiteEventBase,Lite.Actor,Photon.SocketServer.SendParameters)">
+            <summary>
+              Publishes an event to a single actor on a specified channel.
+            </summary>
+            <param name="e">
+              The event to publish.
+            </param>
+            <param name="actor">
+              The <see cref="T:Lite.Actor"/> who should receive the event.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:Lite.Room.PublishEvent(Lite.Events.LiteEventBase,System.Collections.Generic.IEnumerable{Lite.Actor},Photon.SocketServer.SendParameters)">
+            <summary>
+              Publishes an event to a list of actors on a specified channel.
+            </summary>
+            <param name="e">
+              The event to publish.
+            </param>
+            <param name="actorList">
+              A list of <see cref="T:Lite.Actor"/> who should receive the event.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:Lite.Room.PublishEvent(Photon.SocketServer.EventData,System.Collections.Generic.IEnumerable{Lite.Actor},Photon.SocketServer.SendParameters)">
+            <summary>
+              Publishes an event to a list of actors on a specified channel.
+            </summary>
+            <param name="e">
+              The event to publish.
+            </param>
+            <param name="actorList">
+              A list of <see cref="T:Lite.Actor"/> who should receive the event.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:Lite.Room.ScheduleRoomRemoval(System.Int32)">
+            <summary>
+            Schedules the removal of the room instance from the cache.
+            The room will be removed after the specified time if there are no room
+            references left.
+            </summary>
+            <param name="roomLiveTime">
+            The time to remove the room in milliseconds.
+            </param>
+        </member>
+        <member name="M:Lite.Room.TryRemoveRoomFromCache">
+            <summary>
+            Removes the room instance from the cache if there are no references to the instance left.
+            </summary>
+        </member>
+        <member name="P:Lite.Room.ExecutionFiber">
+            <summary>
+              Gets a <see cref="T:ExitGames.Concurrency.Fibers.PoolFiber"/> instance used to synchronize access to this instance.
+            </summary>
+            <value>A <see cref="T:ExitGames.Concurrency.Fibers.PoolFiber"/> instance.</value>
+        </member>
+        <member name="P:Lite.Room.IsDisposed">
+            <summary>
+              Gets a value indicating whether IsDisposed.
+            </summary>
+        </member>
+        <member name="P:Lite.Room.Name">
+            <summary>
+              Gets the name (id) of the room.
+            </summary>
+        </member>
+        <member name="P:Lite.Room.EmptyRoomLiveTime">
+            <summary>
+            Gets or sets a value indicating how long the room instance will be keeped alive 
+            in the room cache after all peers have left the room.
+            </summary>
+        </member>
+        <member name="P:Lite.Room.RemoveTimer">
+            <summary>
+            Timer for removing room
+            </summary>
+        </member>
+        <member name="P:Lite.Room.Properties">
+            <summary>
+              Gets a PropertyBag instance used to store custom room properties.
+            </summary>
+        </member>
+        <member name="P:Lite.Room.Actors">
+            <summary>
+              Gets an <see cref="T:Lite.ActorCollection"/> containing the actors in the room
+            </summary>
+        </member>
+        <member name="F:Lite.LiteGame.actorEventCache">
+            <summary> 
+              Contains <see cref="T:Lite.Caching.EventCache"/>s for all actors.
+            </summary>
+        </member>
+        <member name="F:Lite.LiteGame.actorNumberCounter">
+            <summary>
+              The actor number counter is increase whenever a new <see cref="T:Lite.Actor"/> joins the game.
+            </summary>
+        </member>
+        <member name="M:Lite.LiteGame.#ctor(System.String,Lite.Caching.RoomCacheBase,System.Int32)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Lite.LiteGame"/> class.
+            </summary>
+            <param name="gameName">
+              The name of the game.
+            </param>
+            <param name="roomCache">
+              The <see cref="T:Lite.Caching.RoomCacheBase"/> instance to which the room belongs.
+            </param>
+            <param name="emptyRoomLiveTime">
+              A value indicating how long the room instance will be keeped alive 
+              in the room cache after all peers have left the room.
+            </param>
+        </member>
+        <member name="M:Lite.LiteGame.ExecuteOperation(Lite.LitePeer,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Called for each operation in the execution queue.
+              Every <see cref="T:Lite.Room"/> has a queue of incoming operations to execute. 
+              Per game <see cref="M:Lite.LiteGame.ExecuteOperation(Lite.LitePeer,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)"/> is never executed multi-threaded, thus all code executed here has thread safe access to all instance members.
+            </summary>
+            <param name="peer">
+              The peer.
+            </param>
+            <param name="operationRequest">
+              The operation request to execute.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:Lite.LiteGame.GetActorByPeer(Lite.LitePeer)">
+            <summary>
+              Gets the actor for a <see cref="T:Lite.LitePeer"/>.
+            </summary>
+            <param name="peer">
+              The peer.
+            </param>
+            <returns>
+              The actor for the peer or null if no actor for the peer exists (this should not happen).
+            </returns>
+        </member>
+        <member name="M:Lite.LiteGame.HandleGetPropertiesOperation(Lite.LitePeer,Lite.Operations.GetPropertiesRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles the <see cref="T:Lite.Operations.GetPropertiesRequest"/> operation: Sends the properties with the <see cref="T:Photon.SocketServer.OperationResponse"/>.
+            </summary>
+            <param name="peer">
+              The peer.
+            </param>
+            <param name="getPropertiesRequest">
+              The operation to handle.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:Lite.LiteGame.HandleJoinOperation(Lite.LitePeer,Lite.Operations.JoinRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles the <see cref="T:Lite.Operations.JoinRequest"/>: Joins a peer to a room and calls <see cref="M:Lite.LiteGame.PublishJoinEvent(Lite.LitePeer,Lite.Operations.JoinRequest)"/>.
+              Before a JoinOperation reaches this point (inside a room), the <see cref="T:Lite.LitePeer"/> made 
+              sure that it is removed from the previous Room (if there was any).
+            </summary>
+            <param name="peer">
+              The peer.
+            </param>
+            <param name="joinRequest">
+              The join operation.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              The newly created (joined) actor or null if the peer already joined.
+            </returns>
+        </member>
+        <member name="M:Lite.LiteGame.HandleLeaveOperation(Lite.LitePeer,Lite.Operations.LeaveRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles the <see cref="T:Lite.Operations.LeaveRequest"/> and calls <see cref="M:Lite.LiteGame.RemovePeerFromGame(Lite.LitePeer,Lite.Operations.LeaveRequest)"/>.
+            </summary>
+            <param name="peer">
+              The peer.
+            </param>
+            <param name="leaveRequest">
+              The operation.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:Lite.LiteGame.HandleRaiseEventOperation(Lite.LitePeer,Lite.Operations.RaiseEventRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles the <see cref="T:Lite.Operations.RaiseEventRequest"/>: Sends a <see cref="T:Lite.Events.CustomEvent"/> to actors in the room.
+            </summary>
+            <param name="peer">
+              The peer.
+            </param>
+            <param name="raiseEventRequest">
+              The operation
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:Lite.LiteGame.HandleSetPropertiesOperation(Lite.LitePeer,Lite.Operations.SetPropertiesRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles the <see cref="T:Lite.Operations.SetPropertiesRequest"/> and sends event <see cref="T:Lite.Events.PropertiesChangedEvent"/> to all <see cref="T:Lite.Actor"/>s in the room.
+            </summary>
+            <param name="peer">
+              The peer.
+            </param>
+            <param name="setPropertiesRequest">
+              The <see cref="T:Lite.Operations.SetPropertiesRequest"/> operation to handle.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:Lite.LiteGame.ProcessMessage(Lite.Messages.IMessage)">
+            <summary>
+              Processes a game message. Messages are used for internal communication.
+              Per default only <see cref="F:Lite.Messages.GameMessageCodes.RemovePeerFromGame">message RemovePeerFromGame</see> is handled, 
+              a message that is sent when a player leaves a game due to disconnect or due to a subsequent join to a different game.
+            </summary>
+            <param name="message">
+              Message to process.
+            </param>
+        </member>
+        <member name="M:Lite.LiteGame.PublishEventCache(Lite.LitePeer)">
+            <summary>
+              Sends all cached events to a peer.
+            </summary>
+            <param name = "litePeer">
+              The lite peer that receives the events.
+            </param>
+        </member>
+        <member name="M:Lite.LiteGame.PublishJoinEvent(Lite.LitePeer,Lite.Operations.JoinRequest)">
+            <summary>
+              Sends a <see cref="T:Lite.Events.JoinEvent"/> to all <see cref="T:Lite.Actor"/>s.
+            </summary>
+            <param name="peer">
+              The peer.
+            </param>
+            <param name="joinRequest">
+              The join request.
+            </param>
+        </member>
+        <member name="M:Lite.LiteGame.PublishLeaveEvent(Lite.Actor,Lite.Operations.LeaveRequest)">
+            <summary>
+              Sends a <see cref="T:Lite.Events.LeaveEvent"/> to all <see cref="T:Lite.Actor"/>s.
+            </summary>
+            <param name="actor">
+              The actor which sents the event.
+            </param>
+            <param name="leaveRequest">
+            The <see cref="T:Lite.Operations.LeaveRequest"/> sent by the peer or null if the peer have been disconnected without sending a leave request.
+            </param>
+        </member>
+        <member name="M:Lite.LiteGame.RemovePeerFromGame(Lite.LitePeer,Lite.Operations.LeaveRequest)">
+            <summary>
+              Removes a peer from the game. 
+              This method is called if a client sends a <see cref="T:Lite.Operations.LeaveRequest"/> or disconnects.
+            </summary>
+            <param name="peer">
+              The <see cref="T:Lite.LitePeer"/> to remove.
+            </param>
+            <param name="leaveRequest">
+            The <see cref="T:Lite.Operations.LeaveRequest"/> sent by the peer or null if the peer have been disconnected without sending a leave request.
+            </param>
+            <returns>
+              The actor number of the removed actor. 
+              If the specified peer does not exists -1 will be returned.
+            </returns>
+        </member>
+        <member name="M:Lite.LiteGame.TryAddPeerToGame(Lite.LitePeer,System.Int32,Lite.Actor@)">
+            <summary>
+              Tries to add a <see cref="T:Lite.LitePeer"/> to this game instance.
+            </summary>
+            <param name="peer">
+              The peer to add.
+            </param>
+            <param name="actor">
+              When this method returns this out param contains the <see cref="T:Lite.Actor"/> associated with the <paramref name="peer"/>.
+            </param>
+            <returns>
+              Returns true if no actor exists for the specified peer and a new actor for the peer has been successfully added. 
+              The actor parameter is set to the newly created <see cref="T:Lite.Actor"/> instance.
+              Returns false if an actor for the specified peer already exists. 
+              The actor paramter is set to the existing <see cref="T:Lite.Actor"/> for the specified peer.
+            </returns>
+        </member>
+        <member name="M:Lite.LiteGame.UpdateEventCache(Lite.Actor,Lite.Operations.RaiseEventRequest,System.String@)">
+            <summary>
+              Helper method of <see cref="M:Lite.LiteGame.HandleRaiseEventOperation(Lite.LitePeer,Lite.Operations.RaiseEventRequest,Photon.SocketServer.SendParameters)"/>.
+              Stores an event for new actors.
+            </summary>
+            <param name="actor">
+              The actor.
+            </param>
+            <param name="raiseEventRequest">
+              The raise event request.
+            </param>
+            <param name="msg">
+              Contains an error message if the method returns false.
+            </param>
+            <returns>
+              True if <see cref="P:Lite.Operations.RaiseEventRequest.Cache"/> is valid.
+            </returns>
+        </member>
+        <member name="P:Lite.LiteGame.DeleteCacheOnLeave">
+            <summary>
+            Gets or sets a value indicating whether cached events are automaticly deleted for 
+            actors which are leaving a room.
+            </summary>
+        </member>
+        <member name="P:Lite.LiteGame.SuppressRoomEvents">
+            <summary>
+            Gets or sets a value indicating if common room events (Join, Leave) will suppressed.
+            </summary>
+        </member>
+        <member name="T:Lite.Diagnostics.CounterLogger">
+            <summary>
+            Logs the most intersting counters into a log file
+            </summary>
+        </member>
+        <member name="F:Lite.Diagnostics.CounterLogger.LogIntervalMs">
+            <summary>
+            Log interval is set to 5 seconds.
+            </summary>
+        </member>
+        <member name="F:Lite.Diagnostics.CounterLogger.counterLog">
+            <summary>
+            Get logger for the counter log file.
+            </summary>
+        </member>
+        <member name="F:Lite.Diagnostics.CounterLogger.log">
+            <summary>
+            Get logger for debug out.
+            </summary>
+        </member>
+        <member name="F:Lite.Diagnostics.CounterLogger.instance">
+            <summary>
+            Singleton instance.
+            </summary>
+        </member>
+        <member name="F:Lite.Diagnostics.CounterLogger.timer">
+            <summary>
+            Timer used to trigger log output
+            </summary>
+        </member>
+        <member name="M:Lite.Diagnostics.CounterLogger.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:Lite.Diagnostics.CounterLogger"/> class from being created.
+            </summary>
+        </member>
+        <member name="M:Lite.Diagnostics.CounterLogger.Start">
+            <summary>
+            Starts the log output.
+            </summary>
+        </member>
+        <member name="M:Lite.Diagnostics.CounterLogger.LogCounter(System.Object)">
+            <summary>
+            Callback to write counter values to a log counter.
+            </summary>
+            <param name="state">State value.</param>
+        </member>
+        <member name="P:Lite.Diagnostics.CounterLogger.Instance">
+            <summary>
+            Gets an sigelton instance of the <see cref="T:Lite.Diagnostics.CounterLogger"/> class.
+            </summary>
+            <value>The instance.</value>
+        </member>
+        <member name="T:Lite.LitePeer">
+            <summary>
+              Inheritance class of <see cref="T:Photon.SocketServer.PeerBase"/>.  
+              The LitePeer dispatches incoming <see cref="T:Photon.SocketServer.OperationRequest"/>s at <see cref="M:Lite.LitePeer.OnOperationRequest(Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">OnOperationRequest</see>.
+              When joining a <see cref="T:Lite.Room"/> a <see cref="T:Lite.Caching.RoomReference"/> is stored in the <see cref="P:Lite.LitePeer.RoomReference"/> property.
+              An <see cref="T:ExitGames.Concurrency.Fibers.IFiber"/> guarantees that all outgoing messages (events/operations) are sent one after the other.
+            </summary>
+        </member>
+        <member name="F:Lite.LitePeer.log">
+            <summary>
+              An <see cref="T:ExitGames.Logging.ILogger"/> instance used to log messages to the logging framework.
+            </summary>
+        </member>
+        <member name="M:Lite.LitePeer.#ctor(Photon.SocketServer.IRpcProtocol,PhotonHostRuntimeInterfaces.IPhotonPeer)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Lite.LitePeer"/> class.
+            </summary>
+            <param name="rpcProtocol">
+              The rpc protocol.
+            </param>
+            <param name="nativePeer">
+              The native peer.
+            </param>
+        </member>
+        <member name="M:Lite.LitePeer.ValidateOperation(Photon.SocketServer.Rpc.Operation,Photon.SocketServer.SendParameters)">
+            <summary>
+              Checks if a operation is valid. If the operation is not valid
+              an operation response containing a desciptive error message
+              will be sent to the peer.
+            </summary>
+            <param name = "operation">
+              The operation.
+            </param>
+            <param name = "sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              true if the operation is valid; otherwise false.
+            </returns>
+        </member>
+        <member name="M:Lite.LitePeer.GetRoomReference(Lite.Operations.JoinRequest)">
+            <summary>
+              Called by <see cref="M:Lite.LitePeer.HandleJoinOperation(Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)"/> to get a room reference for a join operations.
+              This method can be overloaded by inheritors to provide custom room references.
+            </summary>
+            <param name="joinRequest">The join request.</param>
+            <returns>An <see cref="T:Lite.Caching.RoomReference"/> instance.</returns>
+        </member>
+        <member name="M:Lite.LitePeer.HandleGameOperation(Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Enqueues game related operation requests in the peers current game.
+            </summary>
+            <param name="operationRequest">
+              The operation request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <remarks>
+              The current for a peer is stored in the peers state property. 
+              Using the <see cref="M:Lite.Room.EnqueueOperation(Lite.LitePeer,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)"/> method ensures that all operation request dispatch logic has thread safe access to all room instance members since they are processed in a serial order. 
+              <para>
+                Inheritors can use this method to enqueue there custom game operation to the peers current game.
+              </para>
+            </remarks>
+        </member>
+        <member name="M:Lite.LitePeer.HandleJoinOperation(Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles the <see cref="T:Lite.Operations.JoinRequest"/> to enter a <see cref="T:Lite.LiteGame"/>.
+              This method removes the peer from any previously joined room, finds the room intended for join
+              and enqueues the operation for it to handle.
+            </summary>
+            <param name="operationRequest">
+              The operation request to handle.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:Lite.LitePeer.HandleLeaveOperation(Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles the <see cref="T:Lite.Operations.LeaveRequest"/> to leave a <see cref="T:Lite.LiteGame"/>.
+            </summary>
+            <param name="operationRequest">
+              The operation request to handle.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:Lite.LitePeer.HandlePingOperation(Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles a ping operation.
+            </summary>
+            <param name = "operationRequest">
+              The operation request to handle.
+            </param>
+            <param name = "sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:Lite.LitePeer.OnDisconnect(PhotonHostRuntimeInterfaces.DisconnectReason,System.String)">
+            <summary>
+              Called when client disconnects.
+              Ensures that disconnected players leave the game <see cref="T:Lite.Room"/>.
+              The player is not removed immediately but a message is sent to the room. This avoids
+              threading issues by making sure the player remove is not done concurrently with operations.
+            </summary>
+        </member>
+        <member name="M:Lite.LitePeer.OnOperationRequest(Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Called when the client sends an <see cref="T:Photon.SocketServer.OperationRequest"/>.
+            </summary>
+            <param name="operationRequest">
+              The operation request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:Lite.LitePeer.RemovePeerFromCurrentRoom">
+            <summary>
+              Checks if the the state of peer is set to a reference of a room.
+              If a room refrence is present the peer will be removed from the related room and the reference will be disposed. 
+              Disposing the reference allows the associated room factory to remove the room instance if no more references to the room exists.
+            </summary>
+        </member>
+        <member name="P:Lite.LitePeer.RoomReference">
+            <summary>
+              Gets or sets a <see cref="T:Lite.Caching.RoomReference"/> when joining a <see cref="T:Lite.Room"/>.
+            </summary>
+        </member>
+        <member name="T:Lite.Messages.IMessage">
+            <summary>
+            Interface of a message.
+            </summary>
+        </member>
+        <member name="P:Lite.Messages.IMessage.Action">
+            <summary>
+            Gets the action.
+            </summary>
+        </member>
+        <member name="P:Lite.Messages.IMessage.Message">
+            <summary>
+            Gets the message.
+            </summary>
+        </member>
+        <member name="T:Lite.Messages.RoomMessage">
+            <summary>
+            Represents a message for rooms.
+            </summary>
+        </member>
+        <member name="M:Lite.Messages.RoomMessage.#ctor(System.Byte)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Messages.RoomMessage"/> class.
+            </summary>
+            <param name="action">The action.</param>
+        </member>
+        <member name="M:Lite.Messages.RoomMessage.#ctor(System.Byte,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Messages.RoomMessage"/> class.
+            </summary>
+            <param name="action">The action.</param>
+            <param name="message">The message.</param>
+        </member>
+        <member name="P:Lite.Messages.RoomMessage.Message">
+            <summary>
+            Gets the message.
+            </summary>
+            <value>The message.</value>
+        </member>
+        <member name="P:Lite.Messages.RoomMessage.Action">
+            <summary>
+            Gets the action.
+            </summary>
+            <value>The action.</value>
+        </member>
+        <member name="T:Lite.Operations.CacheOperation">
+            <summary>
+              Parameter value of RaiseEventRequest.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.CacheOperation.DoNotCache">
+            <summary>
+              Don't cache the event. (default)
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.CacheOperation.MergeCache">
+            <summary>
+              Merge cached event with data.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.CacheOperation.ReplaceCache">
+            <summary>
+              Replace cached event with data.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.CacheOperation.RemoveCache">
+            <summary>
+              Remove cached event.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.CacheOperation.AddToRoomCache">
+            <summary>
+            Add to the room cache.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.ChangeGroups.Remove">
+            <summary>
+            Gets or sets custom actor properties.
+            </summary>
+        </member>
+        <member name="T:Lite.Operations.EventCode">
+            <summary>
+              Event codes of events (defining their type and keys).
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.EventCode.NoCodeSet">
+            <summary>
+              Specifies that no event code is set.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.EventCode.Join">
+            <summary>
+              The event code for the <see cref="T:Lite.Events.JoinEvent"/>.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.EventCode.Leave">
+            <summary>
+              The event code for the <see cref="T:Lite.Events.LeaveEvent"/>.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.EventCode.PropertiesChanged">
+            <summary>
+              The event code for the <see cref="T:Lite.Events.PropertiesChangedEvent"/>.
+            </summary>
+        </member>
+        <member name="T:Lite.Operations.GetPropertiesRequest">
+            <summary>
+              The get properties request.
+            </summary>
+        </member>
+        <member name="M:Lite.Operations.GetPropertiesRequest.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Lite.Operations.GetPropertiesRequest"/> class.
+            </summary>
+            <param name="protocol">
+              The protocol.
+            </param>
+            <param name="operationRequest">
+              Operation request containing the operation parameters.
+            </param>
+        </member>
+        <member name="M:Lite.Operations.GetPropertiesRequest.#ctor">
+            <summary>
+              Initializes a new instance of the <see cref="T:Lite.Operations.GetPropertiesRequest"/> class.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.GetPropertiesRequest.ActorNumbers">
+            <summary>
+              Gets or sets the actor numbers for which to get the properties.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.GetPropertiesRequest.ActorPropertyKeys">
+            <summary>
+              Gets or sets ActorPropertyKeys.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.GetPropertiesRequest.GamePropertyKeys">
+            <summary>
+              Gets or sets GamePropertyKeys.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.GetPropertiesRequest.PropertyType">
+            <summary>
+              Gets or sets PropertyType.
+            </summary>
+        </member>
+        <member name="T:Lite.Operations.GetPropertiesResponse">
+            <summary>
+              Response for <see cref="T:Lite.Operations.GetPropertiesRequest"/>.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.GetPropertiesResponse.ActorProperties">
+            <summary>
+              Gets or sets ActorProperties.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.GetPropertiesResponse.GameProperties">
+            <summary>
+              Gets or sets GameProperties.
+            </summary>
+        </member>
+        <member name="T:Lite.Operations.JoinResponse">
+            <summary>
+              Response for <see cref="T:Lite.Operations.JoinRequest"/>.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.JoinResponse.ActorNr">
+            <summary>
+              Gets or sets the actor number for the joined player.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.JoinResponse.CurrentActorProperties">
+            <summary>
+              Gets or sets the current actor properties for all existing actors in the game
+              that will be returned to the client in the operation response.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.JoinResponse.CurrentGameProperties">
+            <summary>
+              Gets or sets the current game properties that will be returned 
+              to the client in the operation response.
+            </summary>
+        </member>
+        <member name="T:Lite.Operations.OperationCode">
+            <summary>
+              Defines the operation codes used by the Lite application.
+              These codes match events (in parts).
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.OperationCode.Join">
+            <summary>
+              The operation code for the <see cref="T:Lite.Operations.JoinRequest">join</see> operation.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.OperationCode.Leave">
+            <summary>
+              Operation code for the <see cref="T:Lite.Operations.LeaveRequest">leave</see> operation.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.OperationCode.RaiseEvent">
+            <summary>
+              Operation code for the <see cref="T:Lite.Operations.RaiseEventRequest">raise event</see> operation.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.OperationCode.SetProperties">
+            <summary>
+              Operation code for the <see cref="T:Lite.Operations.SetPropertiesRequest">set properties</see> operation.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.OperationCode.GetProperties">
+            <summary>
+              Operation code for the <see cref="T:Lite.Operations.GetPropertiesRequest">get properties</see> operation.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.OperationCode.Ping">
+            <summary>
+              Operation code for the ping operation.
+            </summary>
+        </member>
+        <member name="T:Lite.Operations.ParameterKey">
+            <summary>
+              Parameter keys are used as event-keys, operation-parameter keys and operation-return keys alike.
+              The values are partly taken from Exit Games Photon, which contains many more keys.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.GameId">
+            <summary>
+              The game id.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.ActorNr">
+            <summary>
+              The actor nr
+              used as op-key and ev-key
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.TargetActorNr">
+            <summary>
+              The target actor nr.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.Actors">
+            <summary>
+              The actors.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.Properties">
+            <summary>
+              The properties.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.Broadcast">
+            <summary>
+              The broadcast.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.ActorProperties">
+            <summary>
+              The actor properties.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.GameProperties">
+            <summary>
+              The game properties.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.Cache">
+            <summary>
+              Event parameter to indicate whether events are cached for new actors.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.ReceiverGroup">
+            <summary>
+              Event parameter containing a <see cref="T:Lite.Operations.ReceiverGroup"/> value.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.Data">
+            <summary>
+              The data.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.Code">
+            <summary>
+              The paramter code for the <see cref="T:Lite.Operations.RaiseEventRequest">raise event</see> operations event code.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.Flush">
+            <summary>
+              the flush event code for raise event.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.DeleteCacheOnLeave">
+            <summary>
+            Event parameter to indicate whether cached events are deleted automaticly for actors leaving a room.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.Group">
+            <summary>
+            The group this event should be sent to. No error is happening if the group is empty or not existing.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.GroupsForRemove">
+            <summary>
+            Groups to leave. Null won't remove any groups. byte[0] will remove ALL groups. Otherwise only the groups listed will be removed.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.GroupsForAdd">
+            <summary>
+            Groups to enter. Null won't add groups. byte[0] will add ALL groups. Otherwise only the groups listed will be added.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ParameterKey.SuppressRoomEvents">
+            <summary>
+            A parameter indicating if common room events (Join, Leave) will be suppressed.
+            </summary>
+        </member>
+        <member name="T:Lite.Operations.JoinRequest">
+            <summary>
+            This class implements the Join operation.
+            </summary>
+        </member>
+        <member name="M:Lite.Operations.JoinRequest.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Operations.JoinRequest"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="operationRequest">
+            Operation request containing the operation parameters.
+            </param>
+        </member>
+        <member name="M:Lite.Operations.JoinRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Operations.JoinRequest"/> class.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.JoinRequest.ActorProperties">
+            <summary>
+            Gets or sets custom actor properties.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.JoinRequest.BroadcastActorProperties">
+            <summary>
+            Gets or sets a value indicating whether the actor properties
+            should be included in the <see cref="T:Lite.Events.JoinEvent"/> event which 
+            will be sent to all clients currently in the room.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.JoinRequest.GameId">
+            <summary>
+            Gets or sets the name of the game (room).
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.JoinRequest.GameProperties">
+            <summary>
+            Gets or sets custom game properties.
+            </summary>
+            <remarks>
+            Game properties will only be applied for the game creator.
+            </remarks>
+        </member>
+        <member name="P:Lite.Operations.JoinRequest.DeleteCacheOnLeave">
+            <summary>
+            Gets or sets a value indicating whether cached events are automaticly deleted for 
+            actors which are leaving a room.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.JoinRequest.SuppressRoomEvents">
+            <summary>
+            Gets or sets a value indicating if common room events (Join, Leave) will be suppressed.
+            </summary>
+            <remarks>
+            This property will only be applied for the game creator.
+            </remarks>
+        </member>
+        <member name="P:Lite.Operations.JoinRequest.ActorNr">
+            <summary>
+            Actor number, which will be used for rejoin
+            </summary>
+        </member>
+        <member name="T:Lite.Operations.LeaveRequest">
+            <summary>
+            Implements the Leave operation.
+            </summary>
+        </member>
+        <member name="M:Lite.Operations.LeaveRequest.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Operations.LeaveRequest"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="operationRequest">
+            Operation request containing the operation parameters.
+            </param>
+        </member>
+        <member name="T:Lite.Operations.RaiseEventRequest">
+            <summary>
+              Implements the RaiseEvent operation.
+            </summary>
+        </member>
+        <member name="M:Lite.Operations.RaiseEventRequest.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Operations.RaiseEventRequest"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="operationRequest">
+            Operation request containing the operation parameters.
+            </param>
+        </member>
+        <member name="M:Lite.Operations.RaiseEventRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Operations.RaiseEventRequest"/> class.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.RaiseEventRequest.Actors">
+            <summary>
+              Gets or sets the actors which should receive the event.
+              If set to null or an empty array the event will be sent
+              to all actors in the room.
+            </summary>
+            <remarks>
+              Optional request parameter.
+            </remarks>
+        </member>
+        <member name="P:Lite.Operations.RaiseEventRequest.Cache">
+            <summary>
+              Gets or sets a value indicating how to use the <see cref="T:Lite.Caching.EventCache"/>.
+            </summary>
+            <remarks>
+              Optional request parameter.
+              Ignored if the event is sent to individual actors (submitted <see cref="P:Lite.Operations.RaiseEventRequest.Actors"/> or <see cref="F:Lite.Operations.ReceiverGroup.MasterClient"/>).
+            </remarks>
+        </member>
+        <member name="P:Lite.Operations.RaiseEventRequest.Data">
+            <summary>
+              Gets or sets the hashtable containing the data to send.
+            </summary>
+            <remarks>
+              Optional request parameter.
+            </remarks>
+        </member>
+        <member name="P:Lite.Operations.RaiseEventRequest.EvCode">
+            <summary>
+              Gets or sets a byte containing the Code to send.
+            </summary>
+            <remarks>
+              Optional request parameter.
+            </remarks>
+        </member>
+        <member name="P:Lite.Operations.RaiseEventRequest.Flush">
+            <summary>
+              Gets or sets a value indicating whether to flush the send queue.
+              Flushing the send queue will override the configured photon send delay.
+            </summary>
+            <remarks>
+              Optional request parameter.
+            </remarks>
+        </member>
+        <member name="P:Lite.Operations.RaiseEventRequest.GameId">
+            <summary>
+              Gets or sets the game id.
+            </summary>
+            <remarks>
+              Optional request parameter.
+            </remarks>
+        </member>
+        <member name="P:Lite.Operations.RaiseEventRequest.ReceiverGroup">
+            <summary>
+              Gets or sets the <see cref="T:Lite.Operations.ReceiverGroup"/> for the event.
+            </summary>
+            <remarks>
+              Optional request parameter.
+              Ignored if <see cref="P:Lite.Operations.RaiseEventRequest.Actors"/> are set.
+            </remarks>
+        </member>
+        <member name="P:Lite.Operations.RaiseEventRequest.Group">
+            <summary>
+              Gets or sets the <see cref="T:Lite.Operations.ReceiverGroup"/> for the event.
+            </summary>
+            <remarks>
+              Optional request parameter.
+              Ignored if <see cref="P:Lite.Operations.RaiseEventRequest.Actors"/> are set.
+            </remarks>
+        </member>
+        <member name="T:Lite.Operations.PropertyType">
+            <summary>
+              The property type.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.PropertyType.None">
+            <summary>
+              The none.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.PropertyType.Game">
+            <summary>
+              The game.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.PropertyType.Actor">
+            <summary>
+              The actor.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.PropertyType.GameAndActor">
+            <summary>
+              The game and actor.
+            </summary>
+        </member>
+        <member name="T:Lite.Events.CustomEvent">
+            <summary>
+            Implementation of a custom event.
+            </summary>
+        </member>
+        <member name="M:Lite.Events.CustomEvent.#ctor(System.Int32,System.Byte,System.Object)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Events.CustomEvent"/> class.
+            </summary>
+            <param name="actorNr">
+            The actor nr.
+            </param>
+            <param name="eventCode">
+            The event code.
+            </param>
+            <param name="data">
+            The event data.
+            </param>
+        </member>
+        <member name="P:Lite.Events.CustomEvent.Data">
+            <summary>
+            Gets or sets the event data.
+            </summary>
+            <value>The event data.</value>
+        </member>
+        <member name="T:Lite.Events.JoinEvent">
+            <summary>
+            This class implements the Join event.
+            </summary>
+        </member>
+        <member name="M:Lite.Events.JoinEvent.#ctor(System.Int32,System.Int32[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Events.JoinEvent"/> class.
+            </summary>
+            <param name="actorNr">
+            The sender actor nr.
+            </param>
+            <param name="actors">
+            The actors in the game.
+            </param>
+        </member>
+        <member name="P:Lite.Events.JoinEvent.ActorProperties">
+            <summary>
+            Gets or sets the actor properties of the joined actor.
+            </summary>
+        </member>
+        <member name="P:Lite.Events.JoinEvent.Actors">
+            <summary>
+            Gets or sets the actors in the game.
+            </summary>
+        </member>
+        <member name="T:Lite.Events.LeaveEvent">
+            <summary>
+            This class implements the Leave event.
+            </summary>
+        </member>
+        <member name="M:Lite.Events.LeaveEvent.#ctor(System.Int32,System.Int32[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Events.LeaveEvent"/> class.
+            </summary>
+            <param name="actorNr">
+            The sender actor nr.
+            </param>
+            <param name="actors">
+            The actors in the game.
+            </param>
+        </member>
+        <member name="P:Lite.Events.LeaveEvent.Actors">
+            <summary>
+            Gets or sets the actors.
+            </summary>
+            <value>The actors.</value>
+        </member>
+        <member name="T:Lite.Messages.GameMessageCodes">
+            <summary>
+            GameMessagCodes define the type of a "LiteGame" Message, the meaning and its content.
+            Messages are used to communicate async with rooms and games.
+            </summary>
+        </member>
+        <member name="F:Lite.Messages.GameMessageCodes.Operation">
+            <summary>
+            Message is an operatzion.
+            </summary>
+        </member>
+        <member name="F:Lite.Messages.GameMessageCodes.RemovePeerFromGame">
+            <summary>
+            Message to remove peer from game.
+            </summary>
+        </member>
+        <member name="T:Lite.Diagnostics.Counter">
+            <summary>
+            Counter on application level
+            </summary>
+        </member>
+        <member name="F:Lite.Diagnostics.Counter.Games">
+            <summary>
+            Absolute number of games active (in the game cache).
+            </summary>
+        </member>
+        <member name="T:Lite.Operations.ReceiverGroup">
+            <summary>
+              Possible groups of receivers for events.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ReceiverGroup.Others">
+            <summary>
+              Send to all actors but the sender.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ReceiverGroup.All">
+            <summary>
+              Send to all actors including the sender.
+            </summary>
+        </member>
+        <member name="F:Lite.Operations.ReceiverGroup.MasterClient">
+            <summary>
+              Send to the peer with the lowest actor number.
+            </summary>
+        </member>
+        <member name="T:Lite.Operations.SetPropertiesRequest">
+            <summary>
+            The set properties operation.
+            </summary>
+        </member>
+        <member name="M:Lite.Operations.SetPropertiesRequest.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Operations.SetPropertiesRequest"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="operationRequest">
+            Operation request containing the operation parameters.
+            </param>
+        </member>
+        <member name="M:Lite.Operations.SetPropertiesRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Lite.Operations.SetPropertiesRequest"/> class.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.SetPropertiesRequest.ActorNumber">
+            <summary>
+            Gets or sets ActorNumber.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.SetPropertiesRequest.Broadcast">
+            <summary>
+            Gets or sets a value indicating whether Broadcast.
+            </summary>
+        </member>
+        <member name="P:Lite.Operations.SetPropertiesRequest.Properties">
+            <summary>
+            Gets or sets Properties.
+            </summary>
+        </member>
+    </members>
+</doc>

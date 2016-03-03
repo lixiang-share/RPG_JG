@@ -22,9 +22,17 @@ public class CommUtils {
 	}
 	
 	//TODO
-	public static String md5Encrypt(String pwd) throws NoSuchAlgorithmException, UnsupportedEncodingException {
-		  MessageDigest md = MessageDigest.getInstance("MD5");
-          return bytesToHex(md.digest(pwd.getBytes(GameConfig.DefEncoding)));
+	public static String md5Encrypt(String pwd) {
+		  MessageDigest md;
+		try {
+			md = MessageDigest.getInstance("MD5");
+			return bytesToHex(md.digest(pwd.getBytes(GameConfig.DefEncoding)));
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			e.printStackTrace();
+		}
+		return pwd;
 	}
 	private static String bytesToHex(byte[] bytes) {
 		StringBuffer md5str = new StringBuffer();

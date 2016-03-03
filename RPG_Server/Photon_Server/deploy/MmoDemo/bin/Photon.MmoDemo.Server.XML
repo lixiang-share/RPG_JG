@@ -1,0 +1,3154 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Photon.MmoDemo.Server</name>
+    </assembly>
+    <members>
+        <member name="T:Photon.MmoDemo.Server.CounterOperations">
+            <summary>
+            This class handles the operations <see cref="M:Photon.MmoDemo.Server.CounterOperations.SubscribeCounter(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">SubscribeCounter</see> and <see cref="M:Photon.MmoDemo.Server.CounterOperations.UnsubscribeCounter(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">UnsubscribeCounter</see>.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.CounterOperations.SubscribeCounter(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Handles operation <see cref="M:Photon.MmoDemo.Server.CounterOperations.SubscribeCounter(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)"/>: The client receives counter updates from the <see cref="F:Photon.MmoDemo.Server.PhotonApplication.CounterPublisher"/>.
+            </summary>
+            <param name="peer">
+            The client peer.
+            </param>
+            <param name="request">
+            The request.
+            </param>
+            <returns>
+            An <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/> or <see cref="F:Photon.MmoDemo.Common.ReturnCode.InvalidOperation"/> if already subscribed.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.CounterOperations.UnsubscribeCounter(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Handles operation <see cref="M:Photon.MmoDemo.Server.CounterOperations.UnsubscribeCounter(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)"/>: The client stops receiving counter updates from the <see cref="F:Photon.MmoDemo.Server.PhotonApplication.CounterPublisher"/>.
+            </summary>
+            <param name="peer">
+            The client peer.
+            </param>
+            <param name="request">
+            The request.
+            </param>
+            <returns>
+            An <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/> or <see cref="F:Photon.MmoDemo.Common.ReturnCode.InvalidOperation"/> if not yet subscribed.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.CounterOperations.PublishCounterData(Photon.SocketServer.PeerBase,System.Collections.Generic.ICollection{ExitGames.Diagnostics.Monitoring.CounterSampleMessage})">
+            <summary>
+            The publish counter data.
+            </summary>
+            <param name="peer">
+            The client peer.
+            </param>
+            <param name="counterSamples">
+            The counter samples.
+            </param>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.CounterOperations.CounterAggregation">
+            <summary>
+            The counter aggregation.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.CounterOperations.CounterAggregation.Create(System.Collections.Generic.ICollection{ExitGames.Diagnostics.Monitoring.CounterSampleMessage})">
+            <summary>
+            The create.
+            </summary>
+            <param name="dataSamples">
+            The data samples.
+            </param>
+            <returns>
+            an array of counter samples
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.CounterOperations.CounterAggregation.CounterName">
+            <summary>
+            Gets the CounterName.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.CounterOperations.CounterAggregation.Timestamps">
+            <summary>
+            Gets the counter Timestamps.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.CounterOperations.CounterAggregation.Values">
+            <summary>
+            Gets the counter Values.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Events.CounterDataEvent">
+            <summary>
+            Clients receive this event after executing operation <see cref="T:Photon.MmoDemo.Server.Operations.SubscribeCounter"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.CounterDataEvent.Name">
+            <summary>
+            Gets or sets the counter name.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.CounterDataEvent.TimeStamps">
+            <summary>
+            Gets or sets the timestamps of the counter values.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.CounterDataEvent.Values">
+            <summary>
+            Gets or sets the counter values.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Events.ItemDestroyed">
+            <summary>
+            Client receive this event after executing operation <see cref="T:Photon.MmoDemo.Server.Operations.DestroyItem"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemDestroyed.ItemId">
+            <summary>
+            Gets or sets the id of the affected <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemDestroyed.ItemType">
+            <summary>
+            Gets or sets the type of the affected <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Events.ItemGeneric">
+            <summary>
+            Clients receive this event after executing operation <see cref="T:Photon.MmoDemo.Server.Operations.RaiseGenericEvent"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemGeneric.CustomEventCode">
+            <summary>
+            Gets or sets the custom event code.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemGeneric.EventData">
+            <summary>
+            Gets or sets the contained data.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemGeneric.ItemId">
+            <summary>
+            Gets or sets the source <see cref="T:Photon.SocketServer.Mmo.Item"/> Id.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemGeneric.ItemType">
+            <summary>
+            Gets or sets the source <see cref="T:Photon.SocketServer.Mmo.Item"/> type.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Events.ItemMoved">
+            <summary>
+            Clients receive this event after executing operation <see cref="T:Photon.MmoDemo.Server.Operations.Move"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemMoved.ItemId">
+            <summary>
+            Gets or sets the source <see cref="T:Photon.SocketServer.Mmo.Item"/> Id.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemMoved.ItemType">
+            <summary>
+            Gets or sets the source <see cref="T:Photon.SocketServer.Mmo.Item"/> type.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemMoved.OldPosition">
+            <summary>
+            Gets or sets the source <see cref="T:Photon.SocketServer.Mmo.Item"/>'s former known position.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemMoved.Position">
+            <summary>
+            Gets or sets the source <see cref="T:Photon.SocketServer.Mmo.Item"/>'s new position.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemMoved.Rotation">
+            <summary>
+            Gets or sets the source <see cref="T:Photon.SocketServer.Mmo.Item"/>'s new rotation.
+            This parameter is optional.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemMoved.OldRotation">
+            <summary>
+            Gets or sets the source <see cref="T:Photon.SocketServer.Mmo.Item"/>'s old rotation.
+            This parameter is optional.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Events.ItemProperties">
+            <summary>
+            The client receives this event after executing operation <see cref="T:Photon.MmoDemo.Server.Operations.GetProperties"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemProperties.ItemId">
+            <summary>
+            Gets or sets the source <see cref="T:Photon.SocketServer.Mmo.Item"/> Id.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemProperties.ItemType">
+            <summary>
+            Gets or sets the source <see cref="T:Photon.SocketServer.Mmo.Item"/> type.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemProperties.PropertiesRevision">
+            <summary>
+            Gets or sets the new properties revision number.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemProperties.PropertiesSet">
+            <summary>
+            Gets or sets the <see cref="T:Photon.SocketServer.Mmo.Item"/>'s properties.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Events.ItemPropertiesSet">
+            <summary>
+            Clients receive this event after executing operation <see cref="T:Photon.MmoDemo.Server.Operations.SetProperties"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemPropertiesSet.ItemId">
+            <summary>
+            Gets or sets the source <see cref="T:Photon.SocketServer.Mmo.Item"/> Id.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemPropertiesSet.ItemType">
+            <summary>
+            Gets or sets the source <see cref="T:Photon.SocketServer.Mmo.Item"/> type.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemPropertiesSet.PropertiesRevision">
+            <summary>
+            Gets or sets the properties revision number.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemPropertiesSet.PropertiesSet">
+            <summary>
+            Gets or sets the new and/or changed properties.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemPropertiesSet.PropertiesUnset">
+            <summary>
+            Gets or sets the keys of the removed properties.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Events.ItemSubscribed">
+            <summary>
+            Client receive this event when an <see cref="T:Photon.MmoDemo.Server.MmoClientInterestArea"/> subscribes to an <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemSubscribed.InterestAreaId">
+            <summary>
+            Gets or sets the id of the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> that subscribed.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemSubscribed.ItemId">
+            <summary>
+            Gets or sets the Id of the subscribed <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemSubscribed.ItemType">
+            <summary>
+            Gets or sets the type of the subscribed <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemSubscribed.Position">
+            <summary>
+            Gets or sets the position of the subscribed <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemSubscribed.Rotation">
+            <summary>
+            Gets or sets the rotation of the subscribed <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            This event parameter is optional.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemSubscribed.PropertiesRevision">
+            <summary>
+            Gets or sets the properties revision number of the subscribed <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            The client compares to his cached properties and can then decide to update them with operation <see cref="T:Photon.MmoDemo.Server.Operations.GetProperties"/>.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Events.ItemUnsubscribed">
+            <summary>
+            Client receive this event when an <see cref="T:Photon.MmoDemo.Server.MmoClientInterestArea"/> unsubscribes from an <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemUnsubscribed.InterestAreaId">
+            <summary>
+            Gets or sets the id of the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> that unsubscribed.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemUnsubscribed.ItemId">
+            <summary>
+            Gets or sets the Id of the unsubscribed <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.ItemUnsubscribed.ItemType">
+            <summary>
+            Gets or sets the type of the unsubscribed <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Events.RadarUpdate">
+            <summary>
+            Clients receive this event frequently after executing operation <see cref="T:Photon.MmoDemo.Server.Operations.RadarSubscribe"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.RadarUpdate.ItemId">
+            <summary>
+            Gets or sets the Id of the <see cref="T:Photon.SocketServer.Mmo.Item"/> that changed the position.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.RadarUpdate.ItemType">
+            <summary>
+            Gets or sets the type of the <see cref="T:Photon.SocketServer.Mmo.Item"/> that changed the position.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.RadarUpdate.Position">
+            <summary>
+            Gets or sets the new position of the <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Events.WorldExited">
+            <summary>
+            Clients receive this event after exiting a <see cref="T:Photon.SocketServer.Mmo.IWorld"/>, 
+            either because of operation <see cref="F:Photon.MmoDemo.Common.OperationCode.ExitWorld"/> or 
+            because another client with the same username executes operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>. 
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Events.WorldExited.WorldName">
+            <summary>
+            Gets or sets the name of the world that was exited.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.ExtensionMethods">
+            <summary>
+              The extension methods.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.ExtensionMethods.ToFloatArray(Photon.SocketServer.Mmo.Vector,System.Byte)">
+            <summary>
+              Converts a <see cref="T:Photon.SocketServer.Mmo.Vector"/> to a float array.
+              Each value is devided by 100.
+            </summary>
+            <param name="vector">
+              The vector.
+            </param>
+            <param name="dimensions">
+              The dimensions.
+            </param>
+            <returns>
+              A new float array.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.ExtensionMethods.ToVector(System.Single[])">
+            <summary>
+              Converts a float array to a <see cref="T:Photon.SocketServer.Mmo.Vector"/>.
+              Each value is multiplied with 100.
+            </summary>
+            <param name="vector">
+              The vector.
+            </param>
+            <returns>
+              A new <see cref="T:Photon.SocketServer.Mmo.Vector"/>.
+            </returns>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.IMmoItem">
+            <summary>
+              An interface for all mmo items and NPC items.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.IMmoItem.GrantWriteAccess(Photon.MmoDemo.Server.MmoActor)">
+            <summary>
+              Checks wheter the <paramref name="actor"/> is allowed to change the item.
+              <see cref="T:Photon.MmoDemo.Server.MmoActor"/>s have write access to their own <see cref="T:Photon.MmoDemo.Server.MmoItem"/>s only.
+            </summary>
+            <param name="actor">
+              The accessing actor.
+            </param>
+            <returns>
+              true of false
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.IMmoItem.ReceiveEvent(Photon.SocketServer.EventData,Photon.SocketServer.SendParameters)">
+            <summary>
+              Receives an event.
+              Used for operation <see cref="T:Photon.MmoDemo.Server.Operations.RaiseGenericEvent"/>.
+            </summary>
+            <param name="eventData">
+              The event data.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              False if the item cannot process the event, otherwise true.
+            </returns>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Messages.MmoItemPositionUpdate">
+            <summary>
+            This class extends <see cref="T:Photon.SocketServer.Mmo.Messages.ItemPositionMessage"/> to provide access to the client coordinate for the <see cref="T:Photon.MmoDemo.Server.MmoRadar"/>.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.Messages.MmoItemPositionUpdate.coordinate">
+            <summary>
+            The coordinate.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Messages.MmoItemPositionUpdate.#ctor(Photon.SocketServer.Mmo.Item,Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Region,System.Single[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Messages.MmoItemPositionUpdate"/> class.
+            </summary>
+            <param name="source">
+            The source.
+            </param>
+            <param name="position">
+            The position.
+            </param>
+            <param name="worldRegion">
+            The world region.
+            </param>
+            <param name="coordinate">
+            The coordinate.
+            </param>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Messages.MmoItemPositionUpdate.Coordinate">
+            <summary>
+            Gets the coordinate.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.MethodReturnValue">
+            <summary>
+            The <see cref="T:Photon.MmoDemo.Server.MethodReturnValue"/> combines an error code with a debug message. 
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MethodReturnValue.DebugMessageOk">
+            <summary>
+            The debug message ok.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MethodReturnValue.ErrorCodeOk">
+            <summary>
+            The error code ok.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MethodReturnValue.success">
+            <summary>
+            The ok value.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MethodReturnValue.op_Implicit(Photon.MmoDemo.Server.MethodReturnValue)~System.Boolean">
+            <summary>
+            Implicit conversion to a boolean. 
+            </summary>
+            <param name="value">
+            The value.
+            </param>
+            <returns>
+            True if <see cref="P:Photon.MmoDemo.Server.MethodReturnValue.Error"/> == 0, otherwise false.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MethodReturnValue.op_Implicit(System.Int16)~Photon.MmoDemo.Server.MethodReturnValue">
+            <summary>
+            Implicit conversion of an int to a MethodReturnValue.
+            </summary>
+            <param name="value">
+            The value.
+            </param>
+            <returns>
+            A new MethodReturnValue with <see cref="P:Photon.MmoDemo.Server.MethodReturnValue.Error"/> = <paramref name="value"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MethodReturnValue.op_Implicit(Photon.MmoDemo.Server.MethodReturnValue)~System.Int32">
+            <summary>
+            Implicit conversion to an int.
+            </summary>
+            <param name="value">
+            The value.
+            </param>
+            <returns>
+            The <paramref name="value"/>'s property <see cref="P:Photon.MmoDemo.Server.MethodReturnValue.Error"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MethodReturnValue.Fail(System.Int16,System.String)">
+            <summary>
+            Creates a new instance with the given error code and debug message.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debug">
+            The debug.
+            </param>
+            <returns>
+            A new MethodReturnValue instance.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.MethodReturnValue.Ok">
+            <summary>
+            Gets Ok value.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.MethodReturnValue.Debug">
+            <summary>
+            Gets or sets DebugMessage.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.MethodReturnValue.Error">
+            <summary>
+            Gets or sets ReturnCode.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.MmoActor">
+            <summary>
+              This <see cref="T:Photon.SocketServer.Mmo.Actor"/> subclass is the peer's <see cref="P:Photon.SocketServer.Rpc.Peer.CurrentOperationHandler">operation handler</see> after entering a world.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.#ctor(Photon.SocketServer.PeerBase,Photon.SocketServer.Mmo.IWorld,Photon.SocketServer.Mmo.InterestArea)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.MmoActor"/> class.
+            </summary>
+            <param name="peer">
+              The peer State.
+            </param>
+            <param name="world">
+              The world.
+            </param>
+            <param name="interestArea">
+              The interestArea.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.InvalidOperation(Photon.SocketServer.OperationRequest)">
+            <summary>
+              Handles operations <see cref="T:Photon.MmoDemo.Server.Operations.CreateWorld"/> and <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              An <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.InvalidOperation"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.AddItem(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              This override hides the base method.
+              Use <see cref="M:Photon.MmoDemo.Server.MmoActor.AddItem(Photon.MmoDemo.Server.MmoItem)"/> instead.
+            </summary>
+            <param name="item">
+              The added item.
+            </param>
+            <exception cref="T:System.ArgumentException">
+              Use <see cref="M:Photon.MmoDemo.Server.MmoActor.AddItem(Photon.MmoDemo.Server.MmoItem)"/> instead.
+            </exception>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.AddItem(Photon.MmoDemo.Server.MmoItem)">
+            <summary>
+              Adds the <paramref name="item"/> to the owned items.
+            </summary>
+            <param name="item">
+              The mmo item.
+            </param>
+            <exception cref="T:System.ArgumentException">
+              The item <see cref="P:Photon.MmoDemo.Server.MmoItem.Owner"/> must be this actor.
+            </exception>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationAddInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles operation <see cref="T:Photon.MmoDemo.Server.Operations.AddInterestArea"/>: Creates a new <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> and optionally attaches it to an existing <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              An <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/> or <see cref="F:Photon.MmoDemo.Common.ReturnCode.InterestAreaAlreadyExists"/>.
+              If the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> is supposed to be attached to an <see cref="T:Photon.SocketServer.Mmo.Item"/> error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.ItemNotFound"/> could be returned. 
+            </returns>
+            <remarks>
+              The <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> is created even if error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.ItemNotFound"/> is returned.
+            </remarks>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationAttachInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles operation <see cref="T:Photon.MmoDemo.Server.Operations.AttachInterestArea"/>: Attaches an existing <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> to an existing <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              An <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/>, <see cref="F:Photon.MmoDemo.Common.ReturnCode.InterestAreaNotFound"/> or <see cref="F:Photon.MmoDemo.Common.ReturnCode.ItemNotFound"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationDestroyItem(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles operation <see cref="T:Photon.MmoDemo.Server.Operations.DestroyItem"/>: Destroys an existing <see cref="T:Photon.MmoDemo.Server.MmoItem"/>. 
+              The <see cref="P:Photon.MmoDemo.Server.MmoItem.Owner"/> must be this actor instance.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              An <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/>, <see cref="F:Photon.MmoDemo.Common.ReturnCode.ItemNotFound"/> or <see cref="F:Photon.MmoDemo.Common.ReturnCode.ItemAccessDenied"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationDetachInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">
+            <summary>
+              Handles operation <see cref="T:Photon.MmoDemo.Server.Operations.DetachInterestArea"/>: Detaches an existing <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> from an <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              An <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/> or <see cref="F:Photon.MmoDemo.Common.ReturnCode.InterestAreaNotFound"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationExitWorld(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">
+            <summary>
+              Handles operation <see cref="M:Photon.MmoDemo.Server.MmoActor.ExitWorld"/>: Sends event <see cref="T:Photon.MmoDemo.Server.Events.WorldExited"/> to the client, disposes the actor and replaces the peer's <see cref="P:Photon.SocketServer.Rpc.Peer.CurrentOperationHandler"/> with the <see cref="T:Photon.MmoDemo.Server.MmoPeer"/> itself.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              Always Null.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationGetProperties(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles operation <see cref="T:Photon.MmoDemo.Server.Operations.GetProperties"/>: Sends event <see cref="T:Photon.MmoDemo.Server.Events.ItemProperties"/> to the client.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              Null or an <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.ItemNotFound"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationMove(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles operation <see cref="T:Photon.MmoDemo.Server.Operations.Move"/>: Move the items and ultimately sends event <see cref="T:Photon.MmoDemo.Server.Events.ItemMoved"/> to other clients.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              Null or an <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.ItemNotFound"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationMoveInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">
+            <summary>
+              Handles operation <see cref="T:Photon.MmoDemo.Server.Operations.MoveInterestArea"/>: Moves one of the actor's <see cref="T:Photon.SocketServer.Mmo.InterestArea">InterestAreas</see>.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              Null or an <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.InterestAreaNotFound"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationRaiseGenericEvent(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles operation <see cref="T:Photon.MmoDemo.Server.Operations.RaiseGenericEvent"/>: Sends event <see cref="T:Photon.MmoDemo.Server.Events.ItemGeneric"/> to an <see cref="T:Photon.SocketServer.Mmo.Item"/> owner or the subscribers of an <see cref="T:Photon.SocketServer.Mmo.Item"/>'s <see cref="P:Photon.SocketServer.Mmo.Item.EventChannel"/>.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              Null or an <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.ItemNotFound"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationRemoveInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">
+            <summary>
+              Handles operation <see cref="T:Photon.MmoDemo.Server.Operations.RemoveInterestArea"/>: Removes one of the actor's <see cref="T:Photon.SocketServer.Mmo.InterestArea">InterestAreas</see>.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              An <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/> or <see cref="F:Photon.MmoDemo.Common.ReturnCode.InterestAreaNotFound"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationSetProperties(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles operation <see cref="T:Photon.MmoDemo.Server.Operations.SetProperties"/>: Sets the <see cref="P:Photon.SocketServer.Mmo.Item.Properties"/> of an <see cref="T:Photon.SocketServer.Mmo.Item"/> and ultimately sends event <see cref="T:Photon.MmoDemo.Server.Events.ItemPropertiesSet"/> to other clients.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              Null or an <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.ItemNotFound"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationSetViewDistance(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">
+            <summary>
+              Handles operation <see cref="T:Photon.MmoDemo.Server.Operations.SetViewDistance"/>: Changes the subscribe and unsubscribe radius for an <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              Null or an <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.InterestAreaNotFound"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationSpawnItem(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">
+            <summary>
+              Handles operation <see cref="T:Photon.MmoDemo.Server.Operations.SpawnItem"/>: Creates a new <see cref="T:Photon.SocketServer.Mmo.Item"/> and optionally subscribes an <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> to it.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              An <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/>, <see cref="F:Photon.MmoDemo.Common.ReturnCode.ItemAlreadyExists"/> or <see cref="F:Photon.MmoDemo.Common.ReturnCode.InterestAreaNotFound"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationSubscribeItem(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Handles operation <see cref="T:Photon.MmoDemo.Server.Operations.SubscribeItem"/>: Subscribes an existing <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> to an existing <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+              The client receives event <see cref="T:Photon.MmoDemo.Server.Events.ItemSubscribed"/> on success.
+              If the submitted <see cref="P:Photon.MmoDemo.Server.Operations.SubscribeItem.PropertiesRevision"/> is null or smaller than the item <see cref="P:Photon.SocketServer.Mmo.Item.PropertiesRevision"/> event <see cref="T:Photon.MmoDemo.Server.Events.ItemProperties"/> is sent to the client.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              Null or an <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.InterestAreaNotFound"/> or <see cref="F:Photon.MmoDemo.Common.ReturnCode.ItemNotFound"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OperationUnsubscribeItem(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">
+            <summary>
+              Handles operation <see cref="T:Photon.MmoDemo.Server.Operations.UnsubscribeItem"/>: Unsubscribes an existing <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> from an existing <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+              The client receives event <see cref="T:Photon.MmoDemo.Server.Events.ItemUnsubscribed"/> on success.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              Null or an <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.InterestAreaNotFound"/> or <see cref="F:Photon.MmoDemo.Common.ReturnCode.ItemNotFound"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OnDisconnect(Photon.SocketServer.PeerBase)">
+            <summary>
+              <see cref="T:Photon.SocketServer.Rpc.IOperationHandler"/> implementation.
+              Disposes the actor, stops any further operation handling and disposes the <see cref="T:Photon.SocketServer.Rpc.Peer"/>.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OnDisconnectByOtherPeer(Photon.SocketServer.PeerBase)">
+            <summary>
+              <see cref="T:Photon.SocketServer.Rpc.IOperationHandler"/> implementation.
+              Kicks the actor from the world (event <see cref="T:Photon.MmoDemo.Server.Events.WorldExited"/> is sent to the client) and then disconnects the client.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.OnOperationRequest(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              <see cref="T:Photon.SocketServer.Rpc.IOperationHandler"/> implementation.
+              Dispatches the incoming <paramref name="operationRequest"/>.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="operationRequest">
+              The operation request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              An <see cref="T:Photon.SocketServer.OperationResponse"/> that is published with <see cref="M:Photon.SocketServer.Rpc.Peer.OnOperationRequest(Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)"/> or null.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.ItemOperationAddInterestArea(Photon.SocketServer.Mmo.Item,Photon.MmoDemo.Server.Operations.AddInterestArea,Photon.SocketServer.Mmo.InterestArea)">
+            <summary>
+              The operation add interest area.
+            </summary>
+            <param name = "item">
+              The mmo item.
+            </param>
+            <param name = "operation">
+              The operation.
+            </param>
+            <param name = "interestArea">
+              The interestArea.
+            </param>
+            <returns>
+              Ok or ItemNotFound
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.ItemOperationRaiseGenericEvent(Photon.SocketServer.Mmo.Item,Photon.MmoDemo.Server.Operations.RaiseGenericEvent,Photon.SocketServer.SendParameters)">
+            <summary>
+              The operation raise generic event.
+            </summary>
+            <param name = "item">
+              The mmo item.
+            </param>
+            <param name = "operation">
+              The operation.
+            </param>
+            <param name = "sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              Ok or ItemNotFound
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.CheckAccess(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              The check access.
+            </summary>
+            <param name = "item">
+              The mmo item.
+            </param>
+            <returns>
+              ReturnCode.ItemNotFound, ReturnCode.ItemAccessDenied or Ok 
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.ExecItemOperation(System.Func{Photon.SocketServer.OperationResponse},Photon.SocketServer.SendParameters)">
+            <summary>
+              Executes an item operation and returns an error response in case an exception occurs.
+            </summary>
+            <param name = "operation">
+              The operation.
+            </param>
+            <param name = "sendParameters">
+              The send Parameters.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.ExitWorld">
+            <summary>
+              The exit world.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.ItemOperationAttachInterestArea(Photon.SocketServer.Mmo.Item,Photon.MmoDemo.Server.Operations.AttachInterestArea,Photon.SocketServer.Mmo.InterestArea,Photon.SocketServer.SendParameters)">
+            <summary>
+              The operation attach interest area.
+            </summary>
+            <param name = "item">
+              The mmo item.
+            </param>
+            <param name = "operation">
+              The operation.
+            </param>
+            <param name = "interestArea">
+              The interestArea.
+            </param>
+            <param name = "sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              Ok or ItemNotFound
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.ItemOperationDestroy(Photon.SocketServer.Mmo.Item,Photon.MmoDemo.Server.Operations.DestroyItem)">
+            <summary>
+              The destroy.
+            </summary>
+            <param name = "item">
+              The mmo item.
+            </param>
+            <param name = "operation">
+              The operation.
+            </param>
+            <returns>
+              error code ok
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.ItemOperationGetProperties(Photon.SocketServer.Mmo.Item,Photon.MmoDemo.Server.Operations.GetProperties)">
+            <summary>
+              The operation get properties.
+            </summary>
+            <param name = "item">
+              The mmo item.
+            </param>
+            <param name = "operation">
+              The operation.
+            </param>
+            <returns>
+              Ok or ItemNotFound
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.ItemOperationMove(Photon.MmoDemo.Server.MmoItem,Photon.MmoDemo.Server.Operations.Move,Photon.SocketServer.SendParameters)">
+            <summary>
+              The move operation.
+            </summary>
+            <param name = "item">
+              The mmo item.
+            </param>
+            <param name = "operation">
+              The operation.
+            </param>
+            <param name = "sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              error code ok
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.ItemOperationSetProperties(Photon.SocketServer.Mmo.Item,Photon.MmoDemo.Server.Operations.SetProperties,Photon.SocketServer.SendParameters)">
+            <summary>
+              The set properties.
+            </summary>
+            <param name = "item">
+              The mmo item.
+            </param>
+            <param name = "operation">
+              The operation.
+            </param>
+            <param name = "sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              error code ok
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.ItemOperationSpawn(Photon.MmoDemo.Server.MmoItem,Photon.MmoDemo.Server.Operations.SpawnItem,Photon.SocketServer.Mmo.InterestArea)">
+            <summary>
+              Spawns an item.
+            </summary>
+            <param name = "item">
+              The mmo item.
+            </param>
+            <param name = "operation">
+              The operation.
+            </param>
+            <param name = "interestArea">
+              The interest Area.
+            </param>
+            <returns>
+              error code ok
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoActor.ItemOperationSubscribeItem(Photon.SocketServer.Mmo.Item,Photon.MmoDemo.Server.Operations.SubscribeItem,Photon.SocketServer.Mmo.InterestArea)">
+            <summary>
+              Subscribes an item.
+            </summary>
+            <param name = "item">
+              The mmo item.
+            </param>
+            <param name = "operation">
+              The operation.
+            </param>
+            <param name = "interestArea">
+              The interestArea.
+            </param>
+            <returns>
+              Ok or ItemNotFound
+            </returns>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.MmoClientInterestArea">
+            <summary>
+            This <see cref="T:Photon.SocketServer.Mmo.ClientInterestArea"/> subclass overrides <see cref="M:Photon.MmoDemo.Server.MmoClientInterestArea.OnItemSubscribed(Photon.SocketServer.Mmo.Messages.ItemSnapshot)">OnItemSubscribed</see> and <see cref="M:Photon.MmoDemo.Server.MmoClientInterestArea.OnItemUnsubscribed(Photon.SocketServer.Mmo.Item)">OnItemUnsubscribed</see> in order to send events <see cref="T:Photon.MmoDemo.Server.Events.ItemSubscribed"/> and <see cref="T:Photon.MmoDemo.Server.Events.ItemUnsubscribed"/> to the client.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoClientInterestArea.#ctor(Photon.SocketServer.PeerBase,System.Byte,Photon.SocketServer.Mmo.IWorld)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.MmoClientInterestArea"/> class. 
+            </summary>
+            <param name="peer">
+            The peer state.
+            </param>
+            <param name="id">
+            The interesta area id.
+            </param>
+            <param name="world">
+            The world.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoClientInterestArea.OnItemSubscribed(Photon.SocketServer.Mmo.Messages.ItemSnapshot)">
+            <summary>
+            Calls <see cref="M:Photon.SocketServer.Mmo.ClientInterestArea.OnItemSubscribed(Photon.SocketServer.Mmo.Messages.ItemSnapshot)">ClientInterestArea.OnItemSubscribed</see> and sends event <see cref="T:Photon.MmoDemo.Server.Events.ItemSubscribed"/> to the client.
+            </summary>
+            <param name="snapshot">
+            The item snapshot.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoClientInterestArea.OnItemUnsubscribed(Photon.SocketServer.Mmo.Item)">
+            <summary>
+            Calls <see cref="M:Photon.SocketServer.Mmo.ClientInterestArea.OnItemUnsubscribed(Photon.SocketServer.Mmo.Item)">ClientInterestArea.OnItemUnsubscribed</see> and sends event <see cref="T:Photon.MmoDemo.Server.Events.ItemUnsubscribed"/> to the client.
+            </summary>
+            <param name="item">
+            The mmo item.
+            </param>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.MmoItem">
+            <summary>
+              This <see cref="T:Photon.SocketServer.Mmo.Item"/> subclass overrides <see cref="M:Photon.MmoDemo.Server.MmoItem.OnDestroy">OnDestroy</see> in order to publish event <see cref="T:Photon.MmoDemo.Server.Events.ItemDestroyed"/>.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MmoItem.owner">
+            <summary>
+              The owner.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoItem.#ctor(Photon.SocketServer.Mmo.IWorld,System.Single[],System.Single[],System.Collections.Hashtable,Photon.MmoDemo.Server.MmoActor,System.String,System.Byte)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.MmoItem"/> class.
+            </summary>
+            <param name="world">
+              The world.
+            </param>
+            <param name="coordinate">
+              The coordinate.
+            </param>
+            <param name="rotation">
+              The rotation.
+            </param>
+            <param name="properties">
+              The properties.
+            </param>
+            <param name="owner">
+              The owner.
+            </param>
+            <param name="itemId">
+              The item Id.
+            </param>
+            <param name="itemType">
+              The item Type.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoItem.Move(System.Single[])">
+            <summary>
+              Moves the item.
+            </summary>
+            <param name = "coordinate">
+              The coordinate.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoItem.Spawn(System.Single[])">
+            <summary>
+              Spawns the item.
+            </summary>
+            <param name = "coordinate">
+              The coordinate.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoItem.GrantWriteAccess(Photon.MmoDemo.Server.MmoActor)">
+            <summary>
+              Checks wheter the <paramref name="actor"/> is allowed to change the item.
+            </summary>
+            <param name="actor">
+              The accessing actor.
+            </param>
+            <returns>
+              True if the <paramref name="actor"/> equals the <see cref="P:Photon.MmoDemo.Server.MmoItem.Owner"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoItem.ReceiveEvent(Photon.SocketServer.EventData,Photon.SocketServer.SendParameters)">
+            <summary>
+              Sends the event to the owner peer.
+            </summary>
+            <param name = "eventData">
+              The event data.
+            </param>
+            <param name = "sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              Always true.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoItem.GetItemSnapshot">
+            <summary>
+              Override to include the <see cref="P:Photon.MmoDemo.Server.MmoItem.Rotation"/> and <see cref="P:Photon.MmoDemo.Server.MmoItem.Coordinate"/> on item subscribe.
+            </summary>
+            <returns>
+              An instance of <see cref="T:Photon.MmoDemo.Server.Messages.MmoItemSnapshot"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoItem.GetPositionUpdateMessage(Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Region)">
+            <summary>
+              Override to include the <see cref="P:Photon.MmoDemo.Server.MmoItem.Coordinate"/> for the <see cref="T:Photon.MmoDemo.Server.MmoRadar"/>.
+            </summary>
+            <param name="position">
+              The position.
+            </param>
+            <param name="region">
+              The region.
+            </param>
+            <returns>
+              An instance of <see cref="T:Photon.MmoDemo.Server.Messages.MmoItemPositionUpdate"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoItem.OnDestroy">
+            <summary>
+              Publishes event <see cref="T:Photon.MmoDemo.Server.Events.ItemDestroyed"/> in the <see cref="P:Photon.SocketServer.Mmo.Item.EventChannel"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.MmoItem.Coordinate">
+            <summary>
+              Gets the coordinate.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.MmoItem.Owner">
+            <summary>
+              Gets the <see cref="T:Photon.MmoDemo.Server.MmoActor"/> owner.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.MmoItem.Rotation">
+            <summary>
+              Gets or sets the rotation.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.MmoItemCache">
+            <summary>
+            <see cref="T:Photon.SocketServer.Mmo.ItemCache"/> subclass with a lock timeout configured at <see cref="P:Photon.MmoDemo.Server.Settings.MaxLockWaitTimeMilliseconds">Settings.MaxLockWaitTimeMilliseconds</see>.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoItemCache.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.MmoItemCache"/> class.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Messages.MmoItemSnapshot">
+            <summary>
+            <see cref="T:Photon.SocketServer.Mmo.Messages.ItemSnapshot"/> subclass that includes the <see cref="P:Photon.MmoDemo.Server.Messages.MmoItemSnapshot.Rotation"/> and the <see cref="P:Photon.MmoDemo.Server.Messages.MmoItemSnapshot.Coordinate"/>.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.Messages.MmoItemSnapshot.coordinate">
+            <summary>
+            The item coordinate.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.Messages.MmoItemSnapshot.rotation">
+            <summary>
+            The item rotation.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Messages.MmoItemSnapshot.#ctor(Photon.SocketServer.Mmo.Item,Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Region,System.Int32,System.Single[],System.Single[])">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Messages.MmoItemSnapshot"/> class.
+            </summary>
+            <param name="source">
+            The source.
+            </param>
+            <param name="position">
+            The position.
+            </param>
+            <param name="worldRegion">
+            The world region.
+            </param>
+            <param name="propertiesRevision">
+            The properties revision.
+            </param>
+            <param name="rotation">
+            The rotation.
+            </param>
+            <param name="coordinate">
+            The coordinate.
+            </param>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Messages.MmoItemSnapshot.Coordinate">
+            <summary>
+            Gets the coordinate.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Messages.MmoItemSnapshot.Rotation">
+            <summary>
+            Gets the rotation.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.MmoPeer">
+            <summary>
+              This <see cref="T:Photon.SocketServer.Rpc.Peer"/> subclass is the client's <see cref="P:Photon.SocketServer.Rpc.Peer.CurrentOperationHandler">operation handler</see> immediately after connecting.
+              It does also keep references to the optional <see cref="T:Photon.MmoDemo.Server.MmoRadar"/> and <see cref="T:Photon.SocketServer.Diagnostics.CounterPublisher"/> subscription.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoPeer.#ctor(Photon.SocketServer.IRpcProtocol,PhotonHostRuntimeInterfaces.IPhotonPeer)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.MmoPeer"/> class.
+            </summary>
+            <param name="rpcProtocol">
+              The rpc protocol.
+            </param>
+            <param name="nativePeer">
+              The native peer.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoPeer.InvalidOperation(Photon.SocketServer.OperationRequest)">
+            <summary>
+              Handles all operations that are not allowed before operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/> is called.
+            </summary>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              An <see cref="T:Photon.SocketServer.OperationResponse"/> with <see cref="F:Photon.MmoDemo.Common.ReturnCode.InvalidOperation"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoPeer.OperationRadarSubscribe(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Expects operation <see cref="T:Photon.MmoDemo.Server.Operations.RadarSubscribe"/> and subscribes the <paramref name="peer"/> to the <see cref="T:Photon.MmoDemo.Server.MmoRadar"/>.
+              Publishes an <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/> if successful.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              Null or an <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.WorldNotFound"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoPeer.OperationCreateWorld(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">
+            <summary>
+              Expects operation <see cref="T:Photon.MmoDemo.Server.Operations.CreateWorld"/> and adds a new <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> to the <see cref="T:Photon.MmoDemo.Server.MmoWorldCache"/>.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <returns>
+              An <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/> or <see cref="F:Photon.MmoDemo.Common.ReturnCode.WorldAlreadyExists"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoPeer.OperationEnterWorld(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              Expects operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/> and creates a new <see cref="T:Photon.MmoDemo.Server.MmoActor"/> with a new <see cref="T:Photon.MmoDemo.Server.MmoItem"/> as avatar and a new <see cref="T:Photon.MmoDemo.Server.MmoClientInterestArea"/>. 
+              The <see cref="T:Photon.MmoDemo.Server.MmoActor"/> becomes the new <see cref="P:Photon.SocketServer.Rpc.Peer.CurrentOperationHandler">operation handler</see>.
+              If another <see cref="T:Photon.MmoDemo.Server.MmoActor"/> with the same name exists he is disconnected.
+              An <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/> is published on success.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="request">
+              The request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              Null or an <see cref="T:Photon.SocketServer.OperationResponse"/> with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.WorldNotFound"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoPeer.OnDisconnect(Photon.SocketServer.PeerBase)">
+            <summary>
+              <see cref="T:Photon.SocketServer.Rpc.IOperationHandler"/> implementation.
+              Stops any further operation handling and disposes the peer's resources.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoPeer.OnDisconnectByOtherPeer(Photon.SocketServer.PeerBase)">
+            <summary>
+              <see cref="T:Photon.SocketServer.Rpc.IOperationHandler"/> implementation.
+              Disconnects the peer.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoPeer.OnOperationRequest(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">
+            <summary>
+              <see cref="T:Photon.SocketServer.Rpc.IOperationHandler"/> implementation.
+              Dispatches the incoming <paramref name="operationRequest"/>.
+            </summary>
+            <param name="peer">
+              The client peer.
+            </param>
+            <param name="operationRequest">
+              The operation request.
+            </param>
+            <param name="sendParameters">
+              The send Parameters.
+            </param>
+            <returns>
+              An <see cref="T:Photon.SocketServer.OperationResponse"/> that is published with <see cref="M:Photon.SocketServer.Rpc.Peer.OnOperationRequest(Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)"/> or null.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoPeer.Dispose(System.Boolean)">
+            <summary>
+              Diposes the <see cref="P:Photon.MmoDemo.Server.MmoPeer.MmoRadarSubscription"/> and the <see cref="P:Photon.MmoDemo.Server.MmoPeer.CounterSubscription"/>.
+            </summary>
+            <param name="disposing">
+              The disposing.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoPeer.RadarChannel_OnItemEventMessage(Photon.SocketServer.PeerBase,Photon.SocketServer.Mmo.Messages.ItemEventMessage)">
+            <summary>
+              Sends the event to the client.
+            </summary>
+            <param name = "peer">
+              The client peer.
+            </param>
+            <param name = "message">
+              The message.
+            </param>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.MmoPeer.CounterSubscription">
+            <summary>
+              Gets or sets the counter subscription.
+              Counters are subscribed with operation <see cref="T:Photon.MmoDemo.Server.Operations.SubscribeCounter"/> and unsubscribed with <see cref="F:Photon.MmoDemo.Common.OperationCode.UnsubscribeCounter"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.MmoPeer.MmoRadarSubscription">
+            <summary>
+              Gets or sets the MMO radar subscription.
+              The radar is subscribed with operation <see cref="T:Photon.MmoDemo.Server.Operations.RadarSubscribe"/>.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.MmoRadar">
+            <summary>
+            Subscribers of the MmoRadar's <see cref="P:Photon.MmoDemo.Server.MmoRadar.Channel"/> receive event <see cref="T:Photon.MmoDemo.Server.Events.RadarUpdate"/> for all moving <see cref="T:Photon.SocketServer.Mmo.Item">Items</see> in the <see cref="T:Photon.SocketServer.Mmo.IWorld"/>.
+            The receive interval is configured with <see cref="P:Photon.MmoDemo.Server.Settings.RadarUpdateInterval"/>.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MmoRadar.actionQueue">
+            <summary>
+            The action queue.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MmoRadar.channel">
+            <summary>
+            The channel.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MmoRadar.fiber">
+            <summary>
+            The fiber.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MmoRadar.itemPositions">
+            <summary>
+            The item positions.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MmoRadar.itemSubscriptions">
+            <summary>
+            The item subscriptions.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoRadar.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.MmoRadar"/> class.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoRadar.AddItem(Photon.SocketServer.Mmo.Item,System.Single[])">
+            <summary>
+            Registers an <see cref="T:Photon.SocketServer.Mmo.Item"/> with the radar.
+            The radar will receive position changes from the item and publish them with his <see cref="P:Photon.MmoDemo.Server.MmoRadar.Channel"/>.
+            The publish interval can be configured with <see cref="P:Photon.MmoDemo.Server.Settings.RadarUpdateInterval">Settings.RadarUpdateInterval</see>.
+            </summary>
+            <param name="item">
+            The new item.
+            </param>
+            <param name="position">
+            The position.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoRadar.SendContentToPeer(Photon.MmoDemo.Server.MmoPeer)">
+            <summary>
+            Send event <see cref="T:Photon.MmoDemo.Server.Events.RadarUpdate"/> for all registered <see cref="T:Photon.SocketServer.Mmo.Item">Items</see> to the peer.
+            </summary>
+            <param name="peer">
+            The client peer.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoRadar.Dispose">
+            <summary>
+            Disposes the fiber and clears all subscriptions and dictionaries.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoRadar.GetUpdateEvent(Photon.SocketServer.Mmo.Item,System.Single[])">
+            <summary>
+            The get update event.
+            </summary>
+            <param name="item">
+            The updated item.
+            </param>
+            <param name="position">
+            The position.
+            </param>
+            <returns>
+            a new radar update event
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoRadar.PublishAll(Photon.SocketServer.Rpc.Peer)">
+            <summary>
+            The publish all.
+            </summary>
+            <param name="receiver">
+            The receiver.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoRadar.PublishUpdate(Photon.SocketServer.Mmo.Item,System.Single[],System.Boolean)">
+            <summary>
+            The publish update.
+            </summary>
+            <param name="item">
+            The publisher.
+            </param>
+            <param name="position">
+            The position.
+            </param>
+            <param name="unreliable">
+            The unreliable.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoRadar.RemoveItem(Photon.SocketServer.Mmo.Messages.ItemDisposedMessage)">
+            <summary>
+            The remove item.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoRadar.UpdatePosition(Photon.SocketServer.Mmo.Messages.ItemPositionMessage)">
+            <summary>
+            The update position.
+            </summary>
+            <param name="message">
+            The message.
+            </param>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.MmoRadar.Channel">
+            <summary>
+            Gets the channel that publishes event <see cref="T:Photon.MmoDemo.Server.Events.RadarUpdate"/>.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.MmoWorld">
+            <summary>
+            This <see cref="T:Photon.SocketServer.Mmo.GridWorld"/> subclass has a <see cref="P:Photon.MmoDemo.Server.MmoWorld.Name"/> and a <see cref="T:Photon.MmoDemo.Server.MmoRadar"/>.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MmoWorld.Radar">
+            <summary>
+            The radar.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MmoWorld.log">
+            <summary>
+            The logger.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MmoWorld.name">
+            <summary>
+            The world name.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoWorld.#ctor(System.String,Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Vector)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> class. 
+            </summary>
+            <param name="name">
+            The world name.
+            </param>
+            <param name="topLeftCorner">
+            The top left corner.
+            </param>
+            <param name="bottomRightCorner">
+            The bottom right corner.
+            </param>
+            <param name="tileDimensions">
+            The tile dimensions.
+            </param>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.MmoWorld.Name">
+            <summary>
+            Gets Name.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.MmoWorldCache">
+            <summary>
+            This is a cache for <see cref="T:Photon.MmoDemo.Server.MmoWorld">MmoWorlds</see> that have a unique name.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MmoWorldCache.Instance">
+            <summary>
+            The instance.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MmoWorldCache.dict">
+            <summary>
+            Dictionary used to store cached values.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.MmoWorldCache.readWriteLock">
+            <summary>
+            An <see cref="T:System.Threading.ReaderWriterLockSlim"/> instance used to synchronize access to the cache.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoWorldCache.#ctor">
+            <summary>
+            Prevents a default instance of the <see cref="T:Photon.MmoDemo.Server.MmoWorldCache"/> class from being created. 
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.MmoWorldCache"/> class. 
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoWorldCache.Finalize">
+            <summary>
+            Finalizes an instance of the <see cref="T:Photon.MmoDemo.Server.MmoWorldCache"/> class. 
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoWorldCache.Clear">
+            <summary>
+            Removes all cached elements from this instance.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoWorldCache.TryCreate(System.String,Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Vector,Photon.MmoDemo.Server.MmoWorld@)">
+            <summary>
+            The try create.
+            </summary>
+            <param name="name">
+            The world name.
+            </param>
+            <param name="topLeftCorner">
+            The top left corner.
+            </param>
+            <param name="bottomRightCorner">
+            The bottom right corner.
+            </param>
+            <param name="tileDimensions">
+            The tile dimensions.
+            </param>
+            <param name="world">
+            The world.
+            </param>
+            <returns>
+            true if create.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoWorldCache.TryGet(System.String,Photon.MmoDemo.Server.MmoWorld@)">
+            <summary>
+            The try get.
+            </summary>
+            <param name="name">
+            The world name.
+            </param>
+            <param name="world">
+            The world.
+            </param>
+            <returns>
+            true if found.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoWorldCache.Dispose">
+            <summary>
+            The dispose.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.MmoWorldCache.Dispose(System.Boolean)">
+            <summary>
+            The dispose.
+            </summary>
+            <param name="disposing">
+            The disposing.
+            </param>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.AddInterestArea">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationAddInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationAddInterestArea</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.AddInterestArea.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.AddInterestArea"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.AddInterestArea.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.AddInterestArea.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AddInterestArea.InterestAreaId">
+            <summary>
+            Gets or sets the id of the new <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AddInterestArea.ItemId">
+            <summary>
+            Gets or sets the id of an <see cref="T:Photon.SocketServer.Mmo.Item"/> the new <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> should be attached to.
+            This parameter is optional.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AddInterestArea.ItemType">
+            <summary>
+            Gets or sets the type of an <see cref="T:Photon.SocketServer.Mmo.Item"/> the new <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> should be attached to.
+            This parameter is optional.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AddInterestArea.Position">
+            <summary>
+            Gets or sets the inital position of the new <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AddInterestArea.ViewDistanceEnter">
+            <summary>
+            Gets or sets the <see cref="P:Photon.SocketServer.Mmo.InterestArea.ViewDistanceEnter">interest area's minimum view distance (the item subscribe threshold)</see>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AddInterestArea.ViewDistanceExit">
+            <summary>
+            Gets or sets the <see cref="P:Photon.SocketServer.Mmo.InterestArea.ViewDistanceEnter">interest area's maximum view distance (the item unsubscribe threshold)</see>.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.AttachInterestArea">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationAttachInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationAttachInterestArea</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.AttachInterestArea.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.AttachInterestArea"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.AttachInterestArea.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.AttachInterestArea.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AttachInterestArea.InterestAreaId">
+            <summary>
+            Gets or sets the id of an existing <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            If not submitted the default interest area #0 is selected.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AttachInterestArea.ItemId">
+            <summary>
+            Gets or sets the id of an existing <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AttachInterestArea.ItemType">
+            <summary>
+            Gets or sets the type of an existing <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.AddInterestAreaResponse">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationAddInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationAddInterestArea</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AddInterestAreaResponse.InterestAreaId">
+            <summary>
+            Gets or sets the id of the new <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AddInterestAreaResponse.ItemId">
+            <summary>
+            Gets or sets the id of an <see cref="T:Photon.SocketServer.Mmo.Item"/> the new <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> should be attached to.
+            This parameter is optional.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AddInterestAreaResponse.ItemType">
+            <summary>
+            Gets or sets the type of an <see cref="T:Photon.SocketServer.Mmo.Item"/> the new <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> should be attached to.
+            This parameter is optional.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.AttachInterestAreaResponse">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationAttachInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationAttachInterestArea</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AttachInterestAreaResponse.InterestAreaId">
+            <summary>
+            Gets or sets the id of an existing <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            If not submitted the default interest area #0 is selected.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AttachInterestAreaResponse.ItemId">
+            <summary>
+            Gets or sets the id of an existing <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.AttachInterestAreaResponse.ItemType">
+            <summary>
+            Gets or sets the type of an existing <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.RemoveInterestAreaResponse">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationRemoveInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">MmoActor.OperationRemoveInterestArea</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RemoveInterestAreaResponse.InterestAreaId">
+            <summary>
+            Gets or sets the id of the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> to remove.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.RaiseGenericEventResponse">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            It is used to send an <see cref="T:Photon.MmoDemo.Server.Events.ItemGeneric"/> event either to the <see cref="T:Photon.SocketServer.Mmo.Item"/>'s owner or to item's <see cref="P:Photon.SocketServer.Mmo.Item.EventChannel"/> subscriber. 
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationRaiseGenericEvent(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationRaiseGenericEvent</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RaiseGenericEventResponse.ItemId">
+            <summary>
+            Gets or sets the id of the selected <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RaiseGenericEventResponse.ItemType">
+            <summary>
+            Gets or sets the type of the selected <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.CreateWorldResponse">
+            <summary>
+            This operation is allowed BEFORE having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoPeer.OperationCreateWorld(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">MmoPeer.OperationCreateWorld</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.CreateWorldResponse.WorldName">
+            <summary>
+            Gets or sets the <see cref="T:Photon.MmoDemo.Server.MmoWorld"/>'s name.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.SubscribeItemResponse">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            It is used to subscribe an <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> to an <see cref="T:Photon.SocketServer.Mmo.Item"/>'s <see cref="P:Photon.SocketServer.Mmo.Item.EventChannel"/>. 
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationSubscribeItem(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationSubscribeItem</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SubscribeItemResponse.ItemId">
+            <summary>
+            Gets or sets the Id of the <see cref="T:Photon.SocketServer.Mmo.Item"/> to subscribe to.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SubscribeItemResponse.ItemType">
+            <summary>
+            Gets or sets the type of the <see cref="T:Photon.SocketServer.Mmo.Item"/> to subscribe to.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.UnsubscribeItemResponse">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            It is used to unsubscribe an <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> from an <see cref="T:Photon.SocketServer.Mmo.Item"/>'s <see cref="P:Photon.SocketServer.Mmo.Item.EventChannel"/> after subscribring with operation <see cref="T:Photon.MmoDemo.Server.Operations.SubscribeItem"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationUnsubscribeItem(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">MmoActor.OperationUnsubscribeItem</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.UnsubscribeItemResponse.InterestAreaId">
+            <summary>
+            Gets or sets the id of the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> that is subscribed.
+            This request parameter is optional. Default: 0.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.UnsubscribeItemResponse.ItemId">
+            <summary>
+            Gets or sets the Id of the <see cref="T:Photon.SocketServer.Mmo.Item"/> to unsubscribe from.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.UnsubscribeItemResponse.ItemType">
+            <summary>
+            Gets or sets the type of the <see cref="T:Photon.SocketServer.Mmo.Item"/> to unsubscribe from.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.SpawnItemResponse">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            It is used to create a new <see cref="T:Photon.SocketServer.Mmo.Item"/>. 
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationSpawnItem(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">MmoActor.OperationSpawnItem</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SpawnItemResponse.InterestAreaId">
+            <summary>
+            Gets or sets an <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> Id for immediate subscription.
+            This request parameter is optional.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SpawnItemResponse.ItemId">
+            <summary>
+            Gets or sets thew new <see cref="T:Photon.SocketServer.Mmo.Item"/> id.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SpawnItemResponse.ItemType">
+            <summary>
+            Gets or sets thew new <see cref="T:Photon.SocketServer.Mmo.Item"/> type.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.SetPropertiesResponse">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            It is used to set the properties of an existing <see cref="T:Photon.SocketServer.Mmo.Item"/>. 
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationSetProperties(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationSetProperties</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SetPropertiesResponse.ItemId">
+            <summary>
+            Gets or sets the selected <see cref="T:Photon.SocketServer.Mmo.Item"/> Id.
+            This request parameter is optional. If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SetPropertiesResponse.ItemType">
+            <summary>
+            Gets or sets the selected <see cref="T:Photon.SocketServer.Mmo.Item"/> type.
+            This request parameter is optional. If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.GetPropertiesResponse">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            This is usually the first operation to call after reiveing event <see cref="T:Photon.MmoDemo.Server.Events.ItemSubscribed"/> with an unknown properties revision.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationGetProperties(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationGetProperties</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.GetPropertiesResponse.ItemId">
+            <summary>
+            Gets or sets the target <see cref="T:Photon.SocketServer.Mmo.Item"/> id.
+            The request parameter is mandatory.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.GetPropertiesResponse.ItemType">
+            <summary>
+            Gets or sets the target <see cref="T:Photon.SocketServer.Mmo.Item"/> type.
+            The request parameter is mandatory.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.MoveInterestAreaResponse">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            It is used to move an existing <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>. 
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationMoveInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">MmoActor.OperationMoveInterestArea</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.MoveInterestAreaResponse.InterestAreaId">
+            <summary>
+            Gets or sets the Id of the selected <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            This request parameter is optional. Default: #0.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.MoveResponse">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            It is used to move an existing <see cref="T:Photon.SocketServer.Mmo.Item"/>. 
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationMove(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationMove</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.MoveResponse.ItemId">
+            <summary>
+            Gets or sets the selected <see cref="T:Photon.SocketServer.Mmo.Item"/> Id.
+            This request parameter is optional. If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.MoveResponse.ItemType">
+            <summary>
+            Gets or sets the selected <see cref="T:Photon.SocketServer.Mmo.Item"/> type.
+            This request parameter is optional. If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.EnterWorldResponse">
+            <summary>
+            This operation is allowed BEFORE having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/> or AFTER having exited it with operaiton <see cref="F:Photon.MmoDemo.Common.OperationCode.ExitWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoPeer.OperationEnterWorld(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoPeer.OperationEnterWorld</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.EnterWorldResponse.BottomRightCorner">
+            <summary>
+            Gets or sets the <see cref="T:Photon.SocketServer.Mmo.GridWorld"/>'s bottom right corner.
+            This response parameter is submitted with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.EnterWorldResponse.TileDimensions">
+            <summary>
+            Gets or sets the <see cref="T:Photon.SocketServer.Mmo.GridWorld"/>'s tile dimensions.
+            This response parameter is submitted with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.EnterWorldResponse.TopLeftCorner">
+            <summary>
+            Gets or sets the <see cref="T:Photon.SocketServer.Mmo.GridWorld"/>'s top left corner.
+            This response parameter is submitted with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.EnterWorldResponse.WorldName">
+            <summary>
+            Gets or sets the name of the selected <see cref="T:Photon.MmoDemo.Server.MmoWorld"/>.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.DetachInterestAreaResponse">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationDetachInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">MmoActor.OperationDetachInterestArea</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.DetachInterestAreaResponse.InterestAreaId">
+            <summary>
+            Gets or sets the id of the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> to be detached.
+            Interest area #0 is seleted if none is submitted.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.DestroyItemResponse">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationDestroyItem(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationDestroyItem</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.DestroyItemResponse.ItemId">
+            <summary>
+            Gets or sets the id of the <see cref="T:Photon.SocketServer.Mmo.Item"/> to be destroyed.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.DestroyItemResponse.ItemType">
+            <summary>
+            Gets or sets the type of the <see cref="T:Photon.SocketServer.Mmo.Item"/> to be destroyed.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.SetViewDistanceResponse">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationSetViewDistance(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">MmoActor.OperationSetViewDistance</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SetViewDistanceResponse.InterestAreaId">
+            <summary>
+            Gets or sets the id of the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> to change.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.RadarSubscribeResponse">
+            <summary>
+            This operation subscribes to an <see cref="T:Photon.MmoDemo.Server.MmoRadar"/>. It can be executed any time.
+            See <see cref="M:Photon.MmoDemo.Server.MmoPeer.OperationRadarSubscribe(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoPeer.OperationRadarSubscribe</see> for more information.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RadarSubscribeResponse.BottomRightCorner">
+            <summary>
+            Gets or sets the <see cref="T:Photon.SocketServer.Mmo.GridWorld"/>'s bottom right corner.
+            This response parameter is submitted with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RadarSubscribeResponse.TileDimensions">
+            <summary>
+            Gets or sets the <see cref="T:Photon.SocketServer.Mmo.GridWorld"/>'s tile dimensions.
+            This response parameter is submitted with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RadarSubscribeResponse.TopLeftCorner">
+            <summary>
+            Gets or sets the <see cref="T:Photon.SocketServer.Mmo.GridWorld"/>'s top left corner.
+            This response parameter is submitted with error code <see cref="F:Photon.MmoDemo.Common.ReturnCode.Ok"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RadarSubscribeResponse.WorldName">
+            <summary>
+            Gets or sets the name of the selected <see cref="T:Photon.MmoDemo.Server.MmoWorld"/>.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.CreateWorld">
+            <summary>
+            This operation is allowed BEFORE having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoPeer.OperationCreateWorld(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">MmoPeer.OperationCreateWorld</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.CreateWorld.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.CreateWorld"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.CreateWorld.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.CreateWorld.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.CreateWorld.BottomRightCorner">
+            <summary>
+            Gets or sets the <see cref="T:Photon.SocketServer.Mmo.GridWorld"/>'s bottom right corner.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.CreateWorld.TileDimensions">
+            <summary>
+            Gets or sets the <see cref="T:Photon.SocketServer.Mmo.GridWorld"/>'s tile dimensions.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.CreateWorld.TopLeftCorner">
+            <summary>
+            Gets or sets the <see cref="T:Photon.SocketServer.Mmo.GridWorld"/>'s top left corner.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.CreateWorld.WorldName">
+            <summary>
+            Gets or sets the <see cref="T:Photon.MmoDemo.Server.MmoWorld"/>'s name.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.DestroyItem">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationDestroyItem(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationDestroyItem</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.DestroyItem.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.DestroyItem"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.DestroyItem.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.DestroyItem.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.DestroyItem.ItemId">
+            <summary>
+            Gets or sets the id of the <see cref="T:Photon.SocketServer.Mmo.Item"/> to be destroyed.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.DestroyItem.ItemType">
+            <summary>
+            Gets or sets the type of the <see cref="T:Photon.SocketServer.Mmo.Item"/> to be destroyed.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.DetachInterestArea">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationDetachInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">MmoActor.OperationDetachInterestArea</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.DetachInterestArea.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.DetachInterestArea"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.DetachInterestArea.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.DetachInterestArea.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.DetachInterestArea.InterestAreaId">
+            <summary>
+            Gets or sets the id of the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> to be detached.
+            Interest area #0 is seleted if none is submitted.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.EnterWorld">
+            <summary>
+            This operation is allowed BEFORE having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/> or AFTER having exited it with operaiton <see cref="F:Photon.MmoDemo.Common.OperationCode.ExitWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoPeer.OperationEnterWorld(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoPeer.OperationEnterWorld</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.EnterWorld.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.EnterWorld.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.EnterWorld.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.EnterWorld.InterestAreaId">
+            <summary>
+            Gets or sets the id of the initial <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            This request parameter is optional. Default: #0.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.EnterWorld.Position">
+            <summary>
+            Gets or sets the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/>'s initial position.
+            This request parameter is mandatory.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.EnterWorld.Properties">
+            <summary>
+            Gets or sets the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/>'s initial properties.
+            This request parameter is optional.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.EnterWorld.Rotation">
+            <summary>
+            Gets or sets the new rotation.
+            This request parameter is optional.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.EnterWorld.Username">
+            <summary>
+            Gets or sets the client's username. This will be the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/>'s <see cref="P:Photon.SocketServer.Mmo.Item.Id">Item Id</see>.
+            This request parameter is mandatory.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.EnterWorld.ViewDistanceEnter">
+            <summary>
+            Gets or sets the inner view distance (item subscribe threshold) of the initial <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            This request parameter is mandatory.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.EnterWorld.ViewDistanceExit">
+            <summary>
+            Gets or sets the outer view distance (item unsubscribe threshold) of the initial <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            This request parameter is mandatory.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.EnterWorld.WorldName">
+            <summary>
+            Gets or sets the name of the selected <see cref="T:Photon.MmoDemo.Server.MmoWorld"/>.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.GetProperties">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            This is usually the first operation to call after reiveing event <see cref="T:Photon.MmoDemo.Server.Events.ItemSubscribed"/> with an unknown properties revision.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationGetProperties(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationGetProperties</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.GetProperties.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.GetProperties"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.GetProperties.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.GetProperties.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.GetProperties.ItemId">
+            <summary>
+            Gets or sets the target <see cref="T:Photon.SocketServer.Mmo.Item"/> id.
+            The request parameter is mandatory.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.GetProperties.ItemType">
+            <summary>
+            Gets or sets the target <see cref="T:Photon.SocketServer.Mmo.Item"/> type.
+            The request parameter is mandatory.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.GetProperties.PropertiesRevision">
+            <summary>
+            Gets or sets the known properties revision.
+            The request parameter is optional.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.Move">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            It is used to move an existing <see cref="T:Photon.SocketServer.Mmo.Item"/>. 
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationMove(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationMove</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.Move.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.Move"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.Move.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.Move.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.Move.ItemId">
+            <summary>
+            Gets or sets the selected <see cref="T:Photon.SocketServer.Mmo.Item"/> Id.
+            This request parameter is optional. If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.Move.ItemType">
+            <summary>
+            Gets or sets the selected <see cref="T:Photon.SocketServer.Mmo.Item"/> type.
+            This request parameter is optional. If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.Move.Position">
+            <summary>
+            Gets or sets the new position.
+            This request parameter is mandatory.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.Move.Rotation">
+            <summary>
+            Gets or sets the new rotation.
+            This request parameter is optional.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.MoveInterestArea">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            It is used to move an existing <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>. 
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationMoveInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">MmoActor.OperationMoveInterestArea</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.MoveInterestArea.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.MoveInterestArea"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.MoveInterestArea.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.MoveInterestArea.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.MoveInterestArea.InterestAreaId">
+            <summary>
+            Gets or sets the Id of the selected <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            This request parameter is optional. Default: #0.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.MoveInterestArea.Position">
+            <summary>
+            Gets or sets the new position.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.RadarSubscribe">
+            <summary>
+            This operation subscribes to an <see cref="T:Photon.MmoDemo.Server.MmoRadar"/>. It can be executed any time.
+            See <see cref="M:Photon.MmoDemo.Server.MmoPeer.OperationRadarSubscribe(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoPeer.OperationRadarSubscribe</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.RadarSubscribe.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.RadarSubscribe"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.RadarSubscribe.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.RadarSubscribe.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RadarSubscribe.WorldName">
+            <summary>
+            Gets or sets the name of the selected <see cref="T:Photon.MmoDemo.Server.MmoWorld"/>.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.RaiseGenericEvent">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            It is used to send an <see cref="T:Photon.MmoDemo.Server.Events.ItemGeneric"/> event either to the <see cref="T:Photon.SocketServer.Mmo.Item"/>'s owner or to item's <see cref="P:Photon.SocketServer.Mmo.Item.EventChannel"/> subscriber. 
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationRaiseGenericEvent(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationRaiseGenericEvent</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.RaiseGenericEvent.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.RaiseGenericEvent"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.RaiseGenericEvent.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.RaiseGenericEvent.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RaiseGenericEvent.CustomEventCode">
+            <summary>
+            Gets or sets the custom event code.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RaiseGenericEvent.EventData">
+            <summary>
+            Gets or sets the optional event content.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RaiseGenericEvent.EventReceiver">
+            <summary>
+            Gets or sets the event receiver.
+            See enum <see cref="T:Photon.MmoDemo.Common.EventReceiver"/> for possible values.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RaiseGenericEvent.EventReliability">
+            <summary>
+            Gets or sets the event reliability.
+            See enum <see cref="T:Photon.SocketServer.Reliability"/> for possible values.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RaiseGenericEvent.ItemId">
+            <summary>
+            Gets or sets the id of the selected <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RaiseGenericEvent.ItemType">
+            <summary>
+            Gets or sets the type of the selected <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.RemoveInterestArea">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationRemoveInterestArea(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">MmoActor.OperationRemoveInterestArea</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.RemoveInterestArea.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.RemoveInterestArea"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.RemoveInterestArea.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.RemoveInterestArea.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.RemoveInterestArea.InterestAreaId">
+            <summary>
+            Gets or sets the id of the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> to remove.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.SetProperties">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            It is used to set the properties of an existing <see cref="T:Photon.SocketServer.Mmo.Item"/>. 
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationSetProperties(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationSetProperties</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SetProperties.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.SetProperties"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SetProperties.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SetProperties.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SetProperties.ItemId">
+            <summary>
+            Gets or sets the selected <see cref="T:Photon.SocketServer.Mmo.Item"/> Id.
+            This request parameter is optional. If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SetProperties.ItemType">
+            <summary>
+            Gets or sets the selected <see cref="T:Photon.SocketServer.Mmo.Item"/> type.
+            This request parameter is optional. If not submitted the <see cref="P:Photon.SocketServer.Mmo.Actor.Avatar"/> is selected.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SetProperties.PropertiesSet">
+            <summary>
+            Gets or sets the properties to add or change.
+            This request parameter is optional.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SetProperties.PropertiesUnset">
+            <summary>
+            Gets or sets the property keys to remove.
+            This request parameter is optional.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.SetViewDistance">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationSetViewDistance(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">MmoActor.OperationSetViewDistance</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SetViewDistance.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.SetViewDistance"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SetViewDistance.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SetViewDistance.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SetViewDistance.InterestAreaId">
+            <summary>
+            Gets or sets the id of the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> to change.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SetViewDistance.ViewDistanceEnter">
+            <summary>
+            Gets or sets the <see cref="P:Photon.SocketServer.Mmo.InterestArea.ViewDistanceEnter">interest area's minimum view distance (the item subscribe threshold)</see>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SetViewDistance.ViewDistanceExit">
+            <summary>
+            Gets or sets the <see cref="P:Photon.SocketServer.Mmo.InterestArea.ViewDistanceExit">interest area's maximum view distance (the item unsubscribe threshold)</see>.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.SpawnItem">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            It is used to create a new <see cref="T:Photon.SocketServer.Mmo.Item"/>. 
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationSpawnItem(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">MmoActor.OperationSpawnItem</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SpawnItem.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.SpawnItem"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SpawnItem.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SpawnItem.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SpawnItem.InterestAreaId">
+            <summary>
+            Gets or sets an <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> Id for immediate subscription.
+            This request parameter is optional.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SpawnItem.ItemId">
+            <summary>
+            Gets or sets thew new <see cref="T:Photon.SocketServer.Mmo.Item"/> id.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SpawnItem.ItemType">
+            <summary>
+            Gets or sets thew new <see cref="T:Photon.SocketServer.Mmo.Item"/> type.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SpawnItem.Position">
+            <summary>
+            Gets or sets the <see cref="T:Photon.SocketServer.Mmo.Item"/>'s initial position.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SpawnItem.Properties">
+            <summary>
+            Gets or sets the <see cref="T:Photon.SocketServer.Mmo.Item"/>'s intiai properties.
+            This request parameter is optional.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SpawnItem.Rotation">
+            <summary>
+            Gets or sets the new rotation.
+            This request parameter is optional.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.SubscribeCounter">
+            <summary>
+            This operation subscribes to the <see cref="F:Photon.MmoDemo.Server.PhotonApplication.CounterPublisher"/>. It can be executed any time.
+            See <see cref="M:Photon.MmoDemo.Server.CounterOperations.SubscribeCounter(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)"/> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SubscribeCounter.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.SubscribeCounter"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SubscribeCounter.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SubscribeCounter.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SubscribeCounter.ReceiveInterval">
+            <summary>
+            Gets or sets the interval to receive the counter values with.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.SubscribeItem">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            It is used to subscribe an <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> to an <see cref="T:Photon.SocketServer.Mmo.Item"/>'s <see cref="P:Photon.SocketServer.Mmo.Item.EventChannel"/>. 
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationSubscribeItem(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest,Photon.SocketServer.SendParameters)">MmoActor.OperationSubscribeItem</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SubscribeItem.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.SubscribeItem"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SubscribeItem.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.SubscribeItem.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SubscribeItem.InterestAreaId">
+            <summary>
+            Gets or sets the id of the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> selected for subscription.
+            This request parameter is optional. Default: 0.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SubscribeItem.ItemId">
+            <summary>
+            Gets or sets the Id of the <see cref="T:Photon.SocketServer.Mmo.Item"/> to subscribe to.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SubscribeItem.ItemType">
+            <summary>
+            Gets or sets the type of the <see cref="T:Photon.SocketServer.Mmo.Item"/> to subscribe to.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.SubscribeItem.PropertiesRevision">
+            <summary>
+            Gets or sets the known properties revision.
+            If the value is null or smaller than the <see cref="P:Photon.SocketServer.Mmo.Item.PropertiesRevision">Item PropertiesRevision</see> event <see cref="T:Photon.MmoDemo.Server.Events.ItemProperties"/> is sent to the client.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Operations.UnsubscribeItem">
+            <summary>
+            This operation is allowed AFTER having entered an <see cref="T:Photon.MmoDemo.Server.MmoWorld"/> with operation <see cref="T:Photon.MmoDemo.Server.Operations.EnterWorld"/>.
+            It is used to unsubscribe an <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> from an <see cref="T:Photon.SocketServer.Mmo.Item"/>'s <see cref="P:Photon.SocketServer.Mmo.Item.EventChannel"/> after subscribring with operation <see cref="T:Photon.MmoDemo.Server.Operations.SubscribeItem"/>.
+            See <see cref="M:Photon.MmoDemo.Server.MmoActor.OperationUnsubscribeItem(Photon.SocketServer.PeerBase,Photon.SocketServer.OperationRequest)">MmoActor.OperationUnsubscribeItem</see> for more information.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.UnsubscribeItem.#ctor(Photon.SocketServer.IRpcProtocol,Photon.SocketServer.OperationRequest)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Photon.MmoDemo.Server.Operations.UnsubscribeItem"/> class.
+            </summary>
+            <param name="protocol">
+            The protocol.
+            </param>
+            <param name="request">
+            The request. 
+            </param>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.UnsubscribeItem.GetOperationResponse(System.Int16,System.String)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="errorCode">
+            The error code.
+            </param>
+            <param name="debugMessage">
+            The debug message.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Operations.UnsubscribeItem.GetOperationResponse(Photon.MmoDemo.Server.MethodReturnValue)">
+            <summary>
+            Gets the operation response.
+            </summary>
+            <param name="returnValue">
+            The return value.
+            </param>
+            <returns>
+            A new operation response.
+            </returns>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.UnsubscribeItem.InterestAreaId">
+            <summary>
+            Gets or sets the id of the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> that is subscribed.
+            This request parameter is optional. Default: 0.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.UnsubscribeItem.ItemId">
+            <summary>
+            Gets or sets the Id of the <see cref="T:Photon.SocketServer.Mmo.Item"/> to unsubscribe from.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Operations.UnsubscribeItem.ItemType">
+            <summary>
+            Gets or sets the type of the <see cref="T:Photon.SocketServer.Mmo.Item"/> to unsubscribe from.
+            </summary>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.PhotonApplication">
+            <summary>
+            This <see cref="T:Photon.SocketServer.ApplicationBase"/> subclass creates <see cref="T:Photon.MmoDemo.Server.MmoPeer">MmoPeers</see> and has a <see cref="T:ExitGames.Diagnostics.Monitoring.CounterSamplePublisher"/> that is used to send diagnostic values to the client.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.PhotonApplication.CounterPublisher">
+            <summary>
+            The <see cref="T:ExitGames.Diagnostics.Monitoring.CounterSamplePublisher"/> used to publish diagnostic counters.
+            </summary>
+        </member>
+        <member name="F:Photon.MmoDemo.Server.PhotonApplication.log">
+            <summary>
+            The logger.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.PhotonApplication.#cctor">
+            <summary>
+            Initializes static members of the <see cref="T:Photon.MmoDemo.Server.PhotonApplication"/> class.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.PhotonApplication.Initialize">
+            <summary>
+            Initializes the application.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.PhotonApplication.CreatePeer(Photon.SocketServer.InitRequest)">
+            <summary>
+            Creates a new <see cref="T:Photon.MmoDemo.Server.MmoPeer"/>.
+            </summary>
+            <param name="initRequest">
+            The init Request.
+            </param>
+            <returns>
+            A new <see cref="T:Photon.MmoDemo.Server.MmoPeer"/>
+            </returns>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.PhotonApplication.Setup">
+            <summary>
+            Initializes log4net and counters for the application.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.PhotonApplication.TearDown">
+            <summary>
+            Does nothing.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.PhotonApplication.AppDomain_OnUnhandledException(System.Object,System.UnhandledExceptionEventArgs)">
+            <summary>
+            Logs unhandled exceptions.
+            </summary>
+            <param name="sender">
+            The sender.
+            </param>
+            <param name="e">
+            The event args.
+            </param>
+        </member>
+        <member name="T:Photon.MmoDemo.Server.Settings">
+            <summary>
+            The settings.
+            </summary>
+        </member>
+        <member name="M:Photon.MmoDemo.Server.Settings.#cctor">
+            <summary>
+            Initializes static members of the <see cref="T:Photon.MmoDemo.Server.Settings"/> class.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Settings.DiagnosticsEventChannel">
+            <summary>
+            Gets or sets the diagnostics channel number.
+            This property determines which enet channel to use when sending event <see cref="T:Photon.MmoDemo.Server.Events.CounterDataEvent"/> to the client.
+            Default value is #2.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Settings.DiagnosticsEventReliability">
+            <summary>
+            Gets or sets the diagnostics event reliability.
+            This property determines if event <see cref="T:Photon.MmoDemo.Server.Events.CounterDataEvent"/> is sent reliable or unreliable to the client.
+            Defaut value is <see cref="F:Photon.SocketServer.Reliability.Reliable"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Settings.ItemAutoUnsubcribeDelay">
+            <summary>
+            Gets or sets the maximum unsubscribe delay of items that leave the outer view threshold.
+            Default value is 5 seconds.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Settings.ItemEventChannel">
+            <summary>
+            Gets or sets the enet channel used for events that are published with the <see cref="P:Photon.SocketServer.Mmo.Item.EventChannel">Item.EventChannel</see>.
+            Default value is 0.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Settings.MaxLockWaitTimeMilliseconds">
+            <summary>
+            Gets or sets the maxium lock wait time for the lock protected dictionaries <see cref="T:Photon.MmoDemo.Server.MmoItemCache"/> and <see cref="T:Photon.MmoDemo.Server.MmoWorldCache"/>.
+            Default is 1 second.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Settings.RadarEventChannel">
+            <summary>
+            Gets or sets the enet channel used for event that are published with the <see cref="T:Photon.MmoDemo.Server.MmoRadar"/>.
+            Default is 2.
+            </summary>
+        </member>
+        <member name="P:Photon.MmoDemo.Server.Settings.RadarUpdateInterval">
+            <summary>
+            Gets or sets the interval the <see cref="T:Photon.MmoDemo.Server.MmoRadar"/> uses to publish position changes with a <see cref="T:Photon.MmoDemo.Server.Events.RadarUpdate"/> event.
+            Default is 10 seconds.
+            </summary>
+        </member>
+    </members>
+</doc>

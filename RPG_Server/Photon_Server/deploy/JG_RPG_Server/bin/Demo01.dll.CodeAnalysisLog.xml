@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="d:\program files (x86)\microsoft visual studio 14.0\team tools\static analysis tools\fxcop\Xml\CodeAnalysisReport.xsl"?>
+<FxCopReport Version="14.0">
+ <Targets>
+  <Target Name="C:\Users\jiuguang\Desktop\WorkSpace\RPG_JG\RPG_Server\Photon_Server\deploy\JG_RPG_Server\bin\Demo01.dll">
+   <Modules>
+    <Module Name="demo01.dll">
+     <Namespaces>
+      <Namespace Name="Demo01">
+       <Types>
+        <Type Name="DemoPeer" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#OnDisconnect(PhotonHostRuntimeInterfaces.DisconnectReason,System.String)" Kind="Method" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotHideBaseClassMethods" Category="Microsoft.Design" CheckId="CA1061" Status="Active" Created="2016-02-04 03:43:39Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="CriticalWarning" Path="C:\Users\jiuguang\Desktop\WorkSpace\RPG_JG\RPG_Server\Server_Source\RPG_Server\Demo01" File="DemoPeer.cs" Line="19">更改或移除 'DemoPeer.OnDisconnect(DisconnectReason, string)'，因为它会隐藏更具体的基类方法: 'PeerBase.OnDisconnect(DisconnectReason, string)'。</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="DoNotHideBaseClassMethods" Category="Microsoft.Design" CheckId="CA1061">
+   <Name>不要隐藏基类方法</Name>
+   <Description>如果在派生类中定义一个方法，该方法与在基类中定义的方法同名，但参数的类型化较弱，则将妨碍对基类中定义的方法的访问。</Description>
+   <Resolution Name="Default">更改或移除 {0}，因为它会隐藏更具体的基类方法: {1}。</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182143.aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalWarning</MessageLevel>
+   <File Name="designrules.dll" Version="14.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">类别</String>
+  <String Key="Certainty">确定性</String>
+  <String Key="CollapseAll">全部折叠</String>
+  <String Key="CheckId">检查 ID</String>
+  <String Key="Error">错误</String>
+  <String Key="Errors">错误</String>
+  <String Key="ExpandAll">全部展开</String>
+  <String Key="Help">帮助</String>
+  <String Key="Line">行</String>
+  <String Key="Messages">消息</String>
+  <String Key="LocationNotStoredInPdb">[位置未存储在 Pdb 中]</String>
+  <String Key="Project">项目</String>
+  <String Key="Resolution">解析</String>
+  <String Key="Rule">规则</String>
+  <String Key="RuleFile">规则文件</String>
+  <String Key="RuleDescription">规则说明</String>
+  <String Key="Source">源</String>
+  <String Key="Status">状态</String>
+  <String Key="Target">目标</String>
+  <String Key="Warning">警告</String>
+  <String Key="Warnings">警告</String>
+  <String Key="ReportTitle">代码分析报告</String>
+ </Localized>
+</FxCopReport>

@@ -68,6 +68,24 @@ public class RSHHelper {
 					player.setPwd(rs.getString("pwd"));
 				if(columnCount >= 4)
 					player.setPhoneNum(rs.getString("phone"));
+				if(columnCount >= 5)
+					player.setLevel(rs.getInt("level"));
+				if(columnCount >= 6)
+					player.setFc(rs.getInt("fc"));
+				if(columnCount >= 7)
+					player.setExp(rs.getInt("exp"));
+				if(columnCount >= 8)
+					player.setDiamondCount(rs.getInt("diamondCount"));
+				if(columnCount >= 9)
+					player.setGoldCount(rs.getInt("goldCount"));
+				if(columnCount >= 10)
+					player.setVit(rs.getInt("vit"));
+				if(columnCount >= 11)
+					player.setToughen(rs.getInt("toughen"));
+				if(columnCount >= 12)
+					player.setHp(rs.getInt("hp"));
+				if(columnCount >= 13)
+					player.setDamage(rs.getInt("damage"));
 				return player;
 			}
 		};

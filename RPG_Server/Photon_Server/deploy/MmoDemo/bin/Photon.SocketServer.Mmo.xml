@@ -1,0 +1,2108 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Photon.SocketServer.Mmo</name>
+    </assembly>
+    <members>
+        <member name="T:Photon.SocketServer.Mmo.Actor">
+            <summary>
+              Represents a player in a <see cref="T:Photon.SocketServer.Mmo.IWorld">world</see>. 
+              An actor can receive events using <see cref="T:Photon.SocketServer.Mmo.InterestArea">interest areas</see> and publish events using <see cref="T:Photon.SocketServer.Mmo.Item">items</see>.
+              <see cref="T:Photon.SocketServer.Mmo.InterestArea">Interest areas</see> and <see cref="T:Photon.SocketServer.Mmo.Item">items</see> can be added, removed and moved within the <see cref="T:Photon.SocketServer.Mmo.IWorld">world</see>.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Actor.interestAreas">
+            <summary>
+              The interest areas.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Actor.ownedItems">
+            <summary>
+              The owned items.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Actor.peer">
+            <summary>
+              The peer.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Actor.world">
+            <summary>
+              The world.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Actor.#ctor(Photon.SocketServer.PeerBase,Photon.SocketServer.Mmo.IWorld)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.Actor"/> class.
+            </summary>
+            <param name="peer">
+              The owner peer.
+            </param>
+            <param name="world">
+              The world.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Actor.Finalize">
+            <summary>
+              Finalizes an instance of the <see cref="T:Photon.SocketServer.Mmo.Actor"/> class.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Actor.AddInterestArea(Photon.SocketServer.Mmo.InterestArea)">
+            <summary>
+              Adds an <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            </summary>
+            <param name="interestArea">
+              The <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> to add.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Actor.AddItem(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              Adds an <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+            <param name="item">
+              The <see cref="T:Photon.SocketServer.Mmo.Item"/> to add.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Actor.GetInterestAreas">
+            <summary>
+              Gets the actor's <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>s.
+            </summary>
+            <returns>
+              A list of <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>s.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Actor.GetOwnedItemTypes">
+            <summary>
+              Gets the type codes of the actor's <see cref="T:Photon.SocketServer.Mmo.Item"/>s.
+            </summary>
+            <returns>
+              A list of item type codes.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Actor.GetOwnedItems(System.Byte)">
+            <summary>
+              Gets the actor's <see cref="T:Photon.SocketServer.Mmo.Item"/>s.
+            </summary>
+            <param name="itemType">
+              The item type.
+            </param>
+            <returns>
+              A list of <see cref="T:Photon.SocketServer.Mmo.Item"/>s.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Actor.RemoveInterestArea(System.Byte)">
+            <summary>
+              Removes an <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            </summary>
+            <param name="interestAreaId">
+              The interest area's id (<see cref="P:Photon.SocketServer.Mmo.InterestArea.Id"/>).
+            </param>
+            <returns>
+              true if the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> was found.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Actor.RemoveItem(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              Removes an <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+            <param name="item">
+              The removed item.
+            </param>
+            <returns>
+              true if item was found.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Actor.TryGetInterestArea(System.Byte,Photon.SocketServer.Mmo.InterestArea@)">
+            <summary>
+              Tries to get an <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            </summary>
+            <param name="interestAreaId">
+              The interest area id.
+            </param>
+            <param name="interestArea">
+              The result <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            </param>
+            <returns>
+              true if the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> with the <paramref name="interestAreaId"/> was found.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Actor.TryGetItem(System.Byte,System.String,Photon.SocketServer.Mmo.Item@)">
+            <summary>
+              Tries to get an <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+            <param name="itemType">
+              The item type.
+            </param>
+            <param name="itemid">
+              The item id.
+            </param>
+            <param name="item">
+              The result <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </param>
+            <returns>
+              true if the <see cref="T:Photon.SocketServer.Mmo.Item"/> with the <paramref name="itemType"/> and <paramref name="itemid"/> was found.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Actor.Dispose">
+            <summary>
+              Calls <see cref="M:Photon.SocketServer.Mmo.Actor.Dispose(System.Boolean)"/> and suppresses finalization.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Actor.Dispose(System.Boolean)">
+            <summary>
+              Disposes the <see cref="T:Photon.SocketServer.Mmo.InterestArea">interest areas</see> and destroys all owned <see cref="T:Photon.SocketServer.Mmo.Item">items</see>.
+            </summary>
+            <param name="disposing">
+              True if called from <see cref="M:Photon.SocketServer.Mmo.Actor.Dispose"/>, false if called from the finalizer.
+            </param>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Actor.Avatar">
+            <summary>
+              Gets or sets the avatar <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Actor.Peer">
+            <summary>
+              Gets the owner peer.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Actor.World">
+            <summary>
+              Gets the <see cref="T:Photon.SocketServer.Mmo.IWorld">world</see> the actor is member of.
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.BoundingBox">
+            <summary>
+              The bounding box is a 2d or 3d shape.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.BoundingBox.op_Equality(Photon.SocketServer.Mmo.BoundingBox,Photon.SocketServer.Mmo.BoundingBox)">
+            <summary>
+              Compares two bounding boxes.
+            </summary>
+            <param name = "a">
+              The a.
+            </param>
+            <param name = "b">
+              The b.
+            </param>
+            <returns>
+              True if a and b are equal.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.BoundingBox.op_Inequality(Photon.SocketServer.Mmo.BoundingBox,Photon.SocketServer.Mmo.BoundingBox)">
+            <summary>
+              Compares two bounding boxes.
+            </summary>
+            <param name = "a">
+              The a.
+            </param>
+            <param name = "b">
+              The b.
+            </param>
+            <returns>
+              True if a and b are not equal.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.BoundingBox.CreateFromPoints(Photon.SocketServer.Mmo.Vector[])">
+            <summary>
+              Creates a bounding box from a polygon.
+            </summary>
+            <param name="points">
+              The points.
+            </param>
+            <returns>
+              A bounding box.
+            </returns>
+            <exception cref="T:System.ArgumentNullException">
+              <paramref name="points"/> is null.
+            </exception>
+            <exception cref="T:System.ArgumentException">
+              <paramref name="points"/> has a length of 0.
+            </exception>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.BoundingBox.Contains(Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Checks whether <paramref name = "point" /> exists within bounding box borders.
+            </summary>
+            <param name = "point">
+              The point.
+            </param>
+            <returns>
+              True if <paramref name = "point" /> exists inside the box.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.BoundingBox.Equals(System.Object)">
+            <summary>
+              Checks whether <paramref name = "obj" /> is a bounding box with equal values.
+            </summary>
+            <param name = "obj">
+              The obj.
+            </param>
+            <returns>
+              True if <paramref name = "obj" /> has equal values.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.BoundingBox.GetCorners2D">
+            <summary>
+              Gets all 4 corners of a 2D bounding box with the minimum Z.
+            </summary>
+            <returns>
+              Four <see cref="T:Photon.SocketServer.Mmo.Vector"/>s.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.BoundingBox.GetCorners3D">
+            <summary>
+              Gets all 8 corners of a 3D bounding box.
+            </summary>
+            <returns>
+              Eight <see cref="T:Photon.SocketServer.Mmo.Vector"/>s.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.BoundingBox.GetHashCode">
+            <summary>
+              Gets the hash code.
+            </summary>
+            <returns>
+              The hash code.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.BoundingBox.IntersectWith(Photon.SocketServer.Mmo.BoundingBox)">
+            <summary>
+              Intersects this instance with another bounding box.
+            </summary>
+            <param name = "other">
+              The other.
+            </param>
+            <returns>
+              A new bounding box.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.BoundingBox.IsValid">
+            <summary>
+              Checks whether <see cref="P:Photon.SocketServer.Mmo.BoundingBox.Max"/> and <see cref="P:Photon.SocketServer.Mmo.BoundingBox.Min"/> span a valid (positive) area.
+            </summary>
+            <returns>
+              True if all values of <see cref="P:Photon.SocketServer.Mmo.BoundingBox.Max"/> are larger than or equal to all values of <see cref="P:Photon.SocketServer.Mmo.BoundingBox.Min"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.BoundingBox.UnionWith(Photon.SocketServer.Mmo.BoundingBox)">
+            <summary>
+              Unites two bounding boxes.
+            </summary>
+            <param name = "other">
+              The additional.
+            </param>
+            <returns>
+              A new bounding box.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.BoundingBox.Equals(Photon.SocketServer.Mmo.BoundingBox)">
+            <summary>
+              Compares this instance to another bounding box.
+            </summary>
+            <param name = "other">
+              The other.
+            </param>
+            <returns>
+              True if both bounding boxes have the same values.
+            </returns>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.BoundingBox.Max">
+            <summary>
+              Gets or sets the Max coordinate.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.BoundingBox.Min">
+            <summary>
+              Gets or sets the Min coordinate.
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.ClientInterestArea">
+            <summary>
+              This <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> subclass automatically subscribes to the <see cref="P:Photon.SocketServer.Mmo.Item.EventChannel"/>
+              of every subscribed <see cref="T:Photon.SocketServer.Mmo.Item"/> and forwards the received events to the <see cref="T:Photon.SocketServer.PeerBase"/>.
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.InterestArea">
+            <summary>
+              Provides a mechanism to subscribe <see cref="T:Photon.SocketServer.Mmo.Item">items</see> and <see cref="T:Photon.SocketServer.Mmo.Region">regions</see> in a <see cref="T:Photon.SocketServer.Mmo.IWorld">world</see>.  
+              <para>
+                Interest areas have
+                <list type="bullet">
+                  <item>
+                    an <see cref="P:Photon.SocketServer.Mmo.InterestArea.Id"/> that is unique per <see cref="T:Photon.SocketServer.Mmo.Actor"/>
+                  </item>
+                  <item>
+                    a <see cref="P:Photon.SocketServer.Mmo.InterestArea.Position"/>
+                  </item>
+                  <item>
+                    a subscribe threshold (<see cref="P:Photon.SocketServer.Mmo.InterestArea.ViewDistanceEnter"/>)
+                  </item>
+                  <item>
+                    an unsubscribe threshold (<see cref="P:Photon.SocketServer.Mmo.InterestArea.ViewDistanceExit"/>)
+                  </item>
+                </list>
+                The InterestArea subscribes to <see cref="T:Photon.SocketServer.Mmo.Region">regions</see> that overlap with the inner view radius. 
+              </para>
+              <para>
+                Whenever an <see cref="T:Photon.SocketServer.Mmo.Item"/> moves into a new <see cref="T:Photon.SocketServer.Mmo.Region"/> it sends an <see cref="T:Photon.SocketServer.Mmo.Messages.ItemSnapshot"/> into the region. 
+                Interest areas that receive this message automatically subscribe to the <see cref="T:Photon.SocketServer.Mmo.Item"/> (unless <see cref="M:Photon.SocketServer.Mmo.InterestArea.AutoSubscribeItem(Photon.SocketServer.Mmo.Item)">AutoSubscribeItem</see> returns false). 
+              </para>
+              <para>
+                If the interest area moves and subscribes to a new <see cref="T:Photon.SocketServer.Mmo.Region"/> it sends a <see cref="T:Photon.SocketServer.Mmo.Messages.ItemSnapshotRequest"/> into the region. 
+                Receiving <see cref="T:Photon.SocketServer.Mmo.Item">items</see> answer with an <see cref="T:Photon.SocketServer.Mmo.Messages.ItemSnapshot"/>.
+              </para>
+              <para>
+                The interest area analyzes one <see cref="T:Photon.SocketServer.Mmo.Messages.ItemPositionMessage"/> every few seconds from each subscribed item <see cref="P:Photon.SocketServer.Mmo.Item.PositionUpdateChannel"/> 
+                and then checks if the item moved out of the interest area’s outer view radius. 
+                The check interval is configured with <see cref="P:Photon.SocketServer.Mmo.InterestArea.ItemAutoUnsubcribeDelayMilliseconds"/>.
+              </para>
+              <para>
+                Interest areas can be attached to an <see cref="T:Photon.SocketServer.Mmo.Item"/>. 
+                Once an interest area is attached it moves wherever the item by receiving all position updates from the item’s <see cref="P:Photon.SocketServer.Mmo.Item.PositionUpdateChannel"/>. 
+                Per default interest areas do not auto subscribe their <see cref="P:Photon.SocketServer.Mmo.InterestArea.AttachedItem"/> (see <see cref="M:Photon.SocketServer.Mmo.InterestArea.AutoSubscribeItem(Photon.SocketServer.Mmo.Item)">AutoSubscribeItem</see>). 
+              </para>
+            </summary>
+            <remarks>
+              Thread safety: All instance members require a lock on <see cref="F:Photon.SocketServer.Mmo.InterestArea.SyncRoot"/>.
+            </remarks>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.InterestArea.SyncRoot">
+            <summary>
+              Locking the sync root guarantees thread safe access.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.InterestArea.autoManagedItemSubscriptions">
+            <summary>
+              The subscribed items.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.InterestArea.id">
+            <summary>
+              The id.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.InterestArea.manualManagedItemSubscriptions">
+            <summary>
+              The manual managed item subscriptions.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.InterestArea.snapShotRequest">
+            <summary>
+              The item snap shot request
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.InterestArea.subscribedWorldRegions">
+            <summary>
+              The subscribedWorldRegions.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.InterestArea.subscriptionManagementFiber">
+            <summary>
+              The subscription management fiber.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.InterestArea.world">
+            <summary>
+              The world.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.InterestArea.worldArea">
+            <summary>
+              The world area
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.InterestArea.currentRegionInnerFocus">
+            <summary>
+              The current inner focus (region boundaries)
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.InterestArea.currentRegionOuterFocus">
+            <summary>
+              The current outer focus (region boundaries)
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.InterestArea.itemMovementSubscription">
+            <summary>
+              The item movement subscription.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.#cctor">
+            <summary>
+              Initializes static members of the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> class.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.#ctor(System.Byte,Photon.SocketServer.Mmo.IWorld)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> class.
+            </summary>
+            <param name="id">
+              The id for this interest area. 
+              Unique per <see cref="T:Photon.SocketServer.Mmo.Actor"/>.
+            </param>
+            <param name="world">
+              The <see cref="T:Photon.SocketServer.Mmo.IWorld"/> this interest area is watching.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.Finalize">
+            <summary>
+              Finalizes an instance of the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> class.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.AttachToItem(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              Attaching an <see cref="T:Photon.SocketServer.Mmo.Item"/> to the interest area automatically updates the interest area's <see cref="P:Photon.SocketServer.Mmo.InterestArea.Position"/> when the <see cref="T:Photon.SocketServer.Mmo.Item"/> moves.
+              Attached item's are excluded from the auto-subscription mechanism.
+              Detach the item with <see cref="M:Photon.SocketServer.Mmo.InterestArea.Detach">Detach</see>.
+            </summary>
+            <remarks>
+              Thread safety: Requires enqueuing on the item's <see cref="P:Photon.SocketServer.Mmo.Item.Fiber"/> and like all instance members a lock on <see cref="F:Photon.SocketServer.Mmo.InterestArea.SyncRoot"/>.
+            </remarks>
+            <param name="item">
+              The newly attached item.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.Detach">
+            <summary>
+              Detaches the interest area from an <see cref="T:Photon.SocketServer.Mmo.Item"/> that was attached with <see cref="M:Photon.SocketServer.Mmo.InterestArea.AttachToItem(Photon.SocketServer.Mmo.Item)">AttachToItem</see>.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.SubscribeItem(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              Subscribes an <see cref="T:Photon.SocketServer.Mmo.Item"/> manually. 
+              Manually subscribed items are excluded from the auto-unsubscribe mechanism. 
+              Leads to <see cref="M:Photon.SocketServer.Mmo.InterestArea.OnItemSubscribed(Photon.SocketServer.Mmo.Messages.ItemSnapshot)">OnItemSubscribed</see>.
+              Unsubscribe with <see cref="M:Photon.SocketServer.Mmo.InterestArea.UnsubscribeItem(Photon.SocketServer.Mmo.Item)">UnsubscribeItem</see>.
+            </summary>
+            <remarks>
+              Thread safety: Requires enqueuing on the item's <see cref="P:Photon.SocketServer.Mmo.Item.Fiber"/> and like all instance members a lock on <see cref="F:Photon.SocketServer.Mmo.InterestArea.SyncRoot"/>.
+            </remarks>
+            <param name="item">
+              The item to subscribe.
+            </param>
+            <returns>
+              false if item has been subscribed before.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.UnsubscribeItem(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              Unsubscribe an <see cref="T:Photon.SocketServer.Mmo.Item"/> that was manually subscribed with <see cref="M:Photon.SocketServer.Mmo.InterestArea.SubscribeItem(Photon.SocketServer.Mmo.Item)">SubscribeItem</see>.
+            </summary>
+            <param name="item">
+              The item.
+            </param>
+            <returns>
+              true if item had been subscribed.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.UpdateInterestManagement">
+            <summary>
+              Updates the <see cref="T:Photon.SocketServer.Mmo.Region"/> subscriptions that are used to detect <see cref="T:Photon.SocketServer.Mmo.Item">Items</see> in the nearby <see cref="T:Photon.SocketServer.Mmo.IWorld"/>.
+              This method should be called after changing the interest area's <see cref="P:Photon.SocketServer.Mmo.InterestArea.Position"/>.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.UpdateRegionSubscriptions">
+            <summary>
+              Obsolete. Calls <see cref="M:Photon.SocketServer.Mmo.InterestArea.UpdateInterestManagement"/>.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.Dispose">
+            <summary>
+              Calls <see cref="M:Photon.SocketServer.Mmo.InterestArea.Dispose(System.Boolean)"/> and suppresses finalization.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.ReceiveItemSnapshot(Photon.SocketServer.Mmo.Messages.ItemSnapshot)">
+            <summary>
+              Receives the <see cref="T:Photon.SocketServer.Mmo.Messages.ItemSnapshot"/>.
+              auto subscribes item if necessary.
+            </summary>
+            <param name="message">
+              The message.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.AutoSubscribeItem(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              Checks whether to auto subscribe the <paramref name="item"/>.
+              The default implementation ignores the <see cref="P:Photon.SocketServer.Mmo.InterestArea.AttachedItem"/>.
+              Override to change or extend this behavior.
+            </summary>
+            <param name="item">
+              The item to subscribe.
+            </param>
+            <returns>
+              True if the <paramref name="item"/> is not the <see cref="P:Photon.SocketServer.Mmo.InterestArea.AttachedItem"/>, otherwise false.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.ClearAutoSubscriptions">
+            <summary>
+              The clear auto subscriptions.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.ClearManualSubscriptions">
+            <summary>
+              The clear manual subscriptions.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.ClearRegionSubscriptions">
+            <summary>
+              The clear focus.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.Dispose(System.Boolean)">
+            <summary>
+              Disposes the fiber used to manage the subscriptions, detaches any attached item and resolves all existing channel subscriptions.
+            </summary>
+            <param name="disposing">
+              True if called from <see cref="M:Photon.SocketServer.Mmo.InterestArea.Dispose"/>, false if called from the finalizer.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.OnItemSubscribed(Photon.SocketServer.Mmo.Messages.ItemSnapshot)">
+            <summary>
+              Does nothing.
+              Called after subscribing an <see cref="T:Photon.SocketServer.Mmo.Item"/>, either manually (<see cref="M:Photon.SocketServer.Mmo.InterestArea.SubscribeItem(Photon.SocketServer.Mmo.Item)">SubscribeItem</see>) or automatically.
+            </summary>
+            <param name="itemSnapshot">
+              The hearbeat message from the subscribed item.
+            </param>
+            <remarks>
+              Thread Safety: This method does not provide thread safe access to the <see cref="T:Photon.SocketServer.Mmo.Item"/>. 
+              Instead of accessing the item directly override <see cref="M:Photon.SocketServer.Mmo.Item.GetItemSnapshot"/> subsclass that contains a copy of the required values.
+            </remarks>
+            <remarks>
+              Thread Safety: This method is executed while having an exclusive lock on <see cref="F:Photon.SocketServer.Mmo.InterestArea.SyncRoot"/>.
+            </remarks>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.OnItemUnsubscribed(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              Does nothing.
+              Called after subscribing an <see cref="T:Photon.SocketServer.Mmo.Item"/>, either manually (<see cref="M:Photon.SocketServer.Mmo.InterestArea.UnsubscribeItem(Photon.SocketServer.Mmo.Item)">UnsubscribeItem</see>, <see cref="M:Photon.SocketServer.Mmo.InterestArea.Dispose(System.Boolean)">Dispose</see>, <see cref="M:Photon.SocketServer.Mmo.InterestArea.AttachToItem(Photon.SocketServer.Mmo.Item)">AttachToItem</see>) or automatically.
+            </summary>
+            <param name="item">
+              The item.
+            </param>
+            <remarks>
+              Thread Safety: This method does not provide thread safe access to the <see cref="T:Photon.SocketServer.Mmo.Item"/>, but is executed while having an exclusive lock on <see cref="F:Photon.SocketServer.Mmo.InterestArea.SyncRoot"/>.
+            </remarks>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.AttachedItem_OnItemDisposed(Photon.SocketServer.Mmo.Messages.ItemDisposedMessage)">
+            <summary>
+              The attached item disposed.
+            </summary>
+            <param name = "message">
+              The message.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.AttachedItem_OnItemPosition(Photon.SocketServer.Mmo.Messages.ItemPositionMessage)">
+            <summary>
+              The on attached item position update.
+            </summary>
+            <param name = "message">
+              The message.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.AutoSubscribedItem_OnItemDisposed(Photon.SocketServer.Mmo.Messages.ItemDisposedMessage)">
+            <summary>
+              The on auto subscribed item disposed.
+            </summary>
+            <param name = "message">
+              The message.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.AutoSubscribedItem_OnItemPosition(Photon.SocketServer.Mmo.Messages.ItemPositionMessage)">
+            <summary>
+              The on auto subscribed item position update.
+              unsubscribes item if too far away
+            </summary>
+            <param name = "message">
+              The message.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.AutoUnsubscribeDistantItem(Photon.SocketServer.Mmo.ItemAutoSubscription)">
+            <summary>
+              The auto unsubscribe distant item.
+            </summary>
+            <param name = "subscription">
+              The subscription.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.AutoUnsubscribeItem(Photon.SocketServer.Mmo.ItemAutoSubscription)">
+            <summary>
+              The auto unsubscribe item.
+            </summary>
+            <param name = "subscription">
+              The subscription.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.Region_OnReceive(Photon.SocketServer.Mmo.Messages.RegionMessage)">
+            <summary>
+              The region receive message.
+            </summary>
+            <param name = "message">
+              The message.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.SubscribeRegions(System.Collections.Generic.IEnumerable{Photon.SocketServer.Mmo.Region})">
+            <summary>
+              Subscribes the <paramref name = "regions" />.
+            </summary>
+            <param name = "regions">
+              The regions.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.SubscribedItem_OnItemDisposed(Photon.SocketServer.Mmo.Messages.ItemDisposedMessage)">
+            <summary>
+              The on subscribed item disposed.
+            </summary>
+            <param name = "itemDisposeMessage">
+              The item dispose message.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.InterestArea.UnsubscribeRegions(System.Collections.Generic.IEnumerable{Photon.SocketServer.Mmo.Region})">
+            <summary>
+              Unsubscribe the <paramref name = "regions" />.
+            </summary>
+            <param name = "regions">
+              The regions.
+            </param>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.InterestArea.ItemAutoUnsubcribeDelayMilliseconds">
+            <summary>
+              Gets or sets ItemAutoUnsubcribeDelayMilliseconds.
+              Default: 5000ms.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.InterestArea.AttachedItem">
+            <summary>
+              Gets the attached <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+              Set with <see cref="M:Photon.SocketServer.Mmo.InterestArea.AttachToItem(Photon.SocketServer.Mmo.Item)">AttachToItem</see>.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.InterestArea.Id">
+            <summary>
+              Gets the interest area Id.
+              Unique per <see cref="T:Photon.SocketServer.Mmo.Actor"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.InterestArea.Position">
+            <summary>
+              Gets or sets the interest area <see cref="T:Photon.SocketServer.Mmo.Vector"/> position.
+              This value is used for internal  management calculations.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.InterestArea.ViewDistanceEnter">
+            <summary>
+              Gets or sets the inner view distance (the item subscribe threshold).
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.InterestArea.ViewDistanceExit">
+            <summary>
+              Gets or sets the outer view distance (the item unsubscribe threshold).
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.InterestArea.World">
+            <summary>
+              Gets the <see cref="T:Photon.SocketServer.Mmo.IWorld"/> the interest area looks at.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.ClientInterestArea.eventChannelSubscriptions">
+            <summary>
+              The event channel subscriptions.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.ClientInterestArea.fiber">
+            <summary>
+              The fiber for event processing.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.ClientInterestArea.peer">
+            <summary>
+              The peer.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ClientInterestArea.#ctor(Photon.SocketServer.PeerBase,System.Byte,Photon.SocketServer.Mmo.IWorld,ExitGames.Concurrency.Fibers.IFiber)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.ClientInterestArea"/> class.
+            </summary>
+            <param name="peer">
+              The peer.
+            </param>
+            <param name="id">
+              The id for this interest area. 
+              Unique per <see cref="T:Photon.SocketServer.Mmo.Actor"/>.
+            </param>
+            <param name="world">
+              The <see cref="T:Photon.SocketServer.Mmo.IWorld"/> this interest area is watching.
+            </param>
+            <param name="fiber">
+              The fiber this intereast receives events on.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ClientInterestArea.OnItemSubscribed(Photon.SocketServer.Mmo.Messages.ItemSnapshot)">
+            <summary>
+              Subscribes the <see cref="T:Photon.SocketServer.PeerBase"/> to the item's <see cref="P:Photon.SocketServer.Mmo.Item.EventChannel"/>.
+            </summary>
+            <param name="itemSnapshot">
+              The item snapshot message.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ClientInterestArea.OnItemUnsubscribed(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              Unsubscribes the <see cref="T:Photon.SocketServer.PeerBase"/> from the item's <see cref="P:Photon.SocketServer.Mmo.Item.EventChannel"/>.
+            </summary>
+            <param name="item">
+              The item.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ClientInterestArea.SubscribedItem_OnItemEvent(Photon.SocketServer.Mmo.Messages.ItemEventMessage)">
+            <summary>
+              The subscribed item event.
+            </summary>
+            <param name = "message">
+              The message.
+            </param>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.ClientInterestArea.Peer">
+            <summary>
+              Gets the owner's <see cref="T:Photon.SocketServer.PeerBase"/>.
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.GridWorld">
+            <summary>
+              This <see cref="T:Photon.SocketServer.Mmo.IWorld"/> implementation uses a grid to divide the <see cref="T:Photon.SocketServer.Mmo.IWorld">world</see>.
+              It contains <see cref="T:Photon.SocketServer.Mmo.Region"/>s.
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.IWorld">
+            <summary>
+              Represents a virtual world that exists within the boundaries of a <see cref="T:Photon.SocketServer.Mmo.BoundingBox"/>.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.IWorld.GetRegion(Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Get the region at the <paramref name="position"/>/
+            </summary>
+            <param name="position">
+              The position.
+            </param>
+            <returns>
+              A <see cref="T:Photon.SocketServer.Mmo.Region"/> or null.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.IWorld.GetRegionAlignedBoundingBox(Photon.SocketServer.Mmo.BoundingBox)">
+            <summary>
+              Gets the bounding box of the overlapping regions.
+            </summary>
+            <param name = "area">
+              The area that overlaps with the same regions as the result.
+            </param>
+            <returns>
+              A region aligned bounding box.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.IWorld.GetRegions(Photon.SocketServer.Mmo.BoundingBox)">
+            <summary>
+              Gets all <see cref="T:Photon.SocketServer.Mmo.Region">regions</see> overlapping with a specific <paramref name="area"/>.
+            </summary>
+            <param name="area">
+              The area to return the <see cref="T:Photon.SocketServer.Mmo.Region">regions</see> for.
+            </param>
+            <returns>
+              The <see cref="T:Photon.SocketServer.Mmo.Region">regions</see> overlapping with the <paramref name="area"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.IWorld.GetRegionsExcept(Photon.SocketServer.Mmo.BoundingBox,Photon.SocketServer.Mmo.BoundingBox)">
+            <summary>
+              Gets the regions that overlap with the <paramref name = "area" /> except the ones that do also overlap with <paramref name = "except" />.
+            </summary>
+            <param name = "area">
+              The area that overlaps with the result regions.
+            </param>
+            <param name = "except">
+              Regions overlapping with this parameter are not returned.
+            </param>
+            <returns>
+              A collection of regions.
+            </returns>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.IWorld.Area">
+            <summary>
+              Gets the underlying area.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.IWorld.ItemCache">
+            <summary>
+              Gets the cache for all <see cref="T:Photon.SocketServer.Mmo.Item">Items</see> in this world.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.GridWorld.itemCache">
+            <summary>
+              The item cache.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.GridWorld.rectangleArea">
+            <summary>
+              The rectangle area.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.GridWorld.tileDimensions">
+            <summary>
+              The tile dimensions.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.GridWorld.tileSize">
+            <summary>
+              The tile dimensions minus 1
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.GridWorld.worldRegions">
+            <summary>
+              The world regions.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.GridWorld.#ctor(Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.ItemCache)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.GridWorld"/> class.
+            </summary>
+            <param name="corner1">
+              One corner of the world.
+            </param>
+            <param name="corner2">
+              The other corner of the world.
+            </param>
+            <param name="tileDimensions">
+              The tile dimensions.
+            </param>
+            <param name="itemCache">
+              The cache for all <see cref="T:Photon.SocketServer.Mmo.Item">Items</see> in this world.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.GridWorld.#ctor(Photon.SocketServer.Mmo.BoundingBox,Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.ItemCache)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.GridWorld"/> class.
+            </summary>
+            <param name="boundingBox">
+              The bounding box defines the world's size.
+            </param>
+            <param name="tileDimensions">
+              The tile dimensions.
+            </param>
+            <param name="itemCache">
+              The cache for all <see cref="T:Photon.SocketServer.Mmo.Item">Items</see> in this world.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.GridWorld.Finalize">
+            <summary>
+              Finalizes an instance of the <see cref="T:Photon.SocketServer.Mmo.GridWorld"/> class.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.GridWorld.Dispose">
+            <summary>
+              Disposes all used <see cref="T:Photon.SocketServer.Mmo.Region">regions</see>.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.GridWorld.GetRegion(Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Gets a region at the given <paramref name="position"/>.
+            </summary>
+            <param name="position">
+              The position.
+            </param>
+            <returns>
+              A <see cref="T:Photon.SocketServer.Mmo.Region"/> or null.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.GridWorld.GetRegionAlignedBoundingBox(Photon.SocketServer.Mmo.BoundingBox)">
+            <summary>
+              Returns a bounding box that is aligned with the Grid.
+            </summary>
+            <param name = "area">
+              The area.
+            </param>
+            <returns>
+              A bounding box that 
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.GridWorld.GetRegions(Photon.SocketServer.Mmo.BoundingBox)">
+            <summary>
+              Gets all <see cref="T:Photon.SocketServer.Mmo.Region">regions</see> overlapping with a specific <paramref name="area"/>.
+            </summary>
+            <param name="area">
+              The area to return the <see cref="T:Photon.SocketServer.Mmo.Region">regions</see> for.
+            </param>
+            <returns>
+              The <see cref="T:Photon.SocketServer.Mmo.Region">regions</see> overlapping with the <paramref name="area"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.GridWorld.GetRegionsExcept(Photon.SocketServer.Mmo.BoundingBox,Photon.SocketServer.Mmo.BoundingBox)">
+            <summary>
+              Gets the regions that overlap with the <paramref name = "area" /> except the ones that do also overlap with <paramref name = "except" />.
+            </summary>
+            <param name = "area">
+              The area that overlaps with the result regions.
+            </param>
+            <param name = "except">
+              Regions overlapping with this parameter are not returned.
+            </param>
+            <returns>
+              A collection of regions.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.GridWorld.Dispose(System.Boolean)">
+            <summary>
+              Disposes all <see cref="T:Photon.SocketServer.Mmo.Region"/>s if <paramref name="disposing"/> is true.
+            </summary>
+            <param name="disposing">
+              True if called from <see cref="M:Photon.SocketServer.Mmo.GridWorld.Dispose"/>, false if called from destructor.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.GridWorld.GetRegionAt(Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              The get region at.
+            </summary>
+            <param name = "coordinate">
+              The coordinate.
+            </param>
+            <returns>
+              The region.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.GridWorld.GetRegionEnumerable(Photon.SocketServer.Mmo.BoundingBox)">
+            <summary>
+              Gets all overlapping regions.
+            </summary>
+            <param name = "area">
+              The area.
+            </param>
+            <returns>
+              An enumerable of regions.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.GridWorld.GetRegionsForY(Photon.SocketServer.Mmo.BoundingBox,Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              The get region index for y.
+            </summary>
+            <param name = "overlap">
+              The overlap.
+            </param>
+            <param name = "current">
+              The current.
+            </param>
+            <returns>
+              The enumerable.
+            </returns>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.GridWorld.Area">
+            <summary>
+              Gets the area.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.GridWorld.ItemCache">
+            <summary>
+              Gets the cache for all <see cref="T:Photon.SocketServer.Mmo.Item">Items</see> in this world.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.GridWorld.TileDimensions">
+            <summary>
+              Gets the size of the used tiles (size of each <see cref="T:Photon.SocketServer.Mmo.Region"/>).
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.Item">
+            <summary>
+              Represents an entity in a <see cref="T:Photon.SocketServer.Mmo.IWorld">world</see>. 
+              Items are event publisher and the counterpart to <see cref="T:Photon.SocketServer.Mmo.InterestArea">InterestAreas</see>.
+              <para>
+                Items have
+                <list type="bullet">
+                  <item>
+                    a <see cref="P:Photon.SocketServer.Mmo.Item.Type"/>,
+                  </item>
+                  <item>
+                    a per type unique <see cref="P:Photon.SocketServer.Mmo.Item.Id"/>,
+                  </item>
+                  <item>
+                    a <see cref="P:Photon.SocketServer.Mmo.Item.Position"/>,
+                  </item>
+                  <item>
+                    <see cref="P:Photon.SocketServer.Mmo.Item.Properties"/> with a <see cref="P:Photon.SocketServer.Mmo.Item.PropertiesRevision">revision number</see>
+                  </item>
+                  <item>
+                    and 3 different <see cref="T:Photon.SocketServer.Concurrency.MessageChannel`1">MessageChannels</see>: 
+                    <list type="bullet">
+                      <item>
+                        <see cref="P:Photon.SocketServer.Mmo.Item.EventChannel"/>: <see cref="T:Photon.SocketServer.EventData"/> for <see cref="T:Photon.SocketServer.Mmo.ClientInterestArea">interest areas</see>.
+                      </item>
+                      <item>
+                        <see cref="P:Photon.SocketServer.Mmo.Item.PositionUpdateChannel"/>: Position updates for attached and subscribed <see cref="T:Photon.SocketServer.Mmo.InterestArea">interest areas</see>. 
+                        Attached <see cref="T:Photon.SocketServer.Mmo.InterestArea">interest areas</see> move to the same position and subscribed <see cref="T:Photon.SocketServer.Mmo.InterestArea">interest areas</see> 
+                        unsubscribe when the item leaves the outer threshold (one position update is analyzed every few seconds).
+                      </item>
+                      <item>
+                        <see cref="P:Photon.SocketServer.Mmo.Item.DisposeChannel"/>: Subscribed <see cref="T:Photon.SocketServer.Mmo.InterestArea">interest areas</see> are informed when the item is disposed in order to unsubscribe. 
+                      </item>
+                    </list>
+                  </item>
+                </list>
+              </para>
+            </summary>
+            <remarks>
+              Item accessing operations are required to be invoked on the item's <see cref="P:Photon.SocketServer.Mmo.Item.Fiber"/>.
+            </remarks>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Item.disposeChannel">
+            <summary>
+              The dispose channel.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Item.eventChannel">
+            <summary>
+              The item eventChannel.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Item.fiber">
+            <summary>
+              The fiber.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Item.id">
+            <summary>
+              The id.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Item.positionUpdateChannel">
+            <summary>
+              The position region.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Item.properties">
+            <summary>
+              The properties.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Item.type">
+            <summary>
+              The type.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Item.world">
+            <summary>
+              The world.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Item.disposed">
+            <summary>
+              The disposed.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.#ctor(Photon.SocketServer.Mmo.Vector,System.Collections.Hashtable,System.String,System.Byte,Photon.SocketServer.Mmo.IWorld,ExitGames.Concurrency.Fibers.IFiber)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.Item"/> class.
+            </summary>
+            <param name="position">
+              The position.
+            </param>
+            <param name="properties">
+              The properties.
+            </param>
+            <param name="id">
+              The id.
+            </param>
+            <param name="type">
+              The type.
+            </param>
+            <param name="world">
+              The world.
+            </param>
+            <param name="fiber">
+              The fiber. Typically identical to the owner's <see cref="P:Photon.SocketServer.PeerBase.RequestFiber">request fiber</see>.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.Finalize">
+            <summary>
+              Finalizes an instance of the <see cref="T:Photon.SocketServer.Mmo.Item"/> class. 
+              Suppressed by Dispose.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.Destroy">
+            <summary>
+              Does nothing but calling <see cref="M:Photon.SocketServer.Mmo.Item.OnDestroy"/>.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.UpdateInterestManagement">
+            <summary>
+              Publishes a <see cref="T:Photon.SocketServer.Mmo.Messages.ItemPositionMessage"/> in the <see cref="P:Photon.SocketServer.Mmo.Item.PositionUpdateChannel"/> 
+              and in the current <see cref="T:Photon.SocketServer.Mmo.Region"/> if it changes
+              and then updates the <see cref="P:Photon.SocketServer.Mmo.Item.CurrentWorldRegion"/>.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.Move(Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Sets the <see cref="P:Photon.SocketServer.Mmo.Item.Position"/> and calls <see cref="M:Photon.SocketServer.Mmo.Item.UpdateInterestManagement"/>.
+            </summary>
+            <param name="position">
+              The position.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.SetProperties(System.Collections.Hashtable,System.Collections.ArrayList)">
+            <summary>
+              Updates the <see cref="P:Photon.SocketServer.Mmo.Item.Properties"/> and increments the <see cref="P:Photon.SocketServer.Mmo.Item.PropertiesRevision"/>.
+            </summary>
+            <param name="propertiesSet">
+              The properties to set.
+            </param>
+            <param name="propertiesUnset">
+              The property keys to unset.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.Spawn(Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Sets the <see cref="P:Photon.SocketServer.Mmo.Item.Position"/> and calls <see cref="M:Photon.SocketServer.Mmo.Item.UpdateInterestManagement"/>.
+            </summary>
+            <param name="position">
+              The new position.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.Dispose">
+            <summary>
+              Calls <see cref="M:Photon.SocketServer.Mmo.Item.Dispose(System.Boolean)"/> and suppresses finalization.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.EnqueueItemSnapshotRequest(Photon.SocketServer.Mmo.Messages.ItemSnapshotRequest)">
+            <summary>
+              Requests an <see cref="T:Photon.SocketServer.Mmo.Messages.ItemSnapshot"/>.
+            </summary>
+            <param name="snapShotRequest">
+              The snap shot request.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.GetItemSnapshot">
+            <summary>
+              Creates an <see cref="T:Photon.SocketServer.Mmo.Messages.ItemSnapshot"/> with a snapshot of the current attributes.
+              Override this method to return a subclass of <see cref="T:Photon.SocketServer.Mmo.Messages.ItemSnapshot"/> that includes more data.
+              The return value is published through the <see cref="P:Photon.SocketServer.Mmo.Item.CurrentWorldRegion"/> or sent directly to an <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>.
+            </summary>
+            <returns>
+              A new <see cref="T:Photon.SocketServer.Mmo.Messages.ItemSnapshot"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.Dispose(System.Boolean)">
+            <summary>
+              Publishes a <see cref="T:Photon.SocketServer.Mmo.Messages.ItemDisposedMessage"/> through the <see cref="P:Photon.SocketServer.Mmo.Item.DisposeChannel"/> and disposes all channels.
+              <see cref="P:Photon.SocketServer.Mmo.Item.Disposed"/> is set to true.
+            </summary>
+            <param name="disposing">
+              True if called from <see cref="M:Photon.SocketServer.Mmo.Item.Dispose"/>, false if called from the finalizer.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.GetPositionUpdateMessage(Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Region)">
+            <summary>
+              Creates an <see cref="T:Photon.SocketServer.Mmo.Messages.ItemPositionMessage"/> with the current position and region.
+              The return value is published through the <see cref="P:Photon.SocketServer.Mmo.Item.PositionUpdateChannel"/>.
+            </summary>
+            <param name="position">
+              The position.
+            </param>
+            <param name="region">
+              The region.
+            </param>
+            <returns>
+              An instance of <see cref="T:Photon.SocketServer.Mmo.Messages.ItemPositionMessage"/>.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.OnDestroy">
+            <summary>
+              Called from <see cref="M:Photon.SocketServer.Mmo.Item.Destroy"/>.
+              Does nothing.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.SetCurrentWorldRegion(Photon.SocketServer.Mmo.Region)">
+            <summary>
+              The set current world region.
+            </summary>
+            <param name = "newRegion">
+              The new region.
+            </param>
+            <returns>
+              True if the current region changed.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Item.Region_OnReceive(Photon.SocketServer.Mmo.Messages.RegionMessage)">
+            <summary>
+              The on region message receive.
+            </summary>
+            <param name = "message">
+              The message.
+            </param>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Item.Fiber">
+            <summary>
+              Gets the item fiber.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Item.CurrentWorldRegion">
+            <summary>
+              Gets the <see cref="T:Photon.SocketServer.Mmo.Region"/> where at the item's current <see cref="P:Photon.SocketServer.Mmo.Item.Position"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Item.DisposeChannel">
+            <summary>
+              Gets the channel that is used to publish <see cref="T:Photon.SocketServer.Mmo.Messages.ItemDisposedMessage">dispose messages</see>.
+              Subscribed <see cref="T:Photon.SocketServer.Mmo.InterestArea">interest areas</see> unsubscribe when receiving the message.
+              <see cref="M:Photon.SocketServer.Mmo.Item.Dispose(System.Boolean)"/> publishes the <see cref="T:Photon.SocketServer.Mmo.Messages.ItemDisposedMessage"/> message.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Item.Disposed">
+            <summary>
+              Gets a value indicating whether this item has been disposed.
+              Actions that where enqueued on the <see cref="P:Photon.SocketServer.Mmo.Item.Fiber"/> could arrive after the item has been disposed.
+              Check this property to ensure that your operation is legal.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Item.EventChannel">
+            <summary>
+              Gets the channel that is used to publish <see cref="T:Photon.SocketServer.Mmo.Messages.ItemEventMessage">ItemEventMessages</see>.
+              <see cref="T:Photon.SocketServer.Mmo.ClientInterestArea">ClientInterestAreas</see> subscribe this channel to forward all received <see cref="T:Photon.SocketServer.EventData">events</see> to the client <see cref="T:Photon.SocketServer.PeerBase"/>.
+              <see cref="T:Photon.SocketServer.Mmo.Messages.ItemEventMessage">ItemEventMessages</see> are published by the developer's application.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Item.Id">
+            <summary>
+              Gets the item's Id.
+              Unique per <see cref="P:Photon.SocketServer.Mmo.Item.Type"/> and <see cref="T:Photon.SocketServer.Mmo.ItemCache"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Item.Position">
+            <summary>
+              Gets or sets the item's current position.
+              The position is used for interest management internal calculations.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Item.PositionUpdateChannel">
+            <summary>
+              Gets the channel that is used to publish <see cref="T:Photon.SocketServer.Mmo.Messages.ItemPositionMessage">ItemPositionMessages</see>.
+              Subscribed <see cref="T:Photon.SocketServer.Mmo.InterestArea">interest areas</see> use this channel to determine when to unsubscribe.
+              Attached <see cref="T:Photon.SocketServer.Mmo.InterestArea">interest areas</see> use this channel to update their current position accordingly.
+              <see cref="T:Photon.SocketServer.Mmo.Messages.ItemPositionMessage"/> are published with <see cref="M:Photon.SocketServer.Mmo.Item.UpdateInterestManagement"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Item.Properties">
+            <summary>
+              Gets the item properties.
+              Set with <see cref="M:Photon.SocketServer.Mmo.Item.SetProperties(System.Collections.Hashtable,System.Collections.ArrayList)">SetProperties</see>.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Item.PropertiesRevision">
+            <summary>
+              Gets or sets the current properties revision number.
+              Incremented with <see cref="M:Photon.SocketServer.Mmo.Item.SetProperties(System.Collections.Hashtable,System.Collections.ArrayList)">SetProperties</see>.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Item.Type">
+            <summary>
+              Gets the item type.
+              This is for the client to distinguish what kind of item to display.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Item.World">
+            <summary>
+              Gets the world the item is member of.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Item.CurrentWorldRegionSubscription">
+            <summary>
+              Gets or sets CurrentWorldRegionSubscription.
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.ItemAutoSubscription">
+            <summary>
+              The item subscription.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.ItemAutoSubscription.item">
+            <summary>
+              The subscribed item.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.ItemAutoSubscription.subscription">
+            <summary>
+              The subscription.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemAutoSubscription.#ctor(Photon.SocketServer.Mmo.Item,Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Region,System.IDisposable)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.ItemAutoSubscription"/> class.
+            </summary>
+            <param name="item">
+              The subscribed item.
+            </param>
+            <param name="itemPosition">
+              The item position.
+            </param>
+            <param name="itemRegion">
+              The item Region.
+            </param>
+            <param name="subscription">
+              The subscription.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemAutoSubscription.Dispose">
+            <summary>
+              The dispose.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.ItemAutoSubscription.Item">
+            <summary>
+              Gets Item.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.ItemAutoSubscription.ItemPosition">
+            <summary>
+              Gets or sets ItemPosition.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.ItemAutoSubscription.WorldRegion">
+            <summary>
+              Gets or sets WorldRegion.
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.ItemCache">
+            <summary>
+              A cache for <see cref="T:Photon.SocketServer.Mmo.Item">items</see>. Each <see cref="T:Photon.SocketServer.Mmo.IWorld"/> has one item cache.
+              It uses an <see cref="T:System.Threading.ReaderWriterLockSlim"/> to ensure thread safety.
+            </summary>
+            <remarks>
+              All members are thread safe.
+            </remarks>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.ItemCache.itemCaches">
+            <summary>
+              The item caches.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.ItemCache.maxLockMilliseconds">
+            <summary>
+              The max lock milliseconds.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.ItemCache.readerWriterLock">
+            <summary>
+              The reader writer lock.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.#ctor(System.Int32)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.ItemCache"/> class.
+            </summary>
+            <param name="maxLockMilliseconds">
+              The max Lock Milliseconds.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.Finalize">
+            <summary>
+              Finalizes an instance of the <see cref="T:Photon.SocketServer.Mmo.ItemCache"/> class.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.AddItem(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              Adds an <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+            <param name="item">
+              The new item.
+            </param>
+            <returns>
+              true if item added.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.RemoveItem(System.Byte,System.String)">
+            <summary>
+              Removes an <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+            <param name="itemType">
+              The item Type.
+            </param>
+            <param name="itemId">
+              The item id.
+            </param>
+            <returns>
+              true if item removed.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.TryGetItem(System.Byte,System.String,Photon.SocketServer.Mmo.Item@)">
+            <summary>
+              Tries to retrieve an <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+            <param name="itemType">
+              The item Type.
+            </param>
+            <param name="itemId">
+              The item id.
+            </param>
+            <param name="item">
+              The found item.
+            </param>
+            <returns>
+              true if item was found.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.Dispose">
+            <summary>
+              The dispose.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.Dispose(System.Boolean)">
+            <summary>
+              Clears the cache and disposes the rw lock.
+            </summary>
+            <param name = "disposing">
+              The disposing.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.GetLevel2Cache(System.Byte)">
+            <summary>
+              The get level 2 cache.
+            </summary>
+            <param name = "itemType">
+              The item type.
+            </param>
+            <returns>
+              the level2 cache for the item type
+            </returns>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.ItemCache.ItemCacheL2">
+            <summary>
+              The item cache l 2.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.ItemCache.ItemCacheL2.items">
+            <summary>
+              The items.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.ItemCache.ItemCacheL2.maxLockMilliseconds">
+            <summary>
+              The max lock milliseconds.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.ItemCache.ItemCacheL2.readerWriterLock">
+            <summary>
+              The reader writer lock.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.ItemCacheL2.#ctor(System.Int32)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.ItemCache.ItemCacheL2"/> class.
+            </summary>
+            <param name="maxLockMilliseconds">
+              The max Lock Milliseconds.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.ItemCacheL2.Finalize">
+            <summary>
+              Finalizes an instance of the <see cref="T:Photon.SocketServer.Mmo.ItemCache.ItemCacheL2"/> class.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.ItemCacheL2.AddItem(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              The add item.
+            </summary>
+            <param name = "item">
+              The new item.
+            </param>
+            <returns>
+              true if item added.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.ItemCacheL2.RemoveItem(System.String)">
+            <summary>
+              The remove item.
+            </summary>
+            <param name = "itemId">
+              The item id.
+            </param>
+            <returns>
+              true if item removed.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.ItemCacheL2.TryGetItem(System.String,Photon.SocketServer.Mmo.Item@)">
+            <summary>
+              The try get item.
+            </summary>
+            <param name = "itemId">
+              The item id.
+            </param>
+            <param name = "item">
+              The found item.
+            </param>
+            <returns>
+              true if item was found.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.ItemCacheL2.Dispose">
+            <summary>
+              The dispose.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.ItemCache.ItemCacheL2.DisposeReaderWriterLock">
+            <summary>
+              The dispose reader writer lock.
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.Messages.ItemDisposedMessage">
+            <summary>
+              This type of message is pubished by <see cref="T:Photon.SocketServer.Mmo.Item">items</see> sent through the item <see cref="P:Photon.SocketServer.Mmo.Item.DisposeChannel"/>. 
+              <see cref="T:Photon.SocketServer.Mmo.InterestArea">Interest areas</see> unsubscribe the sender when they receive this message.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.ItemDisposedMessage.source">
+            <summary>
+              The source.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Messages.ItemDisposedMessage.#ctor(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.Messages.ItemDisposedMessage"/> class.
+            </summary>
+            <param name="source">
+              The source.
+            </param>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Messages.ItemDisposedMessage.Source">
+            <summary>
+              Gets the source <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.Messages.ItemEventMessage">
+            <summary>
+              This message type contains <see cref="P:Photon.SocketServer.Mmo.Messages.ItemEventMessage.EventData"/> to be sent to clients.
+              <see cref="T:Photon.SocketServer.Mmo.Messages.ItemEventMessage">ItemEventMessages</see> are published through the item <see cref="P:Photon.SocketServer.Mmo.Item.EventChannel"/>.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.ItemEventMessage.CounterEventReceive">
+            <summary>
+              The counter event receive.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.ItemEventMessage.CounterEventSend">
+            <summary>
+              The counter event send.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.ItemEventMessage.eventData">
+            <summary>
+              The event data.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.ItemEventMessage.sendParameters">
+            <summary>
+              The send parameters.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.ItemEventMessage.source">
+            <summary>
+              The source.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Messages.ItemEventMessage.#ctor(Photon.SocketServer.Mmo.Item,Photon.SocketServer.IEventData,Photon.SocketServer.SendParameters)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.Messages.ItemEventMessage"/> class.
+            </summary>
+            <param name="source">
+              The source.
+            </param>
+            <param name="eventData">
+              The event Data.
+            </param>
+            <param name="sendParameters">
+              The send Options.
+            </param>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Messages.ItemEventMessage.EventData">
+            <summary>
+              Gets the <see cref="P:Photon.SocketServer.Mmo.Messages.ItemEventMessage.EventData"/> to be sent to the client.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Messages.ItemEventMessage.SendParameters">
+            <summary>
+              Gets the send parameters.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Messages.ItemEventMessage.Source">
+            <summary>
+              Gets the source <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.Messages.ItemPositionMessage">
+            <summary>
+              This message contains the current position of the <see cref="T:Photon.SocketServer.Mmo.Item"/>. 
+              This type of message is published by <see cref="T:Photon.SocketServer.Mmo.Item">items</see> through the <see cref="P:Photon.SocketServer.Mmo.Item.PositionUpdateChannel"/>. 
+              <para>
+                <see cref="T:Photon.SocketServer.Mmo.InterestArea">Interest areas</see> that receive this message use it to either follow the sender (the attached item) or to decide whether to unsubscribe.
+              </para>
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.ItemPositionMessage.position">
+            <summary>
+              The position.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.ItemPositionMessage.source">
+            <summary>
+              The source.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.ItemPositionMessage.worldRegion">
+            <summary>
+              The world region.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Messages.ItemPositionMessage.#ctor(Photon.SocketServer.Mmo.Item,Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Region)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.Messages.ItemPositionMessage"/> class.
+            </summary>
+            <param name="source">
+              The source.
+            </param>
+            <param name="position">
+              The position.
+            </param>
+            <param name="worldRegion">
+              The world Region.
+            </param>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Messages.ItemPositionMessage.Position">
+            <summary>
+              Gets the <see cref="P:Photon.SocketServer.Mmo.Messages.ItemPositionMessage.Source"/> item's position.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Messages.ItemPositionMessage.Source">
+            <summary>
+              Gets the source <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Messages.ItemPositionMessage.WorldRegion">
+            <summary>
+              Gets current <see cref="T:Photon.SocketServer.Mmo.Region"/> where the <see cref="P:Photon.SocketServer.Mmo.Messages.ItemPositionMessage.Source"/> item is located.
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.Messages.ItemSnapshot">
+            <summary>
+              An <see cref="T:Photon.SocketServer.Mmo.Item"/> sends this <see cref="T:Photon.SocketServer.Mmo.Messages.RegionMessage"/> through the <see cref="T:Photon.SocketServer.Mmo.Region"/> at the current position to the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>s overlapping this region. 
+              It contains a the current position and other property snapshots of the <see cref="T:Photon.SocketServer.Mmo.Item"/>. 
+              <para>
+                <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>s that receive this message check whether to subscribe to the sender (see <see cref="M:Photon.SocketServer.Mmo.InterestArea.AutoSubscribeItem(Photon.SocketServer.Mmo.Item)">InterestArea.AutoSubscribeItem</see>). 
+              </para>
+              <para>
+                Receiving <see cref="T:Photon.SocketServer.Mmo.Item"/>s ignore this type of message.
+              </para>
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.Messages.RegionMessage">
+            <summary>
+              Abstract class for messages that are sent through <see cref="T:Photon.SocketServer.Mmo.Region">regions</see>. 
+              These messages are received by <see cref="T:Photon.SocketServer.Mmo.Item">items</see> and <see cref="T:Photon.SocketServer.Mmo.InterestArea">interest areas</see>. 
+              The receiver does not know what kind of message he receives and calls either <see cref="M:Photon.SocketServer.Mmo.Messages.RegionMessage.OnItemReceive(Photon.SocketServer.Mmo.Item)"/> or <see cref="M:Photon.SocketServer.Mmo.Messages.RegionMessage.OnInterestAreaReceive(Photon.SocketServer.Mmo.InterestArea)"/> to dispatch it.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Messages.RegionMessage.OnInterestAreaReceive(Photon.SocketServer.Mmo.InterestArea)">
+            <summary>
+              Called by the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> when received.
+            </summary>
+            <param name="interestArea">
+              The calling interest area.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Messages.RegionMessage.OnItemReceive(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              Called by the <see cref="T:Photon.SocketServer.Mmo.Item"/> when received.
+            </summary>
+            <param name="item">
+              The calling item.
+            </param>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.ItemSnapshot.position">
+            <summary>
+              The position.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.ItemSnapshot.propertiesRevision">
+            <summary>
+              The properties revision.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.ItemSnapshot.source">
+            <summary>
+              The source.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.ItemSnapshot.worldRegion">
+            <summary>
+              The world region.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Messages.ItemSnapshot.#ctor(Photon.SocketServer.Mmo.Item,Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Region,System.Int32)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.Messages.ItemSnapshot"/> class.
+            </summary>
+            <param name="source">
+              The source.
+            </param>
+            <param name="position">
+              The position.
+            </param>
+            <param name="worldRegion">
+              The world Region.
+            </param>
+            <param name="propertiesRevision">
+              The properties Revision.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Messages.ItemSnapshot.OnInterestAreaReceive(Photon.SocketServer.Mmo.InterestArea)">
+            <summary>
+              Increments <see cref="F:Photon.SocketServer.Mmo.Messages.MessageCounters.CounterReceive"/> and subscribes the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> to the <see cref="P:Photon.SocketServer.Mmo.Messages.ItemSnapshot.Source"/> item if it not already subscribed or attached.
+              Called by the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> when received.
+            </summary>
+            <param name="interestArea">
+              The calling interest area.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Messages.ItemSnapshot.OnItemReceive(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              Increments <see cref="F:Photon.SocketServer.Mmo.Messages.MessageCounters.CounterReceive"/>.
+              Called by the <see cref="T:Photon.SocketServer.Mmo.Item"/> when received.
+            </summary>
+            <param name="item">
+              The calling item.
+            </param>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Messages.ItemSnapshot.Position">
+            <summary>
+              Gets the <see cref="P:Photon.SocketServer.Mmo.Messages.ItemSnapshot.Source"/> item's position.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Messages.ItemSnapshot.PropertiesRevision">
+            <summary>
+              Gets the <see cref="P:Photon.SocketServer.Mmo.Messages.ItemSnapshot.Source"/> item's properties revision number.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Messages.ItemSnapshot.Source">
+            <summary>
+              Gets the source <see cref="T:Photon.SocketServer.Mmo.Item"/>.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Messages.ItemSnapshot.WorldRegion">
+            <summary>
+              Gets current <see cref="T:Photon.SocketServer.Mmo.Region"/> where the <see cref="P:Photon.SocketServer.Mmo.Messages.ItemSnapshot.Source"/> item is located.
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.Messages.ItemSnapshotRequest">
+            <summary>
+              <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>s send this <see cref="T:Photon.SocketServer.Mmo.Messages.RegionMessage"/> through newly subscribed <see cref="T:Photon.SocketServer.Mmo.Region"/>s to all <see cref="T:Photon.SocketServer.Mmo.Item"/>s in these regions. 
+              Receiving <see cref="T:Photon.SocketServer.Mmo.Item"/>s answer with an <see cref="T:Photon.SocketServer.Mmo.Messages.ItemSnapshot"/>.
+              <para>
+                Receiving <see cref="T:Photon.SocketServer.Mmo.InterestArea"/>s ignore this type of message.
+              </para>
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.ItemSnapshotRequest.source">
+            <summary>
+              The source.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Messages.ItemSnapshotRequest.#ctor(Photon.SocketServer.Mmo.InterestArea)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.Messages.ItemSnapshotRequest"/> class.
+            </summary>
+            <param name="source">
+              The source.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Messages.ItemSnapshotRequest.OnInterestAreaReceive(Photon.SocketServer.Mmo.InterestArea)">
+            <summary>
+              Called by the <see cref="T:Photon.SocketServer.Mmo.InterestArea"/> when received.
+              Increments <see cref="F:Photon.SocketServer.Mmo.Messages.MessageCounters.CounterReceive"/>.
+            </summary>
+            <param name="interestArea">
+              The calling interest area.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Messages.ItemSnapshotRequest.OnItemReceive(Photon.SocketServer.Mmo.Item)">
+            <summary>
+              Called by the <see cref="T:Photon.SocketServer.Mmo.Item"/> when received.
+              Increments <see cref="F:Photon.SocketServer.Mmo.Messages.MessageCounters.CounterReceive"/> and publishes an <see cref="T:Photon.SocketServer.Mmo.Messages.ItemPositionMessage"/> in the <paramref name="item"/>'s <see cref="P:Photon.SocketServer.Mmo.Item.CurrentWorldRegion"/>.
+            </summary>
+            <param name="item">
+              The calling item.
+            </param>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Messages.ItemSnapshotRequest.Source">
+            <summary>
+              Gets the source.
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.Messages.MessageCounters">
+            <summary>
+              Contains counters that keep track of the amount of messages sent and received from <see cref="T:Photon.SocketServer.Mmo.Item"/> channels.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.MessageCounters.CounterReceive">
+            <summary>
+              Used to count how many messages were received by <see cref="T:Photon.SocketServer.Mmo.InterestArea">interest areas</see> (and sometimes <see cref="T:Photon.SocketServer.Mmo.Item">items</see>).
+              Name: "ItemMessage.Receive"
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Messages.MessageCounters.CounterSend">
+            <summary>
+              Used to count how many messages were sent by <see cref="T:Photon.SocketServer.Mmo.Item">items</see> (and sometimes <see cref="T:Photon.SocketServer.Mmo.InterestArea">interest areas</see>).
+              Name: "ItemMessage.Send"
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.Region">
+            <summary>
+              Represents a region used for region-based interest management. 
+              A Region is a subclass of <see cref="T:Photon.SocketServer.Concurrency.MessageChannel`1"/> and requires messages of type <see cref="T:Photon.SocketServer.Mmo.Messages.RegionMessage"/>.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Region.coordinate">
+            <summary>
+              The coordinate.
+            </summary>
+        </member>
+        <member name="F:Photon.SocketServer.Mmo.Region.hashCode">
+            <summary>
+              Yhe hash code.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Region.#ctor(Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Initializes a new instance of the <see cref="T:Photon.SocketServer.Mmo.Region"/> class.
+            </summary>
+            <param name="coordinate">
+              The coordinate.
+            </param>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Region.Equals(System.Object)">
+            <summary>
+              Compares with another object.
+            </summary>
+            <param name = "obj">
+              The obj.
+            </param>
+            <returns>
+              True if <paramref name = "obj" /> is the same instance.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Region.GetHashCode">
+            <summary>
+              Gets the hash code.
+            </summary>
+            <returns>
+              The hash code.
+            </returns>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Region.Coordinate">
+            <summary>
+              Gets the coordinate.
+            </summary>
+        </member>
+        <member name="T:Photon.SocketServer.Mmo.Vector">
+            <summary>
+              Represents a 3D coordinate in the <see cref="T:Photon.SocketServer.Mmo.IWorld">world</see>.
+            </summary>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.op_Addition(Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Adds on Vector to the other.
+            </summary>
+            <param name = "a">
+              The a.
+            </param>
+            <param name = "b">
+              The b.
+            </param>
+            <returns>
+              The sum
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.op_Division(Photon.SocketServer.Mmo.Vector,System.Int32)">
+            <summary>
+              Devides each value of the vector by a value.
+            </summary>
+            <param name = "a">
+              The a.
+            </param>
+            <param name = "b">
+              The b.
+            </param>
+            <returns>
+              A new vector
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.op_Equality(Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Compares to vectors.
+            </summary>
+            <param name = "coordinate1">
+              The coordinate 1.
+            </param>
+            <param name = "coordinate2">
+              The coordinate 2.
+            </param>
+            <returns>
+              true if x,y and z of both coordinates are equal
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.op_Inequality(Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Compares to Vectors.
+            </summary>
+            <param name = "coordinate1">
+              The coordinate 1.
+            </param>
+            <param name = "coordinate2">
+              The coordinate 2.
+            </param>
+            <returns>
+              true if X, Y or Z of the coorindates are different.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.op_Multiply(Photon.SocketServer.Mmo.Vector,System.Int32)">
+            <summary>
+              Multiples each value of the vector with a value.
+            </summary>
+            <param name = "a">
+              The a.
+            </param>
+            <param name = "b">
+              The b.
+            </param>
+            <returns>
+              A new vector
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.op_Subtraction(Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Substracts one Vector from the other.
+            </summary>
+            <param name = "a">
+              The a.
+            </param>
+            <param name = "b">
+              The b.
+            </param>
+            <returns>
+              A new vector
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.op_UnaryNegation(Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Negates a vector
+            </summary>
+            <param name = "a">
+              The a.
+            </param>
+            <returns>
+              A new Vector
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.Max(Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Gets the max values from the input vectors.
+            </summary>
+            <param name = "value1">
+              The value 1.
+            </param>
+            <param name = "value2">
+              The value 2.
+            </param>
+            <returns>
+              A new vector.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.Min(Photon.SocketServer.Mmo.Vector,Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Gets the min values from the input vectors.
+            </summary>
+            <param name = "value1">
+              The value 1.
+            </param>
+            <param name = "value2">
+              The value 2.
+            </param>
+            <returns>
+              A new vector.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.Equals(System.Object)">
+            <summary>
+              Compares the Vector to an object.
+            </summary>
+            <param name = "obj">
+              The object to compare.
+            </param>
+            <returns>
+              true if obj is equal to current instance.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.GetDistance(Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Calculates the distance to another Vector.
+            </summary>
+            <param name = "vector">
+              The vector.
+            </param>
+            <returns>
+              The distance.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.GetHashCode">
+            <summary>
+              Get the hash code.
+            </summary>
+            <returns>
+              XOR from X, Y and Z.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.GetMagnitude">
+            <summary>
+              Gets Magnitude.
+            </summary>
+            <returns>
+              The magnitude.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.ToString">
+            <summary>
+              Build a string showing X, Y and Z.
+            </summary>
+            <returns>
+              string represenation of this vector.
+            </returns>
+        </member>
+        <member name="M:Photon.SocketServer.Mmo.Vector.Equals(Photon.SocketServer.Mmo.Vector)">
+            <summary>
+              Compares X, Y and Z to another vector.
+            </summary>
+            <param name = "other">
+              The other vector.
+            </param>
+            <returns>
+              True if X, Y and Z equal in both vectors.
+            </returns>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Vector.X">
+            <summary>
+              Gets or sets the X value.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Vector.Y">
+            <summary>
+              Gets or sets Y value.
+            </summary>
+        </member>
+        <member name="P:Photon.SocketServer.Mmo.Vector.Z">
+            <summary>
+              Gets or sets Z value.
+            </summary>
+        </member>
+    </members>
+</doc>

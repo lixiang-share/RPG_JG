@@ -1,0 +1,1276 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>RrdNet</name>
+    </assembly>
+    <members>
+        <member name="F:RrdNet.RddDataSourceType.GAUGE">
+            <summary>
+            is for things like temperatures or number of people in a room or the value of a RedHat share.
+            </summary>
+        </member>
+        <member name="F:RrdNet.RddDataSourceType.COUNTER">
+            <summary>
+            s for continuous incrementing counters like the ifInOctets counter in a router. 
+            The COUNTER data source assumes that the counter never decreases, except when 
+            a counter overflows. The update function takes the overflow into account. 
+            The counter is stored as a per-second rate. When the counter overflows, 
+            RRDtool checks if the overflow happened at the 32bit or 64bit border and acts 
+            accordingly by adding an appropriate value to the result.
+            </summary>
+        </member>
+        <member name="F:RrdNet.RddDataSourceType.DERIVE">
+            <summary>
+            will store the derivative of the line going from the last to the current value 
+            of the data source. This can be useful for gauges, for example, to measure the 
+            rate of people entering or leaving a room. Internally, derive works exactly like 
+            COUNTER but without overflow checks. So if your counter does not reset at 
+            32 or 64 bit you might want to use DERIVE and combine it with a MIN value of 0.
+            </summary>
+        </member>
+        <member name="F:RrdNet.RddDataSourceType.ABSOLUTE">
+            <summary>
+            is for counters which get reset upon reading. This is used for fast counters which 
+            tend to overflow. So instead of reading them normally you reset them after every 
+            read to make sure you have a maximum time available before the next overflow. 
+            Another usage is for things you count like number of messages since the last update.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:RrdNet.RrdAggregateFunction" -->
+        <member name="F:RrdNet.RrdAggregateFunction.AVERAGE">
+            <summary>
+            the average of the data points is stored.
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdAggregateFunction.MIN">
+            <summary>
+            the smallest of the data points is stored.
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdAggregateFunction.MAX">
+            <summary>
+            the largest of the data points is stored.
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdAggregateFunction.LAST">
+            <summary>
+            the last data points is used.
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdResizeType.GROW">
+            <summary>
+            used if you want to add extra rows to an RRA. 
+            The extra rows will be inserted as the rows that are oldest.
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdResizeType.SHRINK">
+            <summary>
+            used if you want to remove rows from an RRA. The rows that will be removed are the oldest rows.
+            </summary>
+        </member>
+        <member name="T:RrdNet.RrdGraphColortag">
+            <summary>
+            The colortags are used for the configuring the output colors of a RrdTool graph.
+            </summary>
+            <remarks>
+            Override the default colors for the standard elements of the graph. The COLORTAG is one of 
+            BACK background, CANVAS for the background of the actual graph, SHADEA for the left and top border, 
+            SHADEB for the right and bottom border, GRID, MGRID for the major grid, FONT for the color of the font,
+            AXIS for the axis of the graph, FRAME for the line around the color spots, and finally ARROW for the 
+            arrow head pointing up and forward. Each color is composed out of three hexadecimal numbers specifying 
+            its rgb color component (00 is off, FF is maximum) of red, green and blue. Optionally you may add 
+            another hexadecimal number specifying the transparency (FF is solid). You may set this option several 
+            times to alter multiple defaults.
+            </remarks>
+        </member>
+        <member name="F:RrdNet.RrdGraphColortag.NONE">
+            <summary>
+            prevents any colortags from being outputted by the color's toString method
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphColortag.BACK">
+            <summary>
+            for the background of the graph image
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphColortag.CANVAS">
+            <summary>
+            for the background of the actual graph
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphColortag.SHADEA">
+            <summary>
+            for the left and top border
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphColortag.SHADEB">
+            <summary>
+            for the right and bottom border
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphColortag.GRID">
+            <summary>
+            for the major grid
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphColortag.MGRID">
+            <summary>
+            for the major grid
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphColortag.FONT">
+            <summary>
+            for the color of the font
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphColortag.AXIS">
+            <summary>
+            for the axis of the graph
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphColortag.FRAME">
+            <summary>
+            for the line around the color spots
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphColortag.ARROW">
+            <summary>
+            for the arrow head pointing up and forward
+            </summary>
+        </member>
+        <member name="T:RrdNet.RrdGraphFonttag">
+            <summary>
+            The fonttags are used for the configuring the output fonts of a RrdTool graph.
+            </summary>
+            <remarks>
+            This lets you customize which font to use for the various text elements on the 
+            RRD graphs. DEFAULT sets the default value for all elements, TITLE for the title, 
+            AXIS for the axis labels, UNIT for the vertical unit label, LEGEND for the graph 
+            legend, WATERMARK for the watermark on the edge of the graph.
+            </remarks>
+        </member>
+        <member name="F:RrdNet.RrdGraphFonttag.DEFAULT">
+            <summary>
+            sets the default value for all elements
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphFonttag.TITLE">
+            <summary>
+            for the title
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphFonttag.AXIS">
+            <summary>
+            for the axis labels
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphFonttag.UNIT">
+            <summary>
+            for the vertical unit label
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphFonttag.LEGEND">
+            <summary>
+            for the graph legend
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphFonttag.WATERMARK">
+            <summary>
+            for the watermark on the edge of the graph
+            </summary>
+        </member>
+        <member name="T:RrdNet.RrdGraphFontRendermode">
+            <summary>
+            The render modes for rendering the graph fonts.
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphFontRendermode.normal">
+            <summary>
+            Full Hinting and Antialiasing (default)
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphFontRendermode.light">
+            <summary>
+            Slight Hinting and Antialiasing
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphFontRendermode.mono">
+            <summary>
+            Full Hinting and NO Antialiasing
+            </summary>
+        </member>
+        <member name="T:RrdNet.RrdGraphRendermode">
+            <summary>
+            The render modes for rendering the graph.
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphRendermode.normal">
+            <summary>
+            Graphs are fully Antialiased (default)
+            </summary>
+        </member>
+        <member name="F:RrdNet.RrdGraphRendermode.mono">
+            <summary>
+            No Antialiasing
+            </summary>
+        </member>
+        <member name="T:RrdNet.RrdGraphImgFormat">
+            <summary>
+            Image format for the generated graph. For the vector formats you 
+            can choose among the standard Postscript fonts Courier-Bold, 
+            Courier-BoldOblique, Courier-Oblique, Courier, Helvetica-Bold, 
+            Helvetica-BoldOblique, Helvetica-Oblique, Helvetica, Symbol, 
+            Times-Bold, Times-BoldItalic, Times-Italic, Times-Roman, and ZapfDingbats.
+            </summary>
+        </member>
+        <member name="F:RrdNet.Datasource.RrdDataSource.DataSourceType">
+            <summary>
+            The data source type.
+            </summary>
+        </member>
+        <member name="F:RrdNet.Datasource.RrdDataSource.Heartbeat">
+            <summary>
+            Heartbeat defines the maximum number of seconds that may pass between 
+            two updates of this data source before the value of the data source is 
+            assumed to be *UNKNOWN*.
+            </summary>
+        </member>
+        <member name="F:RrdNet.Datasource.RrdDataSource.MinValue">
+            <summary>
+            min and max define the expected range values for data supplied by a data source.
+            </summary>
+            <remarks>
+             If min and/or max any value outside the defined range will be regarded as *UNKNOWN*. 
+             If you do not know or care about min and max, set them to U for unknown. 
+             Note that min and max always refer to the processed values of the DS. 
+             For a traffic-COUNTER type DS this would be the maximum and minimum data-rate 
+             expected from the device.
+            </remarks>
+        </member>
+        <member name="F:RrdNet.Datasource.RrdDataSource.MaxValue">
+            <summary>
+            The max value.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Datasource.RrdDataSource.Name">
+            <summary>
+            The name you will use to reference this particular data source from an RRD. 
+            A ds-name must be 1 to 19 characters long in the characters [a-zA-Z0-9_].
+            </summary>
+        </member>
+        <member name="T:RrdNet.Graph.RrdGraphElementTick">
+            <summary>
+            Used to plot a tick mark (a vertical line) for each value 
+            of a variable name that is non-zero and not *UNKNOWN*. 
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementTick.Vname">
+            <summary>
+            Plot a tick mark (a vertical line) for each value of 
+            vname that is non-zero and not *UNKNOWN*.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementTick.Color">
+            <summary>
+            Note that the color specification is not optional.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementTick.Fraction">
+            <summary>
+            The fraction argument specifies the length of the tick mark as a 
+            fraction of the y-axis; the default value is 0.1 (10% of the axis).
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementTick.Legend">
+            <summary>
+            When you do not specify a color, you cannot specify a legend.
+            </summary>
+        </member>
+        <member name="T:RrdNet.Graph.RrdGraphVDEF">
+            <remarks>
+            VDEF:vname=RPN expression
+            
+            This command returns a value and/or a time according to the RPN statements used. 
+            The resulting vname will, depending on the functions used, have a value and a time 
+            component. When you use this vname in another RPN expression, you are effectively 
+            inserting its value just as if you had put a number at that place. The variable can 
+            also be used in the various graph and print elements.
+            
+            Example: VDEF:avg=mydata,AVERAGE
+            
+            Note that currently only agregation functions work in VDEF rpn expressions. 
+            Patches to change this are welcome.
+            </remarks>
+        </member>
+        <member name="T:RrdNet.Graph.RrdGraphElementPrint">
+            <summary>
+            These instructions allow you to generate your image or report. If 
+            you don't use any graph elements, no graph is generated. Similarly, 
+            no report is generated if you don't use print options.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementPrint.Vname">
+            <summary>
+            Depending on the context, either the value component or the time 
+            component of a VDEF is printed using format. It is an error to 
+            specify a vname generated by a DEF or CDEF.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementPrint.Format">
+            <summary>
+            Any text in format is printed literally with one exception: The 
+            percent character introduces a formatter string. This string can be:
+            
+            For printing values:
+            %%        just prints a literal '%' character
+            %#.#le    prints numbers like 1.2346e+04. The optional integers # 
+                      denote field width and decimal precision.
+            %#.#lf    prints numbers like 12345.6789, with optional field width 
+                      and precision.
+            %s        place this after %le, %lf or %lg. This will be replaced by 
+                      the appropriate SI magnitude unit and the value will be 
+                      scaled accordingly (123456 -> 123.456 k).
+            %S        is similar to %s. It does, however, use a previously 
+                      defined magnitude unit. If there is no such unit yet, it 
+                      tries to define one (just like %s) unless the value is zero, 
+                      in which case the magnitude unit stays undefined. Thus, 
+                      formatter strings using %S and no %s will all use the same 
+                      magnitude unit except for zero values.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementPrint.Strftime">
+            <summary>
+            If you PRINT a VDEF value, you can also print the time associated with 
+            it by appending the string :strftime to the format. Note that rrdtool
+            uses the strftime function of your OSs clibrary. This means that the 
+            conversion specifier may vary. Check the manual page if you are 
+            uncertain. The following is a list of conversion specifiers usually 
+            supported across the board.
+            
+            %a    The abbreviated weekday name according to the current locale.
+            %A    The full weekday name according to the current locale.
+            %b    The abbreviated month name according to the current locale.
+            %B    The full month name according to the current locale.
+            %c    The preferred date and time representation for the current locale.
+            %d    The day of the month as a decimal number (range 01 to 31).
+            %H    The hour as a decimal number using a 24-hour clock (range 00 to 23).
+            %I    The hour as a decimal number using a 12-hour clock (range 01 to 12).
+            %j    The day of the year as a decimal number (range 001 to 366).
+            %m    The month as a decimal number (range 01 to 12).
+            %M    The minute as a decimal number (range 00 to 59).
+            %p    Either `AM' or `PM' according to the given time value, or the 
+                  corresponding strings for the current locale. Noon is treated as 
+                  `pm' and midnight as `am'. Note that in many locales and `pm' 
+                  notation is unsupported and in such cases %p will return an empty 
+                  string.
+            %s    The second as a decimal number (range 00 to 61).
+            %S    The seconds since the epoch (1.1.1970) (libc dependant non standard!)
+            %U    The week number of the current year as a decimal number, range 00 to 
+                  53, starting with the first Sunday as the first day of week 01. See 
+                  also %V and %W.
+            %V    The ISO 8601:1988 week number of the current year as a decimal number, 
+                  range 01 to 53, where week 1 is the first week that has at least 4 
+                  days in the current year, and with Monday as the first day of the week.
+                  See also %U and %W.
+            %w    The day of the week as a decimal, range 0 to 6, Sunday being 0. See also %u.
+            %W    The week number of the current year as a decimal number, range 00 to 53, 
+                  starting with the first Monday as the first day of week 01.
+            %x    The preferred date representation for the current locale without the time.
+            %X    The preferred time representation for the current locale without the date.
+            %y    The year as a decimal number without a century (range 00 to 99).
+            %Y    The year as a decimal number including the century.
+            %Z    The time zone or name or abbreviation.
+            %%    A literal `%' character.
+            </summary>
+        </member>
+        <member name="T:RrdNet.Graph.RrdGraphElementDashes">
+            <summary>
+            Dashed lines can be drawn using the dashes modifier.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementDashes.DashPortions">
+            <summary>
+            The dash pattern can be changed if the dashes= parameter is followed 
+            by either one value or an even number (1, 2, 4, 6, ...) of positive 
+            values. Each value provides the length of alternate on_s and off_s 
+            portions of the stroke.
+            </summary>
+        </member>
+        <member name="T:RrdNet.Graph.RrdGraphElementComment">
+            <summary>
+            This instruction is used for adding comments to a graph.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementComment.Text">
+            <summary>
+            Text is printed literally in the legend section of the graph. Note that 
+            in RRDtool 1.2 you have to escape colons in COMMENT text in the same way 
+            you have to escape them in *PRINT commands by writing '\:'.
+            </summary>
+        </member>
+        <member name="T:RrdNet.Graph.RrdGraphElementVrule">
+            <summary>
+            This instruction is used for drawing a vertical line at time to the graph. 
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementVrule.Time">
+            <summary>
+            The time may be a number or a variable from a VDEF. It is an error to use 
+            vnames from DEF or CDEF here.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementVrule.Color">
+            <summary>
+            Its color is composed from three hexadecimal numbers specifying the rgb 
+            color components (00 is off, FF is maximum) red, green and blue followed 
+            by an optional alpha.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementVrule.Legend">
+            <summary>
+            Optionally, a legend box and string is printed in the legend section.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementVrule.Dashes">
+            <summary>
+            Dashed lines can be drawn using the dashes modifier.
+            The dashes modifier enables dashed line style. Without any further options 
+            a symmetric dashed line with a segment length of 5 pixels will be drawn. 
+            The dash pattern can be changed if the dashes= parameter is followed by 
+            either one value or an even number (1, 2, 4, 6, ...) of positive values. 
+            Each value provides the length of alternate on_s and off_s portions of 
+            the stroke. 
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementVrule.DashOffset">
+            <summary>
+            The dash-offset parameter specifies an offset into the pattern at which 
+            the stroke begins.
+            </summary>
+        </member>
+        <member name="T:RrdNet.Graph.RrdGraphElementShift">
+            <summary>
+            Using this graph element, RRDtool will graph the following elements with 
+            the specified offset. For instance, you can specify an offset of 
+            ( 7*24*60*60 = ) 604'800 seconds to "look back" one week. Make sure to tell 
+            the viewer of your graph you did this ... As with the other graphing 
+            elements, you can specify a number or a variable here.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementShift.Offset">
+            <summary>
+             The offset for the graph's elements.
+            </summary>
+        </member>
+        <member name="T:RrdNet.Graph.RrdGraphElementHrule">
+            <summary>
+            Used for drawing a vertical line at a graph's value. HRULE acts much like LINE 
+            except that will have no effect on the scale of the graph. If a HRULE is outside 
+            the graphing area it will just not be visible.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementHrule.Value">
+            <summary>
+            The value can be generated by DEF, VDEF, and CDEF.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementHrule.Color">
+            <summary>
+            Its color is composed from three hexadecimal numbers specifying the rgb 
+            color components (00 is off, FF is maximum) red, green and blue followed 
+            by an optional alpha.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementHrule.Legend">
+            <summary>
+            Optionally, a legend box and string is printed in the legend section.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementHrule.Dashes">
+            <summary>
+            Dashed lines can be drawn using the dashes modifier.
+            The dashes modifier enables dashed line style. Without any further options 
+            a symmetric dashed line with a segment length of 5 pixels will be drawn. 
+            The dash pattern can be changed if the dashes= parameter is followed by 
+            either one value or an even number (1, 2, 4, 6, ...) of positive values. 
+            Each value provides the length of alternate on_s and off_s portions of 
+            the stroke. 
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementHrule.DashOffset">
+            <summary>
+            The dash-offset parameter specifies an offset into the pattern at which 
+            the stroke begins.
+            </summary>
+        </member>
+        <member name="T:RrdNet.Graph.RrdGraphElementGprint">
+            <summary>
+            This is the same as PRINT, but printed inside the graph. See also <seealso cref="T:RrdNet.Graph.RrdGraphElementPrint"/>.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementGprint.Vname">
+            <summary>
+            Depending on the context, either the value component or the time 
+            component of a VDEF is printed using format. It is an error to 
+            specify a vname generated by a DEF or CDEF.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementGprint.Format">
+            <summary>
+            Any text in format is printed literally with one exception: The 
+            percent character introduces a formatter string. This string can be:
+            
+            For printing values:
+            %%        just prints a literal '%' character
+            %#.#le    prints numbers like 1.2346e+04. The optional integers # 
+                      denote field width and decimal precision.
+            %#.#lf    prints numbers like 12345.6789, with optional field width 
+                      and precision.
+            %s        place this after %le, %lf or %lg. This will be replaced by 
+                      the appropriate SI magnitude unit and the value will be 
+                      scaled accordingly (123456 -> 123.456 k).
+            %S        is similar to %s. It does, however, use a previously 
+                      defined magnitude unit. If there is no such unit yet, it 
+                      tries to define one (just like %s) unless the value is zero, 
+                      in which case the magnitude unit stays undefined. Thus, 
+                      formatter strings using %S and no %s will all use the same 
+                      magnitude unit except for zero values.
+            </summary>
+        </member>
+        <member name="T:RrdNet.Graph.RrdGraphElementArea">
+            <summary>
+            Works similar to <see cref="T:RrdNet.Graph.RrdGraphElementLine"/>.
+            However the area between the x-axis and the line will be filled.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementArea.Value">
+            <summary>
+            The value can be generated by DEF, VDEF, and CDEF.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementArea.Color">
+            <summary>
+            Its color is composed from three hexadecimal numbers specifying the rgb 
+            color components (00 is off, FF is maximum) red, green and blue followed 
+            by an optional alpha.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementArea.Legend">
+            <summary>
+            Optionally, a legend box and string is printed in the legend section.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementArea.UseStack">
+            <summary>
+            If the optional STACK modifier is used, this line is stacked on top of 
+            the previous element which can be a LINE or an AREA.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "T:RrdNet.Graph.RrdGraphDEF" -->
+        <member name="M:RrdNet.RrdTool.Create(RrdNet.RrdInfo)">
+            <summary>
+            The create function of RRDtool lets you set up new Round Robin Database (RRD) files.
+            The file is created at its final, full size and filled with *UNKNOWN* data.
+            </summary>
+            <param name="rrdInfo">An Info object containing all relevant creation data. See also <seealso cref="M:RrdNet.RrdTool.Info(System.String)"/>.</param>
+        </member>
+        <member name="M:RrdNet.RrdTool.Create(System.String,RrdNet.Datasource.RrdDataSource,RrdNet.Archive.RrdArchive)">
+            <summary>
+            The create function of RRDtool lets you set up new Round Robin Database (RRD) files.
+            The file is created at its final, full size and filled with *UNKNOWN* data.
+            </summary>
+            <param name="fileName">
+            The name of the RRD you want to create. RRD files should end with 
+            the extension .rrd. However, RRDtool will accept any filename.
+            </param>
+            <param name="ds">
+            The data source used to store data in the RRD. 
+            See <see cref="T:RrdNet.Datasource.RrdDataSource"/> for more information.
+            </param>
+            <param name="rra">
+            The round robin archive (RRA) to store in the RRD.
+            See <see cref="T:RrdNet.Archive.RrdArchive"/> for more information.
+            </param>
+        </member>
+        <member name="M:RrdNet.RrdTool.Create(System.String,System.Nullable{System.DateTime},System.Nullable{System.Int32},System.Collections.Generic.List{RrdNet.Datasource.RrdDataSource},System.Collections.Generic.List{RrdNet.Archive.RrdArchive})">
+            <summary>
+            The create function of RRDtool lets you set up new Round Robin Database (RRD) files.
+            The file is created at its final, full size and filled with *UNKNOWN* data.
+            </summary>
+            <param name="fileName">
+            The name of the RRD you want to create. RRD files should end with 
+            the extension .rrd. However, RRDtool will accept any filename.
+            </param>
+            <param name="start">
+            Specifies the UTC date and time when the first value should be added to the RRD.
+            RRDtool will not accept any data timed before or at the time specified.
+            </param>
+            <param name="step">
+            Specifies the base interval in seconds with which data will be fed into the RRD.
+            (Default is 300 seconds).
+            </param>
+            <param name="dataSources">
+            List of data sources used to store data in the RRD. 
+            See <see cref="T:RrdNet.Datasource.RrdDataSource"/> for more information.
+            </param>
+            <param name="archives">
+            List of round robin archives (RRA) to store in the RRD.
+            See <see cref="T:RrdNet.Archive.RrdArchive"/> for more information.
+            </param>
+        </member>
+        <member name="M:RrdNet.RrdTool.Update(System.String,System.Single)">
+            <summary>
+            Updates the first data source into an RRD.
+            The update function feeds new data values into an RRD. The data is time aligned (interpolated) 
+            according to the properties of the RRD to which the data is written.
+            </summary>
+            <param name="filename">The name of the RRD to update.</param>
+            <param name="value">The actual value of the datasource update. The timestamp for the value is set
+            to the current UTC time.</param>
+        </member>
+        <member name="M:RrdNet.RrdTool.Update(System.String,System.DateTime,System.Single)">
+            <summary>
+            Updates the first data source into an RRD.
+            The update function feeds new data values into an RRD. The data is time aligned (interpolated) 
+            according to the properties of the RRD to which the data is written.
+            </summary>
+            <param name="filename">The name of the RRD to update.</param>
+            <param name="time">The timestamp for the time the update data has been acquired.</param>
+            <param name="value">The actual value of the datasource update.</param>
+        </member>
+        <member name="M:RrdNet.RrdTool.Update(System.String,System.DateTime,System.Single[])">
+            <summary>
+            Store a new set of values into the RRD.
+            The update function feeds new data values into an RRD. The data is time aligned (interpolated) 
+            according to the properties of the RRD to which the data is written.
+            </summary>
+            <param name="filename">The name of the RRD to update.</param>
+            <param name="time">The timestamp for the time the update data has been acquired.</param>
+            <param name="values">The actual values of the datasource update.</param>
+        </member>
+        <member name="M:RrdNet.RrdTool.Update(System.String,RrdNet.Datasource.RrdDataSet)">
+            <summary>
+            Store a new set of values into the RRD.
+            The update function feeds new data values into an RRD. The data is time aligned (interpolated) 
+            according to the properties of the RRD to which the data is written.
+            </summary>
+            <param name="filename">The name of the RRD to update.</param>
+            <param name="dataSet">The actual values of the datasource update, wrapped in a <see cref="T:RrdNet.Datasource.RrdDataSet"/> object.</param>
+        </member>
+        <member name="M:RrdNet.RrdTool.Info(System.String)">
+            <summary>
+            The info function prints the header information from an RRD in a parsing friendly format.
+            </summary>
+            <param name="rrdFileName">The name of the RRD you want to examine.</param>
+            <returns>A dictionary containing all rrd source relevant data as a key/value mapping.</returns>
+        </member>
+        <member name="M:RrdNet.RrdTool.Dump(System.String,System.String,System.Boolean)">
+            <summary>
+            The dump function writes the contents of an RRD in human readable XML format to a file or to stdout. 
+            This format can be read by rrdrestore. Together they allow you to transfer your files from one 
+            computer architecture to another as well to manipulate the contents of an RRD file in a somewhat 
+            more convenient manner.
+            </summary>
+            <param name="rrdFilename">The name of the RRD you want to dump.</param>
+            <param name="xmlFilename">The (optional) filename that you want to write the XML output to. If not specified and set to null, the XML will be printed to stdout.</param>
+            <param name="suppressHeaders">In rrdtool 1.3, the dump function started producing correct xml-headers. Unfortunately the rrdtool restore function from the 1.2 series can not handle these headers. With this option you can supress the creatinon of the xml headers.</param>
+        </member>
+        <member name="M:RrdNet.RrdTool.Fetch(System.String,RrdNet.RrdAggregateFunction)">
+            <summary>
+            The fetch function is normally used internally by the graph function to get data from RRDs. 
+            Fetch will analyze the RRD and try to retrieve the data in the resolution requested. The 
+            data fetched is printed to stdout. *UNKNOWN* data is often represented by the string "NaN" 
+            depending on your OS's printf function.
+            </summary>
+            <param name="filename">the name of the RRD you want to fetch the data from.</param>
+            <param name="cf">the consolidation function that is applied to the data you want to fetch (AVERAGE,MIN,MAX,LAST)</param>
+        </member>
+        <member name="M:RrdNet.RrdTool.Fetch(System.String,RrdNet.RrdAggregateFunction,System.Nullable{System.Int32},System.Nullable{System.DateTime},System.Nullable{System.DateTime})">
+            <summary>
+            The fetch function is normally used internally by the graph function to get data from RRDs. 
+            Fetch will analyze the RRD and try to retrieve the data in the resolution requested. The 
+            data fetched is printed to stdout. *UNKNOWN* data is often represented by the string "NaN" 
+            depending on your OS's printf function.
+            </summary>
+            <param name="filename">the name of the RRD you want to fetch the data from.</param>
+            <param name="cf">the consolidation function that is applied to the data you want to fetch (AVERAGE,MIN,MAX,LAST)</param>
+            <param name="resolution">the interval you want the values to have (seconds per value). rrdfetch will try to match your request, 
+            but it will return data even if no absolute match is possible. (default is the highest resolution)</param>
+            <param name="start">start of the time series. A time in seconds since epoch (1970-01-01) is required. Negative numbers are 
+            relative to the current time. By default, one day worth of data will be fetched. (default end-1day)</param>
+            <param name="end">the end of the time series in seconds since epoch. (default now)</param>
+        </member>
+        <member name="M:RrdNet.RrdTool.First(System.String)">
+            <summary>
+            The first function returns the UNIX timestamp of the first data sample 
+            entered into the specified RRA of the RRD file. The index number of the RRA that 
+            is to be examined is assumed to be zero. RRA index numbers can be determined
+            through rrdtool info.
+            </summary>
+            <param name="filename">The name of the RRD that contains the data.</param>
+            <returns>The UNIX timestamp of the first data sample represented as long value.</returns>
+        </member>
+        <member name="M:RrdNet.RrdTool.First(System.String,System.Int64)">
+            <summary>
+            The first function returns the UNIX timestamp of the first data sample 
+            entered into the specified RRA of the RRD file.
+            </summary>
+            <param name="filename">The name of the RRD that contains the data.</param>
+            <param name="rraIndex">The index number of the RRA that is to be examined. RRA index 
+            numbers can be determined through rrdtool info.</param>
+            <returns>The UNIX timestamp of the first data sample represented as long value.</returns>
+        </member>
+        <member name="M:RrdNet.RrdTool.Last(System.String)">
+            <summary>
+            The last function returns the UNIX timestamp of the most recent update of the RRD.
+            </summary>
+            <param name="filename">The name of the RRD that contains the data.</param>
+            <returns>The UNIX timestamp of the first data sample represented as long value.</returns>
+        </member>
+        <member name="M:RrdNet.RrdTool.LastUpdate(System.String)">
+            <summary>
+            The lastupdate function returns the UNIX timestamp and the 
+            value stored for each datum in the most recent update of an RRD.
+            </summary>
+            <param name="filename">The name of the RRD that contains the data.</param>
+            <returns>The UNIX timestamp of the first data sample represented as long value.</returns>
+        </member>
+        <member name="M:RrdNet.RrdTool.Resize(System.String,System.Int32,RrdNet.RrdResizeType,System.Int32)">
+            <summary>
+            The resize function is used to modify the number of rows in an RRA.
+            </summary>
+            <param name="filename">The name of the RRD you want to alter.</param>
+            <param name="rraNum">The RRA you want to alter. You can find the number using <see cref="M:RrdNet.RrdTool.Info(System.String)"/> method.</param>
+            <param name="type">Indicates the type of the resize action:
+            RrdResizeType.GROW used if you want to add extra rows to an RRA. 
+            The extra rows will be inserted as the rows that are oldest.
+            RrdResizeType.SHRINK used if you want to remove rows from an RRA. 
+            The rows that will be removed are the oldest rows.</param>
+            <param name="rows">The number of rows you want to add or remove.</param>
+            <remarks>The new .rrd file, with the modified RRAs, is written to the file resize.rrd 
+            in the current directory. The original .rrd file is not modified. It is possible to abuse 
+            this tool and get strange results by first removing some rows and then reinserting the 
+            same amount (effectively clearing them to be Unknown). You may thus end up with unknown 
+            data in one RRA while at the same timestamp this data is available in another RRA.</remarks>
+        </member>
+        <member name="M:RrdNet.RrdTool.ResizeAddRows(System.String,System.Int32,System.Int32)">
+            <summary>
+            The resize function is used to increase the number of rows in an RRA using the RrdResizeType.GROW type.
+            </summary>
+            <param name="filename">The name of the RRD you want to alter.</param>
+            <param name="rraNum">The RRA you want to alter. You can find the number using <see cref="M:RrdNet.RrdTool.Info(System.String)"/> method.</param>
+            <param name="rows">The number of rows you want to add or remove.</param>
+            <remarks>The new .rrd file, with the modified RRAs, is written to the file resize.rrd 
+            in the current directory. The original .rrd file is not modified. It is possible to abuse 
+            this tool and get strange results by first removing some rows and then reinserting the 
+            same amount (effectively clearing them to be Unknown). You may thus end up with unknown 
+            data in one RRA while at the same timestamp this data is available in another RRA.</remarks>
+        </member>
+        <member name="M:RrdNet.RrdTool.ResizeRemoveRows(System.String,System.Int32,System.Int32)">
+            <summary>
+            The resize function is used to shrink the number of rows in an RRA using the RrdResizeType.SHRINK type.
+            </summary>
+            <param name="filename">The name of the RRD you want to alter.</param>
+            <param name="rraNum">The RRA you want to alter. You can find the number using <see cref="M:RrdNet.RrdTool.Info(System.String)"/> method.</param>
+            <param name="rows">The number of rows you want to add or remove.</param>
+            <remarks>The new .rrd file, with the modified RRAs, is written to the file resize.rrd 
+            in the current directory. The original .rrd file is not modified. It is possible to abuse 
+            this tool and get strange results by first removing some rows and then reinserting the 
+            same amount (effectively clearing them to be Unknown). You may thus end up with unknown 
+            data in one RRA while at the same timestamp this data is available in another RRA.</remarks>
+        </member>
+        <member name="T:RrdNet.Graph.RrdGraphCDEF">
+            <remarks>
+            CDEF:vname=RPN expression
+            
+            This command creates a new set of data points (in memory only, not in the 
+            RRD file) out of one or more other data series. The RPN instructions are 
+            used to evaluate a mathematical function on each data point. The resulting 
+            vname can then be used further on in the script, just as if it were generated 
+            by a DEF instruction.
+            
+            Example: CDEF:mydatabits=mydata,8,*
+            </remarks>
+        </member>
+        <member name="T:RrdNet.Graph.RrdGraphElementTextAlign">
+            <summary>
+            Labels are placed below the graph. When they overflow to the left, they 
+            wrap to the next line. By default, lines are justified left and right.
+            The TEXTALIGN function lets you change this default. This class is a command 
+            and not an option, so that you can change the default several times in
+            your argument list.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementTextAlign.Alignment">
+            <summary>
+            The desired text aligment.
+            </summary>
+        </member>
+        <member name="T:RrdNet.Graph.RrdGraphElementLine">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementLine.Width">
+            <summary>
+            Draw a line of the specified width onto the graph. width can be a floating 
+            point number.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementLine.Value">
+            <summary>
+            The value can be generated by DEF, VDEF, and CDEF.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementLine.Color">
+            <summary>
+            If the color is not specified, the drawing is done 'invisibly'.
+            This is useful when stacking something else on top of this line.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementLine.UseStack">
+            <summary>
+            If the optional STACK modifier is used, this line is stacked on top of 
+            the previous element which can be a LINE or an AREA.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementLine.Dashes">
+            <summary>
+            Dashed lines can be drawn using the dashes modifier.
+            The dashes modifier enables dashed line style. Without any further options 
+            a symmetric dashed line with a segment length of 5 pixels will be drawn. 
+            The dash pattern can be changed if the dashes= parameter is followed by 
+            either one value or an even number (1, 2, 4, 6, ...) of positive values. 
+            Each value provides the length of alternate on_s and off_s portions of 
+            the stroke. 
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementLine.DashOffset">
+            <summary>
+            The dash-offset parameter specifies an offset into the pattern at which 
+            the stroke begins.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraphElementLine.Legend">
+            <summary>
+            When you do not specify a color, you cannot specify a legend.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.FileName">
+            <summary>
+            The name and path of the graph to generate. It is recommended to end this in .png, .svg or .eps, 
+            but RRDtool does not enforce this.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.StartTime">
+            <summary>
+            The start of the time series you would like to display, and which RRA the 
+            data should come from. Defaults are: 1 day ago until now, with the best 
+            possible resolution.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.EndTime">
+            The end of the time series you would like to display, and which RRA the 
+            data should come from. Defaults are: 1 day ago until now, with the best 
+            possible resolution.
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.Step">
+            <summary>
+            By default, rrdtool graph calculates the width of one pixel in the time domain 
+            and tries to get data from an RRA with that resolution. With the step option 
+            you can alter this behaviour. If you want rrdtool graph to get data at a one-hour 
+            resolution from the RRD, set step to 3'600. Note: a step smaller than one pixel 
+            will silently be ignored.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.Title">
+            <summary>
+            A horizontal string at the top of the graph.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.VerticalLabel">
+            <summary>
+            A vertically placed string at the left hand side of the graph.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.Width">
+            <summary>
+            Gets or sets the image width. Default is 400.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.Height">
+            <summary>
+            Gets or sets the image height. Default is 100.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseOnlyGraph">
+            <summary>
+            If you specify the only-graph option and set the height lower than 32 pixels you 
+            will get a tiny graph image (thumbnail) to use as an icon for use in an overview, 
+            for example. All labeling will be stripped off the graph.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseFullSizeMode">
+            <summary>
+            If you specify the full-size-mode option, the width and height specify the final 
+            dimensions of the output image and the canvas is automatically resized to fit.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.LowerLimit">
+            <summary>
+            By default the graph will be autoscaling so that it will adjust the y-axis to the range of the data. 
+            You can change this behaviour by explicitly setting the limits. The displayed y-axis will then range 
+            at least from lower-limit to upper-limit. Autoscaling will still permit those boundaries to be 
+            stretched unless the rigid option is set.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UpperLimit">
+            <summary>
+            By default the graph will be autoscaling so that it will adjust the y-axis to the range of the data. 
+            You can change this behaviour by explicitly setting the limits. The displayed y-axis will then range 
+            at least from lower-limit to upper-limit. Autoscaling will still permit those boundaries to be 
+            stretched unless the rigid option is set.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseRigidLimits">
+            <summary>
+            By setting the mimits to be rigid, autoscaling will avoid those boundaries to be stretched.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseAltAutoscale">
+            <summary>
+            Sometimes the default algorithm for selecting the y-axis scale is not satisfactory. 
+            Normally the scale is selected from a predefined set of ranges and this fails miserably 
+            when you need to graph something like 260 + 0.001 * sin(x). This option calculates the 
+            minimum and maximum y-axis from the actual minimum and maximum data values. Our example 
+            would display slightly less than 260-0.001 to slightly more than 260+0.001.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseAltAutoscaleMin">
+            <summary>
+            Where UseAltAutoscale will modify both the absolute maximum AND minimum values, this 
+            option will only affect the minimum value. The maximum value, if not defined on the 
+            command line, will be 0. This option can be useful when graphing router traffic when the 
+            WAN line uses compression, and thus the throughput may be higher than the WAN line speed.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseAltAutoscaleMax">
+            <summary>
+            Where UseAltAutoscale will modify both the absolute maximum AND minimum values, this 
+            option will only affect the maximum value. The minimum value, if not defined on the command 
+            line, will be 0. This option can be useful when graphing router traffic when the WAN line 
+            uses compression, and thus the throughput may be higher than the WAN line speed.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseNoGridFit">
+            <summary>
+            In order to avoid anti-aliasing blurring effects rrdtool snaps points to device resolution 
+            pixels, this results in a crisper aperance. If this is not to your liking, you can use 
+            this switch to turn this behaviour off.
+            Gridfitting is turned off for PDF, EPS, SVG output by default.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.GridX">
+            <summary>
+            The x-axis label is quite complex to configure. If you don't have very special needs it is 
+            probably best to rely on the autoconfiguration to get this right. You can specify the string 
+            'none' to suppress the grid and labels altogether.
+            </summary>
+            <remarks>
+            rrd console tool usage: [-x|--x-grid GTM:GST:MTM:MST:LTM:LST:LPR:LFM]
+            
+            The grid is defined by specifying a certain amount of time in the ?TM positions. You can 
+            choose from SECOND, MINUTE, HOUR, DAY, WEEK, MONTH or YEAR. Then you define how many of 
+            these should pass between each line or label. This pair (?TM:?ST) needs to be specified for 
+            the base grid (G??), the major grid (M??) and the labels (L??). For the labels you also must 
+            define a precision in LPR and a strftime format string in LFM. LPR defines where each label 
+            will be placed. If it is zero, the label will be placed right under the corresponding line 
+            (useful for hours, dates etcetera). If you specify a number of seconds here the label is 
+            centered on this interval (useful for Monday, January etcetera).
+            
+            Example 1: --x-grid MINUTE:10:HOUR:1:HOUR:4:0:%X
+            This places grid lines every 10 minutes, major grid lines every hour, and labels every 4 hours. 
+            The labels are placed under the major grid lines as they specify exactly that time.
+            
+            Example 2: --x-grid HOUR:8:DAY:1:DAY:1:86400:%A
+            This places grid lines every 8 hours, major grid lines and labels each day. The labels are 
+            placed exactly between two major grid lines as they specify the complete day and not 
+            just midnight.
+            </remarks>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.GridY">
+            <summary>
+            Y-axis grid lines appear at each grid step interval. Labels are placed every label factor lines. 
+            You can specify -y none to suppress the grid and labels altogether. The default for this option 
+            is to automatically select sensible values. If you have set GridY to 'none' not only the labels 
+            get supressed, also the space reserved for the labels is removed. You can still add space 
+            manually if you use the --units-length command to explicitly reserve space.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseAltGridY">
+            <summary>
+            Place the Y grid dynamically based on the graph's Y range. The algorithm ensures that you 
+            always have a grid, that there are enough but not too many grid lines, and that the grid 
+            is metric. That is the grid lines are placed every 1, 2, 5 or 10 units. This parameter will 
+            also ensure that you get enough decimals displayed even if your graph goes from 69.998 to 70.001.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseLogarithmicScaling">
+            <summary>
+            Logarithmic y-axis scaling.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UnitsExponent">
+            <summary>
+            This sets the 10**exponent scaling of the y-axis values. Normally, values will be scaled 
+            to the appropriate units (k, M, etc.). However, you may wish to display units always 
+            in k (Kilo, 10e3) even if the data is in the M (Mega, 10e6) range, for instance. 
+            Value should be an integer which is a multiple of 3 between -18 and 18 inclusively. 
+            It is the exponent on the units you wish to use. For example, use 3 to display the y-axis 
+            values in k (Kilo, 10e3, thousands), use -6 to display the y-axis values in u 
+            (Micro, 10e-6, millionths). Use a value of 0 to prevent any scaling of the y-axis values. 
+            This option is very effective at confusing the heck out of the default rrdtool autoscaler 
+            and grid painter. If rrdtool detects that it is not successful in labeling the graph under 
+            the given circumstances, it will switch to the more robust UseAltGridY mode.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UnitsLength">
+            <summary>
+            How many digits should rrdtool assume the y-axis labels to be? You may have to use this 
+            option to make enough space once you start fideling with the y-axis labeling.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseSiUnits">
+            <summary>
+            With this option y-axis values on logarithmic graphs will be scaled to the appropriate 
+            units (k, M, etc.) instead of using exponential notation. Note that for linear graphs, 
+            SI notation is used by default.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseLazyMode">
+            <summary>
+            Only generate the graph if the current graph is out of date or not existent. 
+            Note, that only the image size will be returned, if you run with lazy even when 
+            using graphv and even when using PRINT.
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:RrdNet.Graph.RrdGraph.ImgInfo" -->
+        <member name="P:RrdNet.Graph.RrdGraph.Colors">
+            <summary>
+            Override the default colors for the standard elements of the graph. The COLORTAG 
+            is one of BACK background, CANVAS for the background of the actual graph, SHADEA 
+            for the left and top border, SHADEB for the right and bottom border, GRID, MGRID 
+            for the major grid, FONT for the color of the font, AXIS for the axis of the graph, 
+            FRAME for the line around the color spots, and finally ARROW for the arrow head 
+            pointing up and forward. Each color is composed out of three hexadecimal numbers 
+            specifying its rgb color component (00 is off, FF is maximum) of red, green and blue. 
+            Optionally you may add another hexadecimal number specifying the transparency 
+            (FF is solid). You may set this option several times to alter multiple defaults.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.ZoomFactor">
+            <summary>
+            Zoom the graphics by the given amount. The factor must be > 0
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.GraphFonts">
+            <summary>
+            This lets you customize which font to use for the various text 
+            elements on the RRD graphs. DEFAULT sets the default value for all 
+            elements, TITLE for the title, AXIS for the axis labels, UNIT for the 
+            vertical unit label, LEGEND for the graph legend, WATERMARK for the 
+            watermark on the edge of the graph.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.FontRendermode">
+            <summary>
+            There are 3 font render modes:
+            normal: Full Hinting and Antialiasing (default)
+            light: Slight Hinting and Antialiasing
+            mono: Full Hinting and NO Antialiasing
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.FontSmoothThreshold">
+            <summary>
+            This specifies the largest font size which will be rendered bitmapped, 
+            that is, without any font smoothing. By default, no text is rendered bitmapped.
+            (this gets ignored in rrdtool 1.3 for now!)
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UsePangoMarkup">
+            <summary>
+            All text in rrdtool is rendered using Pango. With the --pango-markup option, 
+            all text will be processed by pango markup. This allows to embed some simple 
+            html like markup tags using  <span key="value">text</span>
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.GraphRendermode">
+            <summary>
+            There are 2 render modes:
+            normal: Graphs are fully Antialiased (default)
+            mono: No Antialiasing
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseSloopMode">
+            <summary>
+            RRDtool graphs are composed of stair case curves by default. This is in line with 
+            the way RRDtool calculates its data. Some people favor a more 'organic' look for 
+            their graphs even though it is not all that true.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.ImgFormat">
+            <summary>
+            Image format for the generated graph. For the vector formats 
+            you can choose among the standard Postscript fonts Courier-Bold, 
+            Courier-BoldOblique, Courier-Oblique, Courier, Helvetica-Bold, 
+            Helvetica-BoldOblique, Helvetica-Oblique, Helvetica, Symbol, Times-Bold, 
+            Times-BoldItalic, Times-Italic, Times-Roman, and ZapfDingbats.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseInterlacing">
+            <summary>
+            If images are interlaced they become visible on browsers more quickly.
+            (this gets ignored in rrdtool 1.3 for now!)
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseNoLegend">
+            <summary>
+            Suppress generation of the legend; only render the graph.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.UseForceRulesLegend">
+            <summary>
+            Force the generation of HRULE and VRULE legends even if those 
+            HRULE or VRULE will not be drawn because out of graph boundaries 
+            (mimics behaviour of pre 1.0.42 versions).
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.TabWidth">
+            <summary>
+            By default the tab-width is 40 pixels, use this option to change it.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.Base">
+            <summary>
+            If you are graphing memory (and NOT network traffic) this switch should 
+            be set to 1024 so that one Kb is 1024 byte. For traffic measurement, 
+            1 kb/s is 1000 b/s.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.Watermark">
+            <summary>
+            Adds the given string as a watermark, horizontally centred, at the bottom of the graph.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.DataDefinitions">
+            <summary>
+            Gets the data definitions.
+            
+            DEF:(vname)=(rrdfile):(ds-name):(CF)[:step=(step)][:start=(time)][:end=(time)][:reduce=(CF)]
+            
+            This command fetches data from an RRD file. The virtual name vname can then be 
+            used throughout the rest of the script. By default, an RRA which contains the 
+            correct consolidated data at an appropriate resolution will be chosen. The 
+            resolution can be overridden with the --step option. The resolution can again 
+            be overridden by specifying the step size. The time span of this data is the same
+            as for the graph by default, you can override this by specifying start and end. 
+            Remember to escape colons in the time specification!
+            If the resolution of the data is higher than the resolution of the graph, the 
+            data will be further consolidated. This may result in a graph that spans 
+            slightly more time than requested. Ideally each point in the graph should 
+            correspond with one CDP from an RRA. For instance, if your RRD has an RRA with 
+            a resolution of 1800 seconds per CDP, you should create an image with width 400 
+            and time span 400*1800 seconds (use appropriate start and end times, such as --start 
+            end-8days8hours).
+            
+            See also <seealso cref="T:RrdNet.Graph.RrdGraphDEF"/>.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.CalculationDefinitions">
+            <summary>
+            CDEF:vname=RPN expression
+            
+            This command creates a new set of data points (in memory only, not in the RRD 
+            file) out of one or more other data series. The RPN instructions are used to 
+            evaluate a mathematical function on each data point. The resulting vname can 
+            then be used further on in the script, just as if it were generated by a DEF 
+            instruction.
+            Example: CDEF:mydatabits=mydata,8,*
+            
+            Seea also <seealso cref="T:RrdNet.Graph.RrdGraphCDEF"/>.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.VariableDefinitions">
+            <summary>
+            VDEF:vname=RPN expression
+            
+            This command returns a value and/or a time according to the RPN statements used. 
+            The resulting vname will, depending on the functions used, have a value and a time 
+            component. When you use this vname in another RPN expression, you are effectively 
+            inserting its value just as if you had put a number at that place. The variable 
+            can also be used in the various graph and print elements.
+            
+            Example: VDEF:avg=mydata,AVERAGE
+            
+            Seea also <seealso cref="T:RrdNet.Graph.RrdGraphVDEF"/>.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.GraphElements">
+            <summary>
+            These instructions allow you to generate your image or report. If you don't use any 
+            graph elements, no graph is generated. Similarly, no report is generated if you don't 
+            use print options.
+            
+            Seea also <seealso cref="T:RrdNet.Graph.IRrdGraphElement"/>.
+            </summary>
+        </member>
+        <member name="P:RrdNet.Graph.RrdGraph.GraphPrintElements">
+            <summary>
+            These instructions allow you to generate your image or report. If you don't use any 
+            graph elements, no graph is generated. Similarly, no report is generated if you don't 
+            use print options.
+            
+            Seea also <seealso cref="T:RrdNet.Graph.IRrdGraphElement"/>.
+            </summary>
+        </member>
+        <member name="T:RrdNet.Archive.RrdArchive">
+            <summary>
+            The purpose of an RRD is to store data in the round robin archives (RRA). 
+            An archive consists of a number of data values or statistics for each of 
+            the defined data-sources (DS) and is defined with an RRA line.
+            </summary>
+            <remarks>
+            When data is entered into an RRD, it is first fit into time slots of the length 
+            defined with the -s option, thus becoming a primary data point.
+            The data is also processed with the consolidation function (CF) of the archive. 
+            There are several consolidation functions that consolidate primary data points via an aggregate function: 
+            AVERAGE, 
+            </remarks>
+        </member>
+        <member name="F:RrdNet.Archive.RrdArchive.ConsolidationFunction">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:RrdNet.Archive.RrdArchive.Xff">
+            <summary>
+            xff The xfiles factor defines what part of a consolidation interval may be made 
+            up from *UNKNOWN* data while the consolidated value is still regarded as known. 
+            It is given as the ratio of allowed *UNKNOWN* PDPs to the number of PDPs in the interval. 
+            Thus, it ranges from 0 to 1 (exclusive).
+            </summary>
+        </member>
+        <member name="F:RrdNet.Archive.RrdArchive.Steps">
+            <summary>
+            steps defines how many of these primary data points are used to build a consolidated 
+            data point which then goes into the archive.
+            </summary>
+        </member>
+        <member name="F:RrdNet.Archive.RrdArchive.Rows">
+            <summary>
+            rows defines how many generations of data values are kept in an RRA. 
+            Obviously, this has to be greater than zero.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -6967,3 +6967,267 @@ DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
 DEBUG - getVaildSession : jg.rpg.entity.Session@37cf1c
 DEBUG - MsgType : 7
 DEBUG - Send MsgLen 86
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+WARN - registerPlayer get data error : Column count doesn't match value count at row 1 Query: insert into tb_user values(null,? ,?,?) Parameters: [a, b59c67bf196a4758191e42f76670ceba, ]
+DEBUG - Send MsgLen 44
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+WARN - registerPlayer get data error : Column count doesn't match value count at row 1 Query: insert into tb_user values(null,? ,?,?) Parameters: [aaa, b59c67bf196a4758191e42f76670ceba, ]
+DEBUG - Send MsgLen 44
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+WARN - registerPlayer get data error : Column count doesn't match value count at row 1 Query: insert into tb_user values(null,? ,?,?) Parameters: [aaa, b59c67bf196a4758191e42f76670ceba, ]
+DEBUG - Send MsgLen 44
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+WARN - An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at io.netty.buffer.UnpooledUnsafeDirectByteBuf.setBytes(UnpooledUnsafeDirectByteBuf.java:357)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:898)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:242)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:119)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:511)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)
+	at java.lang.Thread.run(Unknown Source)
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+WARN - registerPlayer get data error : Data truncation: Data too long for column 'pwd' at row 1 Query: insert into tb_user values(null,?,?,?,?,?,?,?,?,?,?,?,?) Parameters: [a, b59c67bf196a4758191e42f76670ceba, , 0, 0, 0, 0, 0, 0, 0, 0, 0]
+DEBUG - Send MsgLen 44
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : d9a9bde797bd40758ec41fc0c003ea97
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 39
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 81
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 6
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 6
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 6
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 6
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 6
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 81
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 6
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 6
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 33dd7da9521840bf9416bfc46761c8c2
+DEBUG - getVaildSession : jg.rpg.entity.Session@3da09b
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 6

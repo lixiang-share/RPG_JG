@@ -76,9 +76,13 @@ public class MsgUtils {
 	
 	}
 	
-	public static MsgPacker getSuccessPacker() throws IOException{
+	public static MsgPacker getSuccessPacker(){
 		MsgPacker packer = new MsgPacker();
-		packer.addInt(MsgProtocol.Success);
+		try {
+			packer.addInt(MsgProtocol.Success);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 		return packer;
 	}
 }
