@@ -69,6 +69,13 @@ public static partial class UITools
             lb.gameObject.SetActive(isActive);
         }
     }
+    public static void SA(GameObject go , bool isActive)
+    {
+        if (go != null)
+        {
+            go.SetActive(isActive);
+        }
+    }
     public static LuaBehaviour D(string domain)
     {
         if (LuaBehaviour.Domains.ContainsKey(domain))
@@ -339,6 +346,10 @@ public static partial class UITools
         return ConvertUitls.MsgToTaskList(unpacker);
     }
 
+    public static Player MsgToPlayer(MsgUnPacker unpacker)
+    {
+        return ConvertUitls.MsgToPlayer(unpacker);
+    }
     #endregion
 
 }

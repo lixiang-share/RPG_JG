@@ -12,7 +12,7 @@ public class Task extends EntityBase<Task>{
 	private int id;
 	private int taskId;
 	private String type;
-	private int roleId;
+	private int ownerId;
 	private int status;
 	private int goldCount;
 	private int diamondCount;
@@ -39,8 +39,8 @@ public class Task extends EntityBase<Task>{
 	public void setTaskId(int taskId) {
 		this.taskId = taskId;
 	}
-	public int getRoleId() {
-		return roleId;
+	public int getOwnerId() {
+		return ownerId;
 	}
 	public int getDiamondCount() {
 		return diamondCount;
@@ -48,8 +48,8 @@ public class Task extends EntityBase<Task>{
 	public void setDiamondCount(int diamondCount) {
 		this.diamondCount = diamondCount;
 	}
-	public void setRoleId(int roleId) {
-		this.roleId = roleId;
+	public void setOwnerId(int roleId) {
+		this.ownerId = roleId;
 	}
 	public int getId() {
 		return id;
@@ -107,7 +107,7 @@ public class Task extends EntityBase<Task>{
 		}
 		String sql = "insert into tb_task values(null,? ,?,?,?,?,?,?,?)";
 		Task task = DBHelper.insert(DBMgr.getInstance().getDataSource(), sql,
-				RSHHelper.getTaskRSH(), getTaskId(),getRoleId() , getType(),getStatus() , getGoldCount()
+				RSHHelper.getTaskRSH(), getTaskId(),getOwnerId() , getType(),getStatus() , getGoldCount()
 				, getDiamondCount(),getCurStage(),getTotalStage());
 		setId(task.getId());
 		return this;

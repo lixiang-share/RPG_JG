@@ -22,6 +22,7 @@ public class MsgProtocolWrap
 			new LuaField("PreSelectHero", get_PreSelectHero, null),
 			new LuaField("EnterGame", get_EnterGame, null),
 			new LuaField("Get_TaskList", get_Get_TaskList, null),
+			new LuaField("Update_PlayerInfo", get_Update_PlayerInfo, null),
 		};
 
 		LuaScriptMgr.RegisterLib(L, "MsgProtocol", typeof(MsgProtocol), regs, fields, typeof(object));
@@ -115,6 +116,13 @@ public class MsgProtocolWrap
 	static int get_Get_TaskList(IntPtr L)
 	{
 		LuaScriptMgr.Push(L, MsgProtocol.Get_TaskList);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Update_PlayerInfo(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, MsgProtocol.Update_PlayerInfo);
 		return 1;
 	}
 }

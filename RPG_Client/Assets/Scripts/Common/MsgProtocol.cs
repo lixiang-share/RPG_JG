@@ -16,4 +16,5 @@ public class MsgProtocol {
     public const int PreSelectHero = 5;
 	public const int EnterGame = 6;
 	public const int Get_TaskList = 7;
+    public const int Update_PlayerInfo = 8;
 }

@@ -18,7 +18,7 @@ public class TaskEntity{
     private string _extra03;
     private int _goldCount;
     private int _diamondCount;
-    private int _roleId;
+    private int _ownerId;
     private string type;
     private int _curStage;
     private int _totalStage;
@@ -52,7 +52,7 @@ public class TaskEntity{
         this.Extra01 = task.Extra01;
         this.Extra02 = task.Extra02;
         this.Extra03 = task.Extra03;
-        this.RoleId = task.RoleId;
+        this.OwnerId = task.OwnerId;
         this.Type = task.Type;
         this.CurStage = task.CurStage;
         this.TotalStage = task.TotalStage;
@@ -220,16 +220,16 @@ public class TaskEntity{
         }
     }
 
-    public int RoleId
+    public int OwnerId
     {
         get
         {
-            return _roleId;
+            return _ownerId;
         }
 
         set
         {
-            _roleId = value;
+            _ownerId = value;
         }
     }
 

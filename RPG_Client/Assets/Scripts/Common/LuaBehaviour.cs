@@ -60,6 +60,7 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
     private TimerManager m_TimerMgr;
     private ThreadManager m_ThreadMgr;
     private GameMgr m_gameMgr;
+    private PlayerManager playerMgr;
 
     #endregion
 
@@ -136,6 +137,18 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
     {
     }
 
+    public virtual void DoDelay(string method, float seconds, params object[] objs)
+    {
+        if (gameObject.active)
+        {
+            StartCoroutine(_DoDelay(method, seconds, objs));
+        }
+    }
+    private IEnumerator _DoDelay(string method, float seconds, params object[] objs)
+    {
+        yield return new WaitForSeconds(seconds);
+        CallMethod(method, objs);
+    }
     public virtual void OnEnable()
     {
 
@@ -345,6 +358,17 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
             return m_gameMgr;
         }
     }
+    public PlayerManager PlayerMgr
+    {
+        get
+        {
+            if (playerMgr == null)
+            {
+                playerMgr = PlayerManager.Inst;
+            }
+            return playerMgr;
+        }
+    }
 
     #endregion
 
@@ -442,7 +466,7 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
         return gameObject.GetComponent(name);
     }
 
-    public string Value
+    public object Value
     {
         get
         {
@@ -458,21 +482,30 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
             {
                 return gameObject.GetComponent<UISprite>().spriteName;
             }
+            else if (gameObject.GetComponent<UIProgressBar>() != null)
+            {
+                return gameObject.GetComponent<UIProgressBar>().value;
+            }
             return "";
         }
         set
         {
             if (gameObject.GetComponent<UIInput>() != null)
             {
-                gameObject.GetComponent<UIInput>().value = value;
+                gameObject.GetComponent<UIInput>().value = value.ToString();
             }
             else if (gameObject.GetComponent<UILabel>() != null)
             {
-                gameObject.GetComponent<UILabel>().text = value;
+                gameObject.GetComponent<UILabel>().text = value.ToString();
             }
             else if (gameObject.GetComponent<UISprite>() != null)
             {
-                gameObject.GetComponent<UISprite>().spriteName = value;
+                gameObject.GetComponent<UISprite>().spriteName = value.ToString();
+            }
+            else if (gameObject.GetComponent<UIProgressBar>() != null)
+            {
+
+                gameObject.GetComponent<UIProgressBar>().value =(float)System.Convert.ToDouble(value);
             }
         }
     }

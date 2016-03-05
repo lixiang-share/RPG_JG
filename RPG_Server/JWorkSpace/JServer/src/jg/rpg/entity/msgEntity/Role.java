@@ -16,14 +16,9 @@ public class Role extends EntityBase<Role> {
 	private String name;
 	private int level;
 	private int gender;
-	private List<Task> tasks;
+
 	
-	public List<Task> getTasks() {
-		return tasks;
-	}
-	public void setTasks(List<Task> tasks) {
-		this.tasks = tasks;
-	}
+
 	public int getId() {
 		return id;
 	}
@@ -80,13 +75,18 @@ public class Role extends EntityBase<Role> {
 		Role role = DBHelper.insert(DBMgr.getInstance().getDataSource(), sql,
 				RSHHelper.getRoleRSH(), getOwnerId(),getRole_id(),getName(),getLevel() , getGender());
 		setId(role.getId());
-		if(tasks != null && !tasks.isEmpty()){
-			for(Task task : tasks){
-				task.setRoleId(getId());
-				task.insertToDB();
-			}
-		}
 		return this;
+	}
+	@Override
+	public int updateToDB() throws SQLException {
+		if( !isExistInDB()){
+			throw new SQLException("Role not Exist");
+		}
+		String sql = "update tb_role set name = ? , level = ? , gender = ?  where ownerId = ? and roleId = ? ";
+		int row = DBHelper.update(DBMgr.getInstance().getDataSource(), sql,
+				getName() , getLevel(),getGender() , getOwnerId() , getRole_id());
+		return row;
+		
 	}
 	
 	

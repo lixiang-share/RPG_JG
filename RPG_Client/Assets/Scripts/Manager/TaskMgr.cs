@@ -65,7 +65,7 @@ public class TaskMgr : MonoBehaviour {
         _task.TaskId = task.TaskId;
         _task.CurStage = task.CurStage;
         _task.TotalStage = task.TotalStage;
-        _task.RoleId = task.RoleId;
+        _task.OwnerId = task.OwnerId;
         _task.Type = task.Type;
         return new TaskEntity(_task);
     }

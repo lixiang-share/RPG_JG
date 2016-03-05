@@ -1,26 +1,35 @@
 package jg.rpg.msg.cityService.controller;
 
 import java.io.IOException;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
-import jg.rpg.entity.MsgPacker;
+import jg.rpg.dao.db.DBHelper;
+import jg.rpg.dao.db.DBMgr;
+import jg.rpg.entity.MsgUnPacker;
 import jg.rpg.entity.msgEntity.Player;
 
 public class CityController {
-
-	public void packPlayer(MsgPacker packer, Player player) throws IOException {
-		
-		packer.addInt(player.getId())
-			.addString(player.getUsername())
-			.addString(player.getPhoneNum())
-			.addInt(player.getLevel())
-			.addInt(player.getFc())
-			.addInt(player.getExp())
-			.addInt(player.getDiamondCount())
-			.addInt(player.getGoldCount())
-			.addInt(player.getVit())
-			.addInt(player.getToughen())
-			.addInt(player.getHp())
-			.addInt(player.getDamage());
+	public int UpdatePlayerInfo(MsgUnPacker unpacker, Player player) throws IOException, SQLException {
+		List<Object> ps = new ArrayList<Object>();
+		String sql = "update tb_user set ";
+		int len = unpacker.popInt();
+		for(int i=0 ; i<len ; i++){
+			String key = unpacker.popString();
+			String value = unpacker.popString();
+			player.updateField(key , value);
+			sql =  sql + key + " = ? ,";
+			if(value.equals("name")){
+				ps.add(value);
+			}else{
+				ps.add(Integer.parseInt(value));
+			}
+		}
+		sql = sql.substring(0, sql.lastIndexOf(","));
+		sql += " where id = ?";
+		ps.add(player.getId());
+		return	DBHelper.update(DBMgr.getInstance().getDataSource(), sql, ps.toArray());
 	}
 
 	

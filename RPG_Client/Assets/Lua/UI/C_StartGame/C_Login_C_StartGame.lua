@@ -28,13 +28,19 @@ function this.OnReceiveData(data)
 	if data.MsgType == MsgProtocol.Login then
 		local sessionKey = data:PopString()
 		UITools.StoreSessionKey(sessionKey)
-		UITools.ClosePanel(inst);
-		UITools.ShowPanel(UITools.D('ServerSelect'))
+		this.SetPlayerInfo(data)
 	elseif data.MsgType == MsgProtocol.Query_Status then
-		UITools.ClosePanel(inst);
-		UITools.ShowPanel(UITools.D('ServerSelect'))
+		this.SetPlayerInfo(data)
 	end
 end
+
+function this.SetPlayerInfo(data)
+		local player = UITools.MsgToPlayer(data)
+		inst.PlayerMgr.Player = player
+		UITools.ClosePanel(inst);
+		UITools.ShowPanel(UITools.D('ServerSelect'))
+end
+
 
 function this.Register()
 	UITools.ClosePanel(inst);

@@ -691,12 +691,14 @@ public class UIScrollView : MonoBehaviour
 
 	public virtual void MoveRelative (Vector3 relative)
 	{
-		mTrans.localPosition += relative;
-		Vector2 co = mPanel.clipOffset;
+		//mTrans.localPosition += relative;
+        transform.localPosition += relative;
+		//Vector2 co = mPanel.clipOffset;
+        Vector2 co = GetComponent<UIPanel>().clipOffset;
 		co.x -= relative.x;
 		co.y -= relative.y;
-		mPanel.clipOffset = co;
-
+		//mPanel.clipOffset = co;
+        GetComponent<UIPanel>().clipOffset = co;
 		// Update the scroll bars
 		UpdateScrollbars(false);
 	}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<roles>
+	<role>
+		<role_id>boy</role_id>
+		<name>Unname</name>
+		<level>1</level>
+		<gender>1</gender>
+	</role>
+	
+	<role>
+		<role_id>girl</role_id>
+		<name>Unname</name>
+		<level>1</level>
+		<gender>2</gender>
+	</role>
+</roles>

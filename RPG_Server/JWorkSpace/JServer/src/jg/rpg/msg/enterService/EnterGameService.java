@@ -6,7 +6,7 @@ import java.util.List;
 
 import jg.rpg.common.anotation.HandlerMsg;
 import jg.rpg.common.manager.PlayerMgr;
-import jg.rpg.common.manager.TaskMgr;
+import jg.rpg.common.manager.DefEntityMgr;
 import jg.rpg.common.protocol.MsgProtocol;
 import jg.rpg.entity.MsgPacker;
 import jg.rpg.entity.MsgUnPacker;
@@ -48,6 +48,7 @@ public class EnterGameService {
 				
 				packer.addInt(MsgProtocol.Success);
 				packer.addString(sessionKey);
+				egContoller.packPlayer(packer, player);
 			}else{
 				packer.addInt(MsgProtocol.Error);
 				packer.addString("用户名与密码不匹配");
@@ -99,6 +100,7 @@ public class EnterGameService {
 			if(unpacker.hasNext())
 				player.setPhoneNum(unpacker.popString());
 			if(egContoller.registerPlayer(player) != null){
+				egContoller.initPlayer(DefEntityMgr.getInstance().getAllDefRoles() , player.getId());
 				MsgPacker packer = new MsgPacker();
 				packer.addInt(MsgProtocol.Success);
 				MsgUtils.sendMsg(session.getCtx(), packer);
@@ -117,6 +119,7 @@ public class EnterGameService {
 		MsgPacker packer = new MsgPacker();
 		try {
 			packer.setMsgType(MsgProtocol.Success);
+			egContoller.packPlayer(packer, session.getPlayer());
 			MsgUtils.sendMsg(session.getCtx(), packer);
 		} catch (IOException e) {
 			logger.debug("server error : "+e.getMessage());
@@ -176,28 +179,22 @@ public class EnterGameService {
 		
 		Role role = new Role();
 		try {
-			role.setOwnerId(player.getId());
 			role.setRole_id(unpacker.popString());
 			role.setName(unpacker.popString());
-			role.setLevel(unpacker.popInt());
-			role.setGender(unpacker.popInt());
 			Role _role =egContoller.getRoleByPlayerIDAndRole_ID(playerID , role.getRole_id());
 			if(_role != null){
-				role.setId(_role.getId());
-				egContoller.updateRoleInfo(playerID , role);
-				List<Task> tasks = egContoller.getTaskListByRoleID(role.getId());
-				role.setTasks(tasks);
+				_role.setName(role.getName());
+				_role.updateToDB();
+				List<Task> tasks = egContoller.getTaskListByRoleID(player.getId());
+				player.setRole(_role);
+				player.setTasks(tasks);
 			}else{
-				//Role _role = egContoller.insertRole(role);
-				//未选择过的角色，赋予初始任务，并落地到数据库
-				List<Task> tasks = TaskMgr.getInstance().getTaskList();
-				role.setTasks(tasks);
-				role.insertToDB();
+				MsgUtils.SendErroInfo(session.getCtx(), "请正确选择角色");
+				return;
 			}
-			player.setRole(role);
 		} catch (IOException | SQLException e) {
 			logger.warn(e.getMessage());
-			MsgUtils.SendErroInfo(session.getCtx(), "请正确选择服务器");
+			MsgUtils.SendErroInfo(session.getCtx(), "请正确选择角色");
 		}	
 		
 		try {

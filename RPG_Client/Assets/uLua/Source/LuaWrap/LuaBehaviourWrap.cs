@@ -14,6 +14,7 @@ public class LuaBehaviourWrap
 			new LuaMethod("Awake", Awake),
 			new LuaMethod("InitLuaFile", InitLuaFile),
 			new LuaMethod("Parse", Parse),
+			new LuaMethod("DoDelay", DoDelay),
 			new LuaMethod("OnEnable", OnEnable),
 			new LuaMethod("CallLuaMethod", CallLuaMethod),
 			new LuaMethod("ExcuteCommand", ExcuteCommand),
@@ -71,6 +72,7 @@ public class LuaBehaviourWrap
 			new LuaField("NetManager", get_NetManager, null),
 			new LuaField("AudioMgr", get_AudioMgr, null),
 			new LuaField("GameMgr", get_GameMgr, null),
+			new LuaField("PlayerMgr", get_PlayerMgr, null),
 			new LuaField("Packer", get_Packer, set_Packer),
 			new LuaField("Value", get_Value, set_Value),
 			new LuaField("Parent", get_Parent, null),
@@ -631,6 +633,30 @@ public class LuaBehaviourWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_PlayerMgr(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		LuaBehaviour obj = (LuaBehaviour)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name PlayerMgr");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index PlayerMgr on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.PlayerMgr);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_Packer(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
@@ -674,7 +700,7 @@ public class LuaBehaviourWrap
 			}
 		}
 
-		LuaScriptMgr.Push(L, obj.Value);
+		LuaScriptMgr.PushVarObject(L, obj.Value);
 		return 1;
 	}
 
@@ -1161,7 +1187,7 @@ public class LuaBehaviourWrap
 			}
 		}
 
-		obj.Value = LuaScriptMgr.GetString(L, 3);
+		obj.Value = LuaScriptMgr.GetVarObject(L, 3);
 		return 0;
 	}
 
@@ -1190,6 +1216,18 @@ public class LuaBehaviourWrap
 		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
 		IList arg0 = (IList)LuaScriptMgr.GetNetObject(L, 2, typeof(IList));
 		obj.Parse(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DoDelay(IntPtr L)
+	{
+		int count = LuaDLL.lua_gettop(L);
+		LuaBehaviour obj = (LuaBehaviour)LuaScriptMgr.GetUnityObjectSelf(L, 1, "LuaBehaviour");
+		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
+		float arg1 = (float)LuaScriptMgr.GetNumber(L, 3);
+		object[] objs2 = LuaScriptMgr.GetParamsObject(L, 4, count - 3);
+		obj.DoDelay(arg0,arg1,objs2);
 		return 0;
 	}
 

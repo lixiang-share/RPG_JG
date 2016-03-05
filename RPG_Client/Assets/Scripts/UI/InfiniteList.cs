@@ -7,10 +7,9 @@ public class InfiniteList : LuaBehaviour {
     public UIWrapContent wrapContent;
     public UIScrollView scrollView;
     public IList listData;
+    public IList groupData;
     public int row = 1;
     private IList<Transform> mChildren;
-    private int minIndex;
-    private int maxIndex;
     private Vector3 defScrollViewPos;
     private bool isInitListPos;
 
@@ -37,26 +36,41 @@ public class InfiniteList : LuaBehaviour {
     public override void Parse(IList list)
     {
         listData = list;
-        InitIndex();
-    }
-
-    private void InitIndex()
-    {
-
-        if (listData.Count <= 0)
+        if (list.Count <= 0)
         {
             UITools.SA(this, false);
         }
         else
         {
-            if(row <= 1){
-                wrapContent.minIndex = minIndex = (listData.Count - 1) * -1;
-                wrapContent.maxIndex = maxIndex = 0;
-            }else{
-                minIndex = (listData.Count / 2)-1;
-                if (listData.Count % 2 > 0) minIndex++;
-                wrapContent.minIndex = minIndex * -1;
-                wrapContent.maxIndex = maxIndex = 0;
+            if (row <= 1)
+            {
+                wrapContent.minIndex  = (listData.Count - 1) * -1;
+                wrapContent.maxIndex  = 0;
+            }
+            else
+            {
+                wrapContent.maxIndex = 0;
+                int _minIndex = listData.Count % row == 0 ? listData.Count / row - 1 : listData.Count / row;
+                wrapContent.minIndex = _minIndex * -1;
+
+                groupData = new ArrayList();
+                for (int i = 0; i < listData.Count / row; i++)
+                {
+                    ArrayList _list = new ArrayList();
+                    for (int j = 0; j < row; j++)
+                    {
+                        _list.Add(listData[i * row + j]);
+                    }
+                    groupData.Add(_list);
+                }
+                ArrayList l = new ArrayList();
+                for (int i = listData.Count - listData.Count%row; i < listData.Count; i++)
+                {
+                    l.Add(listData[i]);
+                }
+                if (l.Count != 0) groupData.Add(l);
+
+
             }
             UITools.SA(this, true);
         }
@@ -65,7 +79,7 @@ public class InfiniteList : LuaBehaviour {
 
     public void OnInitializeItem(GameObject go, int wrapIndex, int realIndex)
     {
-       // UITools.log(go.name + " : " + realIndex + " : " + wrapIndex);
+        UITools.log(go.name + " : " + realIndex + " : " + wrapIndex);
         if (listData == null || listData.Count == 0)
         {
             UITools.SA(UITools.Get<LuaBehaviour>(go), false);
@@ -86,37 +100,39 @@ public class InfiniteList : LuaBehaviour {
                 go.SetActive(false);
             }
         }
-        else if (row > 1 && index < totalCount/row)
+        else if (row > 1 && index < groupData.Count)
         {
             go.SetActive(true);
-            for (int i = 0; i < go.transform.childCount; i++)
-            {
-                GameObject child = go.transform.GetChild(i).gameObject;
-                child.SetActive(true);
-                UITools.Get<LuaBehaviour>(child).ReceiveData(listData[index * row + i]);
-            }
-        }
-        else if (row > 1 && totalCount % row != 0 && index == totalCount / row)
-        {
-            go.SetActive(true);
-            for (int i = 0; i < go.transform.childCount; i++)
-            {
-                GameObject child = go.transform.GetChild(i).gameObject;
-                child.SetActive(false);
-            }
-            for (int j = 0; j < totalCount%row; j++)
+            ArrayList _list = groupData[index] as ArrayList;
+            if (_list.Count >= go.transform.childCount)
             {
                 for (int i = 0; i < go.transform.childCount; i++)
                 {
                     GameObject child = go.transform.GetChild(i).gameObject;
-                    if (child.name.Contains("" + j))
+                    child.SetActive(true);
+                    UITools.Get<LuaBehaviour>(child).ReceiveData(_list[i]);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < go.transform.childCount; i++)
+                {
+                    GameObject child = go.transform.GetChild(i).gameObject;
+                    child.SetActive(false);
+                }
+                for (int j = 0; j < _list.Count; j++)
+                {
+                    for (int i = 0; i < go.transform.childCount; i++)
                     {
-                        child.SetActive(true);
-                        UITools.Get<LuaBehaviour>(child).ReceiveData(listData[index * row + j]);
+                        GameObject child = go.transform.GetChild(i).gameObject;
+                        if (child.name.Contains("" + j))
+                        {
+                            child.SetActive(true);
+                            UITools.Get<LuaBehaviour>(child).ReceiveData(_list[j]);
+                        }
                     }
                 }
             }
-
         }
         else
         {

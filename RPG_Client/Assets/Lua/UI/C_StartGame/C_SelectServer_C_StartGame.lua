@@ -39,6 +39,7 @@ end
 function this.EnterGame()
 	UITools.ClosePanel(inst);
 	UITools.D('EnterGame'):S('curServer' , inst:G('curSelect'))
+	inst.PlayerMgr.Server =  inst:G('curSelect')
 	UITools.ShowPanel(UITools.D('EnterGame'))
 end
 function this.Cancel( )

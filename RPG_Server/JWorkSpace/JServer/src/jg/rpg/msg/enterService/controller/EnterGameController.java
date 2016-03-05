@@ -1,14 +1,19 @@
 package jg.rpg.msg.enterService.controller;
 
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.security.NoSuchAlgorithmException;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.log4j.Logger;
+
+import jg.rpg.common.manager.DefEntityMgr;
 import jg.rpg.dao.db.DBHelper;
 import jg.rpg.dao.db.DBMgr;
 import jg.rpg.dao.db.RSHHelper;
+import jg.rpg.entity.MsgPacker;
 import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.entity.msgEntity.Role;
 import jg.rpg.entity.msgEntity.ServerEntity;
@@ -19,6 +24,7 @@ import jg.rpg.utils.CommUtils;
 public class EnterGameController {
 
 	private DBMgr dbMgr;
+	private Logger logger = Logger.getLogger(getClass());
 	public EnterGameController(){
 		dbMgr = DBMgr.getInstance();
 	}
@@ -37,19 +43,9 @@ public class EnterGameController {
 		return player;
 	}
 	public Player registerPlayer(Player player) throws SQLException, PlayerHandlerException  {
-		
-		/*String sql = "select * from tb_user where name = ?";
-		Player _player = DBHelper.GetFirst(dbMgr.getDataSource(), sql, 
-				RSHHelper.getPlayerRSH() ,player.getUsername());
-		if(_player!= null){
-			throw new PlayerHandlerException("player Exist : "+player);
-		}
-		sql = "insert into tb_user values(null,? ,?,?)";
-		String pwd = CommUtils.md5Encrypt(player.getPwd());
-		_player = DBHelper.insert(dbMgr.getDataSource(), sql, 
-				RSHHelper.getPlayerRSH() ,player.getUsername() ,pwd,player.getPhoneNum());*/
 		return player.insertToDB();
 	}
+	
 	public List<Role> getRolesByPlayerID(int playerID) throws SQLException {
 		String sql = "select * from tb_role where ownerId = ?";
 		List<Role> roles = DBHelper.GetAll(dbMgr.getDataSource(), sql,
@@ -97,11 +93,43 @@ public class EnterGameController {
 				RSHHelper.getRoleRSH() ,role.getOwnerId() ,role.getRole_id(),role.getName(),role.getLevel(),role.getGender());
 		return _role;
 	}
-	public List<Task> getTaskListByRoleID(int roleId) throws SQLException {
-		String sql = "select * from tb_task where roleId = ?";
+	public List<Task> getTaskListByRoleID(int ownerId) throws SQLException {
+		String sql = "select * from tb_task where ownerId = ?";
 		List<Task> tasks = DBHelper.GetAll(DBMgr.getInstance().getDataSource(), sql,
-				RSHHelper.getTaskRSH(), roleId);
+				RSHHelper.getTaskRSH(), ownerId);
 		return tasks;
+	}
+	
+	
+	
+	public void packPlayer(MsgPacker packer, Player player) throws IOException {
+			
+			packer.addInt(player.getId())
+				.addString(player.getUsername())
+				.addString(player.getPhoneNum())
+				.addInt(player.getLevel())
+				.addInt(player.getFc())
+				.addInt(player.getExp())
+				.addInt(player.getDiamondCount())
+				.addInt(player.getGoldCount())
+				.addInt(player.getVit())
+				.addInt(player.getToughen())
+				.addInt(player.getHp())
+				.addInt(player.getDamage())
+				.addInt(player.getVit());
+	}
+	
+	public void initPlayer(List<Role> allDefRoles,int playerID) throws SQLException {
+		for(Role role : allDefRoles){
+			role.setOwnerId(playerID);
+			role.insertToDB();
+		}
+		List<Task> tasks = DefEntityMgr.getInstance().getTaskList();
+		for(Task task : tasks){
+			task.setOwnerId(playerID);
+			task.setId(-1);
+			task.insertToDB();
+		}
 	}
 
 }

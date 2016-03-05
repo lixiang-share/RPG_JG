@@ -46,7 +46,7 @@ public static class ConvertUitls {
             TaskEntity task = new TaskEntity();
             task.Id = unpacker.PopInt();
             task.TaskId = unpacker.PopInt();
-            task.RoleId = unpacker.PopInt();
+            task.OwnerId = unpacker.PopInt();
             task.Type = unpacker.PopString();
             task.Status = unpacker.PopInt();
             task.GoldCount = unpacker.PopInt();
@@ -56,5 +56,24 @@ public static class ConvertUitls {
             list.Add(TaskMgr.Instance.ComposeTask(task));
         }
         return list;
+    }
+
+    internal static Player MsgToPlayer(MsgUnPacker unpacker)
+    {
+        Player player = new Player();
+        player.Id = unpacker.PopInt();
+        player.Username = unpacker.PopString();
+        player.PhoneNum = unpacker.PopString();
+        player.Level = unpacker.PopInt();
+        player.Fc = unpacker.PopInt();
+        player.Exp = unpacker.PopInt();
+        player.DiamondCount = unpacker.PopInt();
+        player.GoldCount = unpacker.PopInt();
+        player.Vit = unpacker.PopInt();
+        player.Toughen = unpacker.PopInt();
+        player.Hp = unpacker.PopInt();
+        player.DiamondCount = unpacker.PopInt();
+        player.Vip = unpacker.PopInt();
+        return player;
     }
 }

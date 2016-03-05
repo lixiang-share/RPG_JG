@@ -144,6 +144,8 @@ public static class WrapFile {
         _GT(typeof(ServerItem)),
         _GT(typeof(RoleItem)),
         _GT(typeof(GameMgr)),
+        _GT(typeof(Player)),
+        _GT(typeof(PlayerManager)),
     };
 
     public static BindType _GT(Type t) {

@@ -56,6 +56,7 @@ function this.OnReceiveData( data )
 		this.SelectRole(list:get_Item(0))
 	elseif data.MsgType == MsgProtocol.EnterGame then
 		UITools.ShowMsg('EnterGame')
+		inst.PlayerMgr.Role = inst:G('curSelect')
 		inst.GameMgr:LoadScene('NewPlayerCity')
 	end
 end
@@ -64,7 +65,8 @@ function this.EnterGame()
 	UITools.Log('EnterGame')
 	local role = inst:G('curSelect')
 	local server = inst:G('curServer')
-	inst:CreateMsg():SetMsgType(MsgProtocol.EnterGame):AddInt(server.Id):AddString(role.Role_id):AddString(role.Name):AddInt(role.Level):AddInt(role.Gender):Send()
+	--inst:CreateMsg():SetMsgType(MsgProtocol.EnterGame):AddInt(server.Id):AddString(role.Role_id):AddString(role.Name):AddInt(role.Level):AddInt(role.Gender):Send()
+	inst:CreateMsg():SetMsgType(MsgProtocol.EnterGame):AddInt(server.Id):AddString(role.Role_id):AddString(role.Name):Send()
 end
 
 

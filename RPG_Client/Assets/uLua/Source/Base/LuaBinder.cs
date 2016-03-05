@@ -58,6 +58,8 @@ public static class LuaBinder
 			case "ParticleRendererWrap": ParticleRendererWrap.Register(L); break;
 			case "ParticleSystemWrap": ParticleSystemWrap.Register(L); break;
 			case "PhysicsWrap": PhysicsWrap.Register(L); break;
+			case "PlayerManagerWrap": PlayerManagerWrap.Register(L); break;
+			case "PlayerWrap": PlayerWrap.Register(L); break;
 			case "PlayModeWrap": PlayModeWrap.Register(L); break;
 			case "QualitySettingsWrap": QualitySettingsWrap.Register(L); break;
 			case "QueueModeWrap": QueueModeWrap.Register(L); break;

@@ -86,6 +86,8 @@ public class RSHHelper {
 					player.setHp(rs.getInt("hp"));
 				if(columnCount >= 13)
 					player.setDamage(rs.getInt("damage"));
+				if(columnCount >= 14)
+					player.setVit(rs.getInt("vip"));
 				return player;
 			}
 		};
@@ -131,7 +133,7 @@ public class RSHHelper {
 				if(columnCount >=1 )
 					task.setId(rs.getInt(1));
 				if(columnCount >=2 )
-					task.setRoleId(rs.getInt("roleId"));
+					task.setOwnerId(rs.getInt("ownerId"));
 				if(columnCount >=3 )
 					task.setType(rs.getString("type"));
 				if(columnCount >=4 )

@@ -18,7 +18,7 @@ public class TestFastJson {
 	public void testSerialize() {
 		Task task = new Task();
 		task.setId(0);
-		task.setRoleId(1234);
+		task.setOwnerId(1234);
 		task.setStatus(3);
 		task.setType("Main");
 		task.setDiamondCount(1000);
