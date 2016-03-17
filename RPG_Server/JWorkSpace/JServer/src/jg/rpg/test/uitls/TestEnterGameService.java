@@ -1,6 +1,6 @@
 package jg.rpg.test.uitls;
 
-import jg.rpg.common.manager.PlayerMgr;
+import jg.rpg.common.manager.SessionMgr;
 import jg.rpg.config.ConfigMgr;
 import jg.rpg.dao.db.DBMgr;
 import jg.rpg.entity.MsgPacker;
@@ -19,7 +19,7 @@ public class TestEnterGameService {
 	public void testEnterGame() throws Exception {
 		ConfigMgr.getInstance().init();
 		DBMgr.getInstance().init();
-		PlayerMgr.getInstance().init();
+		SessionMgr.getInstance().init();
 		MsgMgr.getInstance().init();
 		EnterGameService c = new EnterGameService();
 		Session session = new Session();

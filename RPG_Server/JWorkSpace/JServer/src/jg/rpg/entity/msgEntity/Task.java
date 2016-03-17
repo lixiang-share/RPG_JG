@@ -81,9 +81,9 @@ public class Task extends EntityBase<Task>{
 	}
 	@Override
 	public boolean isExistInDB() throws SQLException {
-		String sql = "select * from tb_task where id = ?";
+		String sql = "select * from tb_task where taskId = ? and ownerId = ?";
 		Task task = DBHelper.GetFirst(DBMgr.getInstance().getDataSource(), sql,
-				RSHHelper.getTaskRSH(), getId());
+				RSHHelper.getTaskRSH(), getTaskId() , getOwnerId());
 		return task != null;
 	}
 

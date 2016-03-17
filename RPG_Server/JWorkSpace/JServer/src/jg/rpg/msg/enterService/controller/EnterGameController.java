@@ -9,16 +9,18 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import jg.rpg.common.exceptions.EntityHandlerException;
+import jg.rpg.common.exceptions.PlayerHandlerException;
 import jg.rpg.common.manager.DefEntityMgr;
 import jg.rpg.dao.db.DBHelper;
 import jg.rpg.dao.db.DBMgr;
 import jg.rpg.dao.db.RSHHelper;
 import jg.rpg.entity.MsgPacker;
+import jg.rpg.entity.msgEntity.EquipItem;
 import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.entity.msgEntity.Role;
 import jg.rpg.entity.msgEntity.ServerEntity;
 import jg.rpg.entity.msgEntity.Task;
-import jg.rpg.exceptions.PlayerHandlerException;
 import jg.rpg.utils.CommUtils;
 
 public class EnterGameController {
@@ -42,7 +44,7 @@ public class EnterGameController {
 				RSHHelper.getPlayerRSH() ,username ,pwd);
 		return player;
 	}
-	public Player registerPlayer(Player player) throws SQLException, PlayerHandlerException  {
+	public Player registerPlayer(Player player) throws SQLException, EntityHandlerException  {
 		return player.insertToDB();
 	}
 	
@@ -119,16 +121,24 @@ public class EnterGameController {
 				.addInt(player.getVit());
 	}
 	
-	public void initPlayer(List<Role> allDefRoles,int playerID) throws SQLException {
+	public void initPlayer(int playerID) throws SQLException, EntityHandlerException {
+		List<Role> allDefRoles = DefEntityMgr.getInstance().getAllDefRoles();
 		for(Role role : allDefRoles){
 			role.setOwnerId(playerID);
 			role.insertToDB();
 		}
+		
 		List<Task> tasks = DefEntityMgr.getInstance().getTaskList();
 		for(Task task : tasks){
 			task.setOwnerId(playerID);
 			task.setId(-1);
 			task.insertToDB();
+		}
+		
+		List<EquipItem> equips = DefEntityMgr.getInstance().getAllEquips();
+		for(EquipItem item : equips){
+			item.setOwnerId(playerID);
+			item.insertToDB();
 		}
 	}
 

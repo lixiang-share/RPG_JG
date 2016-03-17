@@ -17,6 +17,7 @@ public class MsgUnPackerWrap
 			new LuaMethod("PopFloat", PopFloat),
 			new LuaMethod("PopDouble", PopDouble),
 			new LuaMethod("PopString", PopString),
+			new LuaMethod("PopBool", PopBool),
 			new LuaMethod("PopIntList", PopIntList),
 			new LuaMethod("PopDoubleList", PopDoubleList),
 			new LuaMethod("PopFloatList", PopFloatList),
@@ -260,6 +261,16 @@ public class MsgUnPackerWrap
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		MsgUnPacker obj = (MsgUnPacker)LuaScriptMgr.GetNetObjectSelf(L, 1, "MsgUnPacker");
 		string o = obj.PopString();
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int PopBool(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		MsgUnPacker obj = (MsgUnPacker)LuaScriptMgr.GetNetObjectSelf(L, 1, "MsgUnPacker");
+		bool o = obj.PopBool();
 		LuaScriptMgr.Push(L, o);
 		return 1;
 	}

@@ -12,7 +12,7 @@ function this.Battle( )
 end
 
 function this.Backpack( )
-	-- body
+	UITools.D('backpack'):CallLuaMethod('Show')
 end
 
 function this.Task()

@@ -185,6 +185,13 @@ public class MsgUnPacker{
         return str;
     }
 
+    public bool PopBool()
+    {
+        bool b = false;
+        unpacker.ReadBoolean(out b);
+        return b;
+    }
+
     public List<int> PopIntList()
     {
         long len;

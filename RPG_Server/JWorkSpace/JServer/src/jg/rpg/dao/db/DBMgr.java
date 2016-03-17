@@ -5,9 +5,9 @@ import java.util.List;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
 
+import jg.rpg.common.exceptions.InitException;
 import jg.rpg.config.ConfigMgr;
 import jg.rpg.entity.DBEntityInfo;
-import jg.rpg.exceptions.InitException;
 
 public class DBMgr {
 

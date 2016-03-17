@@ -4,10 +4,11 @@ import java.sql.SQLException;
 import java.util.List;
 
 import jg.rpg.common.abstractClass.EntityBase;
+import jg.rpg.common.exceptions.EntityHandlerException;
+import jg.rpg.common.exceptions.PlayerHandlerException;
 import jg.rpg.dao.db.DBHelper;
 import jg.rpg.dao.db.DBMgr;
 import jg.rpg.dao.db.RSHHelper;
-import jg.rpg.exceptions.PlayerHandlerException;
 import jg.rpg.utils.CommUtils;
 
 public class Player extends EntityBase<Player> {
@@ -136,7 +137,7 @@ public class Player extends EntityBase<Player> {
 	//=====================数据库信息同步=========================
 	
 	@Override
-	public boolean isExistInDB() throws SQLException, PlayerHandlerException {
+	public boolean isExistInDB() throws SQLException, EntityHandlerException {
 		String sql = "select * from tb_user where name = ?";
 		Player _player = DBHelper.GetFirst(DBMgr.getInstance().getDataSource(), sql, 
 				RSHHelper.getPlayerRSH() ,getUsername());
@@ -144,9 +145,9 @@ public class Player extends EntityBase<Player> {
 	}
 	
 	@Override
-	public Player insertToDB() throws SQLException, PlayerHandlerException {
+	public Player insertToDB() throws SQLException, EntityHandlerException {
 		if(isExistInDB()){
-			throw new PlayerHandlerException("player Exist : "+this);
+			throw new EntityHandlerException("player Exist : "+this);
 		}
 		String sql = "insert into tb_user values(null,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 		String pwd = CommUtils.md5Encrypt(getPwd());

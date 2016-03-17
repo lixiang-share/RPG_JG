@@ -76,4 +76,33 @@ public static class ConvertUitls {
         player.Vip = unpacker.PopInt();
         return player;
     }
+
+    public static IList MsgToEquipItem(MsgUnPacker unpacker)
+    {
+        IList list = new ArrayList();
+        int len = unpacker.PopInt();
+        for (int i = 0; i < len; i++)
+        {
+            EquipItem item = new EquipItem();
+            item.Id = unpacker.PopInt();
+            item.OwnerId = unpacker.PopInt();
+            item.EquipId = unpacker.PopInt();
+            item.Level = unpacker.PopInt();
+            item.Amount = unpacker.PopInt();
+            item.IsDress = unpacker.PopBool();
+            item.IsMan = unpacker.PopBool();
+            item.Type = unpacker.PopString();
+            item.EquipType = unpacker.PopString();
+            item.Price = unpacker.PopInt();
+            item.Star = unpacker.PopInt();
+            item.Quality = unpacker.PopInt();
+            item.EffectType = unpacker.PopString();
+            item.EffectValue = unpacker.PopInt();
+            item.Hp = unpacker.PopInt();
+            item.Damage = unpacker.PopInt();
+            item.Fc = unpacker.PopInt();
+            list.Add(EquipMgr.Instance.ComposeTask(item));
+        }
+        return list;
+    }
 }

@@ -2,7 +2,8 @@ package jg.rpg.common.abstractClass;
 
 import java.sql.SQLException;
 
-import jg.rpg.exceptions.PlayerHandlerException;
+import jg.rpg.common.exceptions.EntityHandlerException;
+import jg.rpg.common.exceptions.PlayerHandlerException;
 
 public abstract class EntityBase <T>{
 
@@ -10,11 +11,11 @@ public abstract class EntityBase <T>{
 		return false;
 	}
 	
-	public  boolean isExistInDB() throws SQLException, PlayerHandlerException{
+	public  boolean isExistInDB() throws SQLException, EntityHandlerException{
 		return false;
 	}
 	
-	public T insertToDB() throws SQLException, PlayerHandlerException {
+	public T insertToDB() throws SQLException, EntityHandlerException {
 		return null;
 	}
 	
@@ -26,7 +27,7 @@ public abstract class EntityBase <T>{
 		return 0;
 	}
 	
-	public void SaveInfoToDB() throws SQLException, PlayerHandlerException{
+	public void SaveInfoToDB() throws SQLException, EntityHandlerException{
 		if(isExistInDB()){
 			if(isNeedDelete()){
 				deleteFromDB();

@@ -3,28 +3,28 @@ package jg.rpg.msg.cityService;
 import java.io.IOException;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import jg.rpg.common.anotation.HandlerMsg;
-import jg.rpg.common.manager.PlayerMgr;
+import jg.rpg.common.exceptions.PlayerHandlerException;
+import jg.rpg.common.manager.SessionMgr;
 import jg.rpg.common.protocol.MsgProtocol;
 import jg.rpg.entity.MsgPacker;
 import jg.rpg.entity.MsgUnPacker;
 import jg.rpg.entity.Session;
+import jg.rpg.entity.msgEntity.EquipItem;
 import jg.rpg.entity.msgEntity.Player;
-import jg.rpg.entity.msgEntity.Role;
 import jg.rpg.entity.msgEntity.Task;
-import jg.rpg.exceptions.PlayerHandlerException;
 import jg.rpg.msg.cityService.controller.CityController;
 import jg.rpg.utils.MsgUtils;
 
+import org.apache.log4j.Logger;
+
 public class MainCityService {
 	private static Logger logger = Logger.getLogger(MainCityService.class);
-	private PlayerMgr playerMgr;
+	private SessionMgr playerMgr;
 	private CityController controller;
 	
 	public MainCityService() {
-		playerMgr = PlayerMgr.getInstance();
+		playerMgr = SessionMgr.getInstance();
 		controller = new CityController();
 	}
 	
@@ -76,6 +76,20 @@ public class MainCityService {
 		} catch (Exception e) {
 			logger.warn(e.getMessage());
 			MsgUtils.SendErroInfo(session.getCtx(), "更新玩家信息失败");
+		}
+	}
+	
+	@HandlerMsg(msgType = MsgProtocol.Get_EquipList)
+	public void getEquipList(Session session , MsgUnPacker unpacker){
+		Player player = session.getPlayer();
+		try {
+			List<EquipItem> equips = controller.getEquipsByOwnweID(player.getId());
+			MsgPacker packer = MsgUtils.getSuccessPacker();
+			controller.packEquipsToMsg(equips , packer);
+			MsgUtils.sendMsg(session.getCtx(), packer);
+		} catch (Exception e) {
+			logger.warn(e.getMessage());
+			MsgUtils.SendErroInfo(session.getCtx(), "获取装备信息失败");
 		}
 	}
 

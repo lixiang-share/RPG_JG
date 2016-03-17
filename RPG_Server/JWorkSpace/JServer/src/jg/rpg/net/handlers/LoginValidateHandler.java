@@ -2,12 +2,12 @@ package jg.rpg.net.handlers;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import jg.rpg.common.manager.PlayerMgr;
+import jg.rpg.common.exceptions.PlayerHandlerException;
+import jg.rpg.common.manager.SessionMgr;
 import jg.rpg.common.protocol.MsgProtocol;
 import jg.rpg.entity.MsgPacker;
 import jg.rpg.entity.MsgUnPacker;
 import jg.rpg.entity.Session;
-import jg.rpg.exceptions.PlayerHandlerException;
 import jg.rpg.msg.MsgMgr;
 import jg.rpg.utils.MsgUtils;
 
@@ -15,12 +15,12 @@ import org.apache.log4j.Logger;
 
 public class LoginValidateHandler extends SimpleChannelInboundHandler<MsgUnPacker> {
 	private Logger logger = Logger.getLogger(getClass());
-	private PlayerMgr playerMgr;
+	private SessionMgr playerMgr;
 	private MsgMgr msgMgr;
 	
 	public LoginValidateHandler(){
 		super();
-		playerMgr = PlayerMgr.getInstance();
+		playerMgr = SessionMgr.getInstance();
 		msgMgr = MsgMgr.getInstance();
 	}
 	@Override

@@ -5,8 +5,8 @@ import static org.junit.Assert.*;
 import org.dom4j.DocumentException;
 import org.junit.Test;
 
+import jg.rpg.common.exceptions.InitException;
 import jg.rpg.common.manager.DefEntityMgr;
-import jg.rpg.exceptions.InitException;
 
 public class TestTaskMgr {
 

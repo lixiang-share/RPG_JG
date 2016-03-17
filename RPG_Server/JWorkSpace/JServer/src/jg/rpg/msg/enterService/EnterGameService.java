@@ -5,7 +5,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 import jg.rpg.common.anotation.HandlerMsg;
-import jg.rpg.common.manager.PlayerMgr;
+import jg.rpg.common.exceptions.PlayerHandlerException;
+import jg.rpg.common.manager.SessionMgr;
 import jg.rpg.common.manager.DefEntityMgr;
 import jg.rpg.common.protocol.MsgProtocol;
 import jg.rpg.entity.MsgPacker;
@@ -15,7 +16,6 @@ import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.entity.msgEntity.Role;
 import jg.rpg.entity.msgEntity.ServerEntity;
 import jg.rpg.entity.msgEntity.Task;
-import jg.rpg.exceptions.PlayerHandlerException;
 import jg.rpg.msg.enterService.controller.EnterGameController;
 import jg.rpg.utils.CommUtils;
 import jg.rpg.utils.MsgUtils;
@@ -44,7 +44,7 @@ public class EnterGameService {
 				_session.setSessionKey(sessionKey);
 				_session.setCtx(session.getCtx());
 				_session.setPlayer(player);
-				PlayerMgr.getInstance().addPlayer(sessionKey, _session);
+				SessionMgr.getInstance().addPlayer(sessionKey, _session);
 				
 				packer.addInt(MsgProtocol.Success);
 				packer.addString(sessionKey);
@@ -100,7 +100,7 @@ public class EnterGameService {
 			if(unpacker.hasNext())
 				player.setPhoneNum(unpacker.popString());
 			if(egContoller.registerPlayer(player) != null){
-				egContoller.initPlayer(DefEntityMgr.getInstance().getAllDefRoles() , player.getId());
+				egContoller.initPlayer(player.getId());
 				MsgPacker packer = new MsgPacker();
 				packer.addInt(MsgProtocol.Success);
 				MsgUtils.sendMsg(session.getCtx(), packer);

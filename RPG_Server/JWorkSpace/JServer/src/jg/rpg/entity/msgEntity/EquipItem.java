@@ -1,6 +1,16 @@
 package jg.rpg.entity.msgEntity;
 
-public class EquipItem {
+import java.sql.SQLException;
+
+import jg.rpg.common.abstractClass.EntityBase;
+import jg.rpg.common.exceptions.EntityHandlerException;
+import jg.rpg.common.exceptions.PlayerHandlerException;
+import jg.rpg.common.manager.DefEntityMgr;
+import jg.rpg.dao.db.DBHelper;
+import jg.rpg.dao.db.DBMgr;
+import jg.rpg.dao.db.RSHHelper;
+
+public class EquipItem extends EntityBase{
 	//静态常量
 	public static final String Equip = "Equip" ;
 	public static final String Drug = "Drug" ;
@@ -29,7 +39,37 @@ public class EquipItem {
 	private int level;
 	private int amount;
 	private boolean isDress;
+	private boolean isMan;
+	private int defHp;
+	private int defFc;
+	private int defDamage;
 	
+	
+	
+	public int getDefHp() {
+		return defHp;
+	}
+	public void setDefHp(int defHp) {
+		this.defHp = defHp;
+	}
+	public int getDefFc() {
+		return defFc;
+	}
+	public void setDefFc(int defFc) {
+		this.defFc = defFc;
+	}
+	public int getDefDamage() {
+		return defDamage;
+	}
+	public void setDefDamage(int defDamage) {
+		this.defDamage = defDamage;
+	}
+	public boolean isMan() {
+		return isMan;
+	}
+	public void setMan(boolean isMan) {
+		this.isMan = isMan;
+	}
 	public int getId() {
 		return id;
 	}
@@ -79,18 +119,31 @@ public class EquipItem {
 		this.quality = quality;
 	}
 	public int getDamage() {
+		if(damage == 0){
+			EquipItem defEquip = DefEntityMgr.getInstance().getDefEquip(getEquipId());
+			damage = calculate(defEquip.getDefDamage());
+		}
 		return damage;
 	}
 	public void setDamage(int damage) {
 		this.damage = damage;
 	}
 	public int getHp() {
+		if(hp == 0){
+			EquipItem defEquip = DefEntityMgr.getInstance().getDefEquip(getEquipId());
+			hp = calculate(defEquip.getDefHp());
+		}
 		return hp;
 	}
 	public void setHp(int hp) {
+
 		this.hp = hp;
 	}
 	public int getFc() {
+		if(fc == 0){
+			EquipItem defEquip = DefEntityMgr.getInstance().getDefEquip(getEquipId());
+			fc = calculate(defEquip.getDefFc());
+		}
 		return fc;
 	}
 	public void setFc(int fc) {
@@ -127,5 +180,33 @@ public class EquipItem {
 		this.isDress = isDress;
 	}
 
+	
+	public int calculate(int defalutValue){
+		return getLevel()*defalutValue;
+	}
+	//=======================  DB 相关操作  =====================
+	
+	@Override
+	public boolean isExistInDB() throws SQLException, EntityHandlerException {
+		String sql = "select * from tb_equips where ownerId = ? and equipId = ?";
+		EquipItem item = DBHelper.GetFirst(DBMgr.getInstance().getDataSource(), sql, RSHHelper.getEquipItemRSH(),
+				getOwnerId() , getEquipId());
+		return item != null;
+	}
+	@Override
+	public Object insertToDB() throws SQLException, EntityHandlerException {
+		if(isExistInDB()){
+			throw new EntityHandlerException("EquipItem has exist "+ getOwnerId() +" : "+getEquipId());
+		}
+		String sql = "insert into tb_equips values(null , ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+		EquipItem item = DBHelper.insert(DBMgr.getInstance().getDataSource(), sql, RSHHelper.getEquipItemRSH(), 
+				getOwnerId(),getEquipId() , getLevel(),getAmount(),
+				isDress() , isMan(),getType(),
+				getEquipType(),getPrice(),getStar(),getQuality(),
+				getEffectType(),getEffectValue(),
+				getHp(),getDamage(),getFc());
+		setId(item.getId());
+		return this;
+	}
 	
 }

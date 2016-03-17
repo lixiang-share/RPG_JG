@@ -117,16 +117,16 @@ public static partial class UITools
         st.SetText(mes);
     }
 
-    public static void Set(GameObject go, string name)
+    public static void Set(GameObject go, object value)
     {
         if (go == null) return;
         if (go.GetComponent<UILabel>() != null)
         {
-            go.GetComponent<UILabel>().text = name;
+            go.GetComponent<UILabel>().text = value.ToString();
         }
         else if (go.GetComponent<UISprite>() != null)
         {
-            go.GetComponent<UISprite>().spriteName = name;
+            go.GetComponent<UISprite>().spriteName = value.ToString();
         }
         else if (go.GetComponent<UITexture>() != null)
         {
@@ -349,6 +349,11 @@ public static partial class UITools
     public static Player MsgToPlayer(MsgUnPacker unpacker)
     {
         return ConvertUitls.MsgToPlayer(unpacker);
+    }
+
+    public static IList MsgToEquipItem(MsgUnPacker unpakcer)
+    {
+        return ConvertUitls.MsgToEquipItem(unpakcer);
     }
     #endregion
 

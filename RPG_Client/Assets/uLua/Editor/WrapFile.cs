@@ -146,6 +146,7 @@ public static class WrapFile {
         _GT(typeof(GameMgr)),
         _GT(typeof(Player)),
         _GT(typeof(PlayerManager)),
+        _GT(typeof(EquipItem)),
     };
 
     public static BindType _GT(Type t) {

@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import org.apache.commons.dbutils.ResultSetHandler;
 
 import jg.rpg.entity.msgEntity.Cat;
+import jg.rpg.entity.msgEntity.EquipItem;
 import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.entity.msgEntity.Role;
 import jg.rpg.entity.msgEntity.ServerEntity;
@@ -149,6 +150,44 @@ public class RSHHelper {
 				if(columnCount >= 9)
 					task.setTotalStage(rs.getInt("totalStage"));
 				return task;
+			}
+		};
+		return rsh;
+	}
+	
+	
+	
+	public static ResultSetHandler<EquipItem> getEquipItemRSH(){
+		ResultSetHandler<EquipItem> rsh = new ResultSetHandler<EquipItem>(){
+			@Override
+			public EquipItem handle(ResultSet rs) throws SQLException {
+				if(!rs.next()){
+					return null;
+				}
+				int columnCount = rs.getMetaData().getColumnCount();
+				EquipItem item = new EquipItem();
+				if(columnCount == 1){
+					item.setId(rs.getInt(1));
+					return item;
+				}
+				item.setId(rs.getInt(1));
+				item.setOwnerId(rs.getInt("ownerId"));
+				item.setEquipId(rs.getInt("equipId"));
+				item.setLevel(rs.getInt("level"));
+				item.setAmount(rs.getInt("amount"));
+				item.setDress(rs.getBoolean("isDress"));
+				item.setMan(rs.getBoolean("isMan"));
+				item.setType(rs.getString("type"));
+				item.setEquipType("equipType");
+				item.setPrice(rs.getInt("price"));
+				item.setStar(rs.getInt("star"));
+				item.setQuality(rs.getInt("quality"));
+				item.setEffectType(rs.getString("effectType"));
+				item.setEffectValue(rs.getInt("effectValue"));
+				item.setHp(rs.getInt("hp"));
+				item.setFc(rs.getInt("fc"));
+				item.setDamage(rs.getInt("damage"));
+				return item;
 			}
 		};
 		return rsh;

@@ -17,4 +17,5 @@ public class MsgProtocol {
 	public const int EnterGame = 6;
 	public const int Get_TaskList = 7;
     public const int Update_PlayerInfo = 8;
+    public const int Get_EquipList = 9;
 }

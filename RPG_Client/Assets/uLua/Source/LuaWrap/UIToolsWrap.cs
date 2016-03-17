@@ -39,6 +39,7 @@ public class UIToolsWrap
 			new LuaMethod("MsgToRoleList", MsgToRoleList),
 			new LuaMethod("MsgToTaskList", MsgToTaskList),
 			new LuaMethod("MsgToPlayer", MsgToPlayer),
+			new LuaMethod("MsgToEquipItem", MsgToEquipItem),
 			new LuaMethod("New", _CreateUITools),
 			new LuaMethod("GetClassType", GetClassType),
 		};
@@ -150,10 +151,27 @@ public class UIToolsWrap
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int SA(IntPtr L)
 	{
-		LuaScriptMgr.CheckArgsCount(L, 2);
-		LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
-		bool arg1 = LuaScriptMgr.GetBoolean(L, 2);
-		UITools.SA(arg0,arg1);
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 2 && LuaScriptMgr.CheckTypes(L, 1, typeof(GameObject), typeof(bool)))
+		{
+			GameObject arg0 = (GameObject)LuaScriptMgr.GetLuaObject(L, 1);
+			bool arg1 = LuaDLL.lua_toboolean(L, 2);
+			UITools.SA(arg0,arg1);
+			return 0;
+		}
+		else if (count == 2 && LuaScriptMgr.CheckTypes(L, 1, typeof(LuaBehaviour), typeof(bool)))
+		{
+			LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetLuaObject(L, 1);
+			bool arg1 = LuaDLL.lua_toboolean(L, 2);
+			UITools.SA(arg0,arg1);
+			return 0;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: UITools.SA");
+		}
+
 		return 0;
 	}
 
@@ -216,10 +234,10 @@ public class UIToolsWrap
 			UITools.Set(arg0,arg1);
 			return 0;
 		}
-		else if (count == 2 && LuaScriptMgr.CheckTypes(L, 1, typeof(GameObject), typeof(string)))
+		else if (count == 2 && LuaScriptMgr.CheckTypes(L, 1, typeof(GameObject), typeof(object)))
 		{
 			GameObject arg0 = (GameObject)LuaScriptMgr.GetLuaObject(L, 1);
-			string arg1 = LuaScriptMgr.GetString(L, 2);
+			object arg1 = LuaScriptMgr.GetVarObject(L, 2);
 			UITools.Set(arg0,arg1);
 			return 0;
 		}
@@ -516,6 +534,16 @@ public class UIToolsWrap
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		MsgUnPacker arg0 = (MsgUnPacker)LuaScriptMgr.GetNetObject(L, 1, typeof(MsgUnPacker));
 		Player o = UITools.MsgToPlayer(arg0);
+		LuaScriptMgr.PushObject(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int MsgToEquipItem(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		MsgUnPacker arg0 = (MsgUnPacker)LuaScriptMgr.GetNetObject(L, 1, typeof(MsgUnPacker));
+		IList o = UITools.MsgToEquipItem(arg0);
 		LuaScriptMgr.PushObject(L, o);
 		return 1;
 	}

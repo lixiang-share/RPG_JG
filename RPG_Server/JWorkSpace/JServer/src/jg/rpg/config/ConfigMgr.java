@@ -3,10 +3,12 @@ package jg.rpg.config;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
+import jg.rpg.common.exceptions.InitException;
 import jg.rpg.entity.DBEntityInfo;
 import jg.rpg.entity.NetEntityInfo;
-import jg.rpg.exceptions.InitException;
+import jg.rpg.entity.msgEntity.EquipItem;
 
 import org.dom4j.Document;
 import org.dom4j.Element;
@@ -18,7 +20,6 @@ public class ConfigMgr {
 	private DBEntityInfo strogeDbInfo;
 	private NetEntityInfo mainNetInfo;
 	private List<String> handlerNames;
-
 	private static boolean isInit;
 	private static ConfigMgr inst;
 	private ConfigMgr(){
