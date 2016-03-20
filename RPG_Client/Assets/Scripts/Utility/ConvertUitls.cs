@@ -72,7 +72,7 @@ public static class ConvertUitls {
         player.Vit = unpacker.PopInt();
         player.Toughen = unpacker.PopInt();
         player.Hp = unpacker.PopInt();
-        player.DiamondCount = unpacker.PopInt();
+        player.Damage = unpacker.PopInt();
         player.Vip = unpacker.PopInt();
         return player;
     }

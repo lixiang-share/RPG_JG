@@ -1,4 +1,4 @@
-package jg.rpg.msg.enterService.controller;
+package jg.rpg.msg.enter.controller;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -106,7 +106,10 @@ public class EnterGameController {
 	
 	public void packPlayer(MsgPacker packer, Player player) throws IOException {
 			
-			packer.addInt(player.getId())
+			
+		
+		player.pack(packer);
+		/*packer.addInt(player.getId())
 				.addString(player.getUsername())
 				.addString(player.getPhoneNum())
 				.addInt(player.getLevel())
@@ -118,7 +121,7 @@ public class EnterGameController {
 				.addInt(player.getToughen())
 				.addInt(player.getHp())
 				.addInt(player.getDamage())
-				.addInt(player.getVit());
+				.addInt(player.getVit());*/
 	}
 	
 	public void initPlayer(int playerID) throws SQLException, EntityHandlerException {
@@ -140,6 +143,24 @@ public class EnterGameController {
 			item.setOwnerId(playerID);
 			item.insertToDB();
 		}
+	}
+	
+	
+	public List<EquipItem> getEquipsByOwnerID(int id) throws SQLException {
+		String sql = "select * from tb_equips where ownerId = ?";
+		List<EquipItem> equips = DBHelper.GetAll(DBMgr.getInstance().getDataSource(), 
+				sql, RSHHelper.getEquipItemRSH(), id);
+		return equips;
+	}
+	
+	public void addPlayerInfo(Player player) throws SQLException {
+		//任务
+		List<Task> tasks = getTaskListByRoleID(player.getId());
+		player.setTasks(tasks);
+		
+		//装备
+		List<EquipItem> equips = getEquipsByOwnerID(player.getId());
+		player.setEquips(equips);
 	}
 
 }

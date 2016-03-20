@@ -9,7 +9,7 @@ import jg.rpg.config.ConfigMgr;
 import jg.rpg.dao.db.DBMgr;
 import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.msg.MsgMgr;
-import jg.rpg.msg.enterService.controller.EnterGameController;
+import jg.rpg.msg.enter.controller.EnterGameController;
 import jg.rpg.utils.CommUtils;
 
 import org.junit.Test;

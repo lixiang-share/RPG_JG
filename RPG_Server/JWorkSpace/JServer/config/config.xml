@@ -16,9 +16,10 @@
 	</gameConfig>
 	
 	<handlers>
-		<handler>jg.rpg.msg.chatService.ChatService</handler>
-		<handler>jg.rpg.msg.enterService.EnterGameService</handler>
-		<handler>jg.rpg.msg.cityService.MainCityService</handler>
+		<handler>jg.rpg.msg.chat.ChatService</handler>
+		<handler>jg.rpg.msg.enter.EnterGameService</handler>
+		<handler>jg.rpg.msg.city.MainCityService</handler>
+		<handler>jg.rpg.msg.equip.EquipService</handler>
 	</handlers>
 	
 </Server>

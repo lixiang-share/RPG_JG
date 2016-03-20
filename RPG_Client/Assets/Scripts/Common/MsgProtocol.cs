@@ -18,4 +18,8 @@ public class MsgProtocol {
 	public const int Get_TaskList = 7;
     public const int Update_PlayerInfo = 8;
     public const int Get_EquipList = 9;
+	public const int Dress_Equip = 10;
+	public const int Sale_Equip = 11;
+    public const int Upgrade_Equip = 12;
+    public const int Undress_Equip = 13;
 }

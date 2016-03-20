@@ -1,4 +1,4 @@
-package jg.rpg.msg.enterService;
+package jg.rpg.msg.enter;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -16,7 +16,7 @@ import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.entity.msgEntity.Role;
 import jg.rpg.entity.msgEntity.ServerEntity;
 import jg.rpg.entity.msgEntity.Task;
-import jg.rpg.msg.enterService.controller.EnterGameController;
+import jg.rpg.msg.enter.controller.EnterGameController;
 import jg.rpg.utils.CommUtils;
 import jg.rpg.utils.MsgUtils;
 
@@ -39,6 +39,8 @@ public class EnterGameService {
 			String pwd = unpacker.popString();
 			Player player = egContoller.getUser(username ,pwd);
 			if(player != null){
+				//登录成功，设置Player相关信息
+				egContoller.addPlayerInfo(player);
 				Session _session = new Session();
 				String sessionKey = CommUtils.generateSessionKey();
 				_session.setSessionKey(sessionKey);
@@ -185,9 +187,7 @@ public class EnterGameService {
 			if(_role != null){
 				_role.setName(role.getName());
 				_role.updateToDB();
-				List<Task> tasks = egContoller.getTaskListByRoleID(player.getId());
 				player.setRole(_role);
-				player.setTasks(tasks);
 			}else{
 				MsgUtils.SendErroInfo(session.getCtx(), "请正确选择角色");
 				return;

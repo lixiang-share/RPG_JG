@@ -22,6 +22,7 @@ public class EquipItem extends EntityBase{
 	public static final String Bracelet = "Bracelet" ;
 	public static final String Ring = "Ring" ;
 	public static final String Wing = "Wing" ;
+	public static final String Energy = "Energy";
 	
 	private int id;
 	private int ownerId;
@@ -184,8 +185,25 @@ public class EquipItem extends EntityBase{
 	public int calculate(int defalutValue){
 		return getLevel()*defalutValue;
 	}
+	
+	@Override
+	public String toString() {
+		return "EquipItem [id=" + id + ", ownerId=" + ownerId + ", equipId="
+				+ equipId + ", type=" + type + ", equipType=" + equipType
+				+ ", price=" + price + ", star=" + star + ", quality="
+				+ quality + ", damage=" + damage + ", hp=" + hp + ", fc=" + fc
+				+ ", effectType=" + effectType + ", effectValue=" + effectValue
+				+ ", level=" + level + ", amount=" + amount + ", isDress="
+				+ isDress + ", isMan=" + isMan + ", defHp=" + defHp
+				+ ", defFc=" + defFc + ", defDamage=" + defDamage + "]";
+	}
 	//=======================  DB Ïà¹Ø²Ù×÷  =====================
 	
+	@Override
+	public int deleteFromDB() throws SQLException {
+		String sql = "delete from tb_equips where id = ?";
+		return DBHelper.update(DBMgr.getInstance().getDataSource(), sql , getId());
+	}
 	@Override
 	public boolean isExistInDB() throws SQLException, EntityHandlerException {
 		String sql = "select * from tb_equips where ownerId = ? and equipId = ?";
@@ -207,6 +225,20 @@ public class EquipItem extends EntityBase{
 				getHp(),getDamage(),getFc());
 		setId(item.getId());
 		return this;
+	}
+	@Override
+	public int updateToDB() throws SQLException {
+		String sql = "update tb_equips set level = ? , amount = ?,isDress = ?,price = ?,star = ? ,quality = ? ,effectValue = ?,hp = ?,damage= ?,fc = ? where id = ?";
+		return DBHelper.update(DBMgr.getInstance().getDataSource(),sql, getLevel() , getAmount(),
+				isDress() , getPrice() , getStar() ,getQuality() , getEffectValue() ,
+				getHp() , getDamage() ,getFc(),getId());
+	}
+	public void upgrade() {
+		setLevel(getLevel() + 1);
+		EquipItem defEquip = DefEntityMgr.getInstance().getDefEquip(getEquipId());
+		damage = calculate(defEquip.getDefDamage());
+		fc = calculate(defEquip.getDefFc());
+		hp = calculate(defEquip.getDefHp());
 	}
 	
 }

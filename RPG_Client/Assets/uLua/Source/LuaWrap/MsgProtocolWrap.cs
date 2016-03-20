@@ -24,6 +24,10 @@ public class MsgProtocolWrap
 			new LuaField("Get_TaskList", get_Get_TaskList, null),
 			new LuaField("Update_PlayerInfo", get_Update_PlayerInfo, null),
 			new LuaField("Get_EquipList", get_Get_EquipList, null),
+			new LuaField("Dress_Equip", get_Dress_Equip, null),
+			new LuaField("Sale_Equip", get_Sale_Equip, null),
+			new LuaField("Upgrade_Equip", get_Upgrade_Equip, null),
+			new LuaField("Undress_Equip", get_Undress_Equip, null),
 		};
 
 		LuaScriptMgr.RegisterLib(L, "MsgProtocol", typeof(MsgProtocol), regs, fields, typeof(object));
@@ -131,6 +135,34 @@ public class MsgProtocolWrap
 	static int get_Get_EquipList(IntPtr L)
 	{
 		LuaScriptMgr.Push(L, MsgProtocol.Get_EquipList);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Dress_Equip(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, MsgProtocol.Dress_Equip);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Sale_Equip(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, MsgProtocol.Sale_Equip);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Upgrade_Equip(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, MsgProtocol.Upgrade_Equip);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Undress_Equip(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, MsgProtocol.Undress_Equip);
 		return 1;
 	}
 }

@@ -39,4 +39,9 @@ public class PlayerManager : MonoBehaviour {
         inst = this;
     }
 
+    public void UpdatePlayerinfo(MsgUnPacker unpacker)
+    {
+        Player player = UITools.MsgToPlayer(unpacker);
+        this.Player = player;
+    }
 }

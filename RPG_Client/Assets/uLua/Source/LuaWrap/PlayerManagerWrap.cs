@@ -9,6 +9,7 @@ public class PlayerManagerWrap
 	{
 		LuaMethod[] regs = new LuaMethod[]
 		{
+			new LuaMethod("UpdatePlayerinfo", UpdatePlayerinfo),
 			new LuaMethod("New", _CreatePlayerManager),
 			new LuaMethod("GetClassType", GetClassType),
 			new LuaMethod("__eq", Lua_Eq),
@@ -189,6 +190,16 @@ public class PlayerManagerWrap
 		}
 
 		obj.Player = (Player)LuaScriptMgr.GetNetObject(L, 3, typeof(Player));
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int UpdatePlayerinfo(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		PlayerManager obj = (PlayerManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "PlayerManager");
+		MsgUnPacker arg0 = (MsgUnPacker)LuaScriptMgr.GetNetObject(L, 2, typeof(MsgUnPacker));
+		obj.UpdatePlayerinfo(arg0);
 		return 0;
 	}
 

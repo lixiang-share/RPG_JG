@@ -33,6 +33,7 @@ public class EquipItem {
     private string name;
     private string desc;
     private string icon;
+    private int price;
 
     public string Icon
     {
@@ -81,7 +82,7 @@ public class EquipItem {
         get { return equipType; }
         set { equipType = value; }
     }
-    private int price;
+    
 
     public int Price
     {

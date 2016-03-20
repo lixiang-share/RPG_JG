@@ -31,7 +31,7 @@ function this.Recovery()
 	inst:DoDelay('StartRecovery' , 1)
 end
 function this.StartRecovery(time)
-	UITools.Log('StartRecovery')
+	--UITools.Log('StartRecovery')
 	local player = inst.PlayerMgr.Player
 	if player.Vit >= player.TotalVit and player.Toughen >= player.TotalToughen  then
 	 	return 

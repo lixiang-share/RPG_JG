@@ -1,4 +1,4 @@
-package jg.rpg.msg.cityService.controller;
+package jg.rpg.msg.city.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -35,37 +35,6 @@ public class CityController {
 		return	DBHelper.update(DBMgr.getInstance().getDataSource(), sql, ps.toArray());
 	}
 
-		// TODO Auto-generated method stub
-	public List<EquipItem> getEquipsByOwnweID(int id) throws SQLException {
-		String sql = "select * from tb_equips where ownerId = ?";
-		List<EquipItem> equips = DBHelper.GetAll(DBMgr.getInstance().getDataSource(), 
-				sql, RSHHelper.getEquipItemRSH(), id);
-		return equips;
-	}
-
-	public void packEquipsToMsg(List<EquipItem> equips , MsgPacker packer) throws IOException {
-		packer.addInt(equips.size());
-		for(EquipItem item : equips){
-			packer.addInt(item.getId())
-				.addInt(item.getOwnerId())
-				.addInt(item.getEquipId())
-				.addInt(item.getLevel())
-				.addInt(item.getAmount())
-				.addBool(item.isDress())
-				.addBool(item.isMan())
-				.addString(item.getType())
-				.addString(item.getEquipType())
-				.addInt(item.getPrice())
-				.addInt(item.getStar())
-				.addInt(item.getQuality())
-				.addString(item.getEffectType())
-				.addInt(item.getEffectValue())
-				.addInt(item.getHp())
-				.addInt(item.getDamage())
-				.addInt(item.getFc());
-		}
-		
-	}
 
 	
 }

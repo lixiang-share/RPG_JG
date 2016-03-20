@@ -12,9 +12,11 @@ function this.OnFirstEnable()
 end
 function this.OnEnable()
 	this.SetInfo()
+
 end
 
 function this.SetInfo()
+	
 	local player = inst.PlayerMgr.Player
 	--baseInfo
 	local baseInfo = inst:GetChild('c_baseInfo')

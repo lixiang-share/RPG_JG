@@ -178,7 +178,7 @@ public class RSHHelper {
 				item.setDress(rs.getBoolean("isDress"));
 				item.setMan(rs.getBoolean("isMan"));
 				item.setType(rs.getString("type"));
-				item.setEquipType("equipType");
+				item.setEquipType(rs.getString("equipType"));
 				item.setPrice(rs.getInt("price"));
 				item.setStar(rs.getInt("star"));
 				item.setQuality(rs.getInt("quality"));

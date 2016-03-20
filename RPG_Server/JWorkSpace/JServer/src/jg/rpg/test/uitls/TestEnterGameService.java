@@ -8,8 +8,8 @@ import jg.rpg.entity.MsgUnPacker;
 import jg.rpg.entity.Session;
 import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.msg.MsgMgr;
-import jg.rpg.msg.enterService.EnterGameService;
-import jg.rpg.msg.enterService.controller.EnterGameController;
+import jg.rpg.msg.enter.EnterGameService;
+import jg.rpg.msg.enter.controller.EnterGameController;
 
 import org.junit.Test;
 

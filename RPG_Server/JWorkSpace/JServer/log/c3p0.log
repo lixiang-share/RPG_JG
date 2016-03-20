@@ -12269,3 +12269,3867 @@ DEBUG - sessionKey : cf9a07b289924decabbaa48e2a58f1aa
 DEBUG - getVaildSession : jg.rpg.entity.Session@deedcf
 DEBUG - MsgType : 8
 DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : cf9a07b289924decabbaa48e2a58f1aa
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : cf9a07b289924decabbaa48e2a58f1aa
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 53
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 82
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 19
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 82
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 19
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 82
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 19
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 82
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 19
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 82
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+WARN - An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at io.netty.buffer.UnpooledUnsafeDirectByteBuf.setBytes(UnpooledUnsafeDirectByteBuf.java:357)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:898)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:242)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:119)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:511)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)
+	at java.lang.Thread.run(Unknown Source)
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 19
+WARN - An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at io.netty.buffer.UnpooledUnsafeDirectByteBuf.setBytes(UnpooledUnsafeDirectByteBuf.java:357)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:898)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:242)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:119)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:511)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)
+	at java.lang.Thread.run(Unknown Source)
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 19
+WARN - An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at io.netty.buffer.UnpooledUnsafeDirectByteBuf.setBytes(UnpooledUnsafeDirectByteBuf.java:357)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:898)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:242)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:119)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:511)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)
+	at java.lang.Thread.run(Unknown Source)
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 19
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 82
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - getVaildSession : jg.rpg.entity.Session@bcab6
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : ec6977bdad1e4105a14e13796fb693a6
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 53
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 82
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 10
+DEBUG - Expected Integer, but got String (a1)
+DEBUG - Send MsgLen 43
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 19
+WARN - An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at io.netty.buffer.UnpooledUnsafeDirectByteBuf.setBytes(UnpooledUnsafeDirectByteBuf.java:357)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:898)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:242)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:119)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:511)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)
+	at java.lang.Thread.run(Unknown Source)
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 19
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 19
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 317
+DEBUG - Send MsgLen 43
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 19
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 317
+DEBUG - Send MsgLen 43
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 69a5df4f864b4a3da50469a1efe5fb60
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 53
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f1b2776d0308407d83bc3ea14194948e
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f1b2776d0308407d83bc3ea14194948e
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f1b2776d0308407d83bc3ea14194948e
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f1b2776d0308407d83bc3ea14194948e
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f1b2776d0308407d83bc3ea14194948e
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 320
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f1b2776d0308407d83bc3ea14194948e
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f1b2776d0308407d83bc3ea14194948e
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 56
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 74ec6b696403427ab543782c42f23686
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 74ec6b696403427ab543782c42f23686
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 74ec6b696403427ab543782c42f23686
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 74ec6b696403427ab543782c42f23686
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 74ec6b696403427ab543782c42f23686
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 74ec6b696403427ab543782c42f23686
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 同种类型装备不能重复穿戴 : 1009 : c
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 74ec6b696403427ab543782c42f23686
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 74ec6b696403427ab543782c42f23686
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 同种类型装备不能重复穿戴 : 1008 : c
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 74ec6b696403427ab543782c42f23686
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 同种类型装备不能重复穿戴 : 1015 : c
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 74ec6b696403427ab543782c42f23686
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 74ec6b696403427ab543782c42f23686
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 56
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 81743543400e4590bfe69d81665de2ca
+DEBUG - getVaildSession : jg.rpg.entity.Session@1eb2a6c
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 81743543400e4590bfe69d81665de2ca
+DEBUG - getVaildSession : jg.rpg.entity.Session@1eb2a6c
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 81743543400e4590bfe69d81665de2ca
+DEBUG - getVaildSession : jg.rpg.entity.Session@1eb2a6c
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 81743543400e4590bfe69d81665de2ca
+DEBUG - getVaildSession : jg.rpg.entity.Session@1eb2a6c
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 81743543400e4590bfe69d81665de2ca
+DEBUG - getVaildSession : jg.rpg.entity.Session@1eb2a6c
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 同种类型装备不能重复穿戴 : 1012 : c
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 81743543400e4590bfe69d81665de2ca
+DEBUG - getVaildSession : jg.rpg.entity.Session@1eb2a6c
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 81743543400e4590bfe69d81665de2ca
+DEBUG - getVaildSession : jg.rpg.entity.Session@1eb2a6c
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 81743543400e4590bfe69d81665de2ca
+DEBUG - getVaildSession : jg.rpg.entity.Session@1eb2a6c
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 同种类型装备不能重复穿戴 : 1008 : c
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 81743543400e4590bfe69d81665de2ca
+DEBUG - getVaildSession : jg.rpg.entity.Session@1eb2a6c
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 81743543400e4590bfe69d81665de2ca
+DEBUG - getVaildSession : jg.rpg.entity.Session@1eb2a6c
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 81743543400e4590bfe69d81665de2ca
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 81743543400e4590bfe69d81665de2ca
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 56
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1459d99969124963892a100ab80987d1
+DEBUG - getVaildSession : jg.rpg.entity.Session@19abb42
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1459d99969124963892a100ab80987d1
+DEBUG - getVaildSession : jg.rpg.entity.Session@19abb42
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1459d99969124963892a100ab80987d1
+DEBUG - getVaildSession : jg.rpg.entity.Session@19abb42
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1459d99969124963892a100ab80987d1
+DEBUG - getVaildSession : jg.rpg.entity.Session@19abb42
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1459d99969124963892a100ab80987d1
+DEBUG - getVaildSession : jg.rpg.entity.Session@19abb42
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 同种类型装备不能重复穿戴 : Player [id=8, username=c, pwd=b59c67bf196a4758191e42f76670ceba, phoneNum=]
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1459d99969124963892a100ab80987d1
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1459d99969124963892a100ab80987d1
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 56
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 90a237c067844c6f8780708ac091b2e5
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 90a237c067844c6f8780708ac091b2e5
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 90a237c067844c6f8780708ac091b2e5
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 90a237c067844c6f8780708ac091b2e5
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 303
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 90a237c067844c6f8780708ac091b2e5
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 同种类型装备不能重复穿戴 : EquipItem [id=28, ownerId=8, equipId=1009, type=Equip, equipType=equipType, price=200, star=1, quality=1, damage=200, hp=40, fc=300, effectType=, effectValue=0, level=1, amount=1, isDress=false, isMan=false, defHp=0, defFc=0, defDamage=0]
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 90a237c067844c6f8780708ac091b2e5
+DEBUG - getVaildSession : jg.rpg.entity.Session@a3ca88
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 90a237c067844c6f8780708ac091b2e5
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 90a237c067844c6f8780708ac091b2e5
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 56
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 同种类型装备不能重复穿戴 : EquipItem [id=28, ownerId=8, equipId=1009, type=Equip, equipType=Shoes, price=200, star=1, quality=1, damage=200, hp=40, fc=300, effectType=, effectValue=0, level=1, amount=1, isDress=false, isMan=false, defHp=0, defFc=0, defDamage=0]
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 同种类型装备不能重复穿戴 : EquipItem [id=27, ownerId=8, equipId=1012, type=Equip, equipType=Cloth, price=233, star=1, quality=1, damage=400, hp=59, fc=400, effectType=, effectValue=0, level=1, amount=1, isDress=false, isMan=false, defHp=0, defFc=0, defDamage=0]
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 同种类型装备不能重复穿戴 : EquipItem [id=26, ownerId=8, equipId=1015, type=Equip, equipType=Weapon, price=335, star=1, quality=1, damage=500, hp=69, fc=500, effectType=, effectValue=0, level=1, amount=1, isDress=false, isMan=false, defHp=0, defFc=0, defDamage=0]
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+WARN - registerPlayer get data error : player Exist : Player [id=0, username=c1, pwd=1111, phoneNum=]
+DEBUG - Send MsgLen 44
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : e0a8a3dce5ae4f61b6d7d25156d3c3bc
+DEBUG - getVaildSession : jg.rpg.entity.Session@ceedb3
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 54
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+WARN - An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at io.netty.buffer.UnpooledUnsafeDirectByteBuf.setBytes(UnpooledUnsafeDirectByteBuf.java:357)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:898)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:242)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:119)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:511)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)
+	at java.lang.Thread.run(Unknown Source)
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+WARN - An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at io.netty.buffer.UnpooledUnsafeDirectByteBuf.setBytes(UnpooledUnsafeDirectByteBuf.java:357)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:898)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:242)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:119)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:511)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)
+	at java.lang.Thread.run(Unknown Source)
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 283
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 25
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 283
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 25
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a3a15ce489d548d194ed63fefc8effc5
+DEBUG - getVaildSession : jg.rpg.entity.Session@1ec4503
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 54
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bc3c37becef64d3d9aec3efcb5e6bc7c
+DEBUG - getVaildSession : jg.rpg.entity.Session@178c350
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bc3c37becef64d3d9aec3efcb5e6bc7c
+DEBUG - getVaildSession : jg.rpg.entity.Session@178c350
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bc3c37becef64d3d9aec3efcb5e6bc7c
+DEBUG - getVaildSession : jg.rpg.entity.Session@178c350
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bc3c37becef64d3d9aec3efcb5e6bc7c
+DEBUG - getVaildSession : jg.rpg.entity.Session@178c350
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bc3c37becef64d3d9aec3efcb5e6bc7c
+DEBUG - getVaildSession : jg.rpg.entity.Session@178c350
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bc3c37becef64d3d9aec3efcb5e6bc7c
+DEBUG - getVaildSession : jg.rpg.entity.Session@178c350
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 283
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bc3c37becef64d3d9aec3efcb5e6bc7c
+DEBUG - getVaildSession : jg.rpg.entity.Session@178c350
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 283
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bc3c37becef64d3d9aec3efcb5e6bc7c
+DEBUG - getVaildSession : jg.rpg.entity.Session@178c350
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 283
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bc3c37becef64d3d9aec3efcb5e6bc7c
+DEBUG - getVaildSession : jg.rpg.entity.Session@178c350
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 283
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bc3c37becef64d3d9aec3efcb5e6bc7c
+DEBUG - getVaildSession : jg.rpg.entity.Session@178c350
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bc3c37becef64d3d9aec3efcb5e6bc7c
+DEBUG - getVaildSession : jg.rpg.entity.Session@178c350
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 25
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bc3c37becef64d3d9aec3efcb5e6bc7c
+DEBUG - getVaildSession : jg.rpg.entity.Session@178c350
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bc3c37becef64d3d9aec3efcb5e6bc7c
+DEBUG - getVaildSession : jg.rpg.entity.Session@178c350
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bc3c37becef64d3d9aec3efcb5e6bc7c
+DEBUG - getVaildSession : jg.rpg.entity.Session@178c350
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 54
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 278
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 283
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 25
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 283
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 25
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 25
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 同种类型装备不能重复穿戴 : EquipItem [id=60, ownerId=12, equipId=1009, type=Equip, equipType=Shoes, price=200, star=1, quality=1, damage=200, hp=40, fc=300, effectType=, effectValue=0, level=1, amount=1, isDress=false, isMan=false, defHp=0, defFc=0, defDamage=0]
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 283
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - getVaildSession : jg.rpg.entity.Session@15992f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : dc2b0d568c594acb8f49c9ce066b6ee3
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 59
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f6b288325c29480ebe4e40acb2d4ae8d
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f6b288325c29480ebe4e40acb2d4ae8d
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f6b288325c29480ebe4e40acb2d4ae8d
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f6b288325c29480ebe4e40acb2d4ae8d
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f6b288325c29480ebe4e40acb2d4ae8d
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 25
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f6b288325c29480ebe4e40acb2d4ae8d
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f6b288325c29480ebe4e40acb2d4ae8d
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 64
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 75c9fbd9dec843589cf6e50c8670cdd3
+DEBUG - getVaildSession : jg.rpg.entity.Session@188e8fd
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 75c9fbd9dec843589cf6e50c8670cdd3
+DEBUG - getVaildSession : jg.rpg.entity.Session@188e8fd
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+WARN - registerPlayer get data error : player Exist : Player [id=0, username=c7, pwd=1111, phoneNum=]
+DEBUG - Send MsgLen 44
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 75c9fbd9dec843589cf6e50c8670cdd3
+DEBUG - getVaildSession : jg.rpg.entity.Session@188e8fd
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 75c9fbd9dec843589cf6e50c8670cdd3
+DEBUG - getVaildSession : jg.rpg.entity.Session@188e8fd
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 54
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 278
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 278
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 1cfaa04f44af4270929e5332a8214317
+DEBUG - getVaildSession : jg.rpg.entity.Session@1746c0c
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 54
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 278
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 281
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 与玩家选择角色性别不匹配 : EquipItem [id=72, ownerId=14, equipId=1004, type=Equip, equipType=Cloth, price=210, star=1, quality=1, damage=2100, hp=70, fc=210, effectType=, effectValue=0, level=1, amount=1, isDress=false, isMan=true, defHp=0, defFc=0, defDamage=0]
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 与玩家选择角色性别不匹配 : EquipItem [id=71, ownerId=14, equipId=1006, type=Equip, equipType=Weapon, price=333, star=1, quality=1, damage=500, hp=69, fc=500, effectType=, effectValue=0, level=1, amount=1, isDress=false, isMan=true, defHp=0, defFc=0, defDamage=0]
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7c9a654265db4eb29f1847b36a85baee
+DEBUG - getVaildSession : jg.rpg.entity.Session@147516d
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 53
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9c5a8237b53345249d97a3c24570941f
+DEBUG - getVaildSession : jg.rpg.entity.Session@9d28a1
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9c5a8237b53345249d97a3c24570941f
+DEBUG - getVaildSession : jg.rpg.entity.Session@9d28a1
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9c5a8237b53345249d97a3c24570941f
+DEBUG - getVaildSession : jg.rpg.entity.Session@9d28a1
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9c5a8237b53345249d97a3c24570941f
+DEBUG - getVaildSession : jg.rpg.entity.Session@9d28a1
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9c5a8237b53345249d97a3c24570941f
+DEBUG - getVaildSession : jg.rpg.entity.Session@9d28a1
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 与玩家选择角色性别不匹配 : EquipItem [id=81, ownerId=15, equipId=1008, type=Equip, equipType=Shoes, price=160, star=1, quality=1, damage=400, hp=90, fc=400, effectType=, effectValue=0, level=1, amount=1, isDress=false, isMan=true, defHp=0, defFc=0, defDamage=0]
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9c5a8237b53345249d97a3c24570941f
+DEBUG - getVaildSession : jg.rpg.entity.Session@9d28a1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9c5a8237b53345249d97a3c24570941f
+DEBUG - getVaildSession : jg.rpg.entity.Session@9d28a1
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 277
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9c5a8237b53345249d97a3c24570941f
+DEBUG - getVaildSession : jg.rpg.entity.Session@9d28a1
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9c5a8237b53345249d97a3c24570941f
+DEBUG - getVaildSession : jg.rpg.entity.Session@9d28a1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9c5a8237b53345249d97a3c24570941f
+DEBUG - getVaildSession : jg.rpg.entity.Session@9d28a1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9c5a8237b53345249d97a3c24570941f
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9c5a8237b53345249d97a3c24570941f
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 53
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 281
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 与玩家选择角色性别不匹配 : EquipItem [id=83, ownerId=15, equipId=1012, type=Equip, equipType=Cloth, price=233, star=1, quality=1, damage=400, hp=59, fc=400, effectType=, effectValue=0, level=1, amount=1, isDress=false, isMan=false, defHp=0, defFc=0, defDamage=0]
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - getVaildSession : jg.rpg.entity.Session@1699d3c
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 7e37cd2a75c340e3b1435c99977fd695
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 58
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 超过体力上限，无需再补充
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 超过体力上限，无需再补充
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 超过体力上限，无需再补充
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 45
+DEBUG - 同种类型装备不能重复穿戴  
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 45
+DEBUG - 同种类型装备不能重复穿戴  
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 45
+DEBUG - 同种类型装备不能重复穿戴  
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 超过体力上限，无需再补充
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - getVaildSession : jg.rpg.entity.Session@fe2ee1
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 56b6f6cfe3ff4747bfa17a1a5875e257
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 58
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 280
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 277
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 280
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 44
+DEBUG - 与玩家选择角色性别不匹配 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 43
+DEBUG - 超过体力上限，无需再补充
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - getVaildSession : jg.rpg.entity.Session@a2df8b
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : bbf7fe93032c439ca7aa6b0ef1f89bd7
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 58
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 45
+DEBUG - 同种类型装备不能重复穿戴  
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 45
+DEBUG - 同种类型装备不能重复穿戴  
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 282
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 284
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 31
+DEBUG - 升级装备金币不足 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 31
+DEBUG - 升级装备金币不足 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 284
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 284
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 284
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 285
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 264
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 31
+DEBUG - 升级装备金币不足 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 264
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 283
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 280
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 283
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 31
+DEBUG - 升级装备金币不足 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 24
+DEBUG - 该装备未穿戴
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 24
+DEBUG - 该装备未穿戴
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 264
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 280
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 280
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 280
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 264
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 281
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - getVaildSession : jg.rpg.entity.Session@ffa55b
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 265
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a65155ec86c34545904702254f98d85f
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 55
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 84
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 92
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 115
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 93
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 109
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 73
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 21
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 9abb8c8c49984e148e317e827c24de1d
+DEBUG - getVaildSession : jg.rpg.entity.Session@7ebe0d
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 54
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 263
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 282
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 44
+DEBUG - 与玩家选择角色性别不匹配 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 44
+DEBUG - 与玩家选择角色性别不匹配 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 283
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 251
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 218
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 217
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 218
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 217
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 185
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 31
+DEBUG - 升级装备金币不足 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 146
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 110
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 110
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 94
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 110
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 94
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 94
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 94
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 94
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 21
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 94
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 94
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 7
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 94
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 115
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 31
+DEBUG - 升级装备金币不足 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 24
+DEBUG - 该装备未穿戴
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 94
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 115
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 31
+DEBUG - 升级装备金币不足 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 94
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - getVaildSession : jg.rpg.entity.Session@4efed8
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : f3b574c1b4314ecb851f82fd2a20c452
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 55
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 94
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 115
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 31
+DEBUG - 升级装备金币不足 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 110
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 21
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 94
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 115
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 110
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 115
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 31
+DEBUG - 升级装备金币不足 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 110
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 115
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+DEBUG - getVaildSession : jg.rpg.entity.Session@22d245
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 94

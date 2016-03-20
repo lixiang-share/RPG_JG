@@ -18,7 +18,6 @@ public class Player{
     private int vip;
     private int totalToughen = 50;
     private int totalVit = 100;
-    
 
     public int CurNeedExp{
        

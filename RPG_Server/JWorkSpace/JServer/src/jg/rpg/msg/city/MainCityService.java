@@ -1,4 +1,4 @@
-package jg.rpg.msg.cityService;
+package jg.rpg.msg.city;
 
 import java.io.IOException;
 import java.util.List;
@@ -13,7 +13,7 @@ import jg.rpg.entity.Session;
 import jg.rpg.entity.msgEntity.EquipItem;
 import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.entity.msgEntity.Task;
-import jg.rpg.msg.cityService.controller.CityController;
+import jg.rpg.msg.city.controller.CityController;
 import jg.rpg.utils.MsgUtils;
 
 import org.apache.log4j.Logger;
@@ -79,21 +79,9 @@ public class MainCityService {
 		}
 	}
 	
-	@HandlerMsg(msgType = MsgProtocol.Get_EquipList)
-	public void getEquipList(Session session , MsgUnPacker unpacker){
-		Player player = session.getPlayer();
-		try {
-			List<EquipItem> equips = controller.getEquipsByOwnweID(player.getId());
-			MsgPacker packer = MsgUtils.getSuccessPacker();
-			controller.packEquipsToMsg(equips , packer);
-			MsgUtils.sendMsg(session.getCtx(), packer);
-		} catch (Exception e) {
-			logger.warn(e.getMessage());
-			MsgUtils.SendErroInfo(session.getCtx(), "获取装备信息失败");
-		}
-	}
+	
 
-
+	
 
 
 }

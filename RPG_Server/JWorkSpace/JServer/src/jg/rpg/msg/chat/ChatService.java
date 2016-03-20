@@ -1,4 +1,4 @@
-package jg.rpg.msg.chatService;
+package jg.rpg.msg.chat;
 
 import io.netty.buffer.ByteBuf;
 

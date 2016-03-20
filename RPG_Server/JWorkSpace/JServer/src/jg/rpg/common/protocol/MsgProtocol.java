@@ -16,4 +16,9 @@ public class MsgProtocol {
 	public final static int Get_TaskList = 7;
 	public final static int Update_PlayerInfo = 8;
 	public final static int Get_EquipList = 9;
+	public final static int Dress_Equip = 10;
+	public final static int Sale_Equip = 11;
+	public final static int Upgrade_Equip = 12;
+	public final static int Undress_Equip = 13;
+	
 }

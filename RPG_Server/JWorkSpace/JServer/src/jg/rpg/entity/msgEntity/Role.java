@@ -10,6 +10,10 @@ import jg.rpg.dao.db.RSHHelper;
 
 public class Role extends EntityBase<Role> {
 
+	public final static int Man = 1;
+	public final static int Woman = 2;
+	public final static int Unknow = 0;
+	
 	private int id;
 	private int ownerId;
 	private String role_id;

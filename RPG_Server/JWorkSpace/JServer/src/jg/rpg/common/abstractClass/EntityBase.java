@@ -19,7 +19,7 @@ public abstract class EntityBase <T>{
 		return null;
 	}
 	
-	public  int updateToDB()throws SQLException{
+	public  int updateToDB()throws SQLException, EntityHandlerException{
 		return 0;
 	}
 	
