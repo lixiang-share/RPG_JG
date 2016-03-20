@@ -17308,3 +17308,225 @@ java.io.IOException: 远程主机强迫关闭了一个现有的连接。
 [DEBUG][2016/03/20 18:21:23860][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@22d245
 [DEBUG][2016/03/20 18:21:23860][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 9
 [DEBUG][2016/03/20 18:21:23860][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 94
+[DEBUG][2016/03/20 18:39:20489][jg.rpg.net.RPGChannelInitializer.initChannel(RPGChannelInitializer.java:53)]   register handler
+[DEBUG][2016/03/20 18:39:21410][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:39:21421][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:39:21421][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:39:21422][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+[DEBUG][2016/03/20 18:39:21423][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:37)]   PlayerHandlerException : user not exist
+[DEBUG][2016/03/20 18:39:21440][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 34
+[DEBUG][2016/03/20 18:39:27244][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:39:27244][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:39:27244][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:39:27254][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 0f4ebc48380c4a8baf8a797f82fbf1ac
+[DEBUG][2016/03/20 18:39:27254][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:37)]   PlayerHandlerException : user not exist
+[DEBUG][2016/03/20 18:39:27254][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 1
+[DEBUG][2016/03/20 18:39:27254][jg.rpg.msg.enter.EnterGameService.LoginValidate(EnterGameService.java:35)]   LoginValidate
+[DEBUG][2016/03/20 18:39:27605][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 55
+[DEBUG][2016/03/20 18:39:27825][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:39:27825][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:39:27835][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:39:27835][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:39:27835][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:39:27835][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 2
+[DEBUG][2016/03/20 18:39:27835][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 112
+[DEBUG][2016/03/20 18:39:28875][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:39:28875][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:39:28875][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:39:28875][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:39:28875][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:39:28875][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 5
+[DEBUG][2016/03/20 18:39:28875][jg.rpg.msg.enter.EnterGameService.preSelectHero(EnterGameService.java:135)]   preSelectHero
+[DEBUG][2016/03/20 18:39:28885][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 84
+[DEBUG][2016/03/20 18:39:29851][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:39:29851][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:39:29851][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:39:29851][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:39:29851][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:39:29851][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 6
+[DEBUG][2016/03/20 18:39:29851][jg.rpg.msg.enter.EnterGameService.enterGame(EnterGameService.java:164)]   enterGame
+[DEBUG][2016/03/20 18:39:29871][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 5
+[DEBUG][2016/03/20 18:39:32441][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:39:32441][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:39:32441][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:39:32441][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:39:32441][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:39:32441][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 9
+[DEBUG][2016/03/20 18:39:32441][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 57
+[DEBUG][2016/03/20 18:40:30452][jg.rpg.net.RPGChannelInitializer.initChannel(RPGChannelInitializer.java:53)]   register handler
+[DEBUG][2016/03/20 18:40:30983][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:40:30983][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:40:30983][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:40:30983][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:40:30983][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:40:30983][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 4
+[DEBUG][2016/03/20 18:40:30993][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 21
+[DEBUG][2016/03/20 18:40:31233][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:40:31233][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:40:31233][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:40:31233][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:40:31233][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:40:31233][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 2
+[DEBUG][2016/03/20 18:40:31233][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 112
+[DEBUG][2016/03/20 18:40:33603][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:40:33603][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:40:33603][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:40:33603][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:40:33603][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:40:33603][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 5
+[DEBUG][2016/03/20 18:40:33603][jg.rpg.msg.enter.EnterGameService.preSelectHero(EnterGameService.java:135)]   preSelectHero
+[DEBUG][2016/03/20 18:40:33613][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 84
+[DEBUG][2016/03/20 18:40:41924][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:40:41924][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:40:41924][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:40:41924][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:40:41924][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:40:41924][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 6
+[DEBUG][2016/03/20 18:40:41924][jg.rpg.msg.enter.EnterGameService.enterGame(EnterGameService.java:164)]   enterGame
+[DEBUG][2016/03/20 18:40:41944][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 5
+[DEBUG][2016/03/20 18:40:44595][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:40:44595][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:40:44595][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:40:44595][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:40:44595][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:40:44595][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 9
+[DEBUG][2016/03/20 18:40:44605][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 57
+[DEBUG][2016/03/20 18:41:51586][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:41:51596][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:41:51596][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:41:51596][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:41:51596][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:41:51596][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 8
+[DEBUG][2016/03/20 18:41:51606][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 5
+[DEBUG][2016/03/20 18:42:52218][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:42:52218][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:42:52228][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:42:52228][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:42:52228][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:42:52228][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 8
+[DEBUG][2016/03/20 18:42:52238][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 5
+[DEBUG][2016/03/20 18:43:2889 ][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:43:2889 ][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:43:2889 ][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:43:2889 ][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:43:2889 ][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:43:2889 ][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 7
+[DEBUG][2016/03/20 18:43:2889 ][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 86
+[DEBUG][2016/03/20 18:43:30140][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:43:30140][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:43:30140][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:43:30140][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:43:30140][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:43:30140][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 9
+[DEBUG][2016/03/20 18:43:30140][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 57
+[DEBUG][2016/03/20 18:43:52221][jg.rpg.net.RPGChannelInitializer.initChannel(RPGChannelInitializer.java:53)]   register handler
+[DEBUG][2016/03/20 18:43:52742][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:43:52742][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:43:52742][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:43:52742][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:43:52742][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:43:52742][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 4
+[DEBUG][2016/03/20 18:43:52742][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 21
+[DEBUG][2016/03/20 18:43:52972][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:43:52972][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:43:52972][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:43:52972][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:43:52972][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:43:52972][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 2
+[DEBUG][2016/03/20 18:43:52972][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 112
+[DEBUG][2016/03/20 18:43:55332][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:43:55332][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:43:55332][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:43:55332][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:43:55332][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:43:55332][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 5
+[DEBUG][2016/03/20 18:43:55332][jg.rpg.msg.enter.EnterGameService.preSelectHero(EnterGameService.java:135)]   preSelectHero
+[DEBUG][2016/03/20 18:43:55332][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 85
+[DEBUG][2016/03/20 18:44:40693][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:44:40693][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:44:40693][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:44:40693][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:44:40693][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:44:40693][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 6
+[DEBUG][2016/03/20 18:44:40693][jg.rpg.msg.enter.EnterGameService.enterGame(EnterGameService.java:164)]   enterGame
+[DEBUG][2016/03/20 18:44:40714][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 5
+[DEBUG][2016/03/20 18:44:4354 ][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:44:4354 ][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:44:4354 ][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:44:4354 ][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:44:4354 ][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:44:4354 ][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 9
+[DEBUG][2016/03/20 18:44:4354 ][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 57
+[DEBUG][2016/03/20 18:45:14665][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:45:14665][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:45:14665][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:45:14665][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:45:14665][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:45:14665][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 9
+[DEBUG][2016/03/20 18:45:14665][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 57
+[DEBUG][2016/03/20 18:48:16120][jg.rpg.net.RPGChannelInitializer.initChannel(RPGChannelInitializer.java:53)]   register handler
+[DEBUG][2016/03/20 18:48:16651][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:48:16651][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:48:16651][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:48:16651][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:48:16651][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:48:16651][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 4
+[DEBUG][2016/03/20 18:48:16651][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 21
+[DEBUG][2016/03/20 18:48:16891][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:48:16891][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:48:16891][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:48:16891][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:48:16901][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:48:16901][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 2
+[DEBUG][2016/03/20 18:48:16901][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 112
+[DEBUG][2016/03/20 18:48:19451][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:48:19451][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:48:19451][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:48:19451][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:48:19451][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:48:19451][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 5
+[DEBUG][2016/03/20 18:48:19451][jg.rpg.msg.enter.EnterGameService.preSelectHero(EnterGameService.java:135)]   preSelectHero
+[DEBUG][2016/03/20 18:48:19451][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 85
+[DEBUG][2016/03/20 18:48:20242][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:48:20242][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:48:20242][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:48:20242][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:48:20242][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:48:20242][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 6
+[DEBUG][2016/03/20 18:48:20242][jg.rpg.msg.enter.EnterGameService.enterGame(EnterGameService.java:164)]   enterGame
+[DEBUG][2016/03/20 18:48:20262][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 5
+[DEBUG][2016/03/20 18:48:22592][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:48:22592][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:48:22592][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:48:22592][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:48:22592][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:48:22592][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 9
+[DEBUG][2016/03/20 18:48:22592][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 57
+[DEBUG][2016/03/20 18:48:25503][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:48:25503][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:48:25503][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:48:25503][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:48:25503][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:48:25503][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 10
+[DEBUG][2016/03/20 18:48:25524][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 73
+[DEBUG][2016/03/20 18:48:29284][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:48:29284][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:48:29284][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:48:29284][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:48:29284][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:48:29284][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 9
+[DEBUG][2016/03/20 18:48:29284][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 57
+[DEBUG][2016/03/20 18:48:30835][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:48:30835][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:48:30835][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:48:30835][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:48:30835][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:48:30845][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 9
+[DEBUG][2016/03/20 18:48:30845][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 57
+[DEBUG][2016/03/20 18:48:32666][jg.rpg.net.handlers.MsgDeserializerHandler.channelRead0(MsgDeserializerHandler.java:16)]   MsgDeserializerHandler
+[DEBUG][2016/03/20 18:48:32666][jg.rpg.net.handlers.MsgFilterHandler.channelRead0(MsgFilterHandler.java:14)]   MsgFilterHandler
+[DEBUG][2016/03/20 18:48:32666][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:29)]   LoginValidateHandler
+[DEBUG][2016/03/20 18:48:32666][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:31)]   sessionKey : 8e9f37d83d2645bfa7a2dc966576c5a9
+[DEBUG][2016/03/20 18:48:32666][jg.rpg.net.handlers.LoginValidateHandler.channelRead0(LoginValidateHandler.java:35)]   getVaildSession : jg.rpg.entity.Session@15c96f
+[DEBUG][2016/03/20 18:48:32666][jg.rpg.msg.MsgMgr.handleMsg(MsgMgr.java:87)]   MsgType : 7
+[DEBUG][2016/03/20 18:48:32666][jg.rpg.utils.MsgUtils.serializerMsg(MsgUtils.java:35)]   Send MsgLen 86

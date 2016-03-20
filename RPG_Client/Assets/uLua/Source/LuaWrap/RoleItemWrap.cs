@@ -13,6 +13,8 @@ public class RoleItemWrap
 
 		LuaField[] fields = new LuaField[]
 		{
+			new LuaField("Woman", get_Woman, null),
+			new LuaField("Man", get_Man, null),
 			new LuaField("Role_id", get_Role_id, set_Role_id),
 			new LuaField("Name", get_Name, set_Name),
 			new LuaField("Level", get_Level, set_Level),
@@ -50,6 +52,20 @@ public class RoleItemWrap
 	static int GetClassType(IntPtr L)
 	{
 		LuaScriptMgr.Push(L, classType);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Woman(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, RoleItem.Woman);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Man(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, RoleItem.Man);
 		return 1;
 	}
 

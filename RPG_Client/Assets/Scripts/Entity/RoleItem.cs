@@ -3,7 +3,8 @@ using System.Collections;
 
 public class RoleItem
 {
-
+    public const int Woman = 2;
+    public const int Man = 1;
     private int id;
     private int ownerId;
     private string role_id;

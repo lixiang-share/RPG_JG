@@ -39,4 +39,7 @@ function this.ParseData(equipList)
 	inst:GetChild('l_hp').Value = player.Hp
 	inst:GetChild('experience'):GetChild('l_info').Value = player.Exp ..'/'..player.CurNeedExp
 	inst:GetChild('experience'):GetChild('experienceBar').Value = player.Exp/player.CurNeedExp
+	local role = inst.PlayerMgr.Role
+	UITools.SA(inst:GetChild('s_player'):GetChild('boy_stand'),role.Gender == RoleItem.Man)
+	UITools.SA(inst:GetChild('s_player'):GetChild('girl_stand'),role.Gender == RoleItem.Woman)
 end
