@@ -196,10 +196,26 @@ public class PlayerManagerWrap
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int UpdatePlayerinfo(IntPtr L)
 	{
-		LuaScriptMgr.CheckArgsCount(L, 2);
-		PlayerManager obj = (PlayerManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "PlayerManager");
-		MsgUnPacker arg0 = (MsgUnPacker)LuaScriptMgr.GetNetObject(L, 2, typeof(MsgUnPacker));
-		obj.UpdatePlayerinfo(arg0);
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 1)
+		{
+			PlayerManager obj = (PlayerManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "PlayerManager");
+			obj.UpdatePlayerinfo();
+			return 0;
+		}
+		else if (count == 2)
+		{
+			PlayerManager obj = (PlayerManager)LuaScriptMgr.GetUnityObjectSelf(L, 1, "PlayerManager");
+			MsgUnPacker arg0 = (MsgUnPacker)LuaScriptMgr.GetNetObject(L, 2, typeof(MsgUnPacker));
+			obj.UpdatePlayerinfo(arg0);
+			return 0;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: PlayerManager.UpdatePlayerinfo");
+		}
+
 		return 0;
 	}
 

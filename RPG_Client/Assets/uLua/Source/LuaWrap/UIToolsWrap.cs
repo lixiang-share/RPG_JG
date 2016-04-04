@@ -19,6 +19,8 @@ public class UIToolsWrap
 			new LuaMethod("Compile", Compile),
 			new LuaMethod("ShowMsg", ShowMsg),
 			new LuaMethod("Set", Set),
+			new LuaMethod("SetColor", SetColor),
+			new LuaMethod("DimSprite", DimSprite),
 			new LuaMethod("ShowPanel", ShowPanel),
 			new LuaMethod("ClosePanel", ClosePanel),
 			new LuaMethod("HandlePanel", HandlePanel),
@@ -40,6 +42,7 @@ public class UIToolsWrap
 			new LuaMethod("MsgToTaskList", MsgToTaskList),
 			new LuaMethod("MsgToPlayer", MsgToPlayer),
 			new LuaMethod("MsgToEquipItem", MsgToEquipItem),
+			new LuaMethod("MsgToSkillList", MsgToSkillList),
 			new LuaMethod("New", _CreateUITools),
 			new LuaMethod("GetClassType", GetClassType),
 		};
@@ -246,6 +249,28 @@ public class UIToolsWrap
 			LuaDLL.luaL_error(L, "invalid arguments to method: UITools.Set");
 		}
 
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int SetColor(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 4);
+		LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+		float arg1 = (float)LuaScriptMgr.GetNumber(L, 2);
+		float arg2 = (float)LuaScriptMgr.GetNumber(L, 3);
+		float arg3 = (float)LuaScriptMgr.GetNumber(L, 4);
+		UITools.SetColor(arg0,arg1,arg2,arg3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int DimSprite(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		LuaBehaviour arg0 = (LuaBehaviour)LuaScriptMgr.GetUnityObject(L, 1, typeof(LuaBehaviour));
+		bool arg1 = LuaScriptMgr.GetBoolean(L, 2);
+		UITools.DimSprite(arg0,arg1);
 		return 0;
 	}
 
@@ -544,6 +569,16 @@ public class UIToolsWrap
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		MsgUnPacker arg0 = (MsgUnPacker)LuaScriptMgr.GetNetObject(L, 1, typeof(MsgUnPacker));
 		IList o = UITools.MsgToEquipItem(arg0);
+		LuaScriptMgr.PushObject(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int MsgToSkillList(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		MsgUnPacker arg0 = (MsgUnPacker)LuaScriptMgr.GetNetObject(L, 1, typeof(MsgUnPacker));
+		IList o = UITools.MsgToSkillList(arg0);
 		LuaScriptMgr.PushObject(L, o);
 		return 1;
 	}

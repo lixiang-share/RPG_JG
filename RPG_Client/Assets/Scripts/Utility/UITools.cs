@@ -139,7 +139,20 @@ public static partial class UITools
             Set(lb.gameObject, name);
     }
 
+    public static void SetColor(LuaBehaviour lb , float r, float g, float b)
+    {
+        Color c = new Color(r/255, g/255, b/255);
+        if (lb.GetComponent<UIWidget>() != null)
+            lb.GetComponent<UIWidget>().color = c;
+    }
 
+    public static void DimSprite(LuaBehaviour lb , bool isDim)
+    {
+        if(isDim)
+            SetColor(lb, 120, 120, 120);
+        else
+            SetColor(lb, 255, 255, 255);
+    }
 
 
     #endregion
@@ -351,10 +364,15 @@ public static partial class UITools
         return ConvertUitls.MsgToPlayer(unpacker);
     }
 
-    public static IList MsgToEquipItem(MsgUnPacker unpakcer)
+    public static IList MsgToEquipItem(MsgUnPacker unpacker)
     {
-        return ConvertUitls.MsgToEquipItem(unpakcer);
+        return ConvertUitls.MsgToEquipItem(unpacker);
     }
+    public static IList MsgToSkillList(MsgUnPacker unpacker)
+    {
+        return ConvertUitls.MsgToSkillList(unpacker);
+    }
+
     #endregion
 
 }

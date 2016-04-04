@@ -35,6 +35,13 @@ public class StateObj{
     private NetEventCallBack _OnRecvError;
     private NetEventCallBack _OnCloseError;
     private NetEventCallBack _OnConnectError;
+    private MsgHandler recvHandler;
+
+    public MsgHandler RecvHandler
+    {
+        get { return recvHandler; }
+        set { recvHandler = value; }
+    }
 
     #endregion
 

@@ -13,6 +13,7 @@ public class DelegateFactoryWrap
 			new LuaMethod("System_Reflection_MemberFilter", System_Reflection_MemberFilter),
 			new LuaMethod("System_Reflection_TypeFilter", System_Reflection_TypeFilter),
 			new LuaMethod("DefAction", DefAction),
+			new LuaMethod("MsgHandler", MsgHandler),
 			new LuaMethod("UIEventListener_VoidDelegate", UIEventListener_VoidDelegate),
 			new LuaMethod("UIEventListener_BoolDelegate", UIEventListener_BoolDelegate),
 			new LuaMethod("UIEventListener_FloatDelegate", UIEventListener_FloatDelegate),
@@ -36,6 +37,7 @@ public class DelegateFactoryWrap
 			new LuaMethod("Predicate_object", Predicate_object),
 			new LuaMethod("Action_object", Action_object),
 			new LuaMethod("Comparison_object", Comparison_object),
+			new LuaMethod("OnTalkFinish", OnTalkFinish),
 			new LuaMethod("Clear", Clear),
 			new LuaMethod("New", _CreateDelegateFactory),
 			new LuaMethod("GetClassType", GetClassType),
@@ -116,6 +118,16 @@ public class DelegateFactoryWrap
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		LuaFunction arg0 = LuaScriptMgr.GetLuaFunction(L, 1);
 		Delegate o = DelegateFactory.DefAction(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int MsgHandler(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		LuaFunction arg0 = LuaScriptMgr.GetLuaFunction(L, 1);
+		Delegate o = DelegateFactory.MsgHandler(arg0);
 		LuaScriptMgr.Push(L, o);
 		return 1;
 	}
@@ -346,6 +358,16 @@ public class DelegateFactoryWrap
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		LuaFunction arg0 = LuaScriptMgr.GetLuaFunction(L, 1);
 		Delegate o = DelegateFactory.Comparison_object(arg0);
+		LuaScriptMgr.Push(L, o);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int OnTalkFinish(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		LuaFunction arg0 = LuaScriptMgr.GetLuaFunction(L, 1);
+		Delegate o = DelegateFactory.OnTalkFinish(arg0);
 		LuaScriptMgr.Push(L, o);
 		return 1;
 	}

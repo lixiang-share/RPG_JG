@@ -20,7 +20,7 @@ function this.Task()
 end
 
 function this.Skill()
-	-- body
+	UITools.D('SkillInfo'):CallLuaMethod('Show')
 end
 
 function this.Store()

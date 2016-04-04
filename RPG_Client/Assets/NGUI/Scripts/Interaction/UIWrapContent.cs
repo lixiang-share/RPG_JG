@@ -59,7 +59,7 @@ public class UIWrapContent : MonoBehaviour
 	UIPanel mPanel;
 	UIScrollView mScroll;
 	bool mHorizontal = false;
-	bool mFirstTime = true;
+	public bool mFirstTime = true;
 	public List<Transform> mChildren = new List<Transform>();
 
 	/// <summary>

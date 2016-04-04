@@ -7,10 +7,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.log4j.Logger;
-
 import jg.rpg.common.exceptions.EntityHandlerException;
-import jg.rpg.common.exceptions.PlayerHandlerException;
 import jg.rpg.common.manager.DefEntityMgr;
 import jg.rpg.dao.db.DBHelper;
 import jg.rpg.dao.db.DBMgr;
@@ -20,8 +17,11 @@ import jg.rpg.entity.msgEntity.EquipItem;
 import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.entity.msgEntity.Role;
 import jg.rpg.entity.msgEntity.ServerEntity;
+import jg.rpg.entity.msgEntity.Skill;
 import jg.rpg.entity.msgEntity.Task;
 import jg.rpg.utils.CommUtils;
+
+import org.apache.log4j.Logger;
 
 public class EnterGameController {
 
@@ -129,6 +129,11 @@ public class EnterGameController {
 		for(Role role : allDefRoles){
 			role.setOwnerId(playerID);
 			role.insertToDB();
+			List<Skill> skills = DefEntityMgr.getInstance().getSkillsByRoleGender(role.getGender());
+			for(Skill skill : skills){
+				skill.setOwnerID(playerID);
+				skill.insertToDB();
+			}
 		}
 		
 		List<Task> tasks = DefEntityMgr.getInstance().getTaskList();
@@ -153,6 +158,17 @@ public class EnterGameController {
 		return equips;
 	}
 	
+	private List<Skill> getSkillsBuOwnerID(Player player) throws SQLException {
+		int id = player.getId();
+		String sql = "select * from tb_skill where ownerId = ?";
+		List<Skill> skills = DBHelper.GetAll(DBMgr.getInstance().getDataSource(), 
+				sql, RSHHelper.getSkillRSH(), id);
+		for(Skill s : skills){
+			s.setOwner(player);
+		}
+		return skills;
+	}
+	
 	public void addPlayerInfo(Player player) throws SQLException {
 		//任务
 		List<Task> tasks = getTaskListByRoleID(player.getId());
@@ -161,6 +177,11 @@ public class EnterGameController {
 		//装备
 		List<EquipItem> equips = getEquipsByOwnerID(player.getId());
 		player.setEquips(equips);
+		
+		//技能
+		List<Skill> skills = getSkillsBuOwnerID(player);
+		player.setSkills(skills);
 	}
+
 
 }

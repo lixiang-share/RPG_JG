@@ -4,6 +4,11 @@ using System.Collections.Generic;
 
 public class TaskEntity{
 
+    public const int NotClaim = 0;
+    public const int NotComplete = 1;
+    public const int Complete = 2;
+    public const int Finish = 3;
+
     private int _id;
     private int _taskId;
     private string _name;

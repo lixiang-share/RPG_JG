@@ -40,6 +40,7 @@ public class AppConstWrap
 			new LuaField("DefEncoding", get_DefEncoding, set_DefEncoding),
 			new LuaField("TaskListPath", get_TaskListPath, set_TaskListPath),
 			new LuaField("EquipListPath", get_EquipListPath, set_EquipListPath),
+			new LuaField("SkillListPath", get_SkillListPath, set_SkillListPath),
 			new LuaField("LuaBasePath", get_LuaBasePath, null),
 			new LuaField("LuaWrapPath", get_LuaWrapPath, null),
 			new LuaField("SessionKey", get_SessionKey, set_SessionKey),
@@ -259,6 +260,13 @@ public class AppConstWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_SkillListPath(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, AppConst.SkillListPath);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int get_LuaBasePath(IntPtr L)
 	{
 		LuaScriptMgr.Push(L, AppConst.LuaBasePath);
@@ -325,6 +333,13 @@ public class AppConstWrap
 	static int set_EquipListPath(IntPtr L)
 	{
 		AppConst.EquipListPath = LuaScriptMgr.GetString(L, 3);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_SkillListPath(IntPtr L)
+	{
+		AppConst.SkillListPath = LuaScriptMgr.GetString(L, 3);
 		return 0;
 	}
 

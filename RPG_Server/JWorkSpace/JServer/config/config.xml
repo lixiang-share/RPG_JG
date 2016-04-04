@@ -18,8 +18,10 @@
 	<handlers>
 		<handler>jg.rpg.msg.chat.ChatService</handler>
 		<handler>jg.rpg.msg.enter.EnterGameService</handler>
-		<handler>jg.rpg.msg.city.MainCityService</handler>
+		<handler>jg.rpg.msg.player.PlayerService</handler>
 		<handler>jg.rpg.msg.equip.EquipService</handler>
+		<handler>jg.rpg.msg.task.TaskService</handler>
+		<handler>jg.rpg.msg.skill.SkillService</handler>
 	</handlers>
 	
 </Server>

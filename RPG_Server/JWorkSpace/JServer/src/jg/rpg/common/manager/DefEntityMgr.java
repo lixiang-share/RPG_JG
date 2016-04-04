@@ -9,6 +9,7 @@ import java.util.Map;
 import jg.rpg.common.exceptions.InitException;
 import jg.rpg.entity.msgEntity.EquipItem;
 import jg.rpg.entity.msgEntity.Role;
+import jg.rpg.entity.msgEntity.Skill;
 import jg.rpg.entity.msgEntity.Task;
 
 import org.dom4j.Document;
@@ -24,6 +25,7 @@ public class DefEntityMgr {
 	private List<Role> defRoles;
 	private static DefEntityMgr inst;
 	private Map<Integer , EquipItem> defEquips;
+	private Map<Integer , Skill> defSkills;
 	
 	private DefEntityMgr(){}
 	
@@ -41,12 +43,54 @@ public class DefEntityMgr {
 		defRoles = new ArrayList<Role>();
 		equips = new ArrayList<EquipItem>();
 		defEquips = new HashMap<Integer , EquipItem>();
+		defSkills = new HashMap<Integer, Skill>();
 		LoadingAllTasks();
 		LoadingAllRoles();
 		LoadingAllEquips();
 		LoadingAllDefEquips();
+		LoadingAllDefSkills();
 	}
 
+	private void LoadingAllDefSkills() throws DocumentException, InitException {
+		String path = System.getProperty("user.dir")+
+				File.separator+"config"+File.separator+"skillInfo.xml";
+		Document document = parse(path);
+		if(document != null){
+			processDefSkills(document);
+		}else{
+			throw new InitException("ConfigMgr init error!!!");
+		}
+		
+	}
+	
+	private void processDefSkills(Document document) {
+		Element root = document.getRootElement();
+		List<Element> eSkill= root.elements();
+		for(Element e : eSkill){
+			Skill item = new Skill();
+			item.setSkillID(Integer.parseInt(e.elementText("skillID")));
+			item.setRoleType(e.elementText("roleType"));
+			item.setType(e.elementText("type"));
+			item.setPos(e.elementText("pos"));
+			item.setColdTime(Integer.parseInt(e.elementText("coldTime")));
+			item.setBaseFC(Integer.parseInt(e.elementText("baseFC")));
+			item.setLevel(Integer.parseInt(e.elementText("level")));
+			defSkills.put(item.getSkillID(), item);
+		}
+	}
+	
+	public List<Skill> getSkillsByRoleGender(int gender){
+		List<Skill> skills = new ArrayList<Skill>();
+		for(Skill skill : defSkills.values()){
+			if(skill.getRoleGender() == gender)
+				skills.add(skill);
+		}
+		return skills;
+	}
+	
+	
+	
+	
 	private void LoadingAllDefEquips() throws DocumentException, InitException {
 		String path = System.getProperty("user.dir")+
 				File.separator+"config"+File.separator+"equipList.xml";

@@ -19,7 +19,8 @@ import jg.rpg.entity.MsgPacker;
 import jg.rpg.utils.CommUtils;
 
 public class Player extends EntityBase<Player> {
-
+	public static int MaxVit = 100;  
+	public static int MaxToughen = 50; 
 	private int id;
 	private String username;
 	private String pwd;
@@ -38,8 +39,24 @@ public class Player extends EntityBase<Player> {
 	private ServerEntity server;
 	private List<Task> tasks;
 	private Map<Integer , EquipItem> equipMap;
-	public static int MaxVit = 100;  
-	public static int MaxToughen = 50; 
+	private List<Skill> skills;
+	
+
+	public List<Skill> getSkills() {
+		return skills;
+	}
+	public void setSkills(List<Skill> skills) {
+		this.skills = skills;
+	}
+	public List<Skill> getSkillsByCurRole() {
+		List<Skill> _skills = new ArrayList<Skill>();
+		for(Skill s : getSkills()){
+			if(s.getRoleGender() == getRole().getGender())
+				_skills.add(s);
+		}
+		return _skills;
+	}
+	
 	
 	public Map<Integer, EquipItem> getEquipMap() {
 		return equipMap;
@@ -375,4 +392,26 @@ public class Player extends EntityBase<Player> {
 		equip.deleteFromDB();
 	}
 
+	///==================  Task ===========================
+	public Task getTaskByID(int taskID){
+		for(Task task : getTasks()){
+			if(task.getTaskId() == taskID) return task;
+		}
+		return null;
+	}
+	
+	public void acceptTask(int taskID) throws SQLException{
+		Task task = getTaskByID(taskID);
+		if(task != null){
+			task.setStatus(Task.NotComplete);
+			task.updateToDB();
+		}
+	}
+	public Skill getSkillBySkillID(int skillID) {
+		for(Skill skill : getSkillsByCurRole()){
+			if(skill.getSkillID() == skillID)
+				return skill;
+		}
+		return null;
+	}
 }

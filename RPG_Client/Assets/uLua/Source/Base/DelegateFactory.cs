@@ -17,6 +17,7 @@ public static class DelegateFactory
 		dict.Add(typeof(System.Reflection.MemberFilter), new DelegateValue(System_Reflection_MemberFilter));
 		dict.Add(typeof(System.Reflection.TypeFilter), new DelegateValue(System_Reflection_TypeFilter));
 		dict.Add(typeof(DefAction), new DelegateValue(DefAction));
+		dict.Add(typeof(MsgHandler), new DelegateValue(MsgHandler));
 		dict.Add(typeof(UIEventListener.VoidDelegate), new DelegateValue(UIEventListener_VoidDelegate));
 		dict.Add(typeof(UIEventListener.BoolDelegate), new DelegateValue(UIEventListener_BoolDelegate));
 		dict.Add(typeof(UIEventListener.FloatDelegate), new DelegateValue(UIEventListener_FloatDelegate));
@@ -40,6 +41,7 @@ public static class DelegateFactory
 		dict.Add(typeof(Predicate<object>), new DelegateValue(Predicate_object));
 		dict.Add(typeof(Action<object>), new DelegateValue(Action_object));
 		dict.Add(typeof(Comparison<object>), new DelegateValue(Comparison_object));
+		dict.Add(typeof(OnTalkFinish), new DelegateValue(OnTalkFinish));
 	}
 
 	[NoToLuaAttribute]
@@ -123,6 +125,19 @@ public static class DelegateFactory
 		DefAction d = () =>
 		{
 			func.Call();
+		};
+		return d;
+	}
+
+	public static Delegate MsgHandler(LuaFunction func)
+	{
+		MsgHandler d = (param0) =>
+		{
+			int top = func.BeginPCall();
+			IntPtr L = func.GetLuaState();
+			LuaScriptMgr.PushObject(L, param0);
+			func.PCall(top, 1);
+			func.EndPCall(top);
 		};
 		return d;
 	}
@@ -427,6 +442,15 @@ public static class DelegateFactory
 			object[] objs = func.PopValues(top);
 			func.EndPCall(top);
 			return (int)objs[0];
+		};
+		return d;
+	}
+
+	public static Delegate OnTalkFinish(LuaFunction func)
+	{
+		OnTalkFinish d = () =>
+		{
+			func.Call();
 		};
 		return d;
 	}

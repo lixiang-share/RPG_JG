@@ -59,6 +59,7 @@ public static class LuaBinder
 			case "ParticleRendererWrap": ParticleRendererWrap.Register(L); break;
 			case "ParticleSystemWrap": ParticleSystemWrap.Register(L); break;
 			case "PhysicsWrap": PhysicsWrap.Register(L); break;
+			case "PlayerMainCityCtrlWrap": PlayerMainCityCtrlWrap.Register(L); break;
 			case "PlayerManagerWrap": PlayerManagerWrap.Register(L); break;
 			case "PlayerWrap": PlayerWrap.Register(L); break;
 			case "PlayModeWrap": PlayModeWrap.Register(L); break;
@@ -76,12 +77,15 @@ public static class LuaBinder
 			case "SimpleFramework_Manager_TimerManagerWrap": SimpleFramework_Manager_TimerManagerWrap.Register(L); break;
 			case "SimpleFramework_UtilWrap": SimpleFramework_UtilWrap.Register(L); break;
 			case "SimpleFramework_WrapGridWrap": SimpleFramework_WrapGridWrap.Register(L); break;
+			case "SkillItemWrap": SkillItemWrap.Register(L); break;
+			case "SkillMgrWrap": SkillMgrWrap.Register(L); break;
 			case "SkinnedMeshRendererWrap": SkinnedMeshRendererWrap.Register(L); break;
 			case "SleepTimeoutWrap": SleepTimeoutWrap.Register(L); break;
 			case "SpaceWrap": SpaceWrap.Register(L); break;
 			case "SphereColliderWrap": SphereColliderWrap.Register(L); break;
 			case "stringWrap": stringWrap.Register(L); break;
 			case "System_ObjectWrap": System_ObjectWrap.Register(L); break;
+			case "TalkToNPCWrap": TalkToNPCWrap.Register(L); break;
 			case "TestDelegateListenerWrap": TestDelegateListenerWrap.Register(L); break;
 			case "TestEventListenerWrap": TestEventListenerWrap.Register(L); break;
 			case "TestLuaDelegateWrap": TestLuaDelegateWrap.Register(L); break;

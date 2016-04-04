@@ -94,10 +94,46 @@ public class NetworkMgrWrap
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int Send(IntPtr L)
 	{
-		LuaScriptMgr.CheckArgsCount(L, 2);
-		NetworkMgr obj = (NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "NetworkMgr");
-		MsgPacker arg0 = (MsgPacker)LuaScriptMgr.GetNetObject(L, 2, typeof(MsgPacker));
-		obj.Send(arg0);
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 2)
+		{
+			NetworkMgr obj = (NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "NetworkMgr");
+			MsgPacker arg0 = (MsgPacker)LuaScriptMgr.GetNetObject(L, 2, typeof(MsgPacker));
+			obj.Send(arg0);
+			return 0;
+		}
+		else if (count == 3)
+		{
+			NetworkMgr obj = (NetworkMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "NetworkMgr");
+			MsgPacker arg0 = (MsgPacker)LuaScriptMgr.GetNetObject(L, 2, typeof(MsgPacker));
+			MsgHandler arg1 = null;
+			LuaTypes funcType3 = LuaDLL.lua_type(L, 3);
+
+			if (funcType3 != LuaTypes.LUA_TFUNCTION)
+			{
+				 arg1 = (MsgHandler)LuaScriptMgr.GetNetObject(L, 3, typeof(MsgHandler));
+			}
+			else
+			{
+				LuaFunction func = LuaScriptMgr.GetLuaFunction(L, 3);
+				arg1 = (param0) =>
+				{
+					int top = func.BeginPCall();
+					LuaScriptMgr.PushObject(L, param0);
+					func.PCall(top, 1);
+					func.EndPCall(top);
+				};
+			}
+
+			obj.Send(arg0,arg1);
+			return 0;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: NetworkMgr.Send");
+		}
+
 		return 0;
 	}
 

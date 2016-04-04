@@ -16,6 +16,9 @@ function this.OnEnable()
 end
 function  this.OnReceiveData(data)
 	local taskList = UITools.MsgToTaskList(data)
+	for i=0,taskList.Count - 1 do
+		UITools.Log(taskList:get_Item(i).Status)
+	end
 	inst:GetChild('ScrollView'):Parse(taskList)
 	UITools.Log(taskList.Count)
 end
@@ -43,3 +46,8 @@ function this.OnCommand(command , param)
 	end
 end
 
+function this.SelectTask(task)
+	UITools.Log("SelectTask")
+	PlayerMainCityCtrl.Instance:DoTask(task)
+	this.Cancel()
+end

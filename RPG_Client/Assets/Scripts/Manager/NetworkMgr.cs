@@ -4,7 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using LuaInterface;
 
-
+public delegate void MsgHandler(MsgUnPacker unpacker);
 public class NetworkMgr : MonoBehaviour
 {
 
@@ -98,6 +98,19 @@ public class NetworkMgr : MonoBehaviour
         clientSocket.Send(_state);
     }
 
+    public void Send(MsgPacker msg, MsgHandler handler)
+    {
+        StateObj _state = new StateObj();
+        _state.MsgType = msg.MsgType;
+        _state.Receiver = msg.Receiver;
+        _state.IsNeedRecv = msg.IsNeedRecv;
+        _state.RecvHandler = handler;
+        _state.OnSend = OnSend;
+        _state.OnReceive = OnReceiveData;
+        _state.SendBuff = MsgUtils.SerializerMsg(msg);
+        clientSocket.Send(_state);
+    }
+
 	public void OnConnect(StateObj state)
     {
         UITools.log("Connect ro Server and start send msg");
@@ -123,6 +136,7 @@ public class NetworkMgr : MonoBehaviour
         MsgUnPacker unpacker = MsgUtils.DeserializerMsg(state.RecvBuff.ToByteArray());
         unpacker.MsgType = state.MsgType;
         unpacker.Receiver = state.Receiver;
+        unpacker.RecvHandler = state.RecvHandler;
         handerMgr.HandleMsg(unpacker);
     }
 

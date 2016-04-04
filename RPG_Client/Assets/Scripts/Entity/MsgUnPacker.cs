@@ -11,6 +11,13 @@ public class MsgUnPacker{
     private Unpacker unpacker;
     private IReceiveData _receiver;
     private int msgType;
+    private MsgHandler recvHandler;
+
+    public MsgHandler RecvHandler
+    {
+        get { return recvHandler; }
+        set { recvHandler = value; }
+    }
 
     public int MsgType
     {

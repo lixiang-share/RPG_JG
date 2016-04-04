@@ -10,6 +10,7 @@ import jg.rpg.entity.msgEntity.EquipItem;
 import jg.rpg.entity.msgEntity.Player;
 import jg.rpg.entity.msgEntity.Role;
 import jg.rpg.entity.msgEntity.ServerEntity;
+import jg.rpg.entity.msgEntity.Skill;
 import jg.rpg.entity.msgEntity.Task;
 /**
  * 集中处理model层的ORM映射问题
@@ -188,6 +189,43 @@ public class RSHHelper {
 				item.setFc(rs.getInt("fc"));
 				item.setDamage(rs.getInt("damage"));
 				return item;
+			}
+		};
+		return rsh;
+	}
+	
+	
+	
+	
+	
+	public static ResultSetHandler<Skill> getSkillRSH(){
+		ResultSetHandler<Skill> rsh = new ResultSetHandler<Skill>(){
+			@Override
+			public Skill handle(ResultSet rs) throws SQLException {
+				if(!rs.next()){
+					return null;
+				}
+				int columnCount = rs.getMetaData().getColumnCount();
+				Skill skill = new Skill();
+				if(columnCount >=1 )
+					skill.setId(rs.getInt(1));
+				if(columnCount >=2 )
+					skill.setOwnerID(rs.getInt("ownerId"));
+				if(columnCount >=3 )
+					skill.setRoleType(rs.getString("roleType"));
+				if(columnCount >= 4)
+					skill.setSkillID(rs.getInt("skillId"));
+				if(columnCount >=5 )
+					skill.setType(rs.getString("type"));
+				if(columnCount >=6 )
+					skill.setPos(rs.getString("pos").toLowerCase());
+				if(columnCount >=7 )
+					skill.setColdTime(rs.getInt("coldTime"));
+				if(columnCount>=8)
+					skill.setBaseFC(rs.getInt("baseFC"));
+				if(columnCount>=9) 
+					skill.setLevel(rs.getInt("level"));
+				return skill;
 			}
 		};
 		return rsh;

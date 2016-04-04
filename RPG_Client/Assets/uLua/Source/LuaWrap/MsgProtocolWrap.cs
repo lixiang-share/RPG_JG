@@ -28,6 +28,10 @@ public class MsgProtocolWrap
 			new LuaField("Sale_Equip", get_Sale_Equip, null),
 			new LuaField("Upgrade_Equip", get_Upgrade_Equip, null),
 			new LuaField("Undress_Equip", get_Undress_Equip, null),
+			new LuaField("AcceptTask", get_AcceptTask, null),
+			new LuaField("Get_SkillList", get_Get_SkillList, null),
+			new LuaField("Upgrade_Skill", get_Upgrade_Skill, null),
+			new LuaField("Get_PlayerInfo", get_Get_PlayerInfo, null),
 		};
 
 		LuaScriptMgr.RegisterLib(L, "MsgProtocol", typeof(MsgProtocol), regs, fields, typeof(object));
@@ -163,6 +167,34 @@ public class MsgProtocolWrap
 	static int get_Undress_Equip(IntPtr L)
 	{
 		LuaScriptMgr.Push(L, MsgProtocol.Undress_Equip);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_AcceptTask(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, MsgProtocol.AcceptTask);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Get_SkillList(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, MsgProtocol.Get_SkillList);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Upgrade_Skill(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, MsgProtocol.Upgrade_Skill);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Get_PlayerInfo(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, MsgProtocol.Get_PlayerInfo);
 		return 1;
 	}
 }

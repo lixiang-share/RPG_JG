@@ -22,4 +22,10 @@ public class MsgProtocol {
 	public const int Sale_Equip = 11;
     public const int Upgrade_Equip = 12;
     public const int Undress_Equip = 13;
+	public const int AcceptTask = 14;
+	
+	public const int Get_SkillList = 15;
+	public const int Upgrade_Skill = 16;
+
+    public const int Get_PlayerInfo = 17;
 }

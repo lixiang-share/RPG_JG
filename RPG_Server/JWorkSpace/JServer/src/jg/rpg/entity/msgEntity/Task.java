@@ -9,6 +9,11 @@ import jg.rpg.dao.db.RSHHelper;
 
 public class Task extends EntityBase<Task>{
 
+    public final static int NotClaim = 0;
+    public final static int NotComplete = 1;
+    public final static int Complete = 2;
+    public final static int Finish = 3;
+    
 	private int id;
 	private int taskId;
 	private String type;
@@ -74,6 +79,14 @@ public class Task extends EntityBase<Task>{
 	}
 	public void setGoldCount(int goldCount) {
 		this.goldCount = goldCount;
+	}
+	
+	@Override
+	public String toString() {
+		return "Task [id=" + id + ", taskId=" + taskId + ", type=" + type
+				+ ", ownerId=" + ownerId + ", status=" + status
+				+ ", goldCount=" + goldCount + ", diamondCount=" + diamondCount
+				+ ", curStage=" + curStage + ", totalStage=" + totalStage + "]";
 	}
 	@Override
 	public boolean isNeedDelete() {

@@ -105,4 +105,26 @@ public static class ConvertUitls {
         }
         return list;
     }
+
+    internal static IList MsgToSkillList(MsgUnPacker unpacker)
+    {
+        IList list = new ArrayList();
+        int skillLen = unpacker.PopInt();
+        for (int i = 0; i < skillLen; i++)
+        {
+            SkillItem skill = new SkillItem();
+            skill.Id = unpacker.PopInt();
+            skill.OwnerID = unpacker.PopInt();
+            skill.SkillID = unpacker.PopInt();
+            skill.RoleType = unpacker.PopString();
+            skill.Type = unpacker.PopString();
+            skill.Pos = unpacker.PopString();
+            skill.ColdTime = unpacker.PopInt();
+            skill.Fc = unpacker.PopInt();
+            skill.Level = unpacker.PopInt();
+            SkillMgr.Instance.ComposeSkill(skill);
+            list.Add(skill);
+        }
+        return list;
+    }
 }

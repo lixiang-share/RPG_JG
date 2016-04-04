@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Skills>
+	<Skill>
+		<skillID>1001</skillID>
+		<roleType>Warrior</roleType>
+		<type>Base</type>
+		<pos>basic</pos>
+		<coldTime>0</coldTime>
+		<baseFC>30</baseFC>
+		<level>1</level>
+	</Skill>
+
+	<Skill>
+		<skillID>1002</skillID>
+		<roleType>Warrior</roleType>
+		<type>Skill</type>
+		<pos>one</pos>
+		<coldTime>5</coldTime>
+		<baseFC>30</baseFC>
+		<level>1</level>
+	</Skill>
+	
+	<Skill>
+		<skillID>1003</skillID>
+		<roleType>Warrior</roleType>
+		<type>Skill</type>
+		<pos>two</pos>
+		<coldTime>8</coldTime>
+		<baseFC>40</baseFC>
+		<level>1</level>
+	</Skill>
+
+	<Skill>
+		<skillID>1004</skillID>
+		<roleType>Warrior</roleType>
+		<type>Skill</type>
+		<pos>three</pos>
+		<coldTime>10</coldTime>
+		<baseFC>50</baseFC>
+		<level>1</level>
+	</Skill>
+
+	<Skill>
+		<skillID>2001</skillID>
+		<roleType>FemaleAssassin</roleType>
+		<type>Base</type>
+		<pos>basic</pos>
+		<coldTime>0</coldTime>
+		<baseFC>30</baseFC>
+		<level>1</level>
+	</Skill>
+
+
+	<Skill>
+		<skillID>2002</skillID>
+		<roleType>FemaleAssassin</roleType>
+		<type>Skill</type>
+		<pos>one</pos>
+		<coldTime>5</coldTime>
+		<baseFC>35</baseFC>
+		<level>1</level>
+	</Skill>
+
+	<Skill>
+		<skillID>2003</skillID>
+		<roleType>FemaleAssassin</roleType>
+		<type>Skill</type>
+		<pos>two</pos>
+		<coldTime>8</coldTime>
+		<baseFC>40</baseFC>
+		<level>1</level>
+	</Skill>
+	
+	<Skill>
+		<skillID>2004</skillID>
+		<roleType>FemaleAssassin</roleType>
+		<type>Skill</type>
+		<pos>three</pos>
+		<coldTime>13</coldTime>
+		<baseFC>50</baseFC>
+		<level>1</level>
+	</Skill>
+
+</Skills>

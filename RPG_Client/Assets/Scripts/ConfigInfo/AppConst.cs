@@ -83,7 +83,7 @@ public class AppConst {
     public const int Max_Msg_Len = 1024;
     public static string TaskListPath = Application.streamingAssetsPath + "/csvFiles/taskList.csv";
     public static string EquipListPath = Application.streamingAssetsPath + "/csvFiles/equipList.csv";
-
+    public static string SkillListPath = Application.streamingAssetsPath + "/csvFiles/skillList.csv";
 
     private static string _sessionKey;
     public static string SessionKey

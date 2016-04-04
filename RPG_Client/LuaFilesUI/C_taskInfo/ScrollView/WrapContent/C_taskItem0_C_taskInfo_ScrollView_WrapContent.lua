@@ -15,7 +15,6 @@
 =========================  OnParseData(param)  ========================
 inst:S('Task' , param)
 UITools.Set(inst:GetChild('s_icon') ,param.IconName)
-
 if param.GoldCount > 0 then
 	UITools.Set(inst:GetChild('s_rewardIcon') ,'gold')
 	UITools.Set(inst:GetChild('c_rewards'):GetChild('s_icon') ,'gold')
@@ -32,16 +31,16 @@ local bg = ''
 local text = ''
 if param.Status == 0 then
 	bg = 'btn_changName01'
-	text ='未开始'
+	text ='接受任务'
 elseif param.Status == 1 then
 	bg = 'btn_changName01'
-	text ='未开始'
+	text ='下一步'
 elseif param.Status == 2 then
 	bg = 'btn_changName01'
-	text ='未开始'
+	text ='领取奖励'
 elseif param.Status == 3 then
 	bg = 'btn_getRewards03'
-	text ='未开始'
+	text ='已领取'
 end
 UITools.Set(inst:GetChild('b_button'):GetChild('s_bg') , bg)
 UITools.Set(inst:GetChild('b_button'):GetChild('l_desc') , text)

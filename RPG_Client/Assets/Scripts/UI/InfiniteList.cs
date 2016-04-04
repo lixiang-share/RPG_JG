@@ -73,6 +73,9 @@ public class InfiniteList : LuaBehaviour {
 
             }
             UITools.SA(this, true);
+            wrapContent.mFirstTime = true;
+            wrapContent.WrapContent();
+            wrapContent.mFirstTime = false;
         }
     }
 
