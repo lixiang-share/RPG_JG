@@ -7,7 +7,7 @@ public delegate bool ArriveCondition(Vector3 target);
 public class SimpleMoveCtrl : MonoBehaviour
 {
 
-    public string run_name = "run";
+  //  public string run_name = "run";
     public float StoppingDist = 4f;
    // public GameObject go;
     public Vector3 target;
@@ -16,21 +16,22 @@ public class SimpleMoveCtrl : MonoBehaviour
     private Vector3 velocity = Vector3.zero;
     private bool isMoving;
     private bool isAbleMove = true;
-    private Animator animatorCtrl;
+   // private Animator animatorCtrl;
     private NavMeshAgent navMeshAgent;
     private ArriveCondition Condition;
     private DefAction OnArrive;
 
     void Awake()
     {
-        animatorCtrl = GetComponent<Animator>();
-        if (animatorCtrl == null)
-        {
-            GameTools.LogError("Can not move due to don't attach AnimatorController!!");
-            isAbleMove = false;
-        }
+        //animatorCtrl = GetComponent<Animator>();
+        //if (animatorCtrl == null)
+        //{
+        //    GameTools.LogError("Can not move due to don't attach AnimatorController!!");
+        //    isAbleMove = false;
+        //}
         curState = MoveState.Idle;
-        navMeshAgent = GetComponent<NavMeshAgent>();
+        if(GetComponent<NavMeshAgent>() != null)
+            navMeshAgent = GetComponent<NavMeshAgent>();
         //MoveTarget(go, () => { GameTools.Log("======>>"); }); 
     }
 
@@ -75,7 +76,7 @@ public class SimpleMoveCtrl : MonoBehaviour
 		Vector3 nexPos = velocity * Time.deltaTime + transform.position;
 		if (isAbleMove && isMoving && Enclosure.Instance.isInside(nexPos) && velocity.magnitude > 0.01)
 		{
-			playRun(true);
+		//	playRun(true);
 			transform.position = nexPos;
 			transform.rotation = Quaternion.LookRotation(velocity);
 		}
@@ -89,17 +90,18 @@ public class SimpleMoveCtrl : MonoBehaviour
 	
     public void playRun(bool isRun)
     {
-        animatorCtrl.SetBool(run_name, isRun);
+      //  animatorCtrl.SetBool(run_name, isRun);
     }
 
     public void ResetState()
     {
-        playRun(false);
+      //  playRun(false);
         isMoving = false;
         isAbleMove = false;
         curState = MoveState.Idle;
         velocity = Vector3.zero;
-        navMeshAgent.enabled = false;
+        if(navMeshAgent != null)
+            navMeshAgent.enabled = false;
         target = Vector3.zero;
         this.OnArrive = null;
         this.Condition = null;
@@ -121,6 +123,12 @@ public class SimpleMoveCtrl : MonoBehaviour
 
     public void MoveToTarget(Vector3 target, DefAction OnArrive, ArriveCondition condition = null)
     {
+        if(navMeshAgent == null)
+        {
+            GameTools.LogError("Navigation in null!!!");
+            return;
+        }
+
         navMeshAgent.enabled = true;
         isAbleMove = true;
         this.target = target;
@@ -129,7 +137,7 @@ public class SimpleMoveCtrl : MonoBehaviour
         navMeshAgent.destination = target;
         curState = MoveState.MovingTarget;
         navMeshAgent.speed = speed;
-        playRun(true);
+     //   playRun(true);
     }
 
     public void MoveTarget(GameObject go, DefAction OnArrive, ArriveCondition condition = null)
