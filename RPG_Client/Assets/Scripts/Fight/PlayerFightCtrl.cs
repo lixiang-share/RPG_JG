@@ -13,14 +13,12 @@ public class PlayerFightCtrl : MonoBehaviour {
 	public PlayerAnimatorMgr animMgr;
     public SimpleMoveCtrl moveCtrl;
 
-    // Use this for initialization
     void Start () {
 		Instance = this;
 		if(animMgr == null) animMgr = GetComponent<PlayerAnimatorMgr>();
         if (moveCtrl == null) moveCtrl = GetComponent<SimpleMoveCtrl>();
 	}
 	
-	// Update is called once per frame
 	void Update () {
 		if(isAbleMove)
 			PlayerMove();
@@ -29,13 +27,13 @@ public class PlayerFightCtrl : MonoBehaviour {
 	public void PlayerMove(){
 		float h = Input.GetAxis("Horizontal");
 		float v = Input.GetAxis("Vertical");
-        if (Mathf.Abs(v) < minResponseVal && Mathf.Abs(h) < minResponseVal && !isAbleMove)
+        if((Mathf.Abs(v) < minResponseVal && Mathf.Abs(h) < minResponseVal) || !isAbleMove)
         {
             moveCtrl.ResetState();
             animMgr.Rest();
         }
         else {
-            moveCtrl.Move(-1 * h * speed, -1 * v * speed);
+            moveCtrl.Move( h * speed,v * speed);
             animMgr.PlayerRun();
         }
     }

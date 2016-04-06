@@ -1,38 +1,28 @@
 ﻿using UnityEngine;
 using System.Collections;
-//public enum PlayerState { Idle , Run , Fight}
+
 
 public enum MoveState{Moving , MovingTarget , Idle}
 public delegate bool ArriveCondition(Vector3 target);
 public class SimpleMoveCtrl : MonoBehaviour
 {
 
-  //  public string run_name = "run";
     public float StoppingDist = 4f;
-   // public GameObject go;
     public Vector3 target;
     public float speed = 8;
     private MoveState curState;
     private Vector3 velocity = Vector3.zero;
     private bool isMoving;
     private bool isAbleMove = true;
-   // private Animator animatorCtrl;
     private NavMeshAgent navMeshAgent;
     private ArriveCondition Condition;
     private DefAction OnArrive;
 
     void Awake()
     {
-        //animatorCtrl = GetComponent<Animator>();
-        //if (animatorCtrl == null)
-        //{
-        //    GameTools.LogError("Can not move due to don't attach AnimatorController!!");
-        //    isAbleMove = false;
-        //}
         curState = MoveState.Idle;
         if(GetComponent<NavMeshAgent>() != null)
             navMeshAgent = GetComponent<NavMeshAgent>();
-        //MoveTarget(go, () => { GameTools.Log("======>>"); }); 
     }
 
     void Update()
@@ -76,7 +66,6 @@ public class SimpleMoveCtrl : MonoBehaviour
 		Vector3 nexPos = velocity * Time.deltaTime + transform.position;
 		if (isAbleMove && isMoving && Enclosure.Instance.isInside(nexPos) && velocity.magnitude > 0.01)
 		{
-		//	playRun(true);
 			transform.position = nexPos;
 			transform.rotation = Quaternion.LookRotation(velocity);
 		}
@@ -86,16 +75,8 @@ public class SimpleMoveCtrl : MonoBehaviour
 		}
 	}
 	
-	
-	
-    public void playRun(bool isRun)
-    {
-      //  animatorCtrl.SetBool(run_name, isRun);
-    }
-
     public void ResetState()
     {
-      //  playRun(false);
         isMoving = false;
         isAbleMove = false;
         curState = MoveState.Idle;
@@ -137,11 +118,35 @@ public class SimpleMoveCtrl : MonoBehaviour
         navMeshAgent.destination = target;
         curState = MoveState.MovingTarget;
         navMeshAgent.speed = speed;
-     //   playRun(true);
     }
 
     public void MoveTarget(GameObject go, DefAction OnArrive, ArriveCondition condition = null)
     {
         MoveToTarget(go.transform.position, OnArrive, condition);
     }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Slope")
+        {
+            SlopeHandler slopeHandler = other.gameObject.GetComponent<SlopeHandler>();
+            Vector3 curPos = transform.position;
+            float curY = slopeHandler.GetYOnSlope(curPos);
+            transform.position = new Vector3(curPos.x, curY, curPos.z);
+        }
+
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        GameTools.LogError("=== Exit ==");
+        if (other.tag == "Slope")
+        {
+           SlopeHandler slopeHandler = other.gameObject.GetComponent<SlopeHandler>();
+           Vector3 curPos = transform.position;
+           float curY = slopeHandler.GetYLeaveSlop(curPos);
+           transform.position = new Vector3(curPos.x, curY, curPos.z);
+        }
+    }
+
 }

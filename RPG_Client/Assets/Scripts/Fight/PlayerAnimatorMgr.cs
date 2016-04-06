@@ -3,16 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 public class PlayerAnimatorMgr : MonoBehaviour {
 	
-	private string idleName = "idle";
-	private string runName = "run";
-	
+	private string runName = "Move";
 	public Animator animator;
 	private List<string> anim_names;
 	// Use this for initialization
 	void Start () {
 		if(animator == null) animator = GetComponent<Animator>();
         anim_names = new List<string>();
-        anim_names.Add(idleName);
 		anim_names.Add(runName);
 	}
 	
