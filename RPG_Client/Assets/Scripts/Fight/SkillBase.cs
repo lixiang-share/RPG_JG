@@ -57,6 +57,7 @@ public class SkillBase : ScaleButton {
     public void InitState()
     {
         this.GetChild("s_icon").Value = this.skillInfo.Icon;
+        this.GetChild("s_fore").Value = this.skillInfo.Icon;
         if (skillInfo.Type == "Base") cdSprite.gameObject.SetActive(false);
         curCDTime = 0;
         isCD = true;
@@ -71,6 +72,14 @@ public class SkillBase : ScaleButton {
 
     public override void OnClick()
     {
-        if (!isCD) EnterCD();
+        if(skillInfo.Type != SkillItem.Base){
+            PlayerFightCtrl.Instance.Attack(skillInfo.SkillID, !isCD);
+            if (!isCD && skillInfo.ColdTime != 0  ) 
+            EnterCD();
+        }
+        else
+        {
+            PlayerFightCtrl.Instance.Attack(skillInfo.SkillID);
+        }
     }
 }

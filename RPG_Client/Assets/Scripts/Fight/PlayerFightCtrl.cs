@@ -12,11 +12,12 @@ public class PlayerFightCtrl : MonoBehaviour {
 	public PlayerState curState = PlayerState.Idle;
 	public PlayerAnimatorMgr animMgr;
     public SimpleMoveCtrl moveCtrl;
-
+    public SkillManager skillMgr;
     void Start () {
 		Instance = this;
 		if(animMgr == null) animMgr = GetComponent<PlayerAnimatorMgr>();
         if (moveCtrl == null) moveCtrl = GetComponent<SimpleMoveCtrl>();
+        if (skillMgr == null) skillMgr = GetComponent<SkillManager>();
 	}
 	
 	void Update () {
@@ -30,11 +31,16 @@ public class PlayerFightCtrl : MonoBehaviour {
         if((Mathf.Abs(v) < minResponseVal && Mathf.Abs(h) < minResponseVal) || !isAbleMove)
         {
             moveCtrl.ResetState();
-            animMgr.Rest();
+           // animMgr.Rest();
         }
         else {
             moveCtrl.Move( h * speed,v * speed);
             animMgr.PlayerRun();
         }
+    }
+
+    public void Attack(int skillID, bool enable = true)
+    {
+        skillMgr.ReleaseSkill(skillID);
     }
 }

@@ -143,63 +143,7 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events:
-      - time: .232365146
-        functionName: Attack
-        data: skill3,BloodStrike1,skill3_1,1,0
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: .34439835
-        functionName: Attack
-        data: skill3,BloodStrike2,skill3_2,1,0
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: .439834028
-        functionName: Attack
-        data: skill3,BloodStrike3,skill3_3,1,0
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: .659750998
-        functionName: Attack
-        data: skill3,BloodStrike4,skill3_4,0,0
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: .261410773
-        functionName: SkillAttack
-        data: skill3,1,0
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: .377593368
-        functionName: SkillAttack
-        data: skill3,1,0
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: .473029047
-        functionName: SkillAttack
-        data: skill3,1,0
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
-      - time: .688796699
-        functionName: SkillAttack
-        data: skill3,0,1
-        objectReferenceParameter: {instanceID: 0}
-        floatParameter: 0
-        intParameter: 0
-        messageOptions: 0
+      events: []
       transformMask:
       - path: 
         weight: 1

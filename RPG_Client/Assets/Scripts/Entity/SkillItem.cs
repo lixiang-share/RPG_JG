@@ -8,7 +8,8 @@ public class SkillItem {
 	public const string One = "one";
 	public const string Two = "two";
     public const string Three = "three";
-
+    public const string Basic = "basic";
+    public const string Base = "Base";
     private int id;
     private int skillID;
     private int ownerID;
