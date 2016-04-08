@@ -69,7 +69,7 @@ public class SkillManager : MonoBehaviour {
     }
     public bool isAbleReleaseSkill()
     {
-        return animMgr.IsClipPlay(runClipName) || animMgr.IsClipPlay(idleClipName);
+        return  animMgr.IsClipPlay(idleClipName);
     }
 
     public SkillItem GetSkillBySkillID(int skillID)
@@ -79,16 +79,18 @@ public class SkillManager : MonoBehaviour {
         else
             return null;
     }
-    public void ReleaseSkill(int skillID , DefAction OnSuccess=null , DefAction OnFail = null)
+    public void ReleaseSkill(int skillID, DefAction OnSuccess = null, DefAction OnFinish = null, DefAction OnFail = null)
     {
         GameTools.Log("ReleaseSkill");
         SkillItem skill = GetSkillBySkillID(skillID);
-        if (skill == null || isAbleReleaseSkill())
+        if (skill == null || !isAbleReleaseSkill())
         {
             if (OnFail != null) OnFail();
             return;
         }
         string skillClipName = "Skill_" + skill.Pos;
-        animMgr.PlayClip(skillClipName);
+        GameTools.Log("Start ReleaseSkill");
+        animMgr.PlayClip(skillClipName,OnFinish);
+        OnSuccess();
     }
 }

@@ -72,10 +72,11 @@ public class SkillBase : ScaleButton {
 
     public override void OnClick()
     {
+        if (!PlayerFightCtrl.Instance.isAbleFight()) return;
         if(skillInfo.Type != SkillItem.Base){
             PlayerFightCtrl.Instance.Attack(skillInfo.SkillID, !isCD);
             if (!isCD && skillInfo.ColdTime != 0  ) 
-            EnterCD();
+                EnterCD();
         }
         else
         {

@@ -19,28 +19,37 @@ public class PlayerFightCtrl : MonoBehaviour {
         if (moveCtrl == null) moveCtrl = GetComponent<SimpleMoveCtrl>();
         if (skillMgr == null) skillMgr = GetComponent<SkillManager>();
 	}
-	
-	void Update () {
-		if(isAbleMove)
+
+    void Update() {
+        if (isAbleMove &&(curState == PlayerState.Idle || curState == PlayerState.Move))
 			PlayerMove();
 	}
 	
 	public void PlayerMove(){
 		float h = Input.GetAxis("Horizontal");
 		float v = Input.GetAxis("Vertical");
-        if((Mathf.Abs(v) < minResponseVal && Mathf.Abs(h) < minResponseVal) || !isAbleMove)
+        if((Mathf.Abs(v) < minResponseVal && Mathf.Abs(h) < minResponseVal))
         {
             moveCtrl.ResetState();
-           // animMgr.Rest();
+            animMgr.Reset();
+            curState = PlayerState.Idle;
         }
         else {
+            curState = PlayerState.Move;
             moveCtrl.Move( h * speed,v * speed);
-            animMgr.PlayerRun();
+            animMgr.PlayRun();
         }
     }
-
+    public bool isAbleFight()
+    {
+        return curState == PlayerState.Idle ;
+    }
     public void Attack(int skillID, bool enable = true)
     {
-        skillMgr.ReleaseSkill(skillID);
+        if(enable)
+            skillMgr.ReleaseSkill(skillID ,
+                () => { curState = PlayerState.Fight; isAbleMove = false; },
+                () => { curState = PlayerState.Idle; isAbleMove = true; }
+            );
     }
 }

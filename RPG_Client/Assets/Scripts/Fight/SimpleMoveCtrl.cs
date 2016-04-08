@@ -139,7 +139,7 @@ public class SimpleMoveCtrl : MonoBehaviour
 
     void OnTriggerExit(Collider other)
     {
-        GameTools.LogError("=== Exit ==");
+       // GameTools.LogError("=== Exit ==");
         if (other.tag == "Slope")
         {
            SlopeHandler slopeHandler = other.gameObject.GetComponent<SlopeHandler>();
