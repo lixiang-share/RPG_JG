@@ -10,14 +10,32 @@ public class PlayerFightCtrl : MonoBehaviour {
 	public float minResponseVal = 0.005f;
 	public bool isAbleMove = true;
 	public PlayerState curState = PlayerState.Idle;
-	public PlayerAnimatorMgr animMgr;
-    public SimpleMoveCtrl moveCtrl;
-    public SkillManager skillMgr;
-    void Start () {
+    private PlayerAnimatorMgr animMgr;
+    private SkillManager skillMgr;
+    private SimpleMoveCtrl moveCtrl;
+
+    public PlayerAnimatorMgr AnimMgr
+    {
+        get { return animMgr; }
+        set { animMgr = value; }
+    }
+
+    public SimpleMoveCtrl MoveCtrl
+    {
+        get { return moveCtrl; }
+        set { moveCtrl = value; }
+    }
+
+    public SkillManager SkillMgr
+    {
+        get { return skillMgr; }
+        set { skillMgr = value; }
+    }
+    void OnEnable () {
 		Instance = this;
 		if(animMgr == null) animMgr = GetComponent<PlayerAnimatorMgr>();
         if (moveCtrl == null) moveCtrl = GetComponent<SimpleMoveCtrl>();
-        if (skillMgr == null) skillMgr = GetComponent<SkillManager>();
+        if (skillMgr == null) skillMgr = GetComponentInChildren<SkillManager>();
 	}
 
     void Update() {

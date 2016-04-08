@@ -11,9 +11,11 @@ public class SkillManager : MonoBehaviour {
     public PlayerAnimatorMgr animMgr;
     public List<SkillItem> skills;
     private Dictionary<int, SkillItem> skillDict;
+    private Dictionary<int, SkillBase> skillCtrlDict;
 	void Start () {
         skillDict = new Dictionary<int, SkillItem>();
-        if (animMgr == null) animMgr = GetComponent<PlayerAnimatorMgr>();
+        skillCtrlDict = new Dictionary<int, SkillBase>();
+        if (animMgr == null) animMgr = PlayerFightCtrl.Instance.AnimMgr;
 
         List<SkillItem> skills = new List<SkillItem>();
         SkillItem skill = new SkillItem();
@@ -57,14 +59,13 @@ public class SkillManager : MonoBehaviour {
     public void InitState(List<SkillItem> skills)
     {
         this.skills = skills;
-        if (skillDict == null)
-            skillDict = new Dictionary<int, SkillItem>();
-        else
-            skillDict.Clear();
         foreach(SkillItem skill in skills)
         {
-            UITools.D("skill." + skill.Pos).GetComponent<SkillBase>().ReviceSkillInfo(skill);
+            SkillBase skillCtrl = transform.GetChild("skill_" + skill.Pos).GetComponent<SkillBase>();
+            skillCtrl.ReviceSkillInfo(skill);
+
             skillDict.Add(skill.SkillID, skill);
+            skillCtrlDict.Add(skill.SkillID, skillCtrl);
         }
     }
     public bool isAbleReleaseSkill()
@@ -72,25 +73,34 @@ public class SkillManager : MonoBehaviour {
         return  animMgr.IsClipPlay(idleClipName);
     }
 
-    public SkillItem GetSkillBySkillID(int skillID)
+    public SkillItem GetSkillItemBySkillID(int skillID)
     {
         if (skillDict.ContainsKey(skillID))
             return skillDict[skillID];
         else
             return null;
     }
+    public SkillBase GetSkillCtrlBySkillID(int skillID)
+    {
+        if (skillCtrlDict.ContainsKey(skillID))
+            return skillCtrlDict[skillID];
+        else
+            return null;
+    }
+
     public void ReleaseSkill(int skillID, DefAction OnSuccess = null, DefAction OnFinish = null, DefAction OnFail = null)
     {
         GameTools.Log("ReleaseSkill");
-        SkillItem skill = GetSkillBySkillID(skillID);
+        SkillItem skill = GetSkillItemBySkillID(skillID);
         if (skill == null || !isAbleReleaseSkill())
         {
             if (OnFail != null) OnFail();
             return;
         }
-        string skillClipName = "Skill_" + skill.Pos;
-        GameTools.Log("Start ReleaseSkill");
-        animMgr.PlayClip(skillClipName,OnFinish);
-        OnSuccess();
+        SkillBase skillCtrl = GetSkillCtrlBySkillID(skillID);
+        if (skillCtrl != null) skillCtrl.Release(OnSuccess , OnFinish);
+
+
+  
     }
 }

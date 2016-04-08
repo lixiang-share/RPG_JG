@@ -7,6 +7,8 @@ public class ScaleButton : LuaBehaviour
     [HideInInspector]
     public float scaleFactor = 0.9f;
     private Vector3 originScale;
+    [HideInInspector]
+    public DefAction OnClickListen;
 
     public void OnEnable()
     {
@@ -32,5 +34,11 @@ public class ScaleButton : LuaBehaviour
             TweenScale.Begin(gameObject,0.2f,originScale);
         }
         base.OnHold(isHold);
+    }
+
+    public override void OnClick()
+    {
+        base.OnClick();
+        if (OnClickListen != null) OnClickListen();
     }
 }

@@ -1,18 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SkillBase : ScaleButton {
+public class SkillBase : FightGOBase {
     public SkillItem skillInfo;
     public bool isInit = false;
     public bool isCD = false;
+    public LuaBehaviour ctrlGO;
     public UISprite cdSprite;
+    public PlayerAnimatorMgr animMgr;
     private float curCDTime;
-
-    public override void Start()
-    {
-        base.Start();
-        if (cdSprite == null) cdSprite = this.GetChild("s_fore").GetComponent<UISprite>();
-    }
 
     public void Update()
     {
@@ -53,11 +49,21 @@ public class SkillBase : ScaleButton {
             cdSprite.fillAmount = progress;
         }
     }
-
+    public void SetControlGO()
+    {
+        ctrlGO = UITools.D("skill." + this.skillInfo.Pos);
+        cdSprite = ctrlGO.GetChild("s_fore").GetComponent<UISprite>();
+        if(ctrlGO is ScaleButton){
+            ScaleButton sb = ctrlGO as ScaleButton;
+            sb.OnClickListen = OnClickSkill;
+        }
+    }
     public void InitState()
     {
-        this.GetChild("s_icon").Value = this.skillInfo.Icon;
-        this.GetChild("s_fore").Value = this.skillInfo.Icon;
+        SetControlGO();
+        animMgr = PlayerFightCtrl.Instance.AnimMgr;
+        ctrlGO.GetChild("s_icon").Value = this.skillInfo.Icon;
+        ctrlGO.GetChild("s_fore").Value = this.skillInfo.Icon;
         if (skillInfo.Type == "Base") cdSprite.gameObject.SetActive(false);
         curCDTime = 0;
         isCD = true;
@@ -70,9 +76,10 @@ public class SkillBase : ScaleButton {
         cdSprite.gameObject.SetActive(true);
     }
 
-    public override void OnClick()
+    public  void OnClickSkill()
     {
-        if (!PlayerFightCtrl.Instance.isAbleFight()) return;
+        if (!PlayerFightCtrl.Instance.isAbleFight()||!isInit) return;
+
         if(skillInfo.Type != SkillItem.Base){
             PlayerFightCtrl.Instance.Attack(skillInfo.SkillID, !isCD);
             if (!isCD && skillInfo.ColdTime != 0  ) 
@@ -82,5 +89,14 @@ public class SkillBase : ScaleButton {
         {
             PlayerFightCtrl.Instance.Attack(skillInfo.SkillID);
         }
+    }
+
+    public virtual void Release(DefAction OnSuccess = null, DefAction OnFinish = null)
+    {
+        if (!isInit) return;
+        string skillClipName = "Skill_" + skillInfo.Pos;
+        GameTools.Log("Start ReleaseSkill");
+        animMgr.PlayClip(skillClipName, OnFinish);
+        OnSuccess();
     }
 }
