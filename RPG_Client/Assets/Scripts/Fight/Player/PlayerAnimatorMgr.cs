@@ -40,7 +40,6 @@ public class ClipInfo{
     {
         get
         {
-            if (name == null || name == "") return ConFlag.ToLower();
             return name;
         }
 
@@ -56,6 +55,7 @@ public class ClipInfo{
     public ClipInfo(string conFlag, float duration) { this.ConFlag = conFlag; this.Duration = duration; }
 }
 
+public delegate bool ClipFinishCondtion();
 public class PlayerAnimatorMgr : FightGOBase
 {
 
@@ -66,32 +66,35 @@ public class PlayerAnimatorMgr : FightGOBase
     public ClipInfo skillTwoClip;
     public ClipInfo skillThreeClip;
     public ClipInfo skillBasicClip;
-
-
+    public ClipInfo skillBasicAttackClip02;
+    public ClipInfo skillBasicAttackClip03;
 
 	public Animator animator;
 
     public string curClipName = "idle";
     public static string defClipName = "idle";
-	private List<ClipInfo> allClips;
+	private Dictionary<string,ClipInfo> allClipDict;
 	// Use this for initialization
 	void Start () {
 		if(animator == null) animator = GetComponent<Animator>();
-        allClips = new List<ClipInfo>();
-        allClips.Add(runClip);
-        allClips.Add(hitClip);
-        allClips.Add(dieClip);
-        allClips.Add(skillOneClip);
-        allClips.Add(skillTwoClip);
-        allClips.Add(skillThreeClip);
-        allClips.Add(skillBasicClip);
+        allClipDict = new Dictionary<string, ClipInfo>();
+        allClipDict.Add(runClip.Name , runClip);
+        allClipDict.Add(hitClip.Name,hitClip);
+        allClipDict.Add(dieClip.Name,dieClip);
+        allClipDict.Add(skillOneClip.Name, skillOneClip);
+        allClipDict.Add(skillTwoClip.Name,skillTwoClip);
+        allClipDict.Add(skillThreeClip.Name,skillThreeClip);
+        allClipDict.Add(skillBasicClip.Name,skillBasicClip);
+        allClipDict.Add(skillBasicAttackClip02.Name,skillBasicAttackClip02);
+        allClipDict.Add(skillBasicAttackClip03.Name,skillBasicAttackClip03);
         Reset();
 	}
 	
 	public void Reset(){
-		for (int i = 0; i < allClips.Count; i++) {
-			animator.SetBool(allClips[i].ConFlag, false);
-		}
+        foreach (var item in allClipDict.Values)
+        {
+              animator.SetBool(item.ConFlag, false);
+        }
         curClipName = defClipName;
 	}
 	
@@ -110,26 +113,35 @@ public class PlayerAnimatorMgr : FightGOBase
         return rst;
     }
 
-    public ClipInfo GetClipInfoByFlag(string clipFlag)
+    public ClipInfo GetClipInfoByName(string clipFlag)
     {
         ClipInfo clip = null;
-        foreach(ClipInfo c in allClips)
-        {
-            if (c.ConFlag == clipFlag) { clip = c; break; }
-        }
+        allClipDict.TryGetValue(clipFlag,out clip);
         return clip;
     }
 
-    public void PlayClip(string clipFlag,DefAction OnFinish = null)
+    public void PlayClip(string clipName, DefAction OnFinish = null, ClipFinishCondtion condtion = null)
     {
-        Reset();
+        GameTools.Log("PlayClip : " + clipName);
+        ClipInfo clip = GetClipInfoByName(clipName);
+        GameTools.Log("PlayClip Flag : " + clip.ConFlag);
+
+        string clipFlag = clip.ConFlag;
         animator.SetBool(clipFlag,true);
-        ClipInfo clip = GetClipInfoByFlag(clipFlag);
         curClipName = clip.Name;
         WaitForSec(clip.Duration , ()=> {
-            GameTools.Log("Reset");
-            Reset();
-            if (OnFinish != null) OnFinish();
+            if (OnFinish != null)
+            {
+                if (condtion != null)
+                {
+                    if (condtion()) OnFinish();
+                }
+                else
+                {
+                    OnFinish();
+                }
+            }
+            GameTools.Log("Set false : " + clipFlag);
         });
     }
 }

@@ -1,6 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+public enum BaseSkillState { Idle,Attack01,Attack02,Attack03 };
+
 public class Skill_Man_One : SkillBase {
 
     public float moveDist = 2;
@@ -15,39 +17,136 @@ public class Skill_Man_One : SkillBase {
     public GameObject effectGOSecond;
     public GameObject effectGOThird;
 
+    public string attack01Clip = "Skill_basic";
+    public string attack02Clip = "Basic_attack02";
+    public string attack03Clip = "Basic_attack03";
+
+    public BaseSkillState curState = BaseSkillState.Idle;
+    public BaseSkillState targettState = BaseSkillState.Idle;
+
+    public override bool HasComoSkill()
+    {
+        GameTools.LogError("HasComoSkill");
+        switch (curState)
+        {
+            case BaseSkillState.Idle:
+                return false;
+            case BaseSkillState.Attack01:
+                if (animMgr.IsClipPlay(attack01Clip))
+                    return true;
+                else
+                    return false;
+            case BaseSkillState.Attack02:
+                if (animMgr.IsClipPlay(attack02Clip))
+                    return true;
+                else
+                    return false;
+            case BaseSkillState.Attack03:
+                return false;
+        }
+        return false;
+    }
+
+    public override void ReleaseComboSkill()
+    {
+        GameTools.LogError("ReleaseComboSkill");
+        switch (targettState)
+        {
+            case BaseSkillState.Idle:
+                targettState = BaseSkillState.Idle;
+                break;
+            case BaseSkillState.Attack01:
+                WaitForSec(SecondTime, () => { PlayEffect(effectGOSecond); });
+                targettState = BaseSkillState.Attack02;
+                break;
+            case BaseSkillState.Attack02:
+                WaitForSec(ThirdTime, () => { PlayEffect(effectGOThird); });
+                targettState = BaseSkillState.Attack03;
+                break;
+            default:
+                targettState = BaseSkillState.Attack03;
+                break;
+        }
+    }
+
+
     public override void Release(DefAction OnSuccess = null, DefAction OnFinish = null)
     {
+        targettState = curState = BaseSkillState.Attack01;
         //播放角色动作
-        base.Release(OnSuccess, OnFinish);
+        base.Release(OnSuccess, () => {
+            OnReleaseFinish(OnFinish);
+        });
         //控制猪脚瞬间移动
         WaitForSec(delayTime , ()=>{
             FastMove();
         });
-
+        AudioManager.Instance.PlayAudio(AudioManager.Man_Comm_Attack01);
         //控制特效显示
-        WaitForSec(FirstTime, () => {
-            if (effectGOFirst == null) return;
-            if (!effectGOFirst.activeSelf) effectGOFirst.SetActive(true);
-            PlayEffect(effectGOFirst);
-        });
-
-        WaitForSec(SecondTime, () =>
-        {
-            if (effectGOSecond == null) return;
-            if (!effectGOSecond.activeSelf) effectGOSecond.SetActive(true);
-            PlayEffect(effectGOSecond);
-
-        });
-
-        WaitForSec(ThirdTime, () =>
-        {
-            if (effectGOThird == null) return;
-            if (!effectGOThird.activeSelf) effectGOThird.SetActive(true);
-            PlayEffect(effectGOThird);
-
-        });
+        PlayEffect(effectGOFirst);
     }
 
+    public void OnReleaseFinish(DefAction OnFinish)
+    {
+        if (targettState == curState)
+        {
+            ResetState();
+            OnFinish();
+            return;
+        }
+        switch (curState)
+        {
+            case BaseSkillState.Idle:
+                ResetState();
+                break;
+            case BaseSkillState.Attack01:
+                if (targettState > curState)
+                {
+                    ReleaseAttack02(OnFinish);
+                    curState = BaseSkillState.Attack02;
+                }
+                break;
+            case BaseSkillState.Attack02:
+                if (targettState > curState)
+                {
+                    ReleaseAttack03(OnFinish);
+                    curState = BaseSkillState.Attack03;
+                }
+                break;
+            default:
+                ResetState();
+                OnFinish();
+                break;
+        }  
+    }
+
+    private void ResetState()
+    {
+        curState = targettState = BaseSkillState.Idle;
+    }
+
+    private void ReleaseAttack02(DefAction OnFinish)
+    {
+        AudioManager.Instance.PlayAudio(AudioManager.Man_Comm_Attack02);
+        GameTools.LogError("ReleaseAttack02222");
+      //  PlayEffect(effectGOSecond);
+        animMgr.PlayClip(attack02Clip, () =>
+        {
+            OnReleaseFinish(OnFinish);
+        });
+    }
+    private void ReleaseAttack03(DefAction OnFinish)
+    {
+        WaitForSec(0.5f, () => {
+            AudioManager.Instance.PlayAudio(AudioManager.Man_Comm_Attack03);
+        });
+        GameTools.LogError("ReleaseAttack0333");
+       // PlayEffect(effectGOThird);
+        animMgr.PlayClip(attack03Clip, () =>
+        {
+            OnReleaseFinish(OnFinish);
+        });
+    }
 
     public void FastMove()
     {
@@ -69,6 +168,8 @@ public class Skill_Man_One : SkillBase {
 
     public void PlayEffect(GameObject effectGO)
     {
+        if (effectGO == null) return;
+        if (!effectGO.activeSelf) effectGO.SetActive(true);
         NcCurveAnimation[] ncs = effectGO.GetComponentsInChildren<NcCurveAnimation>();
         foreach (NcCurveAnimation nc in ncs)
         {

@@ -18,6 +18,8 @@ public class SkillItemWrap
 			new LuaField("One", get_One, null),
 			new LuaField("Two", get_Two, null),
 			new LuaField("Three", get_Three, null),
+			new LuaField("Basic", get_Basic, null),
+			new LuaField("Base", get_Base, null),
 			new LuaField("Id", get_Id, set_Id),
 			new LuaField("SkillID", get_SkillID, set_SkillID),
 			new LuaField("OwnerID", get_OwnerID, set_OwnerID),
@@ -95,6 +97,20 @@ public class SkillItemWrap
 	static int get_Three(IntPtr L)
 	{
 		LuaScriptMgr.Push(L, SkillItem.Three);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Basic(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, SkillItem.Basic);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Base(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, SkillItem.Base);
 		return 1;
 	}
 

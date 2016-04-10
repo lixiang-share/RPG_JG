@@ -27,7 +27,7 @@ public class ScaleButton : LuaBehaviour
                 scale = null;
             }
             gameObject.transform.localScale = originScale*scaleFactor;
-            AudioManager.Instance.PlayBtnSounds();
+            AudioManager.Instance.PlayAudio(AudioManager.AUDIO_BTN);
         }
         else
         {

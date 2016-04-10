@@ -7,7 +7,14 @@ public class GameMgr : MonoBehaviour {
 	
 	void Awake(){
 		Instance = this;
+        InitAllManagers();
 	}
+
+    private void InitAllManagers()
+    {
+        //AudioManager
+        AudioManager.Instance.Init();
+    }
 	
 	void Start () {
 		go = GameObject.FindWithTag("GameManager");

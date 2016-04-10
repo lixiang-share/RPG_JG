@@ -2,13 +2,17 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
-    public class AudioManager {
-        private AudioSource audio;
-        private Dictionary<string, AudioClip> sounds = new Dictionary<string,AudioClip>();
+    public class AudioManager{
         public static AudioManager instance = null;
-
         //各种音频的Key值
         public const string AUDIO_BTN = "audio_btn";
+        public const string Man_Comm_Attack01 = "man_attack_01";
+        public const string Man_Comm_Attack02 = "man_attack_02";
+        public const string Man_Comm_Attack03 = "man_attack_03";
+
+        private AudioSource audio;
+        private Dictionary<string, AudioClip> sounds = new Dictionary<string,AudioClip>();
+
 
         public static AudioManager Instance
         {
@@ -17,38 +21,44 @@ using System.Collections.Generic;
                 if (instance == null)
                 {
                    instance = new AudioManager();
+                   instance.Init();
                 }
                return instance;
             }
         }
-
-        private AudioManager()
+        public void Init()
         {
             LoadAllAudio();
         }
 
         public void LoadAllAudio()
         {
-            //加载按钮音乐
-            Add(AUDIO_BTN, LoadAudioClip("Sounds/audio_btn"));
+            Add(AUDIO_BTN);
+            Add(Man_Comm_Attack01);
+            Add(Man_Comm_Attack02);
+            Add(Man_Comm_Attack03);
         }
 
-        public AudioClip LoadAudioClip(string path)
+        private void Add(string name)
         {
-            AudioClip ac = Get(path);
-            if (ac == null)
-            {
-                ac = (AudioClip)Resources.Load(path, typeof(AudioClip));
-            }
-            return ac;
+            Add(name, LoadAudioClip(name));
         }
-
         /// <summary>
         /// 添加一个声音
         /// </summary>
         void Add(string key, AudioClip value) {
             if (sounds.ContainsKey(key) ||!UITools.isValidString(key)|| value == null) return;
             sounds.Add(key, value);
+        }
+        private AudioClip LoadAudioClip(string name)
+        {
+            string path = "Sounds/"+name;
+            AudioClip ac = Get(path);
+            if (ac == null)
+            {
+                ac = (AudioClip)Resources.Load(path, typeof(AudioClip));
+            }
+            return ac;
         }
 
         /// <summary>
@@ -115,11 +125,20 @@ using System.Collections.Generic;
             AudioSource.PlayClipAtPoint(clip, position); 
         }
         */
-        public void PlayBtnSounds()
+        //public void PlayBtnSounds()
+        //{
+        //    if (sounds.ContainsKey(AUDIO_BTN))
+        //    {
+        //        NGUITools.PlaySound(sounds[AUDIO_BTN], PlayerSettingMgr.Instance.BtnVolume);
+        //    }
+        //}
+
+        public void PlayAudio(string audioName)
         {
-            if (sounds.ContainsKey(AUDIO_BTN))
+            if (sounds.ContainsKey(audioName))
             {
-                NGUITools.PlaySound(sounds[AUDIO_BTN], PlayerSettingMgr.Instance.BtnVolume);
+                NGUITools.PlaySound(sounds[audioName], PlayerSettingMgr.Instance.BtnVolume);
             }
         }
+
     }

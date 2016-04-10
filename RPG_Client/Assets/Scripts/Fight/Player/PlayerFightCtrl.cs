@@ -67,7 +67,11 @@ public class PlayerFightCtrl : MonoBehaviour {
         if(enable)
             skillMgr.ReleaseSkill(skillID ,
                 () => { curState = PlayerState.Fight; isAbleMove = false; },
-                () => { curState = PlayerState.Idle; isAbleMove = true; }
+                () => { 
+                    curState = PlayerState.Idle; isAbleMove = true;
+                    animMgr.Reset();
+                    GameTools.LogError("****");
+                }
             );
     }
 }

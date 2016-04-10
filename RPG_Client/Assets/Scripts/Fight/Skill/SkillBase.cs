@@ -5,6 +5,7 @@ public class SkillBase : FightGOBase {
     public SkillItem skillInfo;
     public bool isInit = false;
     public bool isCD = false;
+    public bool needCD = false;
     public LuaBehaviour ctrlGO;
     public UISprite cdSprite;
     public PlayerAnimatorMgr animMgr;
@@ -64,9 +65,18 @@ public class SkillBase : FightGOBase {
         animMgr = PlayerFightCtrl.Instance.AnimMgr;
         ctrlGO.GetChild("s_icon").Value = this.skillInfo.Icon;
         ctrlGO.GetChild("s_fore").Value = this.skillInfo.Icon;
-        if (skillInfo.Type == "Base") cdSprite.gameObject.SetActive(false);
+        if (skillInfo.Type == "Base")
+        {
+            cdSprite.gameObject.SetActive(false);
+            needCD = false;
+            isCD = false;
+        }
+        else
+        {
+            needCD = true;
+            isCD = true;
+        }
         curCDTime = 0;
-        isCD = true;
         isInit = true;
     }
     public void EnterCD()
@@ -76,27 +86,33 @@ public class SkillBase : FightGOBase {
         cdSprite.gameObject.SetActive(true);
     }
 
-    public  void OnClickSkill()
+    public virtual void OnClickSkill()
     {
-        if (!PlayerFightCtrl.Instance.isAbleFight()||!isInit) return;
+        if (!isInit) return;
 
-        if(skillInfo.Type != SkillItem.Base){
-            PlayerFightCtrl.Instance.Attack(skillInfo.SkillID, !isCD);
-            if (!isCD && skillInfo.ColdTime != 0  ) 
-                EnterCD();
+        if(PlayerFightCtrl.Instance.isAbleFight() && 
+            ((needCD && !isCD) || !needCD))
+        {
+            PlayerFightCtrl.Instance.Attack(skillInfo.SkillID);
+            if(needCD) EnterCD();
+        }
+        else if (!needCD && HasComoSkill())
+        {
+             ReleaseComboSkill();
         }
         else
         {
-            PlayerFightCtrl.Instance.Attack(skillInfo.SkillID);
+            PlayerFightCtrl.Instance.Attack(skillInfo.SkillID,false);
         }
     }
-
+    public virtual bool HasComoSkill() { return false; }
+    public virtual void ReleaseComboSkill() {  }
     public virtual void Release(DefAction OnSuccess = null, DefAction OnFinish = null)
     {
         if (!isInit) return;
         string skillClipName = "Skill_" + skillInfo.Pos;
         GameTools.Log("Start ReleaseSkill");
-        animMgr.PlayClip(skillClipName, OnFinish);
+        animMgr.PlayClip(skillClipName, OnFinish, null);
         OnSuccess();
     }
 }

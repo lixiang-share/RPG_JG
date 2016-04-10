@@ -1,5 +1,4 @@
 ﻿using System;
-using UnityEngine;
 using LuaInterface;
 
 public class AudioManagerWrap
@@ -8,9 +7,9 @@ public class AudioManagerWrap
 	{
 		LuaMethod[] regs = new LuaMethod[]
 		{
+			new LuaMethod("Init", Init),
 			new LuaMethod("LoadAllAudio", LoadAllAudio),
-			new LuaMethod("LoadAudioClip", LoadAudioClip),
-			new LuaMethod("PlayBtnSounds", PlayBtnSounds),
+			new LuaMethod("PlayAudio", PlayAudio),
 			new LuaMethod("New", _CreateAudioManager),
 			new LuaMethod("GetClassType", GetClassType),
 		};
@@ -18,6 +17,7 @@ public class AudioManagerWrap
 		LuaField[] fields = new LuaField[]
 		{
 			new LuaField("AUDIO_BTN", get_AUDIO_BTN, null),
+			new LuaField("Man_Comm_Attack01", get_Man_Comm_Attack01, null),
 			new LuaField("instance", get_instance, set_instance),
 			new LuaField("Instance", get_Instance, null),
 		};
@@ -28,7 +28,19 @@ public class AudioManagerWrap
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int _CreateAudioManager(IntPtr L)
 	{
-		LuaDLL.luaL_error(L, "AudioManager class does not have a constructor function");
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 0)
+		{
+			AudioManager obj = new AudioManager();
+			LuaScriptMgr.PushObject(L, obj);
+			return 1;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: AudioManager.New");
+		}
+
 		return 0;
 	}
 
@@ -45,6 +57,13 @@ public class AudioManagerWrap
 	static int get_AUDIO_BTN(IntPtr L)
 	{
 		LuaScriptMgr.Push(L, AudioManager.AUDIO_BTN);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_Man_Comm_Attack01(IntPtr L)
+	{
+		LuaScriptMgr.Push(L, AudioManager.Man_Comm_Attack01);
 		return 1;
 	}
 
@@ -70,6 +89,15 @@ public class AudioManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Init(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		AudioManager obj = (AudioManager)LuaScriptMgr.GetNetObjectSelf(L, 1, "AudioManager");
+		obj.Init();
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int LoadAllAudio(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 1);
@@ -79,22 +107,12 @@ public class AudioManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int LoadAudioClip(IntPtr L)
+	static int PlayAudio(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 2);
 		AudioManager obj = (AudioManager)LuaScriptMgr.GetNetObjectSelf(L, 1, "AudioManager");
 		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
-		AudioClip o = obj.LoadAudioClip(arg0);
-		LuaScriptMgr.Push(L, o);
-		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int PlayBtnSounds(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 1);
-		AudioManager obj = (AudioManager)LuaScriptMgr.GetNetObjectSelf(L, 1, "AudioManager");
-		obj.PlayBtnSounds();
+		obj.PlayAudio(arg0);
 		return 0;
 	}
 }
