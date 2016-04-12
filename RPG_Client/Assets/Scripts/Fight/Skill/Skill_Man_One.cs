@@ -21,6 +21,10 @@ public class Skill_Man_One : SkillBase {
     public string attack02Clip = "Basic_attack02";
     public string attack03Clip = "Basic_attack03";
 
+    public float DelayCalAttack01DamageTime = 0.5f;
+    public float DelayCalAttack02DamageTime = 0.05f;
+    public float DelayCalAttack03DamageTime = 0.1f;
+
     public BaseSkillState curState = BaseSkillState.Idle;
     public BaseSkillState targettState = BaseSkillState.Idle;
 
@@ -84,6 +88,13 @@ public class Skill_Man_One : SkillBase {
         AudioManager.Instance.PlayAudio(AudioManager.Man_Comm_Attack01);
         //控制特效显示
         PlayEffect(effectGOFirst);
+        //计算伤害值
+        WaitForSec(DelayCalAttack01DamageTime, () =>
+        {
+            AttackItem attack = new AttackItem();
+            attack.Type = AttackType.Normal01;
+            PlayerFightCtrl.Instance.CalculateDamage(attack);
+        });
     }
 
     public void OnReleaseFinish(DefAction OnFinish)
@@ -129,10 +140,15 @@ public class Skill_Man_One : SkillBase {
     {
         AudioManager.Instance.PlayAudio(AudioManager.Man_Comm_Attack02);
         GameTools.LogError("ReleaseAttack02222");
-      //  PlayEffect(effectGOSecond);
         animMgr.PlayClip(attack02Clip, () =>
         {
             OnReleaseFinish(OnFinish);
+        });
+        WaitForSec(DelayCalAttack02DamageTime, () =>
+        {
+            AttackItem attack = new AttackItem();
+            attack.Type = AttackType.Normal02;
+            PlayerFightCtrl.Instance.CalculateDamage(attack);
         });
     }
     private void ReleaseAttack03(DefAction OnFinish)
@@ -141,10 +157,15 @@ public class Skill_Man_One : SkillBase {
             AudioManager.Instance.PlayAudio(AudioManager.Man_Comm_Attack03);
         });
         GameTools.LogError("ReleaseAttack0333");
-       // PlayEffect(effectGOThird);
         animMgr.PlayClip(attack03Clip, () =>
         {
             OnReleaseFinish(OnFinish);
+        });
+        WaitForSec(DelayCalAttack03DamageTime, () =>
+        {
+            AttackItem attack = new AttackItem();
+            attack.Type = AttackType.Normal03;
+            PlayerFightCtrl.Instance.CalculateDamage(attack);
         });
     }
 

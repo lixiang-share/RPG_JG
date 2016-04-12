@@ -7,6 +7,7 @@ using System.Collections.Generic;
 
 
 public class ResourceManager{
+    private static string FightEffectRoot = "Fight/Effects/";
     private Dictionary<string, UnityEngine.Object> resDict = new Dictionary<string, UnityEngine.Object>();
     private static ResourceManager instance;
     public static ResourceManager Instance{
@@ -15,9 +16,13 @@ public class ResourceManager{
             return instance;
         }
     }
-    private ResourceManager()
-    {
+    private ResourceManager() {}
 
+
+    public GameObject LoadFightEffect(string effectName)
+    {
+        string path = FightEffectRoot + effectName;
+        return LoadPrefab(path) as GameObject;
     }
 
     public UnityEngine.Object LoadPrefab(string path)
@@ -31,12 +36,16 @@ public class ResourceManager{
         return o;
     }
 
+
     public UnityEngine.Object LoadMesPrefab()
     {
         string path = "UI/Prefabs/ShowMes";
         return LoadPrefab(path);
     }
-
+    public void Init()
+    {
+       
+    }
 
 
 
@@ -89,4 +98,6 @@ public class ResourceManager{
 //            if (shared != null) shared.Unload(true);
 //            Debug.Log("~ResourceManager was destroy!");
 //        }
+
+
 }

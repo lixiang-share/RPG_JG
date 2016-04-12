@@ -14,6 +14,7 @@ public class GameMgr : MonoBehaviour {
     {
         //AudioManager
         AudioManager.Instance.Init();
+        ResourceManager.Instance.Init();
     }
 	
 	void Start () {
