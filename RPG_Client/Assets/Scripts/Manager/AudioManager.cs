@@ -9,7 +9,9 @@ using System.Collections.Generic;
         public const string Man_Comm_Attack01 = "man_attack_01";
         public const string Man_Comm_Attack02 = "man_attack_02";
         public const string Man_Comm_Attack03 = "man_attack_03";
-
+        public const string Hurt = "hurt";
+        public const string SKill_One = "skill_one";
+        public const string Skill_Two = "ice_attack";
         private AudioSource audio;
         private Dictionary<string, AudioClip> sounds = new Dictionary<string,AudioClip>();
 
@@ -37,6 +39,9 @@ using System.Collections.Generic;
             Add(Man_Comm_Attack01);
             Add(Man_Comm_Attack02);
             Add(Man_Comm_Attack03);
+            Add(Hurt);
+            Add(SKill_One);
+            Add(Skill_Two);
         }
 
         private void Add(string name)

@@ -1,17 +1,26 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public enum AttackType { Normal01 , Normal02 , Normal03 , Skill01, Skill02 , Skill03 };
+public enum AttackType { Normal , Skill01, Skill02 , Skill03 };
 public enum AttackDir { Forward , Around , Back};
+public enum AttackStage { First , Second , Third};
 public class AttackItem {
 
-    private AttackType type = AttackType.Normal01;
+    private AttackType type = AttackType.Normal;
     private AttackDir attackDir = AttackDir.Around;
+    private AttackStage stage = AttackStage.First;
+
+
     private float range = 10f;
     private float damage = 10;
     private float jumpHeight = 1f;
     private float jumpDuration = 2f;
 
+    public AttackStage Stage
+    {
+        get { return stage; }
+        set { stage = value; }
+    }
     public float JumpDuration
     {
         get { return jumpDuration; }

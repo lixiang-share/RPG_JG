@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SkillBase : FightGOBase {
+public class SkillBase : FightGOBase
+{
     public SkillItem skillInfo;
     public bool isInit = false;
     public bool isCD = false;
@@ -15,9 +16,9 @@ public class SkillBase : FightGOBase {
     {
         if (isCD)
         {
-            if(curCDTime <= 0) { EndCD(); return; }
+            if (curCDTime <= 0) { EndCD(); return; }
             curCDTime = curCDTime - Time.deltaTime;
-            SetCDProgress(); 
+            SetCDProgress();
         }
     }
 
@@ -40,7 +41,7 @@ public class SkillBase : FightGOBase {
         if (skillInfo.Type == "Base" || skillInfo.ColdTime < 0.001f) return;
         float progress = curCDTime / skillInfo.ColdTime;
         progress = Mathf.Clamp01(progress);
-        if(progress <=0.001F)
+        if (progress <= 0.001F)
         {
             cdSprite.gameObject.SetActive(false);
         }
@@ -54,7 +55,8 @@ public class SkillBase : FightGOBase {
     {
         ctrlGO = UITools.D("skill." + this.skillInfo.Pos);
         cdSprite = ctrlGO.GetChild("s_fore").GetComponent<UISprite>();
-        if(ctrlGO is ScaleButton){
+        if (ctrlGO is ScaleButton)
+        {
             ScaleButton sb = ctrlGO as ScaleButton;
             sb.OnClickListen = OnClickSkill;
         }
@@ -90,29 +92,46 @@ public class SkillBase : FightGOBase {
     {
         if (!isInit) return;
 
-        if(PlayerFightCtrl.Instance.isAbleFight() && 
+        if (PlayerFightCtrl.Instance.isAbleFight() &&
             ((needCD && !isCD) || !needCD))
         {
             PlayerFightCtrl.Instance.Attack(skillInfo.SkillID);
-            if(needCD) EnterCD();
+            if (needCD) EnterCD();
         }
         else if (!needCD && HasComoSkill())
         {
-             ReleaseComboSkill();
+            ReleaseComboSkill();
         }
         else
         {
-            PlayerFightCtrl.Instance.Attack(skillInfo.SkillID,false);
+            PlayerFightCtrl.Instance.Attack(skillInfo.SkillID, false);
         }
     }
     public virtual bool HasComoSkill() { return false; }
-    public virtual void ReleaseComboSkill() {  }
+    public virtual void ReleaseComboSkill() { }
     public virtual void Release(DefAction OnSuccess = null, DefAction OnFinish = null)
     {
         if (!isInit) return;
         string skillClipName = "Skill_" + skillInfo.Pos;
         GameTools.Log("Start ReleaseSkill");
         animMgr.PlayClip(skillClipName, OnFinish, null);
-        OnSuccess();
+        if (OnSuccess != null) OnSuccess();
+    }
+
+    public void PlayEffect(GameObject effectGO)
+    {
+        if (effectGO == null) return;
+        if (!effectGO.activeSelf) effectGO.SetActive(true);
+        NcCurveAnimation[] ncs = effectGO.GetComponentsInChildren<NcCurveAnimation>();
+        foreach (NcCurveAnimation nc in ncs)
+        {
+            if (!nc.enabled) nc.enabled = true;
+            nc.ResetAnimation();
+        }
+    }
+
+    public void CalDamage(AttackItem attack)
+    {
+        PlayerFightCtrl.Instance.CalculateDamage(attack);
     }
 }

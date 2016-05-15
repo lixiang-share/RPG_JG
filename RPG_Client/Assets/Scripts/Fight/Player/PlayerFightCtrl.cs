@@ -101,8 +101,12 @@ public class PlayerFightCtrl : MonoBehaviour {
             else
             {
                 Vector3 enemyRelativePos = transform.InverseTransformVector(enemy.transform.position);
-                if ((attack.AttackDir == AttackDir.Forward && enemyRelativePos.z > 0)||
-                    (attack.AttackDir == AttackDir.Back && enemyRelativePos.z < 0)){
+
+                Vector3 meToEnemyVector = enemy.transform.position - transform.position;
+                float factor =  Vector3.Dot(meToEnemyVector,transform.forward);
+                if ((attack.AttackDir == AttackDir.Forward && factor > 0) ||
+                    (attack.AttackDir == AttackDir.Back && factor < 0))
+                {
                     isDir = true;
                 }
                 else{

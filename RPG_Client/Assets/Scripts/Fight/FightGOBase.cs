@@ -37,5 +37,9 @@ public class FightGOBase : MonoBehaviour {
         });
         
     }
+    public void PlaySound(string sound)
+    {
+        AudioManager.Instance.PlayAudio(sound);
+    }
 
 }
