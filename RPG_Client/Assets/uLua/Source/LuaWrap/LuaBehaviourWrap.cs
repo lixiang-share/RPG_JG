@@ -604,7 +604,7 @@ public class LuaBehaviourWrap
 			}
 		}
 
-		LuaScriptMgr.PushObject(L, obj.AudioMgr);
+		LuaScriptMgr.Push(L, obj.AudioMgr);
 		return 1;
 	}
 
