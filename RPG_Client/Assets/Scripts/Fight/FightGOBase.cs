@@ -24,17 +24,22 @@ public class FightGOBase : MonoBehaviour {
             tp.from = transform.position;
             tp.to = targetPos;
             tp.onFinished.Clear();
-            tp.AddOnFinished(() => {
+            tp.SetOnFinished(() =>
+            {
                 if (OnFinish != null) OnFinish();
             });
             tp.PlayForward();
         }
-        tp = TweenPosition.Begin(gameObject, duration, targetPos, worldSpace);
-        tp.AddOnFinished(() =>
+        else
         {
-            //if (gameObject.GetComponent<TweenPosition>() != null) UnityEngine.Object.Destroy(gameObject.GetComponent<TweenPosition>());
-            if (OnFinish != null) OnFinish();
-        });
+            tp = TweenPosition.Begin(gameObject, duration, targetPos, worldSpace);
+            tp.onFinished.Clear();
+            tp.SetOnFinished(() =>
+            {
+                //if (gameObject.GetComponent<TweenPosition>() != null) UnityEngine.Object.Destroy(gameObject.GetComponent<TweenPosition>());
+                if (OnFinish != null) OnFinish();
+            });
+        }
         
     }
     public void PlaySound(string sound)

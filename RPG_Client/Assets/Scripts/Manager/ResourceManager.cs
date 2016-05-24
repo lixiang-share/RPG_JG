@@ -16,6 +16,10 @@ public class ResourceManager{
             return instance;
         }
     }
+    public void Init()
+    {
+
+    }
     private ResourceManager() {}
 
 
@@ -41,10 +45,6 @@ public class ResourceManager{
     {
         string path = "UI/Prefabs/ShowMes";
         return LoadPrefab(path);
-    }
-    public void Init()
-    {
-       
     }
 
 

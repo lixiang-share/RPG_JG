@@ -30,10 +30,14 @@ public class Enclosure : MonoBehaviour {
         for (int i = 0 , j = encloure.Count-1; i < encloure.Count; i++)
         {
             if(
-                (encloure[i].z <= z && encloure[j].z>z || encloure[i].z > z && encloure[j].z <= z ) &&
+                (encloure[i].z <= z && encloure[j].z>z || 
+                encloure[i].z > z && encloure[j].z <= z ) &&
                 (encloure[i].x <= x || encloure[j].x <= x) &&
-                (encloure[i].x + (z - encloure[i].z) * (encloure[j].x - encloure[i].x) / (encloure[j].z - encloure[i].z) < x )
-              ){
+                (encloure[i].x + (z - encloure[i].z) * 
+                (encloure[j].x - encloure[i].x) / 
+                (encloure[j].z - encloure[i].z) < x )
+              )
+            {
                 rst = !rst;
             }
             j = i;
