@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class Skill_Man_Three : SkillBase {
+    public int Damage;
     public float delayTime01 = 0f;
     public float delayTime02 = 0.8f;
     public float delayTime03 = 1.6f;
@@ -25,6 +26,7 @@ public class Skill_Man_Three : SkillBase {
         WaitForSec(damageTime01 / 2, () =>
         {
             AttackItem attack = GetSkill03AttackItem();
+            attack.Damage = Damage;
             attack.Stage = AttackStage.First;
             CalDamage(attack);
         });
@@ -35,6 +37,8 @@ public class Skill_Man_Three : SkillBase {
         WaitForSec(damageTime02 / 2, () =>
         {
             AttackItem attack = GetSkill03AttackItem();
+            attack.Damage = Damage*2;
+
             attack.Stage = AttackStage.Second;
             CalDamage(attack);
         });
@@ -44,6 +48,7 @@ public class Skill_Man_Three : SkillBase {
         WaitForSec(damageTime03 / 2, () =>
         {
             AttackItem attack = GetSkill03AttackItem();
+            attack.Damage = Damage * 3;
             attack.Stage = AttackStage.Third;
             CalDamage(attack);
         });

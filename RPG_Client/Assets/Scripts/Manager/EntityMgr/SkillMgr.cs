@@ -17,11 +17,6 @@ public class SkillMgr : MonoBehaviour {
         skillDict = new Dictionary<int, SkillItem>();
         SkillListPath = AppConst.SkillListPath;
     }
-    void Start()
-    {
-        Init();
-    }
-
 
     public void Init()
     {

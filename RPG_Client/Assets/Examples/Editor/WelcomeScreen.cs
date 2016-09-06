@@ -121,7 +121,7 @@
                         Packager.BuildWindowsResource();
                     }
                     if (Application.platform == RuntimePlatform.OSXEditor) {
-                        Packager.BuildiPhoneResource();
+                        //Packager.BuildiPhoneResource();
                     }
                 }
                 else if ((this.mVideoImageRect.Contains(mousePosition) || this.mVideoHeaderRect.Contains(mousePosition)) || this.mVideoDescriptionRect.Contains(mousePosition))

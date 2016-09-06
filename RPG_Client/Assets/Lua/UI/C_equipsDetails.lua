@@ -11,9 +11,13 @@ function this.OnFirstEnable()
 	UITools.SA(inst,false)
 end
 function this.Cancel()
+	UITools.SA(UITools.D('playerEquips'):GetChild('s_player') , true)
 	UITools.ClosePanel(inst)
 end
 
+function this.OnEnable()
+	UITools.SA(UITools.D('playerEquips'):GetChild('s_player') , false)
+end
 function this.Show_Dress(item)
 	UITools.SA(inst:GetChild('b_unuse'),false)
 	UITools.SA(inst:GetChild('b_upgrade_dressed'),false)

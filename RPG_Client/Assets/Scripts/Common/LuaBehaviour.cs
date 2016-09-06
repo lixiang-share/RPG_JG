@@ -256,6 +256,15 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
         {
             DoString(lua_OnDisable);
         }
+
+    }
+
+    public void OnDestroy()
+    {
+        if (UITools.isValidString(domain) && Domains.ContainsKey(domain))
+        {
+            Domains.Remove(domain);
+        }
     }
 
     public void ReceiveData(object msg)
@@ -296,6 +305,7 @@ public class LuaBehaviour : MonoBehaviour, IReceiveData
         return Util.CallMethod(tableName, func, args);
     }
   
+
     #endregion
 
     #region 各种管理器获取方式

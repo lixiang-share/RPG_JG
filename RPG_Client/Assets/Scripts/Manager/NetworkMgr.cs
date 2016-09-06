@@ -60,19 +60,19 @@ public class NetworkMgr : MonoBehaviour
     
     void OnGUI()
     {
-        if (GUILayout.Button("Connect"))
-        {
-            StateObj state = new StateObj();
-            state.OnConnect = OnConnect;
-            clientSocket.ConnectServer("127.0.0.1", 12345, state);
-        }
-        if (GUILayout.Button("Send Data"))
-        {
+        //if (GUILayout.Button("Connect"))
+        //{
+        //    StateObj state = new StateObj();
+        //    state.OnConnect = OnConnect;
+        //    clientSocket.ConnectServer("127.0.0.1", 12345, state);
+        //}
+        //if (GUILayout.Button("Send Data"))
+        //{
 
-            MsgPacker msg = new MsgPacker();
-            msg.SetType(MsgProtocol.Get_ServerList);
-            Send(msg);
-        }
+        //    MsgPacker msg = new MsgPacker();
+        //    msg.SetType(MsgProtocol.Get_ServerList);
+        //    Send(msg);
+        //}
     }
 	public void Connect(ServerEntity server , DefAction callBack )
     {

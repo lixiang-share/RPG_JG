@@ -43,6 +43,8 @@ public class UIToolsWrap
 			new LuaMethod("MsgToPlayer", MsgToPlayer),
 			new LuaMethod("MsgToEquipItem", MsgToEquipItem),
 			new LuaMethod("MsgToSkillList", MsgToSkillList),
+			new LuaMethod("BeginFight", BeginFight),
+			new LuaMethod("EndFightAndGoMainCity", EndFightAndGoMainCity),
 			new LuaMethod("New", _CreateUITools),
 			new LuaMethod("GetClassType", GetClassType),
 		};
@@ -581,6 +583,22 @@ public class UIToolsWrap
 		IList o = UITools.MsgToSkillList(arg0);
 		LuaScriptMgr.PushObject(L, o);
 		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int BeginFight(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 0);
+		UITools.BeginFight();
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int EndFightAndGoMainCity(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 0);
+		UITools.EndFightAndGoMainCity();
+		return 0;
 	}
 }
 

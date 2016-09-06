@@ -19,7 +19,7 @@ public class SkillManager : MonoBehaviour {
 
         List<SkillItem> skills = new List<SkillItem>();
         SkillItem skill = new SkillItem();
-        skill.ColdTime = 2;
+        skill.ColdTime = 10;
         skill.Icon = "icon_li";
         skill.Type = "Skill";
         skill.Pos = "one";
@@ -27,7 +27,7 @@ public class SkillManager : MonoBehaviour {
         skills.Add(skill);
 
         skill = new SkillItem();
-        skill.ColdTime = 1;
+        skill.ColdTime = 15;
         skill.Icon = "iocn_ho";
         skill.Type = "Skill";
         skill.Pos = "two";
@@ -36,7 +36,7 @@ public class SkillManager : MonoBehaviour {
 
 
         skill = new SkillItem();
-        skill.ColdTime = 1;
+        skill.ColdTime = 20;
         skill.Icon = "iocn_fo";
         skill.Type = "Skill";
         skill.Pos = "three";
@@ -44,7 +44,7 @@ public class SkillManager : MonoBehaviour {
         skills.Add(skill);
 
         skill = new SkillItem();
-        skill.ColdTime = 1;
+        skill.ColdTime = 0;
         skill.Icon = "iocn_yi";
         skill.Type = "Base";
         skill.Pos = "basic";

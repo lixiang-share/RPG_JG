@@ -5,6 +5,8 @@ public enum BaseSkillState { Idle,Attack01,Attack02,Attack03 };
 
 public class Skill_Man_Basic : SkillBase {
 
+    public int Damage;
+
     public float moveDist = 2;
     public float durationTime = 1;
     public float delayTime = 0.5f;
@@ -30,7 +32,6 @@ public class Skill_Man_Basic : SkillBase {
 
     public override bool HasComoSkill()
     {
-        GameTools.LogError("HasComoSkill");
         switch (curState)
         {
             case BaseSkillState.Idle:
@@ -92,6 +93,7 @@ public class Skill_Man_Basic : SkillBase {
         WaitForSec(DelayCalAttack01DamageTime, () =>
         {
             AttackItem attack = new AttackItem();
+            attack.Damage = Damage;
             attack.Type = AttackType.Normal;
             attack.Stage = AttackStage.First;
             attack.AttackDir = AttackDir.Forward;
@@ -149,6 +151,7 @@ public class Skill_Man_Basic : SkillBase {
         WaitForSec(DelayCalAttack02DamageTime, () =>
         {
             AttackItem attack = new AttackItem();
+            attack.Damage = Damage * 2;
             attack.Type = AttackType.Normal;
             attack.Stage = AttackStage.Second;
             attack.AttackDir = AttackDir.Forward;
@@ -168,6 +171,7 @@ public class Skill_Man_Basic : SkillBase {
         WaitForSec(DelayCalAttack03DamageTime, () =>
         {
             AttackItem attack = new AttackItem();
+            attack.Damage = Damage*3;
             attack.Type = AttackType.Normal;
             attack.Stage = AttackStage.Third;
             attack.AttackDir = AttackDir.Forward;

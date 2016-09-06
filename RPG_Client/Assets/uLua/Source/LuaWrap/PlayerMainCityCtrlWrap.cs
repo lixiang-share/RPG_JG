@@ -9,6 +9,7 @@ public class PlayerMainCityCtrlWrap
 	{
 		LuaMethod[] regs = new LuaMethod[]
 		{
+			new LuaMethod("moveToFight", moveToFight),
 			new LuaMethod("DoTask", DoTask),
 			new LuaMethod("ClaimTask", ClaimTask),
 			new LuaMethod("AcceptTask", AcceptTask),
@@ -26,6 +27,7 @@ public class PlayerMainCityCtrlWrap
 			new LuaField("isAbleMove", get_isAbleMove, set_isAbleMove),
 			new LuaField("Instance", get_Instance, set_Instance),
 			new LuaField("speed", get_speed, set_speed),
+			new LuaField("animMgr", get_animMgr, set_animMgr),
 			new LuaField("go", get_go, set_go),
 		};
 
@@ -124,6 +126,30 @@ public class PlayerMainCityCtrlWrap
 		}
 
 		LuaScriptMgr.Push(L, obj.speed);
+		return 1;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int get_animMgr(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		PlayerMainCityCtrl obj = (PlayerMainCityCtrl)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name animMgr");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index animMgr on a nil value");
+			}
+		}
+
+		LuaScriptMgr.Push(L, obj.animMgr);
 		return 1;
 	}
 
@@ -231,6 +257,30 @@ public class PlayerMainCityCtrlWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int set_animMgr(IntPtr L)
+	{
+		object o = LuaScriptMgr.GetLuaObject(L, 1);
+		PlayerMainCityCtrl obj = (PlayerMainCityCtrl)o;
+
+		if (obj == null)
+		{
+			LuaTypes types = LuaDLL.lua_type(L, 1);
+
+			if (types == LuaTypes.LUA_TTABLE)
+			{
+				LuaDLL.luaL_error(L, "unknown member name animMgr");
+			}
+			else
+			{
+				LuaDLL.luaL_error(L, "attempt to index animMgr on a nil value");
+			}
+		}
+
+		obj.animMgr = (PlayerAnimatorMgr)LuaScriptMgr.GetUnityObject(L, 3, typeof(PlayerAnimatorMgr));
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int set_go(IntPtr L)
 	{
 		object o = LuaScriptMgr.GetLuaObject(L, 1);
@@ -251,6 +301,32 @@ public class PlayerMainCityCtrlWrap
 		}
 
 		obj.go = (GameObject)LuaScriptMgr.GetUnityObject(L, 3, typeof(GameObject));
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int moveToFight(IntPtr L)
+	{
+		int count = LuaDLL.lua_gettop(L);
+
+		if (count == 1)
+		{
+			PlayerMainCityCtrl obj = (PlayerMainCityCtrl)LuaScriptMgr.GetUnityObjectSelf(L, 1, "PlayerMainCityCtrl");
+			obj.moveToFight();
+			return 0;
+		}
+		else if (count == 2)
+		{
+			PlayerMainCityCtrl obj = (PlayerMainCityCtrl)LuaScriptMgr.GetUnityObjectSelf(L, 1, "PlayerMainCityCtrl");
+			int arg0 = (int)LuaScriptMgr.GetNumber(L, 2);
+			obj.moveToFight(arg0);
+			return 0;
+		}
+		else
+		{
+			LuaDLL.luaL_error(L, "invalid arguments to method: PlayerMainCityCtrl.moveToFight");
+		}
+
 		return 0;
 	}
 

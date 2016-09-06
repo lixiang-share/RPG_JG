@@ -11,7 +11,30 @@ public class EnemyBase : FightGOBase {
     public GameObject holyFirePos;
 
     private Dictionary<AttackType, DamageHandle> handleDict;
-    private bool isInHeight = false;
+    public bool isInHeight = false;
+    public Animation animation;
+    public float dieDelay = 2f;
+    private int hp = 10;
+
+    public int Hp
+    {
+        get
+        {
+            return hp;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                hp = 0;
+            }
+            else
+            {
+                hp = value;
+            }
+        }
+    }
+
     public void Start()
     {
         if (handleDict == null) handleDict = new Dictionary<AttackType, DamageHandle>();
@@ -25,8 +48,15 @@ public class EnemyBase : FightGOBase {
     
     public virtual void GetDamage(AttackItem attack, DefAction OnFinish = null)
     {
-        GameTools.LogError(attack.Type + "====> "+attack);
+       // GameTools.LogError(attack.Type + "====> "+attack);
         handleDict[attack.Type](attack , OnFinish);
+        CalDamage(attack);
+    }
+
+
+    public void CalDamage(AttackItem attack)
+    {
+        this.Hp = this.Hp - (int)attack.Damage;
     }
 
     public virtual void GetSkillDamage01(AttackItem attack, DefAction OnFinish = null)
@@ -89,31 +119,31 @@ public class EnemyBase : FightGOBase {
         ReleaseREffect(bloodEffect, BloodEffectPos);
     }
 
-    
-    public void ReleaseREffect(string effectName,GameObject parent)
-    {
-        GameObject effect = Instantiate(ResourceManager.Instance.LoadFightEffect(effectName)) as GameObject;
-        effect.transform.parent = parent.transform;
-        effect.transform.localPosition = Vector3.zero;
-    }
 
     public void AttackMoveBack(float dist, float height, float duartion = 0.5f)
     {
         if (isInHeight) return;
-        isInHeight = true;
         Vector3 targetPosFinal = transform.position + -1 * transform.forward * dist;
         Vector3 targetPos = targetPosFinal + new Vector3(0, height, 0);
         float duration = duartion / 2;
         if (Enclosure.Instance.isInside(targetPosFinal))
         {
+            isInHeight = true;
             TweenPos(targetPos, duration, true, () =>
             {
-                TweenPos(targetPosFinal, duration, true, () =>
-                {
-                    isInHeight = false;
+                WaitForSec(0.1f, () => {
+                    TweenPos(targetPosFinal, duration, true, () =>
+                    {
+                        isInHeight = false;
+                    });
                 });
-
             });
         }
+    }
+
+
+    public void  Die(){
+        animation.Play("die");
+        Destroy(gameObject, dieDelay);
     }
 }

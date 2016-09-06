@@ -29,82 +29,86 @@ public class Packager {
         return AssetDatabase.LoadMainAssetAtPath("Assets/Examples/Builds/" + file);
     }
 
-    [MenuItem("Game/Build iPhone Resource", false, 11)]
-    public static void BuildiPhoneResource() {
-        BuildTarget target;
-#if UNITY_5
-        target = BuildTarget.iOS;
-#else
-        target = BuildTarget.iPhone;
-#endif
-        BuildAssetResource(target, false);
-    }
+//    [MenuItem("Game/Build iPhone Resource", false, 11)]
+//    public static void BuildiPhoneResource() {
+//        BuildTarget target;
+//#if UNITY_5
+//        target = BuildTarget.iOS;
+//#else
+//        target = BuildTarget.iPhone;
+//#endif
+//        BuildAssetResource(target, false);
+//    }
 
-    [MenuItem("Game/Build Android Resource", false, 12)]
-    public static void BuildAndroidResource() {
-        BuildAssetResource(BuildTarget.Android, true);
-    }
+//    [MenuItem("Game/Build Android Resource", false, 12)]
+//    public static void BuildAndroidResource() {
+//        BuildAssetResource(BuildTarget.Android, true);
+//    }
 
-    [MenuItem("Game/Build Windows Resource", false, 13)]
-    public static void BuildWindowsResource() {
+//    [MenuItem("Game/Build Windows Resource", false, 13)]
+//    public static void BuildWindowsResource() {
+//        BuildAssetResource(BuildTarget.StandaloneWindows, true);
+//    }
+
+
+    [MenuItem("Game/Copy Lua Files", false, 13)]
+    public static void BuildWindowsResource()
+    {
         BuildAssetResource(BuildTarget.StandaloneWindows, true);
     }
-
     /// <summary>
     /// 生成绑定素材
     /// </summary>
     public static void BuildAssetResource(BuildTarget target, bool isWin) {
-        if (AppConst.ExampleMode) {
-            HandleExampleBundle(target);
-        }
+       
         HandleLuaFile(isWin);
         AssetDatabase.Refresh();
     }
 
-    static void HandleExampleBundle(BuildTarget target) {
-        Object mainAsset = null;        //主素材名，单个
-        Object[] addis = null;     //附加素材名，多个
-        string assetfile = string.Empty;  //素材文件名
+    //static void HandleExampleBundle(BuildTarget target) {
+    //    Object mainAsset = null;        //主素材名，单个
+    //    Object[] addis = null;     //附加素材名，多个
+    //    string assetfile = string.Empty;  //素材文件名
 
-        BuildAssetBundleOptions options = BuildAssetBundleOptions.UncompressedAssetBundle |
-                                          BuildAssetBundleOptions.CollectDependencies |
-                                          BuildAssetBundleOptions.DeterministicAssetBundle;
-        string dataPath = Util.DataPath;
-        if (Directory.Exists(dataPath)) {
-            Directory.Delete(dataPath, true);
-        }
-        string assetPath = AppDataPath + "/StreamingAssets/";
-        if (Directory.Exists(dataPath)) {
-            Directory.Delete(assetPath, true);
-        }
-        if (!Directory.Exists(assetPath)) Directory.CreateDirectory(assetPath);
+    //    BuildAssetBundleOptions options = BuildAssetBundleOptions.UncompressedAssetBundle |
+    //                                      BuildAssetBundleOptions.CollectDependencies |
+    //                                      BuildAssetBundleOptions.DeterministicAssetBundle;
+    //    string dataPath = Util.DataPath;
+    //    if (Directory.Exists(dataPath)) {
+    //        Directory.Delete(dataPath, true);
+    //    }
+    //    string assetPath = AppDataPath + "/StreamingAssets/";
+    //    if (Directory.Exists(dataPath)) {
+    //        Directory.Delete(assetPath, true);
+    //    }
+    //    if (!Directory.Exists(assetPath)) Directory.CreateDirectory(assetPath);
 
-        ///-----------------------------生成共享的关联性素材绑定-------------------------------------
-        BuildPipeline.PushAssetDependencies();
+    //    ///-----------------------------生成共享的关联性素材绑定-------------------------------------
+    //    BuildPipeline.PushAssetDependencies();
 
-        assetfile = assetPath + "shared.assetbundle";
-        mainAsset = LoadAsset("Shared/Atlas/Dialog.prefab");
-        BuildPipeline.BuildAssetBundle(mainAsset, null, assetfile, options, target);
+    //    assetfile = assetPath + "shared.assetbundle";
+    //    mainAsset = LoadAsset("Shared/Atlas/Dialog.prefab");
+    //    BuildPipeline.BuildAssetBundle(mainAsset, null, assetfile, options, target);
 
-        ///------------------------------生成PromptPanel素材绑定-----------------------------------
-        BuildPipeline.PushAssetDependencies();
-        mainAsset = LoadAsset("Prompt/Prefabs/PromptPanel.prefab");
-        addis = new Object[1];
-        addis[0] = LoadAsset("Prompt/Prefabs/PromptItem.prefab");
-        assetfile = assetPath + "prompt.assetbundle";
-        BuildPipeline.BuildAssetBundle(mainAsset, addis, assetfile, options, target);
-        BuildPipeline.PopAssetDependencies();
+    //    ///------------------------------生成PromptPanel素材绑定-----------------------------------
+    //    BuildPipeline.PushAssetDependencies();
+    //    mainAsset = LoadAsset("Prompt/Prefabs/PromptPanel.prefab");
+    //    addis = new Object[1];
+    //    addis[0] = LoadAsset("Prompt/Prefabs/PromptItem.prefab");
+    //    assetfile = assetPath + "prompt.assetbundle";
+    //    BuildPipeline.BuildAssetBundle(mainAsset, addis, assetfile, options, target);
+    //    BuildPipeline.PopAssetDependencies();
 
-        ///------------------------------生成MessagePanel素材绑定-----------------------------------
-        BuildPipeline.PushAssetDependencies();
-        mainAsset = LoadAsset("Message/Prefabs/MessagePanel.prefab");
-        assetfile = assetPath + "message.assetbundle";
-        BuildPipeline.BuildAssetBundle(mainAsset, null, assetfile, options, target);
-        BuildPipeline.PopAssetDependencies();
+    //    ///------------------------------生成MessagePanel素材绑定-----------------------------------
+    //    BuildPipeline.PushAssetDependencies();
+    //    mainAsset = LoadAsset("Message/Prefabs/MessagePanel.prefab");
+    //    assetfile = assetPath + "message.assetbundle";
+    //    BuildPipeline.BuildAssetBundle(mainAsset, null, assetfile, options, target);
+    //    BuildPipeline.PopAssetDependencies();
 
-        ///-------------------------------刷新---------------------------------------
-        BuildPipeline.PopAssetDependencies();
-    }
+    //    ///-------------------------------刷新---------------------------------------
+    //    BuildPipeline.PopAssetDependencies();
+    //}
 
     /// <summary>
     /// 处理Lua文件
@@ -225,7 +229,7 @@ public class Packager {
         Directory.SetCurrentDirectory(currDir);
     }
 
-    [MenuItem("Game/Build Protobuf-lua-gen File")]
+   // [MenuItem("Game/Build Protobuf-lua-gen File")]
     public static void BuildProtobufFile() {
         if (!AppConst.ExampleMode) {
             Debugger.LogError("若使用编码Protobuf-lua-gen功能，需要自己配置外部环境！！");

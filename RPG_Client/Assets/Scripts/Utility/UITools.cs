@@ -375,4 +375,15 @@ public static partial class UITools
 
     #endregion
 
+    #region 战场相关接口支持
+    public static void BeginFight()
+    {
+        GameMgr.Instance.LoadFightScene();
+    }
+
+    public static void EndFightAndGoMainCity()
+    {
+        GameMgr.Instance.LoadMainCity();
+    }
+    #endregion
 }

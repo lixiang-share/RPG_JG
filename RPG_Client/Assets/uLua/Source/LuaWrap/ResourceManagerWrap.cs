@@ -9,10 +9,10 @@ public class ResourceManagerWrap
 	{
 		LuaMethod[] regs = new LuaMethod[]
 		{
+			new LuaMethod("Init", Init),
 			new LuaMethod("LoadFightEffect", LoadFightEffect),
 			new LuaMethod("LoadPrefab", LoadPrefab),
 			new LuaMethod("LoadMesPrefab", LoadMesPrefab),
-			new LuaMethod("Init", Init),
 			new LuaMethod("New", _CreateResourceManager),
 			new LuaMethod("GetClassType", GetClassType),
 		};
@@ -49,6 +49,15 @@ public class ResourceManagerWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int Init(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		ResourceManager obj = (ResourceManager)LuaScriptMgr.GetNetObjectSelf(L, 1, "ResourceManager");
+		obj.Init();
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int LoadFightEffect(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 2);
@@ -78,15 +87,6 @@ public class ResourceManagerWrap
 		Object o = obj.LoadMesPrefab();
 		LuaScriptMgr.Push(L, o);
 		return 1;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int Init(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 1);
-		ResourceManager obj = (ResourceManager)LuaScriptMgr.GetNetObjectSelf(L, 1, "ResourceManager");
-		obj.Init();
-		return 0;
 	}
 }
 

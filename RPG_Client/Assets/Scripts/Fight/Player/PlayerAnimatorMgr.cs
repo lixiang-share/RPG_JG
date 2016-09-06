@@ -78,17 +78,37 @@ public class PlayerAnimatorMgr : FightGOBase
 	void Start () {
 		if(animator == null) animator = GetComponent<Animator>();
         allClipDict = new Dictionary<string, ClipInfo>();
-        allClipDict.Add(runClip.Name , runClip);
-        allClipDict.Add(hitClip.Name,hitClip);
-        allClipDict.Add(dieClip.Name,dieClip);
-        allClipDict.Add(skillOneClip.Name, skillOneClip);
-        allClipDict.Add(skillTwoClip.Name,skillTwoClip);
-        allClipDict.Add(skillThreeClip.Name,skillThreeClip);
-        allClipDict.Add(skillBasicClip.Name,skillBasicClip);
-        allClipDict.Add(skillBasicAttackClip02.Name,skillBasicAttackClip02);
-        allClipDict.Add(skillBasicAttackClip03.Name,skillBasicAttackClip03);
+
+        addClip(runClip)
+            .addClip(hitClip)
+            .addClip(dieClip)
+            .addClip(skillOneClip)
+            .addClip(skillTwoClip)
+            .addClip(skillThreeClip)
+            .addClip(skillBasicClip)
+            .addClip(skillBasicAttackClip02)
+            .addClip(skillBasicAttackClip03);
+
+
+        //allClipDict.Add(runClip.Name , runClip);
+        //allClipDict.Add(hitClip.Name,hitClip);
+        //allClipDict.Add(dieClip.Name,dieClip);
+        //allClipDict.Add(skillOneClip.Name, skillOneClip);
+        //allClipDict.Add(skillTwoClip.Name,skillTwoClip);
+        //allClipDict.Add(skillThreeClip.Name,skillThreeClip);
+        //allClipDict.Add(skillBasicClip.Name,skillBasicClip);
+        //allClipDict.Add(skillBasicAttackClip02.Name,skillBasicAttackClip02);
+        //allClipDict.Add(skillBasicAttackClip03.Name,skillBasicAttackClip03);
         Reset();
 	}
+    private PlayerAnimatorMgr addClip(ClipInfo clipInfo)
+    {
+        if (UITools.isValidString(clipInfo.Name))
+        {
+            allClipDict.Add(clipInfo.Name, clipInfo);
+        }
+        return this;
+    }
 	
 	public void Reset(){
         foreach (var item in allClipDict.Values)
@@ -141,7 +161,6 @@ public class PlayerAnimatorMgr : FightGOBase
                     OnFinish();
                 }
             }
-            GameTools.Log("Set false : " + clipFlag);
         });
     }
 }

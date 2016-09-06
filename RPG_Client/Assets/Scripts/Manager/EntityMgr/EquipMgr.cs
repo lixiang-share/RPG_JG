@@ -17,11 +17,6 @@ public class EquipMgr : MonoBehaviour {
         EquipListPath = AppConst.EquipListPath;
     }
 	// Use this for initialization
-    void Start()
-    {
-        Init();
-    }
-
 
     public void Init()
     {

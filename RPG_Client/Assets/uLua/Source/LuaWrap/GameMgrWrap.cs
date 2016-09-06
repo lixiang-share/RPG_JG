@@ -9,10 +9,14 @@ public class GameMgrWrap
 	{
 		LuaMethod[] regs = new LuaMethod[]
 		{
+			new LuaMethod("LoadFightScene", LoadFightScene),
+			new LuaMethod("LoadGame", LoadGame),
+			new LuaMethod("LoadMainCity", LoadMainCity),
+			new LuaMethod("LoadScene", LoadScene),
+			new LuaMethod("CheckExtractResource", CheckExtractResource),
+			new LuaMethod("OnResourceInited", OnResourceInited),
 			new LuaMethod("ConnectServer", ConnectServer),
 			new LuaMethod("OnConnect", OnConnect),
-			new LuaMethod("LoadGame", LoadGame),
-			new LuaMethod("LoadScene", LoadScene),
 			new LuaMethod("New", _CreateGameMgr),
 			new LuaMethod("GetClassType", GetClassType),
 			new LuaMethod("__eq", Lua_Eq),
@@ -106,6 +110,61 @@ public class GameMgrWrap
 	}
 
 	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LoadFightScene(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		GameMgr obj = (GameMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "GameMgr");
+		obj.LoadFightScene();
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LoadGame(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		GameMgr obj = (GameMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "GameMgr");
+		obj.LoadGame();
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LoadMainCity(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		GameMgr obj = (GameMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "GameMgr");
+		obj.LoadMainCity();
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int LoadScene(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 2);
+		GameMgr obj = (GameMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "GameMgr");
+		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
+		obj.LoadScene(arg0);
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int CheckExtractResource(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		GameMgr obj = (GameMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "GameMgr");
+		obj.CheckExtractResource();
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
+	static int OnResourceInited(IntPtr L)
+	{
+		LuaScriptMgr.CheckArgsCount(L, 1);
+		GameMgr obj = (GameMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "GameMgr");
+		obj.OnResourceInited();
+		return 0;
+	}
+
+	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
 	static int ConnectServer(IntPtr L)
 	{
 		LuaScriptMgr.CheckArgsCount(L, 1);
@@ -120,25 +179,6 @@ public class GameMgrWrap
 		LuaScriptMgr.CheckArgsCount(L, 1);
 		GameMgr obj = (GameMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "GameMgr");
 		obj.OnConnect();
-		return 0;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int LoadGame(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 1);
-		GameMgr obj = (GameMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "GameMgr");
-		obj.LoadGame();
-		return 0;
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int LoadScene(IntPtr L)
-	{
-		LuaScriptMgr.CheckArgsCount(L, 2);
-		GameMgr obj = (GameMgr)LuaScriptMgr.GetUnityObjectSelf(L, 1, "GameMgr");
-		string arg0 = LuaScriptMgr.GetLuaString(L, 2);
-		obj.LoadScene(arg0);
 		return 0;
 	}
 

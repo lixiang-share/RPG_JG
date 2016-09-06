@@ -18,10 +18,6 @@ public class TaskMgr : MonoBehaviour {
         taskDict = new Dictionary<int, TaskEntity>();
         TaskListPath = AppConst.TaskListPath;
     }
-    void Start()
-    {
-        Init();
-    }
 
 
     public void Init()

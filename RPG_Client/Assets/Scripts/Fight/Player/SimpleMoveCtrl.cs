@@ -10,14 +10,13 @@ public class SimpleMoveCtrl : MonoBehaviour
     public float StoppingDist = 4f;
     public Vector3 target;
     public float speed = 8;
-    private MoveState curState;
+    public MoveState curState;
     private Vector3 velocity = Vector3.zero;
     private bool isMoving;
     private bool isAbleMove = true;
     private NavMeshAgent navMeshAgent;
     private ArriveCondition Condition;
     private DefAction OnArrive;
-
     void Awake()
     {
         curState = MoveState.Idle;
@@ -60,11 +59,17 @@ public class SimpleMoveCtrl : MonoBehaviour
             if (this.OnArrive != null) this.OnArrive();
             ResetState();
         }
+        else
+        {
+            PlayerMainCityCtrl.Instance.animMgr.PlayRun();
+        }
     }
 
 	private void Moving(){
 		Vector3 nexPos = velocity * Time.deltaTime + transform.position;
-		if (isAbleMove && isMoving && Enclosure.Instance.isInside(nexPos) && velocity.magnitude > 0.01)
+		if (isAbleMove && isMoving 
+            && Enclosure.Instance.isInside(nexPos) && velocity.magnitude > 0.01
+            &&(EnemyManager.Instance == null || EnemyManager.Instance.isCanMoveNextPhase(nexPos)))
 		{
 			transform.position = nexPos;
 			transform.rotation = Quaternion.LookRotation(velocity);

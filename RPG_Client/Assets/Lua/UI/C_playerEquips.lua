@@ -37,6 +37,7 @@ function this.ParseData(equipList)
 	UITools.Log('player.Damage: '..player.Damage)
 	inst:GetChild('l_damage').Value = player.Damage
 	inst:GetChild('l_hp').Value = player.Hp
+	inst:GetChild('l_title').Value = player.Username
 	inst:GetChild('experience'):GetChild('l_info').Value = player.Exp ..'/'..player.CurNeedExp
 	inst:GetChild('experience'):GetChild('experienceBar').Value = player.Exp/player.CurNeedExp
 	local role = inst.PlayerMgr.Role

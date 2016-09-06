@@ -8,11 +8,13 @@ public class PlayerMainCityCtrl : MonoBehaviour {
     public static PlayerMainCityCtrl Instance;
     public float speed = 10;
     private SimpleMoveCtrl moveCtrl;
+    public PlayerAnimatorMgr animMgr;
     public GameObject go;
     void Awake()
     {
         Instance = this;
         moveCtrl = GetComponent<SimpleMoveCtrl>();
+        animMgr = GetComponent<PlayerAnimatorMgr>();
         if (moveCtrl == null)
         {
             GameTools.LogError("Player Con not move due to Don't attack SimplaMoveCrlt");
@@ -29,22 +31,44 @@ public class PlayerMainCityCtrl : MonoBehaviour {
     }
 	// Update is called once per frame
 	void Update () {
-	    //角色移动控制
-        if(isAbleMove)
+        if (moveCtrl.curState != MoveState.MovingTarget && isAbleMove)
+        {
             PlayerMove();
+        }
 	}
 
     private void PlayerMove()
     {
         float h = Input.GetAxis("Horizontal");
         float v = Input.GetAxis("Vertical");
-        if (Mathf.Abs(v) < minResponseVal && Mathf.Abs(h) < minResponseVal && !isAbleMove){
+        if ((Mathf.Abs(v) < minResponseVal && Mathf.Abs(h) < minResponseVal) || !isAbleMove){
             moveCtrl.ResetState();
+            animMgr.Reset();
         }
         else{
             moveCtrl.Move(-1 * h * speed, -1 * v * speed);
+            animMgr.PlayRun();
         }
     }
+
+    public void moveToFight()
+    {
+        moveToFight(1003);
+    }
+
+    public void moveToFight(int npcID)
+    {
+        Vector3 target = NPCManager.Instance.GetNPC(npcID).transform.position;
+        moveCtrl.MoveToTarget(target, () => {
+            moveCtrl.ResetState();
+            animMgr.Reset();
+            animMgr.PlayRun();
+            UITools.ShowPanel(UITools.D("FBView"));
+        });
+    }
+
+
+
     public void DoTask(TaskEntity task)
     {
         switch (task.Status)
@@ -90,7 +114,7 @@ public class PlayerMainCityCtrl : MonoBehaviour {
 
     public void NextTask(TaskEntity task)
     {
-
+        moveToFight();
     }
     public void ClaimRewards(TaskEntity task)
     {

@@ -21152,3 +21152,2988 @@ DEBUG - sessionKey : fa98d70d1e41483492f4c5eb4113cdea
 DEBUG - getVaildSession : jg.rpg.entity.Session@1586708
 DEBUG - MsgType : 8
 DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : fa98d70d1e41483492f4c5eb4113cdea
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : fa98d70d1e41483492f4c5eb4113cdea
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+WARN - handle user login error : null
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : fa98d70d1e41483492f4c5eb4113cdea
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+WARN - handle user login error : null
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : fa98d70d1e41483492f4c5eb4113cdea
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+WARN - registerPlayer get data error : player Exist : Player [id=0, username=d1, pwd=1111, phoneNum=]
+DEBUG - Send MsgLen 44
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : fa98d70d1e41483492f4c5eb4113cdea
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+WARN - registerPlayer get data error : player Exist : Player [id=0, username=d3, pwd=1111, phoneNum=]
+DEBUG - Send MsgLen 44
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : fa98d70d1e41483492f4c5eb4113cdea
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : fa98d70d1e41483492f4c5eb4113cdea
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 54
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : fa98d70d1e41483492f4c5eb4113cdea
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 54
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : fa98d70d1e41483492f4c5eb4113cdea
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 54
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 78853b8460744a99ba46519f010d661d
+DEBUG - getVaildSession : jg.rpg.entity.Session@b2af2e
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 78853b8460744a99ba46519f010d661d
+DEBUG - getVaildSession : jg.rpg.entity.Session@b2af2e
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 54
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 78853b8460744a99ba46519f010d661d
+DEBUG - getVaildSession : jg.rpg.entity.Session@b2af2e
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 54
+WARN - An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at io.netty.buffer.UnpooledUnsafeDirectByteBuf.setBytes(UnpooledUnsafeDirectByteBuf.java:357)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:898)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:242)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:119)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:511)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)
+	at java.lang.Thread.run(Unknown Source)
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 78853b8460744a99ba46519f010d661d
+DEBUG - getVaildSession : jg.rpg.entity.Session@b2af2e
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 78853b8460744a99ba46519f010d661d
+DEBUG - getVaildSession : jg.rpg.entity.Session@b2af2e
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 78853b8460744a99ba46519f010d661d
+DEBUG - getVaildSession : jg.rpg.entity.Session@b2af2e
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 78853b8460744a99ba46519f010d661d
+DEBUG - getVaildSession : jg.rpg.entity.Session@b2af2e
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 54
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 7
+DEBUG - Task [id=113, taskId=1001, type=Main, ownerId=32, status=0, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=114, taskId=1002, type=Reward, ownerId=32, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=115, taskId=1003, type=Daily, ownerId=32, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=116, taskId=1004, type=Daily, ownerId=32, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=89, skillID=1001, ownerID=32, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=90, skillID=1002, ownerID=32, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=91, skillID=1003, ownerID=32, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=92, skillID=1004, ownerID=32, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=89, skillID=1001, ownerID=32, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=90, skillID=1002, ownerID=32, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=91, skillID=1003, ownerID=32, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=92, skillID=1004, ownerID=32, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 7
+DEBUG - Task [id=113, taskId=1001, type=Main, ownerId=32, status=0, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=114, taskId=1002, type=Reward, ownerId=32, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=115, taskId=1003, type=Daily, ownerId=32, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=116, taskId=1004, type=Daily, ownerId=32, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 7
+DEBUG - Task [id=113, taskId=1001, type=Main, ownerId=32, status=0, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=114, taskId=1002, type=Reward, ownerId=32, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=115, taskId=1003, type=Daily, ownerId=32, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=116, taskId=1004, type=Daily, ownerId=32, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=89, skillID=1001, ownerID=32, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=90, skillID=1002, ownerID=32, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=91, skillID=1003, ownerID=32, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=92, skillID=1004, ownerID=32, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=89, skillID=1001, ownerID=32, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=90, skillID=1002, ownerID=32, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=91, skillID=1003, ownerID=32, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=92, skillID=1004, ownerID=32, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=89, skillID=1001, ownerID=32, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=90, skillID=1002, ownerID=32, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=91, skillID=1003, ownerID=32, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=92, skillID=1004, ownerID=32, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=89, skillID=1001, ownerID=32, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=90, skillID=1002, ownerID=32, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=91, skillID=1003, ownerID=32, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=92, skillID=1004, ownerID=32, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=89, skillID=1001, ownerID=32, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=90, skillID=1002, ownerID=32, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=91, skillID=1003, ownerID=32, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=92, skillID=1004, ownerID=32, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=89, skillID=1001, ownerID=32, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=90, skillID=1002, ownerID=32, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=91, skillID=1003, ownerID=32, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=92, skillID=1004, ownerID=32, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 7
+DEBUG - Task [id=113, taskId=1001, type=Main, ownerId=32, status=0, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=114, taskId=1002, type=Reward, ownerId=32, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=115, taskId=1003, type=Daily, ownerId=32, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=116, taskId=1004, type=Daily, ownerId=32, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 7
+DEBUG - Task [id=113, taskId=1001, type=Main, ownerId=32, status=0, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=114, taskId=1002, type=Reward, ownerId=32, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=115, taskId=1003, type=Daily, ownerId=32, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=116, taskId=1004, type=Daily, ownerId=32, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=89, skillID=1001, ownerID=32, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=90, skillID=1002, ownerID=32, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=91, skillID=1003, ownerID=32, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=92, skillID=1004, ownerID=32, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=89, skillID=1001, ownerID=32, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=90, skillID=1002, ownerID=32, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=91, skillID=1003, ownerID=32, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=92, skillID=1004, ownerID=32, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 7
+DEBUG - Task [id=113, taskId=1001, type=Main, ownerId=32, status=0, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=114, taskId=1002, type=Reward, ownerId=32, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=115, taskId=1003, type=Daily, ownerId=32, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=116, taskId=1004, type=Daily, ownerId=32, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=89, skillID=1001, ownerID=32, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=90, skillID=1002, ownerID=32, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=91, skillID=1003, ownerID=32, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=92, skillID=1004, ownerID=32, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 20
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=89, skillID=1001, ownerID=32, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=90, skillID=1002, ownerID=32, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=91, skillID=1003, ownerID=32, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=92, skillID=1004, ownerID=32, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 7
+DEBUG - Task [id=113, taskId=1001, type=Main, ownerId=32, status=0, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=114, taskId=1002, type=Reward, ownerId=32, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=115, taskId=1003, type=Daily, ownerId=32, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=116, taskId=1004, type=Daily, ownerId=32, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 286
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 289
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 286
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 290
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 44
+DEBUG - 与玩家选择角色性别不匹配 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 44
+DEBUG - 与玩家选择角色性别不匹配 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 291
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 290
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 286
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 7
+DEBUG - Task [id=113, taskId=1001, type=Main, ownerId=32, status=0, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=114, taskId=1002, type=Reward, ownerId=32, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=115, taskId=1003, type=Daily, ownerId=32, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=116, taskId=1004, type=Daily, ownerId=32, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 86
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=89, skillID=1001, ownerID=32, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=90, skillID=1002, ownerID=32, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=91, skillID=1003, ownerID=32, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=92, skillID=1004, ownerID=32, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - getVaildSession : jg.rpg.entity.Session@1936c4f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+WARN - An exceptionCaught() event was fired, and it reached at the tail of the pipeline. It usually means the last handler in the pipeline did not handle the exception.
+java.io.IOException: 远程主机强迫关闭了一个现有的连接。
+	at sun.nio.ch.SocketDispatcher.read0(Native Method)
+	at sun.nio.ch.SocketDispatcher.read(Unknown Source)
+	at sun.nio.ch.IOUtil.readIntoNativeBuffer(Unknown Source)
+	at sun.nio.ch.IOUtil.read(Unknown Source)
+	at sun.nio.ch.SocketChannelImpl.read(Unknown Source)
+	at io.netty.buffer.UnpooledUnsafeDirectByteBuf.setBytes(UnpooledUnsafeDirectByteBuf.java:357)
+	at io.netty.buffer.AbstractByteBuf.writeBytes(AbstractByteBuf.java:898)
+	at io.netty.channel.socket.nio.NioSocketChannel.doReadBytes(NioSocketChannel.java:242)
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:119)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:511)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:468)
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:382)
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:354)
+	at io.netty.util.concurrent.SingleThreadEventExecutor$2.run(SingleThreadEventExecutor.java:112)
+	at io.netty.util.concurrent.DefaultThreadFactory$DefaultRunnableDecorator.run(DefaultThreadFactory.java:137)
+	at java.lang.Thread.run(Unknown Source)
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 0193612e78324c0ea6f164f8d81c49d7
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 55
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 15
+DEBUG - Skill [id=105, skillID=1001, ownerID=34, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=106, skillID=1002, ownerID=34, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=107, skillID=1003, ownerID=34, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=108, skillID=1004, ownerID=34, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 15
+DEBUG - Skill [id=105, skillID=1001, ownerID=34, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=106, skillID=1002, ownerID=34, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=107, skillID=1003, ownerID=34, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=108, skillID=1004, ownerID=34, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 253
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 256
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 236
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 236
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 25
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 83
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 25
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+WARN - registerPlayer get data error : player Exist : Player [id=0, username=aaa, pwd=1234, phoneNum=]
+DEBUG - Send MsgLen 44
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+WARN - registerPlayer get data error : player Exist : Player [id=0, username=aaa, pwd=1234, phoneNum=]
+DEBUG - Send MsgLen 44
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 25
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 25
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : a99c8b9ace194a9292f0fef00be23c28
+DEBUG - getVaildSession : jg.rpg.entity.Session@174eaf4
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 56
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 219ef05a44c74e5eaf5c573da8357017
+DEBUG - getVaildSession : jg.rpg.entity.Session@108043d
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 219ef05a44c74e5eaf5c573da8357017
+DEBUG - getVaildSession : jg.rpg.entity.Session@108043d
+DEBUG - MsgType : 3
+DEBUG - registerPlayer
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 219ef05a44c74e5eaf5c573da8357017
+DEBUG - getVaildSession : jg.rpg.entity.Session@108043d
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 56
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 233d5bdb7a7d4607b1da0e4796626c14
+DEBUG - getVaildSession : jg.rpg.entity.Session@886c4
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 233d5bdb7a7d4607b1da0e4796626c14
+DEBUG - getVaildSession : jg.rpg.entity.Session@886c4
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 233d5bdb7a7d4607b1da0e4796626c14
+DEBUG - getVaildSession : jg.rpg.entity.Session@886c4
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 56
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 22
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=121, skillID=1001, ownerID=36, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=122, skillID=1002, ownerID=36, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=123, skillID=1003, ownerID=36, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=124, skillID=1004, ownerID=36, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=121, skillID=1001, ownerID=36, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=122, skillID=1002, ownerID=36, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=123, skillID=1003, ownerID=36, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=124, skillID=1004, ownerID=36, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 7
+DEBUG - Task [id=129, taskId=1001, type=Main, ownerId=36, status=0, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=130, taskId=1002, type=Reward, ownerId=36, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=131, taskId=1003, type=Daily, ownerId=36, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=132, taskId=1004, type=Daily, ownerId=36, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 90
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 288
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 255
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 236
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 236
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 236
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 12
+DEBUG - Send MsgLen 31
+DEBUG - 升级装备金币不足 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 259
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 255
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 236
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 236
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 236
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 236
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 236
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=121, skillID=1001, ownerID=36, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=122, skillID=1002, ownerID=36, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=123, skillID=1003, ownerID=36, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=124, skillID=1004, ownerID=36, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 16
+DEBUG - Send MsgLen 43
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 16
+DEBUG - Send MsgLen 43
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 16
+DEBUG - Send MsgLen 43
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 7
+DEBUG - Task [id=129, taskId=1001, type=Main, ownerId=36, status=0, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=130, taskId=1002, type=Reward, ownerId=36, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=131, taskId=1003, type=Daily, ownerId=36, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=132, taskId=1004, type=Daily, ownerId=36, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 90
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 14
+DEBUG - 1001
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 7
+DEBUG - Task [id=129, taskId=1001, type=Main, ownerId=36, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=130, taskId=1002, type=Reward, ownerId=36, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=131, taskId=1003, type=Daily, ownerId=36, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=132, taskId=1004, type=Daily, ownerId=36, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 90
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 7
+DEBUG - Task [id=129, taskId=1001, type=Main, ownerId=36, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=130, taskId=1002, type=Reward, ownerId=36, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=131, taskId=1003, type=Daily, ownerId=36, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=132, taskId=1004, type=Daily, ownerId=36, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 90
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 7
+DEBUG - Task [id=129, taskId=1001, type=Main, ownerId=36, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=130, taskId=1002, type=Reward, ownerId=36, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=131, taskId=1003, type=Daily, ownerId=36, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=132, taskId=1004, type=Daily, ownerId=36, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 90
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 7
+DEBUG - Task [id=129, taskId=1001, type=Main, ownerId=36, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=130, taskId=1002, type=Reward, ownerId=36, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=131, taskId=1003, type=Daily, ownerId=36, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=132, taskId=1004, type=Daily, ownerId=36, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 90
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 7
+DEBUG - Task [id=129, taskId=1001, type=Main, ownerId=36, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=130, taskId=1002, type=Reward, ownerId=36, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=131, taskId=1003, type=Daily, ownerId=36, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=132, taskId=1004, type=Daily, ownerId=36, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 90
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 7
+DEBUG - Task [id=129, taskId=1001, type=Main, ownerId=36, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=130, taskId=1002, type=Reward, ownerId=36, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=131, taskId=1003, type=Daily, ownerId=36, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=132, taskId=1004, type=Daily, ownerId=36, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 90
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 24
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 7
+DEBUG - Task [id=129, taskId=1001, type=Main, ownerId=36, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=130, taskId=1002, type=Reward, ownerId=36, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=131, taskId=1003, type=Daily, ownerId=36, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=132, taskId=1004, type=Daily, ownerId=36, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 90
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 236
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 7
+DEBUG - Task [id=129, taskId=1001, type=Main, ownerId=36, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=130, taskId=1002, type=Reward, ownerId=36, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=131, taskId=1003, type=Daily, ownerId=36, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=132, taskId=1004, type=Daily, ownerId=36, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 90
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 15
+DEBUG - Skill [id=121, skillID=1001, ownerID=36, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=122, skillID=1002, ownerID=36, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=123, skillID=1003, ownerID=36, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=124, skillID=1004, ownerID=36, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 236
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 258
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 7
+DEBUG - Task [id=129, taskId=1001, type=Main, ownerId=36, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=130, taskId=1002, type=Reward, ownerId=36, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=131, taskId=1003, type=Daily, ownerId=36, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=132, taskId=1004, type=Daily, ownerId=36, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 90
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - getVaildSession : jg.rpg.entity.Session@1aa2a3f
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 87fd629cb044491c9ca14742280f277f
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 56
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 7
+DEBUG - Task [id=125, taskId=1001, type=Main, ownerId=35, status=0, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=126, taskId=1002, type=Reward, ownerId=35, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=127, taskId=1003, type=Daily, ownerId=35, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=128, taskId=1004, type=Daily, ownerId=35, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 87
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 22
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 22
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 7
+DEBUG - Task [id=125, taskId=1001, type=Main, ownerId=35, status=0, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=126, taskId=1002, type=Reward, ownerId=35, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=127, taskId=1003, type=Daily, ownerId=35, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=128, taskId=1004, type=Daily, ownerId=35, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 87
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 14
+DEBUG - 1001
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 7
+DEBUG - Task [id=125, taskId=1001, type=Main, ownerId=35, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=126, taskId=1002, type=Reward, ownerId=35, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=127, taskId=1003, type=Daily, ownerId=35, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=128, taskId=1004, type=Daily, ownerId=35, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 87
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 22
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 22
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 7
+DEBUG - Task [id=125, taskId=1001, type=Main, ownerId=35, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=126, taskId=1002, type=Reward, ownerId=35, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=127, taskId=1003, type=Daily, ownerId=35, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=128, taskId=1004, type=Daily, ownerId=35, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 87
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 15
+DEBUG - Skill [id=113, skillID=1001, ownerID=35, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=114, skillID=1002, ownerID=35, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=115, skillID=1003, ownerID=35, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=116, skillID=1004, ownerID=35, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 16
+DEBUG - Send MsgLen 43
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 7
+DEBUG - Task [id=125, taskId=1001, type=Main, ownerId=35, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=126, taskId=1002, type=Reward, ownerId=35, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=127, taskId=1003, type=Daily, ownerId=35, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=128, taskId=1004, type=Daily, ownerId=35, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 87
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 288
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 288
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 22
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - getVaildSession : jg.rpg.entity.Session@6023e3
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 33
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8d588e57de454b3c92a812867487ff28
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 56
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 22
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 7
+DEBUG - Task [id=125, taskId=1001, type=Main, ownerId=35, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=126, taskId=1002, type=Reward, ownerId=35, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=127, taskId=1003, type=Daily, ownerId=35, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=128, taskId=1004, type=Daily, ownerId=35, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 87
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 7
+DEBUG - Task [id=125, taskId=1001, type=Main, ownerId=35, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=126, taskId=1002, type=Reward, ownerId=35, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=127, taskId=1003, type=Daily, ownerId=35, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=128, taskId=1004, type=Daily, ownerId=35, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 87
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 15
+DEBUG - Skill [id=113, skillID=1001, ownerID=35, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=114, skillID=1002, ownerID=35, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=115, skillID=1003, ownerID=35, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=116, skillID=1004, ownerID=35, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 7
+DEBUG - Task [id=125, taskId=1001, type=Main, ownerId=35, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=126, taskId=1002, type=Reward, ownerId=35, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=127, taskId=1003, type=Daily, ownerId=35, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=128, taskId=1004, type=Daily, ownerId=35, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 87
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 15
+DEBUG - Skill [id=113, skillID=1001, ownerID=35, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=114, skillID=1002, ownerID=35, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=115, skillID=1003, ownerID=35, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=116, skillID=1004, ownerID=35, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 22
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 22
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 7
+DEBUG - Task [id=125, taskId=1001, type=Main, ownerId=35, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=126, taskId=1002, type=Reward, ownerId=35, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=127, taskId=1003, type=Daily, ownerId=35, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=128, taskId=1004, type=Daily, ownerId=35, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 87
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 15
+DEBUG - Skill [id=113, skillID=1001, ownerID=35, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=114, skillID=1002, ownerID=35, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=115, skillID=1003, ownerID=35, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=116, skillID=1004, ownerID=35, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 7
+DEBUG - Task [id=125, taskId=1001, type=Main, ownerId=35, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=126, taskId=1002, type=Reward, ownerId=35, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=127, taskId=1003, type=Daily, ownerId=35, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=128, taskId=1004, type=Daily, ownerId=35, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 87
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 4
+DEBUG - Send MsgLen 22
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - getVaildSession : jg.rpg.entity.Session@720df4
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - register handler
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - Send MsgLen 34
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : deaafc97f8d54d58aaf1341d57541c9a
+DEBUG - PlayerHandlerException : user not exist
+DEBUG - MsgType : 1
+DEBUG - LoginValidate
+DEBUG - Send MsgLen 56
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 2
+DEBUG - Send MsgLen 112
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 5
+DEBUG - preSelectHero
+DEBUG - Send MsgLen 85
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 6
+DEBUG - enterGame
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 7
+DEBUG - Task [id=125, taskId=1001, type=Main, ownerId=35, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=126, taskId=1002, type=Reward, ownerId=35, status=0, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=127, taskId=1003, type=Daily, ownerId=35, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=128, taskId=1004, type=Daily, ownerId=35, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 87
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 14
+DEBUG - 1002
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 7
+DEBUG - Task [id=125, taskId=1001, type=Main, ownerId=35, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=126, taskId=1002, type=Reward, ownerId=35, status=1, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=127, taskId=1003, type=Daily, ownerId=35, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=128, taskId=1004, type=Daily, ownerId=35, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 87
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 271
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 44
+DEBUG - 与玩家选择角色性别不匹配 
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 10
+DEBUG - Send MsgLen 292
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 13
+DEBUG - Send MsgLen 288
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 11
+DEBUG - Send MsgLen 255
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 237
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 15
+DEBUG - Skill [id=113, skillID=1001, ownerID=35, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=114, skillID=1002, ownerID=35, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=115, skillID=1003, ownerID=35, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=116, skillID=1004, ownerID=35, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 16
+DEBUG - Send MsgLen 43
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 16
+DEBUG - Send MsgLen 43
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 7
+DEBUG - Task [id=125, taskId=1001, type=Main, ownerId=35, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=126, taskId=1002, type=Reward, ownerId=35, status=1, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=127, taskId=1003, type=Daily, ownerId=35, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=128, taskId=1004, type=Daily, ownerId=35, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 87
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 7
+DEBUG - Task [id=125, taskId=1001, type=Main, ownerId=35, status=1, goldCount=1000, diamondCount=5000, curStage=0, totalStage=4]
+DEBUG - Task [id=126, taskId=1002, type=Reward, ownerId=35, status=1, goldCount=2000, diamondCount=4000, curStage=0, totalStage=4]
+DEBUG - Task [id=127, taskId=1003, type=Daily, ownerId=35, status=0, goldCount=3000, diamondCount=2000, curStage=0, totalStage=4]
+DEBUG - Task [id=128, taskId=1004, type=Daily, ownerId=35, status=0, goldCount=1000, diamondCount=6000, curStage=0, totalStage=4]
+DEBUG - Send MsgLen 87
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 9
+DEBUG - Send MsgLen 237
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 15
+DEBUG - Skill [id=113, skillID=1001, ownerID=35, roleType=Warrior, type=Base, pos=basic, coldTime=0, baseFC=30, level=1]
+DEBUG - Skill [id=114, skillID=1002, ownerID=35, roleType=Warrior, type=Skill, pos=one, coldTime=5, baseFC=30, level=1]
+DEBUG - Skill [id=115, skillID=1003, ownerID=35, roleType=Warrior, type=Skill, pos=two, coldTime=8, baseFC=40, level=1]
+DEBUG - Skill [id=116, skillID=1004, ownerID=35, roleType=Warrior, type=Skill, pos=three, coldTime=10, baseFC=50, level=1]
+DEBUG - Send MsgLen 113
+DEBUG - MsgDeserializerHandler
+DEBUG - MsgFilterHandler
+DEBUG - LoginValidateHandler
+DEBUG - sessionKey : 8209a7b228cc495db5115b6118d916da
+DEBUG - getVaildSession : jg.rpg.entity.Session@133d89
+DEBUG - MsgType : 8
+DEBUG - Send MsgLen 5

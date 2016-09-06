@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 public enum PlayerState{Move,Idle,Fight}
 
-public class PlayerFightCtrl : MonoBehaviour {
+public class PlayerFightCtrl : FightGOBase{
 	public static PlayerFightCtrl Instance;
 	
 	
@@ -11,10 +11,39 @@ public class PlayerFightCtrl : MonoBehaviour {
 	public float minResponseVal = 0.005f;
 	public bool isAbleMove = true;
 	public PlayerState curState = PlayerState.Idle;
-    private PlayerAnimatorMgr animMgr;
+    public PlayerAnimatorMgr animMgr;
+    public GameObject bloodPos;
     private SkillManager skillMgr;
     private SimpleMoveCtrl moveCtrl;
     private EnemyManager enemyMgr;
+    public int hp = 50;
+    public int Hp
+    {
+        get
+        {
+            return hp;
+        }
+        set
+        {
+            if (value < 0)
+            {
+                animMgr.Reset();
+                isAbleMove = false;
+                hp = 0;
+            }
+            else
+            {
+                hp = value;
+            }
+        }
+    }
+    public bool isDie
+    {
+        get
+        {
+            return Hp <= 0;
+        }
+    }
 
     public EnemyManager EnemyMgr
     {
@@ -52,7 +81,15 @@ public class PlayerFightCtrl : MonoBehaviour {
 		Instance = this;
 	}
 
+    public void GetDamage(AttackItem attack)
+    {
+        this.Hp = this.Hp - (int)attack.Damage;
+        PlaySound(AudioManager.Hurt);
+        ReleaseREffect("BloodSplatEffect", bloodPos);
+    }
+
     void Update() {
+        if (isDie) return;
         if (isAbleMove &&(curState == PlayerState.Idle || curState == PlayerState.Move))
 			PlayerMove();
 	}

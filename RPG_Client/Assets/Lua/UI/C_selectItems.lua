@@ -9,6 +9,7 @@ end
 
 function this.Battle( )
 	-- body
+	UITools.D('FBView'):CallLuaMethod('Show')
 end
 
 function this.Backpack( )
@@ -29,4 +30,8 @@ end
 
 function this.System()
 	-- body
+end
+
+function this.Cancel()
+	UITools.ClosePanel(inst)
 end

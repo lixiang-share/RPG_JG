@@ -21,8 +21,8 @@ function this.Register()
 	local pwdRepwat = inst:GetChild('c_pwdRepeat'):GetChild('inputFiled').Value
 	local phoneNum = inst:GetChild('c_PhoneNum'):GetChild('inputFiled').Value
 	
-	if not UITools.isValidString(username) then
-		UITools.ShowMsg('用户名不能为空')
+	if not UITools.isValidString(username) or  string.len(username) < 4  then
+		UITools.ShowMsg('用户名长度不能少于4位')
 	elseif not UITools.isValidString(pwd) or string.len(pwd) < 4 then 
 		UITools.ShowMsg('密码长度不能少于4位')
 	elseif pwd ~= pwdRepwat then

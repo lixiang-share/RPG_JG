@@ -2,7 +2,7 @@
 using System.Collections;
 
 public class Skill_Man_Two : SkillBase {
-
+    public int Damage;
     public float effect01Time = 0.1f;
     public float effect02Time = 0.5f;
     public float effect03Time = 1f;
@@ -28,6 +28,7 @@ public class Skill_Man_Two : SkillBase {
         WaitForSec(attackTime, () => {
 
             AttackItem attack = new AttackItem();
+            attack.Damage = Damage;
             attack.Type = AttackType.Skill02;
             attack.AttackDir = AttackDir.Around;
             attack.Range = 5;
