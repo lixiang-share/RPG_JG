@@ -35,7 +35,8 @@ public class ConfigMgr {
 
 
 	public void init() throws Exception {
-		String path = System.getProperty("user.dir")+
+		System.out.println(new File(".").getAbsolutePath());
+		String path = new File(".").getAbsolutePath()+
 				File.separator+"config"+File.separator+"config.xml";
 		Document document = parse(path);
 		if(document != null){
